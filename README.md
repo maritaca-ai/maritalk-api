@@ -1,12 +1,11 @@
 # Introduction
-MariTalk is a chatbot specially trained to understand well Portuguese. This repository contains the code and documentation explaining how to use the MariTalk API.
+MariTalk is a chatbot that has been specially trained to understand Portuguese well. This repository contains the code and documentation explaining how to use the MariTalk API.
 
 # Usage Example
 This Google Colab contains an example showing how to use the API, which is similar to ChatGPT's API:
 
 [Google Colab Example](https://colab.research.google.com/drive/13tieiQdQqYDQGHI8aLtlqoBWMpJ2elyo?usp=sharing)
 
-# API docs
 You can find more details about the API at https://chat.maritaca.ai/docs
 
 # Technical Aspects
