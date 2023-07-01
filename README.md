@@ -23,7 +23,7 @@ Currently, we support a maximum sequence length of 2048 tokens, which is equival
 It takes about 1 to 2 seconds to generate the first token given a sequence of 1000 tokens as input.
 After that, new tokens are generated at a rate of 10 to 15 tokens/sec.
 
-## Web Interface
+# Web Interface
 Try the Web interface at:
 [chat.maritaca.ai](chat.maritaca.ai)
 
