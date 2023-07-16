@@ -8,6 +8,8 @@ This Google Colab contains an example showing how to use the API, which is simil
 
 [Google Colab Example](https://colab.research.google.com/drive/13tieiQdQqYDQGHI8aLtlqoBWMpJ2elyo?usp=sharing)
 
+You will also find in the colab an example of how to use the model in a few-shot manner.
+
 You can find more details about the API at https://chat.maritaca.ai/docs
 
 # Technical Aspects
