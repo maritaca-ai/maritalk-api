@@ -18,7 +18,7 @@ You can find more details about the API at https://chat.maritaca.ai/docs
 The API is available for free to all users. We plan to introduce a paid version in the future that will offer increased throughput and reliability. 
 
 ### Rate Limit
-At the moment, there is a limit of 4 requests per minute to ensure that everyone has the opportunity to test the model. If your request is denied due to exceeding this limit, you will receive an HTTP 429 error.
+At the moment, there is a limit of one request every 5 seconds to ensure that everyone has the opportunity to test the model. If your request is denied due to exceeding this limit, you will receive an HTTP 429 error.
 
 ### Maximum sequence length 
 Currently, we support a maximum sequence length of 2048 tokens, which is equivalent to approximately 1000 words in Portuguese. We will soon support 8196 tokens.
