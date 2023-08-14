@@ -21,7 +21,7 @@ The API is available for free to all users. We plan to introduce a paid version 
 At the moment, there is a limit of one request every 5 seconds to ensure that everyone has the opportunity to test the model. If your request is denied due to exceeding this limit, you will receive an HTTP 429 error.
 
 ### Maximum sequence length 
-Currently, we support a maximum sequence length of 2048 tokens, which is equivalent to approximately 1000 words in Portuguese. We will soon support 8196 tokens.
+Currently, we support a maximum sequence length of 2000 tokens, which is equivalent to approximately 1000 words in Portuguese. We will soon support 8000 tokens.
 
 ### Throughput
 It takes about 1 to 2 seconds to generate the first token given a sequence of 1000 tokens as input.
