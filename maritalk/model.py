@@ -13,6 +13,7 @@ class MariTalk:
         temperature: float = 0.7,
         top_p: float = 0.95,
         max_tokens: int = 512,
+        do_sample: bool = True,
         stopping_tokens: List = [],
     ):
         """
@@ -21,7 +22,7 @@ class MariTalk:
         body = {
             "model": "MariTalk",
             "messages": messages,
-            "do_sample": True,
+            "do_sample": do_sample,
             "use_chat_template": True,
             "temperature": temperature,
             "top_p": top_p,
