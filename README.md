@@ -29,6 +29,6 @@ After that, new tokens are generated at a rate of 10 to 15 tokens/sec.
 
 # Web Interface
 Try the Web interface at:
-[chat.maritaca.ai](chat.maritaca.ai)
+[chat.maritaca.ai](https://chat.maritaca.ai/)
 
 <img src="imgs/web_interface.png" width="600">
