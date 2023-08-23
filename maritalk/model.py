@@ -18,6 +18,27 @@ class MariTalk:
     ):
         """
         Generate a response from a list of messages.
+
+        Args:
+            messages (`Union[str, List[Dict[str, str]]]`, *optional*):
+                A single message or a list of messages comprising a conversation. The expected format of messages is a dictionary containing a `role` and a `content` field. Example:
+                ```
+                messages = [
+                    {"role": "user", "content": "bom dia, esta é a mensagem do usuario"},
+                    {"role": "assistant", "content": "bom dia, esta é a resposta do assistente"},
+                    {"role": "user", "content": "Você pode me falar quanto é 25 + 27?"},
+                ]
+                ```
+            temperature (`float`, *optional*, defaults to `0.7`):
+                The sampling temperature for the next token probability. Higher values generate more random texts, while lower values will make it more deterministic.
+            top_p (`float`, *optional*, defaults to `0.95`):
+                The top probability mass to use on nucleus sampling. Read more at: https://arxiv.org/abs/1904.09751.
+            max_tokens (`int`, *optional*, defaults to `512`):
+                Maximum number of tokens to generate.
+            do_sample (`bool`, *optional*, defaults to `True`):
+                Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.
+            stopping_tokens (`List`, *optional*):
+                A list of tokens to use as a stop criteria.
         """
         if isinstance(messages, str):
             messages = [{"role": "user", "content": messages}]
