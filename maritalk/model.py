@@ -1,5 +1,5 @@
 import requests
-from typing import List
+from typing import List, Dict, Union
 
 
 class MariTalk:
@@ -9,7 +9,7 @@ class MariTalk:
 
     def generate(
         self,
-        messages: str,
+        messages: Union[str, List[Dict[str, str]]],
         temperature: float = 0.7,
         top_p: float = 0.95,
         max_tokens: int = 512,
@@ -19,11 +19,22 @@ class MariTalk:
         """
         Generate a response from a list of messages.
         """
+        if isinstance(messages, str):
+            messages = [{"role": "user", "content": messages}]
+
+        if not (
+            isinstance(messages, list)
+            and len(messages) > 0
+            and isinstance(messages[0], dict)
+        ):
+            raise TypeError(
+                "Invalid `messages` argument format. It's expected to contain a single `str` or a list of dictionaries containing `role` and `content` fields."
+            )
+
         body = {
             "model": "MariTalk",
             "messages": messages,
             "do_sample": do_sample,
-            "use_chat_template": True,
             "temperature": temperature,
             "top_p": top_p,
             "max_tokens": max_tokens,
@@ -41,6 +52,5 @@ class MariTalk:
 
         if response.ok:
             return response.json()["answer"]
-
         else:
             response.raise_for_status()
