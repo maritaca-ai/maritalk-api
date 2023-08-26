@@ -6,7 +6,7 @@ Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.
 # Exemplo de Uso
 Este Google Colab contém um exemplo mostrando como usar a API, que é semelhante à API do ChatGPT:
 
-[Exemplo no Google Colab](https://colab.research.google.com/drive/13tieiQdQqYDQGHI8aLtlqoBWMpJ2elyo?usp=sharing)
+[Exemplo no Google Colab](https://colab.research.google.com/drive/1DyaxA_rWfgvpY95Jqc3_OsBN9Y13PhdX?usp=sharing)
 
 Você também encontrará no colab um exemplo de como usar o modelo de maneira few-shot.
 
