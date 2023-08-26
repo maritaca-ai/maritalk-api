@@ -8,7 +8,7 @@ Este Google Colab contém um exemplo mostrando como usar a API, que é semelhant
 
 [Exemplo no Google Colab](https://colab.research.google.com/drive/13tieiQdQqYDQGHI8aLtlqoBWMpJ2elyo?usp=sharing)
 
-Você também encontrará no colab um exemplo de como usar o modelo em um método few-shot.
+Você também encontrará no colab um exemplo de como usar o modelo de maneira few-shot.
 
 Você pode encontrar mais detalhes sobre a API em https://chat.maritaca.ai/docs
 
