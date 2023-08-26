@@ -1,34 +1,34 @@
-# Introduction
-This repository contains the code and documentation explaining how to use the MariTalk API.
-MariTalk is a chatbot based on a language model that has been especially trained to understand Portuguese well.
-It is able to follow instructions in a zero-shot manner, like ChatGPT. 
+# Introdução
+Este repositório contém o código e a documentação explicando como usar a API da MariTalk.
+A MariTalk é um chatbot baseado em um modelo de linguagem que foi especialmente treinado para entender bem o português.
+Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.
 
-# Usage Example
-This Google Colab contains an example showing how to use the API, which is similar to ChatGPT's API:
+# Exemplo de Uso
+Este Google Colab contém um exemplo mostrando como usar a API, que é semelhante à API do ChatGPT:
 
-[Google Colab Example](https://colab.research.google.com/drive/13tieiQdQqYDQGHI8aLtlqoBWMpJ2elyo?usp=sharing)
+[Exemplo no Google Colab](https://colab.research.google.com/drive/13tieiQdQqYDQGHI8aLtlqoBWMpJ2elyo?usp=sharing)
 
-You will also find in the colab an example of how to use the model in a few-shot manner.
+Você também encontrará no colab um exemplo de como usar o modelo em um método few-shot.
 
-You can find more details about the API at https://chat.maritaca.ai/docs
+Você pode encontrar mais detalhes sobre a API em https://chat.maritaca.ai/docs
 
-# Technical Aspects
+# Aspectos Técnicos
 
-### Is it free?
-The API is available for free to all users. We plan to introduce a paid version in the future that will offer increased throughput and reliability. 
+### A API é gratuita?
+A API está disponível gratuitamente para todos os usuários. Planejamos introduzir uma versão paga no futuro que oferecerá maior capacidade e confiabilidade.
 
-### Rate Limit
-At the moment, there is a limit of one request every 5 seconds to ensure that everyone has the opportunity to test the model. If your request is denied due to exceeding this limit, you will receive an HTTP 429 error.
+### Limite de Taxa
+No momento, há um limite de uma solicitação a cada 5 segundos para garantir que todos tenham a oportunidade de testar o modelo. Será retornado um erro HTTP 429 caso a taxa de requisições ultrapasse esse limite.
 
-### Maximum sequence length 
-Currently, we support a maximum sequence length of 2000 tokens, which is equivalent to approximately 1000 words in Portuguese. We will soon support 8000 tokens.
+### Comprimento máximo de sequência
+Atualmente, suportamos um comprimento máximo de sequência de 2000 tokens, que é equivalente a aproximadamente 1000 palavras em português. Em breve, suportaremos 8000 tokens.
 
-### Throughput
-It takes about 1 to 2 seconds to generate the first token given a sequence of 1000 tokens as input.
-After that, new tokens are generated at a rate of 10 to 15 tokens/sec.
+### Capacidade de Processamento
+Leva cerca de 1 a 2 segundos para gerar o primeiro token, dado uma sequência de 1000 tokens como entrada.
+Após isso, novos tokens são gerados a uma taxa de 10 a 15 tokens/seg.
 
-# Web Interface
-Try the Web interface at:
+# Interface Web
+Experimente a interface Web em:
 [chat.maritaca.ai](https://chat.maritaca.ai/)
 
 <img src="imgs/web_interface.png" width="600">
