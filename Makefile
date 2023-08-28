@@ -5,7 +5,6 @@ build:
 	python3 -m pip install build
 	python3 -m build .
 
-upload:
+publish:
 	python3 -m pip install twine
 	python3 -m twine upload dist/maritalk-*
-	rm -rf dist/ maritalk.egg-info/

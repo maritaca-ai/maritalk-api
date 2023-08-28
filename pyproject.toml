@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "maritalk"
-version = "0.0.1"
+version = "0.0.4"
 authors = [
   { name="Maritaca AI", email="info@maritaca.ai" },
 ]
@@ -21,8 +21,8 @@ dependencies = [
     "requests",
 ]
 
-[tool.setuptools]
-py-modules = []
+[tool.setuptools.packages]
+find = {}
 
 [project.urls]
 "Homepage" = "https://github.com/maritaca-ai/maritalk-api"
