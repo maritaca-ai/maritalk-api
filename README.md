@@ -14,7 +14,8 @@ pip install maritalk
 
 Abaixo um exemplo de uso em Python.
 
-Para obter uma chave da API, acesse chat.maritaca.ai -> "Chaves da API" -> "Crie uma chave".
+Primeiramente, você precisa de uma chave da API, que pode ser obtida em chat.maritaca.ai -> "Chaves da API" -> "Crie uma chave".
+
 ```python
 import maritalk
 model = maritalk.MariTalk(key="insira sua chave aqui. Ex: '100088...'")
@@ -26,7 +27,7 @@ Este Google Colab contém outros exemplos de uso da API, incluindo como usá-la 
 
 [Exemplo no Google Colab](https://colab.research.google.com/drive/1DyaxA_rWfgvpY95Jqc3_OsBN9Y13PhdX?usp=sharing)
 
-Você pode encontrar mais detalhes sobre os parametros da API em https://chat.maritaca.ai/docs
+Você pode encontrar mais detalhes sobre os parâmetros da API em https://chat.maritaca.ai/docs
 
 # Aspectos Técnicos
 
