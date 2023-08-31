@@ -3,25 +3,41 @@ Este repositório contém o código e a documentação explicando como usar a AP
 A MariTalk é um chatbot baseado em um modelo de linguagem que foi especialmente treinado para entender bem o português.
 Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.
 
+# Instalação
+
+Instale a biblioteca da MariTalk usando pip:
+```bash
+pip install maritalk
+```
+
 # Exemplo de Uso
-Este Google Colab contém um exemplo mostrando como usar a API, que é semelhante à API do ChatGPT:
+
+Abaixo um exemplo de uso em Python.
+
+Para obter uma chave da API, acesse chat.maritaca.ai -> "Chaves da API" -> "Crie uma chave".
+```python
+import maritalk
+model = maritalk.MariTalk(key="insira sua chave aqui. Ex: '100088...'")
+answer = model.generate("Quanto é 25 + 27?")
+print(f"Resposta: {answer}")   # Deve aparecer algo como "25 + 27 é igual a 52."
+```
+
+Este Google Colab contém outros exemplos de uso da API, incluindo como usá-la de maneira few-shot:
 
 [Exemplo no Google Colab](https://colab.research.google.com/drive/1DyaxA_rWfgvpY95Jqc3_OsBN9Y13PhdX?usp=sharing)
 
-Você também encontrará no colab um exemplo de como usar o modelo de maneira few-shot.
-
-Você pode encontrar mais detalhes sobre a API em https://chat.maritaca.ai/docs
+Você pode encontrar mais detalhes sobre os parametros da API em https://chat.maritaca.ai/docs
 
 # Aspectos Técnicos
 
 ### A API é gratuita?
 A API está disponível gratuitamente para todos os usuários. Planejamos introduzir uma versão paga no futuro que oferecerá maior capacidade e confiabilidade.
 
-### Limite de Taxa
+### Limite de Taxa de Requisições
 No momento, há um limite de uma solicitação a cada 5 segundos para garantir que todos tenham a oportunidade de testar o modelo. Será retornado um erro HTTP 429 caso a taxa de requisições ultrapasse esse limite.
 
 ### Comprimento máximo de sequência
-Atualmente, suportamos um comprimento máximo de sequência de 2000 tokens, que é equivalente a aproximadamente 1000 palavras em português. Em breve, suportaremos 8000 tokens.
+Atualmente, suportamos um comprimento máximo de sequência de 8000 tokens, que é equivalente a aproximadamente 4000 palavras em português.
 
 ### Capacidade de Processamento
 Leva cerca de 1 a 2 segundos para gerar o primeiro token, dado uma sequência de 1000 tokens como entrada.
