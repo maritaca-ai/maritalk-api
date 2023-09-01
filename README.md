@@ -30,7 +30,7 @@ print(f"Resposta: {answer}")   # Deve imprimir algo como "25 + 27 é igual a 52.
 
 Você pode definir uma conversa especificando uma lista de dicionários, sendo que cada dicionário precisar ter duas chaves: `content` e `role`.
 
-Atualmente, a API da MariTalk suporta dois tipos de role: "user" para mensagens do usuário, e "assistant" para mensagens do assistente.
+Atualmente, a API da MariTalk suporta dois valores para `role`: "user" para mensagens do usuário, e "assistant" para mensagens do assistente.
 
 Mostramos um exemplo de conversa abaixo:
 ```bash
