@@ -12,22 +12,49 @@ pip install maritalk
 
 # Exemplo de Uso
 
-Abaixo um exemplo de uso em Python.
+Mostramos abaixo um exemplo simples de uso em Python.
 
 Primeiramente, você precisa de uma chave da API, que pode ser obtida em chat.maritaca.ai -> "Chaves da API" -> "Crie uma chave".
 
 ```python
 import maritalk
+
 model = maritalk.MariTalk(key="insira sua chave aqui. Ex: '100088...'")
+
 answer = model.generate("Quanto é 25 + 27?")
-print(f"Resposta: {answer}")   # Deve aparecer algo como "25 + 27 é igual a 52."
+
+print(f"Resposta: {answer}")   # Deve imprimir algo como "25 + 27 é igual a 52."
+```
+
+## Simulando uma conversa
+
+Você pode definir uma conversa especificando uma lista de dicionários, sendo que cada dicionário precisar ter duas chaves: `content` e `role`.
+
+Atualmente, a API da MariTalk suporta dois tipos de role: "user" para mensagens do usuário, e "assistant" para mensagens do assistente.
+
+Mostramos um exemplo de conversa abaixo:
+```bash
+messages = [
+    {"role": "user", "content": "sugira três nomes para a minha cachorra"},
+    {"role": "assistant", "content": "nina, bela e luna."},
+    {"role": "user", "content": "e para o meu peixe?"},
+]
+
+answer = model.generate(
+    messages,
+    do_sample=True,
+    max_tokens=200,
+    temperature=0.7,
+    top_p=0.95)
+
+print(f"Resposta: {answer}")   # Deve imprimir algo como "nemo, dory e neptuno."
 ```
 
 Este Google Colab contém outros exemplos de uso da API, incluindo como usá-la de maneira few-shot:
 
 [Exemplo no Google Colab](https://colab.research.google.com/drive/1DyaxA_rWfgvpY95Jqc3_OsBN9Y13PhdX?usp=sharing)
 
-Você pode encontrar mais detalhes sobre os parâmetros da API em https://chat.maritaca.ai/docs
+Você pode encontrar mais detalhes sobre os parâmetros mostrados acima (do_sample, max_tokens, etc) em https://chat.maritaca.ai/docs
 
 # Aspectos Técnicos
 
