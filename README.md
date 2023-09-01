@@ -26,7 +26,7 @@ answer = model.generate("Quanto é 25 + 27?")
 print(f"Resposta: {answer}")   # Deve imprimir algo como "25 + 27 é igual a 52."
 ```
 
-## Simulando uma conversa
+## Modo chat
 
 Você pode definir uma conversa especificando uma lista de dicionários, sendo que cada dicionário precisar ter duas chaves: `content` e `role`.
 
