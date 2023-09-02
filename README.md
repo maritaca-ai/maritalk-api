@@ -50,7 +50,46 @@ answer = model.generate(
 print(f"Resposta: {answer}")   # Deve imprimir algo como "nemo, dory e neptuno."
 ```
 
-Este Google Colab contém outros exemplos de uso da API, incluindo como usá-la de maneira few-shot:
+## Exemplos few-shot
+
+Embora a MariTalk seja capaz de responder a instruções sem nenhum exemplo de demonstração, fornecer alguns exemplos da tarefa pode melhorar significativamente a qualidade de suas respostas.
+
+Abaixo mostramos como isso é feito para uma tarefa simples de análise de sentimento, i.e., classificar se uma resenha de filme é positiva ou negativa.
+Neste caso, passaremos dois exemplos few-shot, um positivo e outro negativo, e um terceiro exemplo, para o qual a MariTalk efetivamente fará a predição.
+
+```python
+prompt = """Classifique a resenha de filme como "positiva" ou "negativa".
+
+Resenha: Gostei muito do filme, é o melhor do ano!
+Classe: positiva
+
+Resenha: O filme deixa muito a desejar.
+Classe: negativa
+
+Resenha: Apesar de longo, valeu o ingresso..
+Classe:"""
+
+answer = model.generate(
+    prompt,
+    chat_mode=False,
+    do_sample=False,
+    max_tokens=20,
+    stopping_tokens=["\n"]
+    )
+
+print(f"Resposta: {answer.strip()}")  # Deve imprimir "positiva"
+```
+
+Note que usamos `chat_mode=False`, pois melhora a qualidade das respostas quando usando exemplos few-shot.
+
+O argumento `stopping_tokens=["\n"]` é usado para parar a geração assim que o token "\n" tiver sido gerado.
+Ele é necessário pois, quando não estamos no modo chat, o modelo pode não saber quando parar a geração.
+
+Para tarefas de classificação como a do exemplo acima, recomendamos usar `do_sample=False`.
+
+## Usando a API via requisições HTTP
+
+Este Google Colab contém outros exemplos de uso da API através de requisições HTTP:
 
 [Exemplo no Google Colab](https://colab.research.google.com/drive/1DyaxA_rWfgvpY95Jqc3_OsBN9Y13PhdX?usp=sharing)
 
