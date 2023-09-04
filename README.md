@@ -75,7 +75,7 @@ answer = model.generate(
     do_sample=False,
     max_tokens=20,
     stopping_tokens=["\n"]
-    )
+)
 
 print(f"Resposta: {answer.strip()}")  # Deve imprimir "positiva"
 ```
