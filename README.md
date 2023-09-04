@@ -82,10 +82,11 @@ print(f"Resposta: {answer.strip()}")  # Deve imprimir "positiva"
 
 Note que usamos `chat_mode=False`, pois melhora a qualidade das respostas quando usando exemplos few-shot.
 
-O argumento `stopping_tokens=["\n"]` é usado para parar a geração assim que o token "\n" tiver sido gerado.
-Ele é necessário pois, quando não estamos no modo chat, o modelo pode não saber quando parar a geração.
+O argumento `stopping_tokens=["\n"]` é usado para interromper a geração quando o token "\n" é gerado. Isso é necessário porque, quando não estamos no modo chat, o modelo pode não saber quando interromper a geração.
 
-Para tarefas de classificação como a do exemplo acima, recomendamos usar `do_sample=False`.
+Para tarefas com apenas uma resposta correta, como no exemplo acima, é recomendado usar `do_sample=False`. Isso garante que a mesma resposta seja gerada dado um prompt específico.
+
+Para tarefas de geração de textos diversos ou longos, é recomendado usar `do_sample=True` e `temperature=0.7`. Quanto maior a temperatura, mais diversos serão os textos gerados, mas há maior chance de o modelo "alucinar" e gerar textos sem sentido. Quanto menor a temperatura, a resposta é mais conservadora, mas corre o risco de gerar textos repetidos.
 
 ## Usando a API via requisições HTTP
 
