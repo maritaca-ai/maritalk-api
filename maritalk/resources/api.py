@@ -54,7 +54,7 @@ class MariTalk:
                     isinstance(messages, list)
                     and len(messages) > 0
                     and isinstance(messages[0], dict)
-                    )
+                )
             ):
                 raise TypeError(
                     "Invalid `messages` argument format. It's expected to be a `str` or a list of dictionaries containing `role` and `content` keys."
@@ -62,8 +62,8 @@ class MariTalk:
         else:
             if not isinstance(messages, str):
                 raise TypeError(
-                        "Invalid `messages` argument format. It's expected to be a `str` when chat_mode=False."
-                    )
+                    "Invalid `messages` argument format. It's expected to be a `str` when chat_mode=False."
+                )
 
         body = {
             "model": "MariTalk",

@@ -1,5 +1,5 @@
 # Introdução
-Este repositório contém o código e a documentação explicando como usar a API da MariTalk.
+Este repositório contém o código e a documentação explicando como usar a API da MariTalk e da MariTalk versão local para deploy on-premises.
 A MariTalk é um chatbot baseado em um modelo de linguagem que foi especialmente treinado para entender bem o português.
 Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.
 
@@ -95,6 +95,58 @@ Este Google Colab contém outros exemplos de uso da API através de requisiçõe
 [Exemplo no Google Colab](https://colab.research.google.com/drive/1DyaxA_rWfgvpY95Jqc3_OsBN9Y13PhdX?usp=sharing)
 
 Você pode encontrar mais detalhes sobre os parâmetros mostrados acima (do_sample, max_tokens, etc) em https://chat.maritaca.ai/docs
+
+## Modo local
+
+Além da API hospedada pela Maritaca AI, também é possível executar uma versão local da MariTalk através de uma [licença](LINK PARA A LICENÇA). Disponibilizamos licenças comerciais e acadêmicas para grupos de pesquisa interessados em testar nossos modelos.
+
+O executável pode ser obtido [neste link](LINK PARA A LICENÇA) e pode ser executado em um Linux 64-bit com 1 ou mais GPU Nvidia. Atualmente, as GPUs testadas são da arquitetura Ampere (A100, A6000, A10) com, no mínimo, 8GB de memória.
+
+#### Execução
+
+```
+$ ./maritalk [OPTIONS] --license <LICENSE>
+```
+
+`--license <LICENSE>`: Sua chave de licença.
+
+`-p, --port <PORT>`: Porta HTTP para escutar. [padrão: 8080]
+
+`-h, --help`: Mostra uma mensagem de ajuda com a descrição dos argumentos disponíveis.
+
+`-V, --version`: Mostra a versão do executável.
+
+#### Integração com esta biblioteca
+
+Também é possível fazer o download, inicializar e executar a MariTalk local utilizando a biblioteca em Python. Basta obter uma licença e chamar o método `start_server`. O retorno das chamadas contém o texto gerado e os tempos de espera, de execução do prompt e da geração do texto para fins de debug do usuário.
+
+```python
+>>> client = MariTalkLocal()
+>>> client.start_server(license='00000-00000-00000-00000')
+
+>>> client.status()
+{'status': 'idle'}
+
+>>> client.generate("""Classifique a resenha de filme como "positiva" ou "negativa".
+
+Resenha: Gostei muito do filme, é o melhor do ano!
+Classe: positiva
+
+Resenha: O filme deixa muito a desejar.
+Classe: negativa
+
+Resenha: Apesar de longo, valeu o ingresso..
+Classe:""", max_tokens=2, do_sample=False)
+{'output': 'neutra', 'queue_time': 0, 'prompt_time': 158, 'generation_time': 9}
+
+>>> messages = [
+    {"role": "user", "content": "sugira três nomes para a minha cachorra"},
+    {"role": "assistant", "content": "nina, bela e luna."},
+    {"role": "user", "content": "e para o meu peixe?"},
+]
+>>> client.generate_chat(messages)
+{'output': 'nani, bento e leo.', 'queue_time': 0, 'prompt_time': 185, 'generation_time': 127}
+```
 
 # Aspectos Técnicos
 
