@@ -1,5 +1,5 @@
 # Introdução
-Este repositório contém o código e a documentação explicando como usar a API da MariTalk e da MariTalk versão local para deploy on-premises.
+Este repositório contém o código e a documentação explicando como usar a API da MariTalk e a versão local para deploy on-premises.
 A MariTalk é uma assistente baseada em um modelo de linguagem que foi especialmente treinado para entender bem o português.
 Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.
 
@@ -115,6 +115,34 @@ $ ./maritalk [OPTIONS] --license <LICENSE>
 `-h, --help`: Mostra uma mensagem de ajuda com a descrição dos argumentos disponíveis.
 
 `-V, --version`: Mostra a versão do executável.
+
+#### Modo interativo
+
+Também é possível utilizar a MariTalk Local no próprio terminal sem precisar fazer requisções à API através do modo interativo:
+
+```
+$ ./maritalk [OPTIONS] --license <LICENSE> --interactive
+(...)
+>> olá
+MariTalk: Olá! Como posso ajudar você hoje?
+>> crie uma lista de compras para uma festa de aniversário
+MariTalk: Aqui está uma lista de itens que você pode precisar para uma festa de aniversário:
+
+1. Doces: cupcakes, brownies, bolos, etc
+2. Bebidas: água, refrigerante, cerveja, suco, etc
+3. Decorações: balões, confetes, fitas, etc
+4. Lembrancinhas: chaveiros, sacolas, canetas, etc
+5. Lanternas: para decorar o ambiente
+6. Mesa: guardanapos, copos, talheres, pratos
+7. Música: CD ou MP3 player com música, alto-falante
+8. Tendas: para proteger da chuva ou do sol
+9. Mesas e cadeiras: para os convidados se sentarem
+10. Utensílios de cozinha: panelas, talheres, copos, pratos, etc
+11. Acessórios: guarda-sol, guarda-chuva, toalhas, etc
+12. Lanterna: para levar para caminhar
+
+Lembre-se de sempre incluir produtos de qualidade e que sejam suficientes para atender a todos os convidados.
+```
 
 #### Integração com esta biblioteca
 

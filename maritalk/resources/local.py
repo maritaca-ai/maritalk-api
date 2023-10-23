@@ -3,6 +3,7 @@ import time
 import shutil
 import atexit
 import subprocess
+from tqdm import tqdm
 from pathlib import Path
 from typing import List, Dict
 import requests
@@ -22,7 +23,7 @@ class MariTalkLocal:
     ):
         if not os.path.exists(bin_path):
             os.makedirs(os.path.dirname(bin_path), exist_ok=True)
-            print("Downloading MariTalk...")
+            print(f"Downloading MariTalk ({bin_path})...")
             self.download(license, bin_path)
         print(f"Starting MariTalk Local API at http://localhost:{port}")
         args = [bin_path, "--license", license, "--port", str(port)]
@@ -58,13 +59,32 @@ class MariTalkLocal:
         download_url = (
             "https://m64xplb35dhr3se7ipvtmbdnk40ahktr.lambda-url.us-east-1.on.aws/"
         )
-        result = requests.post(download_url, json={"license": license})
-        file_url = result.json()["presigned_url"]
-        with requests.get(file_url, stream=True) as response:
-            with open(bin_path, "wb") as out:
-                shutil.copyfileobj(response.raw, out)
-            # Make it executable
-            Path(bin_path).chmod(f.stat().st_mode | stat.S_IEXEC)
+        result = requests.post(download_url, json={"license": license}).json()
+        if "presigned_url" not in result:
+            raise ValueError(f"Invalid license: {license}")
+        file_url = result["presigned_url"]
+
+        try:
+            with requests.get(file_url, stream=True) as response:
+                response.raise_for_status()
+                file_size = int(response.headers.get('content-length', 0))
+                if file_size > 0:
+                    progress_bar = tqdm(
+                        total=file_size,
+                        unit='B',
+                        unit_scale=True,
+                        desc=bin_path,
+                    )
+                    with open(bin_path, "wb") as out:
+                        for chunk in response.iter_content(chunk_size=8192):
+                            out.write(chunk)
+                            progress_bar.update(len(chunk))
+
+                    os.chmod(bin_path, 0o744)
+                else:
+                    raise Exception("Invalid response from the server while downloading")
+        except requests.exceptions.RequestException as e:
+            raise Exception(f"Error downloading MariTalk binary: {e}")
 
     def status(self):
         response = requests.get(self.api_url)
