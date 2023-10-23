@@ -146,7 +146,7 @@ Lembre-se de sempre incluir produtos de qualidade e que sejam suficientes para a
 
 #### Integração com esta biblioteca
 
-Também é possível fazer o download, inicializar e executar a MariTalk local utilizando a biblioteca em Python. Basta obter uma licença e chamar o método `start_server`. O retorno das chamadas contém o texto gerado e os tempos de espera, de execução do prompt e da geração do texto para fins de debug do usuário.
+Também é possível fazer o download, inicializar e executar a MariTalk local utilizando a biblioteca em Python. Basta obter uma licença e chamar o método `start_server`. O retorno das chamadas contém o texto gerado e os tempos de espera, de execução do prompt e da geração do texto para fins de debug do usuário. Para comparação, o tempo esperado para gerar 512 tokens com um prompt de entrada de 512 tokens é de ~7s em uma Nvidia A100 80GB (aproximadamente 70 tokens/s).
 
 ```python
 >>> import maritalk
