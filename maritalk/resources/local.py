@@ -25,13 +25,18 @@ class MariTalkLocal:
             print("Downloading MariTalk...")
             self.download(license, bin_path)
         print(f"Starting MariTalk Local API at http://localhost:{port}")
+        args = [bin_path, "--license", license, "--port", str(port)]
         self.process = subprocess.Popen(
-            [bin_path, "--license", license, "--port", str(port)],
+            args,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.STDOUT,
         )
         while True:
             try:
+                if self.process.poll() is not None:
+                    raise Exception(
+                        f'Failed to start process. Try to run it manually: `{" ".join(args)}`'
+                    )
                 self.status()
                 break
             except ConnectionError as ex:
@@ -40,7 +45,6 @@ class MariTalkLocal:
         def terminate():
             print("Stopping MariTalk...")
             self.stop_server()
-
         atexit.register(terminate)
 
     def stop_server(self):
@@ -63,7 +67,7 @@ class MariTalkLocal:
             Path(bin_path).chmod(f.stat().st_mode | stat.S_IEXEC)
 
     def status(self):
-        response = requests.get(f"{self.api_url}")
+        response = requests.get(self.api_url)
         return response.json()
 
     def generate(
