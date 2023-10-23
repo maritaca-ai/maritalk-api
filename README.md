@@ -100,7 +100,7 @@ Você pode encontrar mais detalhes sobre os parâmetros mostrados acima (do_samp
 
 Além da API hospedada pela Maritaca AI, também é possível executar uma versão local da MariTalk através de uma [licença](LINK PARA A LICENÇA). Disponibilizamos licenças comerciais e acadêmicas para grupos de pesquisa interessados em testar nossos modelos.
 
-O executável pode ser obtido [neste link](LINK PARA A LICENÇA) e pode ser executado em um Linux 64-bit com 1 ou mais GPUs Nvidia. A GPU precisam ter, no mínimo, 8GB de memória para rodar o menor modelo MariTalk. Atualmente, as GPUs testadas são da arquitetura Ampere (A100, A6000, A10).
+O executável pode ser obtido [neste link](LINK PARA A LICENÇA) e pode ser executado em um Linux 64-bit com 1 ou mais GPUs Nvidia. A GPU precisam ter, no mínimo, 12GB de memória para rodar o menor modelo MariTalk. Atualmente, as GPUs testadas são da arquitetura Ampere (A100, A6000, A10).
 
 #### Execução
 

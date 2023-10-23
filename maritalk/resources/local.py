@@ -13,20 +13,20 @@ from requests.exceptions import ConnectionError
 class MariTalkLocal:
     def __init__(self, host: str = "localhost", port: int = 8080):
         self.api_url = f"http://{host}:{port}"
+        self.port = port
         self.process = None
 
     def start_server(
         self,
         license: str,
-        port: int = 8080,
         bin_path: str = f"{Path.home()}/bin/maritalk",
     ):
         if not os.path.exists(bin_path):
             os.makedirs(os.path.dirname(bin_path), exist_ok=True)
             print(f"Downloading MariTalk ({bin_path})...")
             self.download(license, bin_path)
-        print(f"Starting MariTalk Local API at http://localhost:{port}")
-        args = [bin_path, "--license", license, "--port", str(port)]
+        print(f"Starting MariTalk Local API at http://localhost:{self.port}")
+        args = [bin_path, "--license", license, "--port", str(self.port)]
         self.process = subprocess.Popen(
             args,
             stdout=subprocess.DEVNULL,
