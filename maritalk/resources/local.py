@@ -22,7 +22,7 @@ class MariTalkLocal:
     ):
         if not os.path.exists(bin_path):
             os.makedirs(os.path.dirname(bin_path), exist_ok=True)
-            print("Downloading `maritalk`...")
+            print("Downloading MariTalk...")
             self.download(license, bin_path)
         print(f"Starting MariTalk Local API at http://localhost:{port}")
         self.process = subprocess.Popen(

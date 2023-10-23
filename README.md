@@ -1,6 +1,6 @@
 # Introdução
 Este repositório contém o código e a documentação explicando como usar a API da MariTalk e da MariTalk versão local para deploy on-premises.
-A MariTalk é um chatbot baseado em um modelo de linguagem que foi especialmente treinado para entender bem o português.
+A MariTalk é uma assistente baseada em um modelo de linguagem que foi especialmente treinado para entender bem o português.
 Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.
 
 # Instalação
@@ -100,7 +100,7 @@ Você pode encontrar mais detalhes sobre os parâmetros mostrados acima (do_samp
 
 Além da API hospedada pela Maritaca AI, também é possível executar uma versão local da MariTalk através de uma [licença](LINK PARA A LICENÇA). Disponibilizamos licenças comerciais e acadêmicas para grupos de pesquisa interessados em testar nossos modelos.
 
-O executável pode ser obtido [neste link](LINK PARA A LICENÇA) e pode ser executado em um Linux 64-bit com 1 ou mais GPU Nvidia. Atualmente, as GPUs testadas são da arquitetura Ampere (A100, A6000, A10) com, no mínimo, 8GB de memória.
+O executável pode ser obtido [neste link](LINK PARA A LICENÇA) e pode ser executado em um Linux 64-bit com 1 ou mais GPUs Nvidia. A GPU precisam ter, no mínimo, 8GB de memória para rodar o menor modelo MariTalk. Atualmente, as GPUs testadas são da arquitetura Ampere (A100, A6000, A10).
 
 #### Execução
 
@@ -121,7 +121,9 @@ $ ./maritalk [OPTIONS] --license <LICENSE>
 Também é possível fazer o download, inicializar e executar a MariTalk local utilizando a biblioteca em Python. Basta obter uma licença e chamar o método `start_server`. O retorno das chamadas contém o texto gerado e os tempos de espera, de execução do prompt e da geração do texto para fins de debug do usuário.
 
 ```python
->>> client = MariTalkLocal()
+>>> import maritalk
+
+>>> client = maritalk.MariTalkLocal()
 >>> client.start_server(license='00000-00000-00000-00000')
 
 >>> client.status()
@@ -135,9 +137,9 @@ Classe: positiva
 Resenha: O filme deixa muito a desejar.
 Classe: negativa
 
-Resenha: Apesar de longo, valeu o ingresso..
+Resenha: Foi fantástico, valeu o ingresso..
 Classe:""", max_tokens=2, do_sample=False)
-{'output': 'neutra', 'queue_time': 0, 'prompt_time': 158, 'generation_time': 9}
+{'output': 'positiva', 'queue_time': 0, 'prompt_time': 158, 'generation_time': 9}
 
 >>> messages = [
     {"role": "user", "content": "sugira três nomes para a minha cachorra"},
