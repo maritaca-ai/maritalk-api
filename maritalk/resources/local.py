@@ -10,23 +10,24 @@ from ctypes.util import find_library
 import requests
 from requests.exceptions import ConnectionError
 
+
 def find_libs():
     versions = {
-        'cuda_version': None,
-        'openssl_version': None,
+        "cuda_version": None,
+        "openssl_version": None,
     }
 
-    cublas_lib = find_library('cublas')
-    if 'libcublas.so.11' in cublas_lib:
-        versions['cuda_version'] = 11
-    if 'libcublas.so.12' in cublas_lib:
-        versions['cuda_version'] = 12
+    cublas_lib = find_library("cublas")
+    if "libcublas.so.11" in cublas_lib:
+        versions["cuda_version"] = 11
+    if "libcublas.so.12" in cublas_lib:
+        versions["cuda_version"] = 12
 
-    ssl_lib = find_library('ssl')
-    if 'libssl.so.1' in ssl_lib:
-        versions['openssl_version'] = 1
-    if 'libssl.so.3' in ssl_lib:
-        versions['openssl_version'] = 3
+    ssl_lib = find_library("ssl")
+    if "libssl.so.1" in ssl_lib:
+        versions["openssl_version"] = 1
+    if "libssl.so.3" in ssl_lib:
+        versions["openssl_version"] = 3
 
     return versions
 
@@ -68,6 +69,7 @@ class MariTalkLocal:
         def terminate():
             print("Stopping MariTalk...")
             self.stop_server()
+
         atexit.register(terminate)
 
     def stop_server(self):
@@ -79,21 +81,28 @@ class MariTalkLocal:
 
     def check_versions(self):
         versions = find_libs()
-        if versions['openssl_version'] is None:
-            raise Exception('No libssl.so found! OpenSSL v1 or v3 is required to run MariTalk.')
-        if versions['cuda_version'] is None:
-            raise Exception('No libcublas.so found! cuBLAS v11 or v12 is required to run MariTalk.')
+        if versions["openssl_version"] is None:
+            raise Exception(
+                "No libssl.so found! OpenSSL v1 or v3 is required to run MariTalk."
+            )
+        if versions["cuda_version"] is None:
+            raise Exception(
+                "No libcublas.so found! cuBLAS v11 or v12 is required to run MariTalk."
+            )
         return versions
 
     def download(cls, license: str, bin_path: str, dependencies: Dict[str, int]):
         download_url = (
             "https://m64xplb35dhr3se7ipvtmbdnk40ahktr.lambda-url.us-east-1.on.aws/"
         )
-        result = requests.post(download_url, json={
-            "license": license,
-            "openssl_version": dependencies["openssl_version"],
-            "cuda_version": dependencies["cuda_version"],
-        }).json()
+        result = requests.post(
+            download_url,
+            json={
+                "license": license,
+                "openssl_version": dependencies["openssl_version"],
+                "cuda_version": dependencies["cuda_version"],
+            },
+        ).json()
         if "presigned_url" not in result:
             raise ValueError(f"Invalid license: {license}")
         file_url = result["presigned_url"]
@@ -101,11 +110,11 @@ class MariTalkLocal:
         try:
             with requests.get(file_url, stream=True) as response:
                 response.raise_for_status()
-                file_size = int(response.headers.get('content-length', 0))
+                file_size = int(response.headers.get("content-length", 0))
                 if file_size > 0:
                     progress_bar = tqdm(
                         total=file_size,
-                        unit='B',
+                        unit="B",
                         unit_scale=True,
                         desc=bin_path,
                     )
@@ -116,7 +125,9 @@ class MariTalkLocal:
 
                     os.chmod(bin_path, 0o744)
                 else:
-                    raise Exception("Invalid response from the server while downloading")
+                    raise Exception(
+                        "Invalid response from the server while downloading"
+                    )
         except requests.exceptions.RequestException as e:
             raise Exception(f"Error downloading MariTalk binary: {e}")
 
