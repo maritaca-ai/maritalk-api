@@ -6,8 +6,29 @@ import subprocess
 from tqdm import tqdm
 from pathlib import Path
 from typing import List, Dict
+from ctypes.util import find_library
 import requests
 from requests.exceptions import ConnectionError
+
+def find_libs():
+    versions = {
+        'cuda_version': None,
+        'openssl_version': None,
+    }
+
+    cublas_lib = find_library('cublas')
+    if 'libcublas.so.11' in cublas_lib:
+        versions['cuda_version'] = 11
+    if 'libcublas.so.12' in cublas_lib:
+        versions['cuda_version'] = 12
+
+    ssl_lib = find_library('ssl')
+    if 'libssl.so.1' in ssl_lib:
+        versions['openssl_version'] = 1
+    if 'libssl.so.3' in ssl_lib:
+        versions['openssl_version'] = 3
+
+    return versions
 
 
 class MariTalkLocal:
@@ -22,9 +43,10 @@ class MariTalkLocal:
         bin_path: str = f"{Path.home()}/bin/maritalk",
     ):
         if not os.path.exists(bin_path):
+            dependencies = self.check_versions()
             os.makedirs(os.path.dirname(bin_path), exist_ok=True)
             print(f"Downloading MariTalk ({bin_path})...")
-            self.download(license, bin_path)
+            self.download(license, bin_path, dependencies)
         print(f"Starting MariTalk Local API at http://localhost:{self.port}")
         args = [bin_path, "--license", license, "--port", str(self.port)]
         self.process = subprocess.Popen(
@@ -41,7 +63,7 @@ class MariTalkLocal:
                 self.status()
                 break
             except ConnectionError as ex:
-                time.sleep(2)
+                time.sleep(1)
 
         def terminate():
             print("Stopping MariTalk...")
@@ -55,11 +77,23 @@ class MariTalkLocal:
         self.process.terminate()
         self.process = None
 
-    def download(cls, license: str, bin_path: str):
+    def check_versions(self):
+        versions = find_libs()
+        if versions['openssl_version'] is None:
+            raise Exception('No libssl.so found! OpenSSL v1 or v3 is required to run MariTalk.')
+        if versions['cuda_version'] is None:
+            raise Exception('No libcublas.so found! cuBLAS v11 or v12 is required to run MariTalk.')
+        return versions
+
+    def download(cls, license: str, bin_path: str, dependencies: Dict[str, int]):
         download_url = (
             "https://m64xplb35dhr3se7ipvtmbdnk40ahktr.lambda-url.us-east-1.on.aws/"
         )
-        result = requests.post(download_url, json={"license": license}).json()
+        result = requests.post(download_url, json={
+            "license": license,
+            "openssl_version": dependencies["openssl_version"],
+            "cuda_version": dependencies["cuda_version"],
+        }).json()
         if "presigned_url" not in result:
             raise ValueError(f"Invalid license: {license}")
         file_url = result["presigned_url"]
