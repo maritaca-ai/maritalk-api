@@ -1,4 +1,5 @@
 import os
+import re
 import time
 import shutil
 import atexit
@@ -11,23 +12,59 @@ import requests
 from requests.exceptions import ConnectionError
 
 
+def check_gpu():
+    output = subprocess.check_output(
+        ["nvidia-smi", "--query-gpu=gpu_name", "--format=csv"]
+    )
+    gpu_name = output.decode("utf-8").splitlines()[1]
+    valid_gpus = ["NVIDIA A100", "NVIDIA A10", "NVIDIA A6000"]
+    for name in valid_gpus:
+        if name in gpu_name:
+            return True
+    raise Exception(
+        f"The detected device is not supported: {gpu_name}. Currently we support only NVIDIA Ampere GPUs"
+    )
+
+
+def get_cuda_version():
+    try:
+        output = subprocess.check_output("which nvcc", shell=True, text=True)
+        if output == "":
+            raise Exception("CUDA not found")
+
+        nvcc_path = output.strip()
+
+        version_info = subprocess.check_output([nvcc_path, "--version"], text=True)
+
+        version_number_match = re.search(r"release (\d+.\d+)", version_info)
+        if version_number_match:
+            version_number = version_number_match.group(1)
+            major_version = version_number.split(".")[0]
+            return major_version
+        else:
+            raise Exception("Could not parse CUDA version from nvcc output.")
+
+    except subprocess.CalledProcessError:
+        raise Exception("Failed to retrieve CUDA version from nvcc")
+
+
 def find_libs():
     versions = {
         "cuda_version": None,
         "openssl_version": None,
     }
 
-    cublas_lib = find_library("cublas")
-    if "libcublas.so.11" in cublas_lib:
-        versions["cuda_version"] = 11
-    if "libcublas.so.12" in cublas_lib:
-        versions["cuda_version"] = 12
-
     ssl_lib = find_library("ssl")
     if "libssl.so.1" in ssl_lib:
         versions["openssl_version"] = 1
     if "libssl.so.3" in ssl_lib:
         versions["openssl_version"] = 3
+
+    cuda_version = get_cuda_version()
+    if cuda_version.startswith("11"):
+        versions["cuda_version"] = 11
+    if cuda_version.startswith("12"):
+        versions["cuda_version"] = 12
 
     return versions
 
@@ -44,6 +81,8 @@ class MariTalkLocal:
         bin_path: str = f"{Path.home()}/bin/maritalk",
     ):
         if not os.path.exists(bin_path):
+            check_gpu()
+
             dependencies = self.check_versions()
             os.makedirs(os.path.dirname(bin_path), exist_ok=True)
             print(f"Downloading MariTalk ({bin_path})...")
