@@ -82,11 +82,11 @@ class MariTalkLocal:
     ):
         if not os.path.exists(bin_path):
             check_gpu()
-
             dependencies = self.check_versions()
             os.makedirs(os.path.dirname(bin_path), exist_ok=True)
             print(f"Downloading MariTalk ({bin_path})...")
             self.download(license, bin_path, dependencies)
+
         print(f"Starting MariTalk Local API at http://localhost:{self.port}")
         args = [bin_path, "--license", license, "--port", str(self.port)]
         self.process = subprocess.Popen(
@@ -181,6 +181,7 @@ class MariTalkLocal:
         top_p: float = 0.95,
         max_tokens: int = 512,
         do_sample: bool = True,
+        stop_sequences: List[str] = [],
     ):
         """
         Generate a completion for a given prompt.
@@ -196,6 +197,8 @@ class MariTalkLocal:
                 Maximum number of tokens to generate.
             do_sample (`bool`, *optional*, defaults to `True`):
                 Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.
+            stop_sequences (`List[str]`, *optional*):
+                A list of sequences to stop the generation process.
         """
 
         body = {
@@ -204,6 +207,7 @@ class MariTalkLocal:
             "temperature": temperature,
             "top_p": top_p,
             "max_tokens": max_tokens,
+            "stop_sequences": stop_sequences,
         }
 
         response = requests.post(f"{self.api_url}/generate", json=body)
@@ -220,6 +224,7 @@ class MariTalkLocal:
         top_p: float = 0.95,
         max_tokens: int = 512,
         do_sample: bool = True,
+        stop_sequences: List[str] = [],
     ):
         """
         Generate a completion for a given prompt.
@@ -242,6 +247,8 @@ class MariTalkLocal:
                 Maximum number of tokens to generate.
             do_sample (`bool`, *optional*, defaults to `True`):
                 Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.
+            stop_sequences (`List[str]`, *optional*):
+                A list of sequences to stop the generation process.
         """
 
         if not isinstance(messages, list):
@@ -255,6 +262,7 @@ class MariTalkLocal:
             "temperature": temperature,
             "top_p": top_p,
             "max_tokens": max_tokens,
+            "stop_sequences": stop_sequences,
         }
 
         response = requests.post(f"{self.api_url}/chat/generate", json=body)
