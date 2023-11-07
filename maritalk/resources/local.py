@@ -22,7 +22,7 @@ def check_gpu():
         if name in gpu_name:
             return True
     raise Exception(
-        f"The detected device is not supported: {gpu_name}. Currently we support only NVIDIA Ampere GPUs"
+        f"The detected device is not supported: {gpu_name}. We currently support only NVIDIA Ampere GPUs"
     )
 
 
@@ -60,10 +60,10 @@ def find_libs():
     if "libssl.so.3" in ssl_lib:
         versions["openssl_version"] = 3
 
-    cuda_version = get_cuda_version()
-    if cuda_version.startswith("11"):
+    cublas_lib = find_library("cublas")
+    if ".11" in cublas_lib:
         versions["cuda_version"] = 11
-    if cuda_version.startswith("12"):
+    if ".12" in cublas_lib:
         versions["cuda_version"] = 12
 
     return versions

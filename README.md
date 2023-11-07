@@ -98,15 +98,17 @@ Você pode encontrar mais detalhes sobre os parâmetros mostrados acima (do_samp
 
 ## Modo local
 
-Além da API hospedada pela Maritaca AI, também é possível executar uma versão local da MariTalk através de uma [licença](LINK PARA A LICENÇA). Disponibilizamos licenças comerciais e acadêmicas para grupos de pesquisa interessados em testar nossos modelos.
+Além da API hospedada pela Maritaca AI, também é possível executar uma versão local da MariTalk que pode ser obtida através [deste link](https://chat.maritaca.ai/checkout). A versão atual está em fase beta e possui capacidades limitadas (NPM de 45.4 no [Poeta benchmark](https://arxiv.org/abs/2304.07880)).
 
-O executável pode ser obtido [neste link](LINK PARA A LICENÇA) e pode ser executado em um Linux 64-bit com 1 ou mais GPUs Nvidia. A GPU precisam ter, no mínimo, 12GB de memória para rodar o menor modelo MariTalk. Atualmente, as GPUs testadas são da arquitetura Ampere (A100, A6000, A10).
+O executável pode ser executado em um Linux 64-bit com 1 ou mais GPUs Nvidia. A GPU precisam ter, no mínimo, 12GB de memória para rodar o menor modelo MariTalk. Atualmente, as GPUs testadas são da arquitetura Ampere (A100, A6000, A10).
+
+[Aqui](./examples/local/) estão alguns exemplos de como utilizar a API local da MariTalk. Também disponibilizamos um [Google Colab](https://colab.research.google.com/drive/1Z-jtxISFTm9QOzErShck_eP_DcR8Jvct?usp=sharing) com os passos para executar a API em uma Nvidia A100 40GB (é necessário Colab Pro para executar o notebook).
 
 #### Dependências
 
 As principais dependências são as bibliotecas CUDA para comunicação com a GPU e de SSL. Para instalar as bibliotecas da Nvidia compatíveis com seu driver, é recomendado instalar o CUDA Toolkit na versão 11 ou 12. Exemplo: `apt install cuda-toolkit-12`. Atualmente suportamos as versões de CUDA 11 e 12 e Ubuntu versões 20 e 22.
 
-Também é possível executar a MariTalk em um container Docker utilizando as imagens da Nvidia que já vem com as dependências necessárias instaladas. Por exemplo, a imagem `nvidia/cuda:11.8.0-devel-ubuntu22.04` pode ser utilizada para executar o binário compatível com Ubuntu 22 e CUDA 11.
+Também é possível executar a MariTalk em um container Docker utilizando as imagens da Nvidia com as dependências necessárias já instaladas. Por exemplo, a imagem `nvidia/cuda:11.8.0-devel-ubuntu22.04` pode ser utilizada para executar o binário compatível com Ubuntu 22 e CUDA 11.
 
 #### Execução
 
