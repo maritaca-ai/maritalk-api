@@ -84,7 +84,6 @@ class MariTalkLocal:
             check_gpu()
             dependencies = self.check_versions()
             os.makedirs(os.path.dirname(bin_path), exist_ok=True)
-            print(f"Downloading MariTalk ({bin_path})...")
             self.download(license, bin_path, dependencies)
 
         print(f"Starting MariTalk Local API at http://localhost:{self.port}")
@@ -145,6 +144,9 @@ class MariTalkLocal:
         if "presigned_url" not in result:
             raise ValueError(f"Invalid license: {license}")
         file_url = result["presigned_url"]
+        model_size = result["model_size"]
+
+        print(f"Downloading MariTalk-{model_size} (path: {bin_path})...")
 
         try:
             with requests.get(file_url, stream=True) as response:
