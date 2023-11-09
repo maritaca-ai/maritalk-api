@@ -70,7 +70,7 @@ def find_libs():
 
 
 class MariTalkLocal:
-    def __init__(self, host: str = "localhost", port: int = 8080):
+    def __init__(self, host: str = "localhost", port: int = 9000):
         self.api_url = f"http://{host}:{port}"
         self.port = port
         self.process = None

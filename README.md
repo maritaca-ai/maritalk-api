@@ -118,7 +118,7 @@ $ ./maritalk [OPTIONS] --license <LICENSE>
 
 `--license <LICENSE>`: Sua chave de licença.
 
-`-p, --port <PORT>`: Porta HTTP para escutar. [padrão: 8080]
+`-p, --port <PORT>`: Porta HTTP para escutar. [padrão: 9000]
 
 `-h, --help`: Mostra uma mensagem de ajuda com a descrição dos argumentos disponíveis.
 
