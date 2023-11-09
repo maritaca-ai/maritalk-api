@@ -1,6 +1,6 @@
 # Introdução
-Este repositório contém o código e a documentação explicando como usar a API da MariTalk.
-A MariTalk é um chatbot baseado em um modelo de linguagem que foi especialmente treinado para entender bem o português.
+Este repositório contém o código e a documentação explicando como usar a API da MariTalk e a versão local para deploy on-premises.
+A MariTalk é uma assistente baseada em um modelo de linguagem que foi especialmente treinado para entender bem o português.
 Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.
 
 # Instalação
@@ -95,6 +95,96 @@ Este Google Colab contém outros exemplos de uso da API através de requisiçõe
 [Exemplo no Google Colab](https://colab.research.google.com/drive/1DyaxA_rWfgvpY95Jqc3_OsBN9Y13PhdX?usp=sharing)
 
 Você pode encontrar mais detalhes sobre os parâmetros mostrados acima (do_sample, max_tokens, etc) em https://chat.maritaca.ai/docs
+
+## Modo local
+
+Além da API hospedada pela Maritaca AI, também é possível executar uma versão local da MariTalk que pode ser obtida através [deste link](https://chat.maritaca.ai/checkout). A versão atual está em fase beta e possui capacidades limitadas (NPM de 45.4 no [Poeta benchmark](https://arxiv.org/abs/2304.07880)).
+
+O executável pode ser executado em um Linux 64-bit com 1 ou mais GPUs Nvidia. A GPU precisam ter, no mínimo, 12GB de memória para rodar o menor modelo MariTalk. Atualmente, as GPUs testadas são da arquitetura Ampere (A100, A6000, A10).
+
+[Aqui](./examples/local/) estão alguns exemplos de como utilizar a API local da MariTalk. Também disponibilizamos um [Google Colab](https://colab.research.google.com/drive/1Z-jtxISFTm9QOzErShck_eP_DcR8Jvct?usp=sharing) com os passos para executar a API em uma Nvidia A100 40GB (é necessário Colab Pro para executar o notebook).
+
+#### Dependências
+
+As principais dependências são as bibliotecas CUDA para comunicação com a GPU e de SSL. Para instalar as bibliotecas da Nvidia compatíveis com seu driver, é recomendado instalar o CUDA Toolkit na versão 11 ou 12. Exemplo: `apt install cuda-toolkit-12`. Atualmente suportamos as versões de CUDA 11 e 12 e Ubuntu versões 20 e 22.
+
+Também é possível executar a MariTalk em um container Docker utilizando as imagens da Nvidia com as dependências necessárias já instaladas. Por exemplo, a imagem `nvidia/cuda:11.8.0-devel-ubuntu22.04` pode ser utilizada para executar o binário compatível com Ubuntu 22 e CUDA 11.
+
+#### Execução
+
+```
+$ ./maritalk [OPTIONS] --license <LICENSE>
+```
+
+`--license <LICENSE>`: Sua chave de licença.
+
+`-p, --port <PORT>`: Porta HTTP para escutar. [padrão: 9000]
+
+`-h, --help`: Mostra uma mensagem de ajuda com a descrição dos argumentos disponíveis.
+
+`-V, --version`: Mostra a versão do executável.
+
+#### Modo interativo
+
+Também é possível utilizar a MariTalk Local no próprio terminal sem precisar fazer requisções à API através do modo interativo:
+
+```
+$ ./maritalk [OPTIONS] --license <LICENSE> --interactive
+(...)
+>> olá
+MariTalk: Olá! Como posso ajudar você hoje?
+>> crie uma lista de compras para uma festa de aniversário
+MariTalk: Aqui está uma lista de itens que você pode precisar para uma festa de aniversário:
+
+1. Doces: cupcakes, brownies, bolos, etc
+2. Bebidas: água, refrigerante, cerveja, suco, etc
+3. Decorações: balões, confetes, fitas, etc
+4. Lembrancinhas: chaveiros, sacolas, canetas, etc
+5. Lanternas: para decorar o ambiente
+6. Mesa: guardanapos, copos, talheres, pratos
+7. Música: CD ou MP3 player com música, alto-falante
+8. Tendas: para proteger da chuva ou do sol
+9. Mesas e cadeiras: para os convidados se sentarem
+10. Utensílios de cozinha: panelas, talheres, copos, pratos, etc
+11. Acessórios: guarda-sol, guarda-chuva, toalhas, etc
+12. Lanterna: para levar para caminhar
+
+Lembre-se de sempre incluir produtos de qualidade e que sejam suficientes para atender a todos os convidados.
+```
+
+#### Integração com esta biblioteca
+
+Também é possível fazer o download, inicializar e executar a MariTalk local utilizando a biblioteca em Python. Basta obter uma licença e chamar o método `start_server`. O retorno das chamadas contém o texto gerado e os tempos de espera, de execução do prompt e da geração do texto para fins de debug do usuário. Para comparação, o tempo esperado para gerar 512 tokens com um prompt de entrada de 512 tokens é de ~7s em uma Nvidia A100 80GB (aproximadamente 70 tokens/s).
+
+```python
+>>> import maritalk
+
+>>> client = maritalk.MariTalkLocal()
+>>> client.start_server(license='00000-00000-00000-00000')
+
+>>> client.status()
+{'status': 'idle'}
+
+>>> client.generate("""Classifique a resenha de filme como "positiva" ou "negativa".
+
+Resenha: Gostei muito do filme, é o melhor do ano!
+Classe: positiva
+
+Resenha: O filme deixa muito a desejar.
+Classe: negativa
+
+Resenha: Foi fantástico, valeu o ingresso..
+Classe:""", max_tokens=2, do_sample=False)
+{'output': 'positiva', 'queue_time': 0, 'prompt_time': 158, 'generation_time': 9}
+
+>>> messages = [
+    {"role": "user", "content": "sugira três nomes para a minha cachorra"},
+    {"role": "assistant", "content": "nina, bela e luna."},
+    {"role": "user", "content": "e para o meu peixe?"},
+]
+>>> client.generate_chat(messages)
+{'output': 'nani, bento e leo.', 'queue_time': 0, 'prompt_time': 185, 'generation_time': 127}
+```
 
 # Aspectos Técnicos
 
