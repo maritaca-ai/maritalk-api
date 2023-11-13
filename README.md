@@ -101,13 +101,14 @@ Você pode encontrar mais detalhes sobre os parâmetros mostrados acima (do_samp
 Além da API hospedada pela Maritaca AI, também é possível executar a MariTalk localmente nas versões abaixo:
 
 | Modelo | GPU RAM (min) | tokens/sec (A100) | NPM [Poeta benchmark](https://arxiv.org/abs/2304.07880) | Segue Instruções? | Link para Download | Preço |
-|--|--|--|--|--|--|
+|--|--|--|--|--|--|--|
 | MariTalk Local Small v0.9| 4GB | 70 | 45.4 | Sim | [Link](https://chat.maritaca.ai/checkout/maritalk-small) | Grátis para testes |
 | MariTalk Local Large v0.9| 40GB | ? | 63.0 | Sim | [Link](https://chat.maritaca.ai/checkout/maritalk-large) | Grátis para testes |
 | MariTalk Local Small v1.0| 4GB | ? | 65.0 | Sim | Lançamento em breve | R$ 1910/Mês |
 | MariTalk Local Large v1.0| 40GB | ? | 71.0 | Sim | Lançamento em breve | R$ 4870/Mês |
-| Sabiá-7B | 4GB | 48.5 | Não | [HuggingFace](https://huggingface.co/maritaca-ai/sabia-7b) | Grátis para pesquisa |
-| Sabiá-65B | 40 GB | 69.4 | Não | Não disponível | - |
+| Sabiá-7B | 4GB | - | 48.5 | Não | [HuggingFace](https://huggingface.co/maritaca-ai/sabia-7b) | Grátis para pesquisa |
+| Sabiá-65B | 40 GB | - | 69.4 | Não | Não disponível | - |
+
 
 O executável pode ser executado em um Linux 64-bit com 1 ou mais GPUs Nvidia. Atualmente, apenas a MariTalk local rodam apenas em GPUs da arquitetura Ampere (A100, A6000, A10).
 
