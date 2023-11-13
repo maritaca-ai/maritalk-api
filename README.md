@@ -98,11 +98,71 @@ Você pode encontrar mais detalhes sobre os parâmetros mostrados acima (do_samp
 
 ## Modo local
 
-Além da API hospedada pela Maritaca AI, também é possível executar uma versão local da MariTalk que pode ser obtida através [deste link](https://chat.maritaca.ai/checkout). A versão atual está em fase beta e possui capacidades limitadas (NPM de 45.4 no [Poeta benchmark](https://arxiv.org/abs/2304.07880)).
+Além da API hospedada pela Maritaca AI, também é possível executar a MariTalk localmente nas versões abaixo:
 
-O executável pode ser executado em um Linux 64-bit com 1 ou mais GPUs Nvidia. A GPU precisam ter, no mínimo, 12GB de memória para rodar o menor modelo MariTalk. Atualmente, as GPUs testadas são da arquitetura Ampere (A100, A6000, A10).
+| Modelo | GPU RAM (min) | NPM [Poeta benchmark](https://arxiv.org/abs/2304.07880) | Segue Instruções? | Link para Download | Preço |
+|--|--|--|--|--|--|
+| MariTalk Local Small v0.9| 4GB | 45.4 | Sim | (Link)[https://chat.maritaca.ai/checkout/maritalk-small] | Grátis para testes |
+| MariTalk Local Large v0.9| 40GB | 63.0 | Sim | (Link)[https://chat.maritaca.ai/checkout/maritalk-large] | Grátis para testes |
+| MariTalk Local Small v1.0| 4GB | 65.0 | Sim | Lançamento em breve | R$ 1910/Mês |
+| MariTalk Local Large v1.0| 40GB | 71.0 | Sim | Lançamento em breve | R$ 4870/Mês |
+| Sabiá-7B | 4GB | 48.5 | Não | [HuggingFace](https://huggingface.co/maritaca-ai/sabia-7b) | Grátis para pesquisa |
+| Sabiá-65B | 40 GB | 69.4 | Não | Não disponível | - |
 
-[Aqui](./examples/local/) estão alguns exemplos de como utilizar a API local da MariTalk. Também disponibilizamos um [Google Colab](https://colab.research.google.com/drive/1Z-jtxISFTm9QOzErShck_eP_DcR8Jvct?usp=sharing) com os passos para executar a API em uma Nvidia A100 40GB (é necessário Colab Pro para executar o notebook).
+O executável pode ser executado em um Linux 64-bit com 1 ou mais GPUs Nvidia. Atualmente, apenas a MariTalk local rodam apenas em GPUs da arquitetura Ampere (A100, A6000, A10).
+
+Também disponibilizamos um [Google Colab](https://colab.research.google.com/drive/1Z-jtxISFTm9QOzErShck_eP_DcR8Jvct?usp=sharing) com os passos para executar a API em uma Nvidia A100 40GB (é necessário Colab Pro para executar o notebook).
+
+
+## Integração com esta biblioteca
+
+Uma vez obtida uma chave de licença usando um dos links acima, é possível fazer o download, inicializar e executar a MariTalk local utilizando a biblioteca em Python, conforme exemplo abaixo.
+
+```python
+import maritalk
+
+# Criando uma instância do cliente MariTalkLocal
+client = maritalk.MariTalkLocal()
+
+# Iniciando o servidor com uma chave de licença especificada. O executável será baixado em ~/bin/maritalk
+client.start_server(license='000000-00000-00000-00000')
+
+# Verificando o status do servidor
+status = client.status()
+print(status)  # {'status': 'idle'}
+
+# Gerando uma resposta para classificar resenhas de filmes
+response = client.generate("""Classifique a resenha de filme como "positiva" ou "negativa".
+
+Resenha: Gostei muito do filme, é o melhor do ano!
+Classe: positiva
+
+Resenha: O filme deixa muito a desejar.
+Classe: negativa
+
+Resenha: Foi fantástico, valeu o ingresso..
+Classe:""", max_tokens=2, do_sample=False)
+print(response)  # {'output': 'positiva', 'queue_time': 0, 'prompt_time': 158, 'generation_time': 9}
+
+# Preparando uma série de mensagens para uma interação de chat
+>>> messages = [
+    {"role": "user", "content": "sugira três nomes para a minha cachorra"},
+    {"role": "assistant", "content": "nina, bela e luna."},
+    {"role": "user", "content": "e para o meu peixe?"},
+]
+
+# Gerando a resposta do chat
+chat_response = client.generate_chat(messages)
+print(chat_response)  # {'output': 'nani, bento e leo.', 'queue_time': 0, 'prompt_time': 185, 'generation_time': 127}
+```
+
+O retorno das chamadas contém o texto gerado e os tempos de espera, de execução do prompt e da geração do texto para fins de debug do usuário.
+Para comparação, o tempo esperado para gerar 512 tokens com um prompt de entrada de 512 tokens é de ~7s em uma Nvidia A100 80GB (aproximadamente 70 tokens/s).
+
+
+### Servidor stand-alone (Nome?)
+
+Também é possivel executar o servidor diretamente no terminal, sem o wrapper em python.
 
 #### Dependências
 
@@ -150,40 +210,6 @@ MariTalk: Aqui está uma lista de itens que você pode precisar para uma festa d
 12. Lanterna: para levar para caminhar
 
 Lembre-se de sempre incluir produtos de qualidade e que sejam suficientes para atender a todos os convidados.
-```
-
-#### Integração com esta biblioteca
-
-Também é possível fazer o download, inicializar e executar a MariTalk local utilizando a biblioteca em Python. Basta obter uma licença e chamar o método `start_server`. O retorno das chamadas contém o texto gerado e os tempos de espera, de execução do prompt e da geração do texto para fins de debug do usuário. Para comparação, o tempo esperado para gerar 512 tokens com um prompt de entrada de 512 tokens é de ~7s em uma Nvidia A100 80GB (aproximadamente 70 tokens/s).
-
-```python
->>> import maritalk
-
->>> client = maritalk.MariTalkLocal()
->>> client.start_server(license='00000-00000-00000-00000')
-
->>> client.status()
-{'status': 'idle'}
-
->>> client.generate("""Classifique a resenha de filme como "positiva" ou "negativa".
-
-Resenha: Gostei muito do filme, é o melhor do ano!
-Classe: positiva
-
-Resenha: O filme deixa muito a desejar.
-Classe: negativa
-
-Resenha: Foi fantástico, valeu o ingresso..
-Classe:""", max_tokens=2, do_sample=False)
-{'output': 'positiva', 'queue_time': 0, 'prompt_time': 158, 'generation_time': 9}
-
->>> messages = [
-    {"role": "user", "content": "sugira três nomes para a minha cachorra"},
-    {"role": "assistant", "content": "nina, bela e luna."},
-    {"role": "user", "content": "e para o meu peixe?"},
-]
->>> client.generate_chat(messages)
-{'output': 'nani, bento e leo.', 'queue_time': 0, 'prompt_time': 185, 'generation_time': 127}
 ```
 
 # Aspectos Técnicos
