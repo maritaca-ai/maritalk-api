@@ -100,12 +100,12 @@ Você pode encontrar mais detalhes sobre os parâmetros mostrados acima (do_samp
 
 Além da API hospedada pela Maritaca AI, também é possível executar a MariTalk localmente nas versões abaixo:
 
-| Modelo | GPU RAM (min) | Tokens/sec (A100) | Max tokens | Score [Poeta benchmark](https://arxiv.org/abs/2304.07880) | Link para Download | Preço |
-|--|--|--|--|--|--|--|--|
-| MariTalk Local Small v1.0| 4GB | ? | 4k | 65.4 | [Link](https://chat.maritaca.ai/checkout/maritalk-small) | R$ 1910/Mês |
-| MariTalk Local Large v1.0| 40GB | ? | 4k | 73.0 | Lançamento em breve | R$ 4870/Mês |
-| GPT-3.5-turbo | - | - | 16k | 67.0 | - | - |
-| GPT-4-turbo | - | - | 132k | 80.6 | - | - |
+| Modelo | GPU RAM (min)  | Max tokens | Score [Poeta benchmark](https://arxiv.org/abs/2304.07880) | Link para Download | Preço |
+|--|--|--|--|--|--|
+| MariTalk Local Small v1.0| 4GB | 4k | 65.4 | [Link](https://chat.maritaca.ai/checkout/maritalk-small) | R$ 1910/Mês |
+| MariTalk Local Large v1.0| 40GB | 4k | 73.0 | Lançamento em breve | R$ 4870/Mês |
+| GPT-3.5-turbo | - | 16k | 67.0 | - | - |
+| GPT-4-turbo | - | 132k | 80.6 | - | - |
 
 O executável pode ser executado em um Linux 64-bit com 1 ou mais GPUs Nvidia. Atualmente, a MariTalk local roda apenas em GPUs da arquitetura Ampere (A100, A6000, A10).
 
