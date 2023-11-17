@@ -102,8 +102,8 @@ Além da API hospedada pela Maritaca AI, também é possível executar a MariTal
 
 | Modelo | GPU RAM (min)  | Max tokens | Score [Poeta benchmark](https://arxiv.org/abs/2304.07880) | Link para Download | Preço |
 |--|--|--|--|--|--|
-| MariTalk Local Small v1.0| 4GB | 4k | 65.4 | [Link](https://chat.maritaca.ai/checkout/maritalk-small) | R$ 1910/Mês |
-| MariTalk Local Large v1.0| 40GB | 4k | 73.0 | Lançamento em breve | R$ 4870/Mês |
+| MariTalk Local Small v1.0| 4GB | 8k | 65.4 | [Link](https://chat.maritaca.ai/checkout/maritalk-small) | R$ 1910/Mês |
+| MariTalk Local Large v1.0| 40GB | 8k | 73.0 | Lançamento em breve | R$ 4870/Mês |
 | GPT-3.5-turbo | - | 16k | 67.0 | - | - |
 | GPT-4-turbo | - | 132k | 80.6 | - | - |
 
