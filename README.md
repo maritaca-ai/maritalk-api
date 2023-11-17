@@ -112,7 +112,7 @@ O executável pode ser executado em um Linux 64-bit com 1 ou mais GPUs Nvidia. A
 Também disponibilizamos um [Google Colab](https://colab.research.google.com/drive/1Z-jtxISFTm9QOzErShck_eP_DcR8Jvct?usp=sharing) com os passos para executar a API em uma Nvidia A100 40GB (é necessário Colab Pro para executar o notebook).
 
 
-## Integração com esta biblioteca
+### Executando em Python
 
 Uma vez obtida uma chave de licença usando um dos links acima, é possível fazer o download, inicializar e executar a MariTalk local utilizando a biblioteca em Python, conforme exemplo abaixo.
 
