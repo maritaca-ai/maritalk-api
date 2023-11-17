@@ -98,7 +98,8 @@ Você pode encontrar mais detalhes sobre os parâmetros mostrados acima (do_samp
 
 ## Modo local
 
-Além da API hospedada pela Maritaca AI, também é possível executar a MariTalk localmente nas versões abaixo:
+Além da API da Maritaca AI, é possível executar a MariTalk localmente em duas versões, small e large.
+A tabela abaixo compara essas duas versões e apresenta algumas comparações com os modelos da OpenAI.
 
 | Modelo | GPU RAM (min)  | Max tokens | Score [Poeta benchmark](https://arxiv.org/abs/2304.07880) | Link para Download | Preço |
 |--|--|--|--|--|--|
@@ -107,7 +108,7 @@ Além da API hospedada pela Maritaca AI, também é possível executar a MariTal
 | GPT-3.5-turbo | - | 16k | 67.0 | - | - |
 | GPT-4-turbo | - | 132k | 80.6 | - | - |
 
-O executável pode ser executado em um Linux 64-bit com 1 ou mais GPUs Nvidia. Atualmente, a MariTalk local roda apenas em GPUs da arquitetura Ampere (A100, A6000, A10).
+O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia. Atualmente, a MariTalk local roda apenas em GPUs da arquitetura Ampere (A100, A6000 e A10).
 
 Também disponibilizamos um [Google Colab](https://colab.research.google.com/drive/1Z-jtxISFTm9QOzErShck_eP_DcR8Jvct?usp=sharing) com os passos para executar a API em uma Nvidia A100 40GB (é necessário Colab Pro para executar o notebook).
 
