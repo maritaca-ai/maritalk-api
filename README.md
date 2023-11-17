@@ -144,7 +144,7 @@ Classe:""", max_tokens=2, do_sample=False)
 print(response)  # {'output': 'positiva', 'queue_time': 0, 'prompt_time': 158, 'generation_time': 9}
 
 # Preparando uma série de mensagens para uma interação de chat
->>> messages = [
+messages = [
     {"role": "user", "content": "sugira três nomes para a minha cachorra"},
     {"role": "assistant", "content": "nina, bela e luna."},
     {"role": "user", "content": "e para o meu peixe?"},
