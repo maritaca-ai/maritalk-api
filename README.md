@@ -103,7 +103,7 @@ Além da API hospedada pela Maritaca AI, também é possível executar a MariTal
 | Modelo | GPU RAM (min) | Tokens/sec (A100) | Max tokens | NPM [Poeta benchmark](https://arxiv.org/abs/2304.07880) | Segue Instruções? | Link para Download | Preço |
 |--|--|--|--|--|--|--|--|
 | MariTalk Local Small v1.0| 4GB | ? | 4k | 65.4 | Sim | [Link](https://chat.maritaca.ai/checkout/maritalk-small) | R$ 1910/Mês |
-| MariTalk Local Large v1.0| 40GB | ? | 4k | 71.0 | Sim | Lançamento em breve | R$ 4870/Mês |
+| MariTalk Local Large v1.0| 40GB | ? | 4k | 73.0 | Sim | Lançamento em breve | R$ 4870/Mês |
 | Sabiá-7B | 4GB | - | 2k | 48.5 | Não | [HuggingFace](https://huggingface.co/maritaca-ai/sabia-7b) | Grátis para pesquisa |
 | Sabiá-65B | 40GB | - | 2k | 69.4 | Não | Não disponível | - |
 | GPT-3.5-turbo | - | - | 16k | 67.0 | Sim | - | - |
