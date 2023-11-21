@@ -79,15 +79,18 @@ class MariTalkLocal:
         args = [bin_path, "--license", license, "--port", str(self.port)]
         self.process = subprocess.Popen(
             args,
-            stdout=subprocess.DEVNULL,
+            stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
         )
         while True:
             try:
                 if self.process.poll() is not None:
+                    output, _ = self.process.communicate()
+                    output = output.decode('utf-8')
                     raise Exception(
-                        f'Failed to start process. Try to run it manually: `{" ".join(args)}`'
+                        f"Failed to start process.\nOutput: {output}\nTry to run it manually: `{' '.join(args)}`"
                     )
+
                 self.status()
                 break
             except ConnectionError as ex:
