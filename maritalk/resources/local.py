@@ -6,46 +6,27 @@ import atexit
 import subprocess
 from tqdm import tqdm
 from pathlib import Path
-from typing import List, Dict
+from typing import List, Dict, Optional
 from ctypes.util import find_library
 import requests
 from requests.exceptions import ConnectionError
 
 
 def check_gpu():
-    output = subprocess.check_output(
-        ["nvidia-smi", "--query-gpu=gpu_name", "--format=csv"]
-    )
-    gpu_name = output.decode("utf-8").splitlines()[1]
-    valid_gpus = ["NVIDIA A100", "NVIDIA A10", "NVIDIA A6000"]
-    for name in valid_gpus:
-        if name in gpu_name:
-            return True
+    import pycuda.driver as cuda
+
+    cuda.init()
+
+    device = cuda.Device(0)
+    device_name = device.name()
+    compute_capability = device.compute_capability()
+
+    if compute_capability[0] == 8:
+        return True
+
     raise Exception(
-        f"The detected device is not supported: {gpu_name}. We currently support only NVIDIA Ampere GPUs"
+        f"The detected device is not supported: {device_name}. We currently support Nvidia Ampere GPUs with compute capability >=8.0."
     )
-
-
-def get_cuda_version():
-    try:
-        output = subprocess.check_output("which nvcc", shell=True, text=True)
-        if output == "":
-            raise Exception("CUDA not found")
-
-        nvcc_path = output.strip()
-
-        version_info = subprocess.check_output([nvcc_path, "--version"], text=True)
-
-        version_number_match = re.search(r"release (\d+.\d+)", version_info)
-        if version_number_match:
-            version_number = version_number_match.group(1)
-            major_version = version_number.split(".")[0]
-            return major_version
-        else:
-            raise Exception("Could not parse CUDA version from nvcc output.")
-
-    except subprocess.CalledProcessError:
-        raise Exception("Failed to retrieve CUDA version from nvcc")
 
 
 def find_libs():
@@ -79,10 +60,18 @@ class MariTalkLocal:
         self,
         license: str,
         bin_path: str = f"{Path.home()}/bin/maritalk",
+        cuda_version: Optional[int] = None,
+        ssl_version: Optional[int] = None,
     ):
         if not os.path.exists(bin_path):
             check_gpu()
-            dependencies = self.check_versions()
+            detected_versions = self.check_versions()
+
+            dependencies = {
+                "cuda_version": cuda_version or detected_versions["cuda_version"],
+                "openssl_version": ssl_version or detected_versions["openssl_version"],
+            }
+
             os.makedirs(os.path.dirname(bin_path), exist_ok=True)
             self.download(license, bin_path, dependencies)
 
@@ -133,16 +122,22 @@ class MariTalkLocal:
         download_url = (
             "https://m64xplb35dhr3se7ipvtmbdnk40ahktr.lambda-url.us-east-1.on.aws/"
         )
-        result = requests.post(
+        response = requests.post(
             download_url,
             json={
                 "license": license,
                 "openssl_version": dependencies["openssl_version"],
                 "cuda_version": dependencies["cuda_version"],
             },
-        ).json()
+        )
+        if not response.ok:
+            raise Exception(response.text)
+
+        result = response.json()
+
         if "presigned_url" not in result:
-            raise ValueError(f"Invalid license: {license}")
+            raise ValueError(f"Failed to validate license ({license}): {result}")
+
         file_url = result["presigned_url"]
         model_size = result["model_size"]
 
@@ -160,14 +155,14 @@ class MariTalkLocal:
                         desc=bin_path,
                     )
                     with open(bin_path, "wb") as out:
-                        for chunk in response.iter_content(chunk_size=8192):
+                        for chunk in response.iter_content(chunk_size=16384):
                             out.write(chunk)
                             progress_bar.update(len(chunk))
 
                     os.chmod(bin_path, 0o744)
                 else:
                     raise Exception(
-                        "Invalid response from the server while downloading"
+                        f"Invalid response from the server while downloading: {response.text}"
                     )
         except requests.exceptions.RequestException as e:
             raise Exception(f"Error downloading MariTalk binary: {e}")
@@ -216,8 +211,7 @@ class MariTalkLocal:
 
         if response.ok:
             return response.json()
-        else:
-            response.raise_for_status()
+        response.raise_for_status()
 
     def generate_chat(
         self,
@@ -271,5 +265,4 @@ class MariTalkLocal:
 
         if response.ok:
             return response.json()
-        else:
-            response.raise_for_status()
+        response.raise_for_status()
