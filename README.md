@@ -158,9 +158,14 @@ print(chat_response)  # {'output': 'nani, bento e leo.', 'queue_time': 0, 'promp
 O retorno das chamadas contém o texto gerado e os tempos de espera, de execução do prompt e da geração do texto para fins de debug do usuário.
 
 
-### Servidor stand-alone (Nome?)
+### Executando o binário diretamente
 
 Também é possivel executar o servidor diretamente no terminal, sem o wrapper em python.
+
+#### Download
+```bash
+wget -O maritalk <link do binário recebido no email> 
+```
 
 #### Dependências
 
@@ -170,7 +175,7 @@ Também é possível executar a MariTalk em um container Docker utilizando as im
 
 #### Execução
 
-```
+```bash
 $ ./maritalk [OPTIONS] --license <LICENSE>
 ```
 
@@ -186,7 +191,7 @@ $ ./maritalk [OPTIONS] --license <LICENSE>
 
 Também é possível utilizar a MariTalk Local no próprio terminal sem precisar fazer requisções à API através do modo interativo:
 
-```
+```bash
 $ ./maritalk [OPTIONS] --license <LICENSE> --interactive
 (...)
 >> olá
@@ -226,7 +231,8 @@ Leva cerca de 1 a 2 segundos para gerar o primeiro token, dado uma sequência de
 Após isso, novos tokens são gerados a uma taxa de 10 a 15 tokens/seg.
 
 # Interface Web
-Experimente a interface Web em:
+
+Teste a MariTalk Large via interface web em:
 [chat.maritaca.ai](https://chat.maritaca.ai/)
 
 <img src="imgs/web_interface.png" width="600">
