@@ -13,7 +13,18 @@ from requests.exceptions import ConnectionError
 
 
 def check_gpu():
-    import pycuda.driver as cuda
+    try:
+        import pycuda.driver as cuda
+    except ImportError:
+        print("PyCUDA is not installed. To install PyCUDA, use the command:")
+        print("pip install pycuda numpy")
+        print("or")
+        print("apt install python3-pycuda")
+        print("\nCUDA Toolkit is also required. Try installing one of the following versions:")
+        print("For CUDA Toolkit 11: apt install nvidia-cuda-toolkit cuda-toolkit-11-8")
+        print("For CUDA Toolkit 12: apt install nvidia-cuda-toolkit cuda-toolkit-12")
+        print()
+        raise
 
     cuda.init()
 
@@ -42,9 +53,9 @@ def find_libs():
         versions["openssl_version"] = 3
 
     cublas_lib = find_library("cublas")
-    if ".11" in cublas_lib:
+    if cublas_lib and ".11" in cublas_lib:
         versions["cuda_version"] = 11
-    if ".12" in cublas_lib:
+    if cublas_lib and ".12" in cublas_lib:
         versions["cuda_version"] = 12
 
     return versions
@@ -64,13 +75,23 @@ class MariTalkLocal:
         ssl_version: Optional[int] = None,
     ):
         if not os.path.exists(bin_path):
-            check_gpu()
-            detected_versions = self.check_versions()
+            if not cuda_version:
+                check_gpu()
+            detected_versions = find_libs()
 
             dependencies = {
                 "cuda_version": cuda_version or detected_versions["cuda_version"],
                 "openssl_version": ssl_version or detected_versions["openssl_version"],
             }
+
+            if dependencies["openssl_version"] is None:
+                raise Exception(
+                    "No libssl.so found! OpenSSL v1 or v3 is required to run MariTalk."
+                )
+            if dependencies["cuda_version"] is None:
+                raise Exception(
+                    "No libcublas.so found! cuBLAS v11 or v12 is required to run MariTalk."
+                )
 
             os.makedirs(os.path.dirname(bin_path), exist_ok=True)
             self.download(license, bin_path, dependencies)
@@ -108,18 +129,6 @@ class MariTalkLocal:
             return
         self.process.terminate()
         self.process = None
-
-    def check_versions(self):
-        versions = find_libs()
-        if versions["openssl_version"] is None:
-            raise Exception(
-                "No libssl.so found! OpenSSL v1 or v3 is required to run MariTalk."
-            )
-        if versions["cuda_version"] is None:
-            raise Exception(
-                "No libcublas.so found! cuBLAS v11 or v12 is required to run MariTalk."
-            )
-        return versions
 
     def download(cls, license: str, bin_path: str, dependencies: Dict[str, int]):
         download_url = (
