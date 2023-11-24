@@ -1,5 +1,6 @@
 import os
 import re
+import csv
 import time
 import shutil
 import atexit
@@ -14,30 +15,34 @@ from requests.exceptions import ConnectionError
 
 def check_gpu():
     try:
-        import pycuda.driver as cuda
-    except ImportError:
-        print("PyCUDA is not installed. To install PyCUDA, use the command:")
-        print("pip install pycuda numpy")
-        print("or")
-        print("apt install python3-pycuda")
-        print("\nCUDA Toolkit is also required. Try installing one of the following versions:")
-        print("For CUDA Toolkit 11: apt install nvidia-cuda-toolkit cuda-toolkit-11-8")
-        print("For CUDA Toolkit 12: apt install nvidia-cuda-toolkit cuda-toolkit-12")
-        print()
-        raise
+        result = subprocess.run(
+            [
+                'nvidia-smi',
+                '--query-gpu=name,compute_cap',
+                '--format=csv',
+            ],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
 
-    cuda.init()
+        reader = csv.reader(result.stdout.strip().split('\n'))
 
-    device = cuda.Device(0)
-    device_name = device.name()
-    compute_capability = device.compute_capability()
+        headers = next(reader)
+        rows = list(reader)
 
-    if compute_capability[0] == 8:
-        return True
+        gpu_info = []
 
-    raise Exception(
-        f"The detected device is not supported: {device_name}. We currently support Nvidia Ampere GPUs with compute capability >=8.0."
-    )
+        for row in rows:
+            gpu_name, compute_cap = row
+            if float(compute_cap) >= 8.0:
+                return True
+
+        raise Exception(
+            f"The detected device is not supported: {gpu_name}. We currently support Nvidia Ampere GPUs with compute capability >=8.0."
+        )
+    except subprocess.CalledProcessError as e:
+        raise Exception(f"Error executing command: {e}")
 
 
 def find_libs():
@@ -86,11 +91,11 @@ class MariTalkLocal:
 
             if dependencies["openssl_version"] is None:
                 raise Exception(
-                    "No libssl.so found! OpenSSL v1 or v3 is required to run MariTalk."
+                    "No libssl.so found. OpenSSL v1 or v3 is required to run MariTalk. You can manually set the version using the `ssl_version` argument."
                 )
             if dependencies["cuda_version"] is None:
                 raise Exception(
-                    "No libcublas.so found! cuBLAS v11 or v12 is required to run MariTalk."
+                    "No libcublas.so found. cuBLAS v11 or v12 is required to run MariTalk. You can manually set the version using the `cuda_version` argument."
                 )
 
             os.makedirs(os.path.dirname(bin_path), exist_ok=True)
