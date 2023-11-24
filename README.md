@@ -18,7 +18,7 @@ pip install maritalk
 
 # Exemplo de Uso
 
-Mostramos abaixo um exemplo simples de uso em Python.
+Mostramos abaixo um exemplo simples de uso em Python. Na [pasta exemplos](./examples/api/) existem mais códigos mostrando como chamar a API.
 
 Primeiramente, você precisa de uma chave da API, que pode ser obtida em [chat.maritaca.ai](https://chat.maritaca.ai/) -> "Chaves da API" -> "Crie uma chave".
 
