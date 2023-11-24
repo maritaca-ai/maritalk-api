@@ -1,3 +1,9 @@
+### Conteúdo
+- [Instalação](#instalação)  
+- [Executando via API](#exemplo-de-uso)
+- [Executando localmente](#modo-local)
+- [Web chat (gratuito)](#web-chat) 
+
 # Introdução
 Este repositório contém o código e a documentação explicando como usar a API da MariTalk e a versão local para deploy on-premises.
 A MariTalk é uma assistente baseada em um modelo de linguagem que foi especialmente treinado para entender bem o português.
@@ -14,7 +20,7 @@ pip install maritalk
 
 Mostramos abaixo um exemplo simples de uso em Python.
 
-Primeiramente, você precisa de uma chave da API, que pode ser obtida em chat.maritaca.ai -> "Chaves da API" -> "Crie uma chave".
+Primeiramente, você precisa de uma chave da API, que pode ser obtida em [chat.maritaca.ai](https://chat.maritaca.ai/) -> "Chaves da API" -> "Crie uma chave".
 
 ```python
 import maritalk
@@ -96,12 +102,12 @@ Este Google Colab contém outros exemplos de uso da API através de requisiçõe
 
 Você pode encontrar mais detalhes sobre os parâmetros mostrados acima (do_sample, max_tokens, etc) em https://chat.maritaca.ai/docs
 
-## Modo local
+# Modo local
 
 Além da API da Maritaca AI, é possível executar a MariTalk localmente em duas versões, small e large.
 A tabela abaixo compara essas duas versões e apresenta algumas comparações com os modelos da OpenAI.
 
-| Modelo | GPU RAM (min)  | Max tokens | Score [Poeta benchmark](https://arxiv.org/abs/2304.07880) | Link para Download | Preço |
+| Modelo | GPU RAM (min)  | Max tokens | Pontuação média (14 Datasets)[^1] | Link para Download | Preço |
 |--|--|--|--|--|--|
 | MariTalk Local Small v1.0| 4GB | 8k | 65.4 | [Link](https://chat.maritaca.ai/checkout/maritalk-small) | R$ 1910/Mês |
 | MariTalk Local Large v1.0| 40GB | 8k | 73.0 | Lançamento em breve | R$ 4870/Mês |
@@ -112,8 +118,9 @@ O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia. Atualm
 
 Também disponibilizamos um [Google Colab](https://colab.research.google.com/drive/1Z-jtxISFTm9QOzErShck_eP_DcR8Jvct?usp=sharing) com os passos para executar a API em uma Nvidia A100 40GB (é necessário Colab Pro para executar o notebook).
 
+[^1]: Datasets em Português do [Poeta benchmark](https://arxiv.org/abs/2304.07880).
 
-### Executando em Python
+## Executando em Python
 
 Uma vez obtida uma chave de licença usando um dos links acima, é possível fazer o download, inicializar e executar a MariTalk local utilizando a biblioteca em Python, conforme exemplo abaixo.
 
@@ -158,7 +165,7 @@ print(chat_response)  # {'output': 'nani, bento e leo.', 'queue_time': 0, 'promp
 O retorno das chamadas contém o texto gerado e os tempos de espera, de execução do prompt e da geração do texto para fins de debug do usuário.
 
 
-### Executando o binário diretamente
+## Executando o binário diretamente
 
 Também é possivel executar o servidor diretamente no terminal, sem o wrapper em python.
 
@@ -230,7 +237,7 @@ Atualmente, suportamos um comprimento máximo de sequência de 8000 tokens, que 
 Leva cerca de 1 a 2 segundos para gerar o primeiro token, dado uma sequência de 1000 tokens como entrada.
 Após isso, novos tokens são gerados a uma taxa de 10 a 15 tokens/seg.
 
-# Interface Web
+# Web Chat
 
 Teste a MariTalk Large via interface web em:
 [chat.maritaca.ai](https://chat.maritaca.ai/)
