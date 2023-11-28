@@ -242,4 +242,4 @@ Após isso, novos tokens são gerados a uma taxa de 10 a 15 tokens/seg.
 Teste a MariTalk Large via interface web em:
 [chat.maritaca.ai](https://chat.maritaca.ai/)
 
-<img src="imgs/web_interface.png" width="600">
+<img src="https://raw.githubusercontent.com/maritaca-ai/maritalk-api/main/imgs/web_interface.png" width="600">

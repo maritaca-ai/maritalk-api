@@ -69,17 +69,20 @@ def find_libs():
 class MariTalkLocal:
     def __init__(self, host: str = "localhost", port: int = 9000):
         self.api_url = f"http://{host}:{port}"
+        """@private"""
         self.port = port
+        """@private"""
         self.process = None
+        """@private"""
 
     def start_server(
         self,
         license: str,
-        bin_path: str = f"{Path.home()}/bin/maritalk",
+        bin_path: str = "~/bin/maritalk",
         cuda_version: Optional[int] = None,
         ssl_version: Optional[int] = None,
     ):
-        if not os.path.exists(bin_path):
+        if not os.path.exists(os.path.expanduser(bin_path)):
             if not cuda_version:
                 check_gpu()
             detected_versions = find_libs()

@@ -5,7 +5,9 @@ from typing import List, Dict, Union
 class MariTalk:
     def __init__(self, key: str, api_url: str = "https://chat.maritaca.ai/api"):
         self.key = key
+        """@private"""
         self.api_url = api_url
+        """@private"""
 
     def generate(
         self,
