@@ -108,7 +108,7 @@ Além da API da Maritaca AI, é possível executar a MariTalk localmente em duas
 A tabela abaixo compara essas duas versões e apresenta algumas comparações com os modelos da OpenAI.
 
 | Modelo | GPU RAM (min)  | Max tokens | Pontuação média (14 Datasets)[^1] | Link para Download |
-|--|--|--|--|--|--|
+|--|--|--|--|--|
 | MariTalk Local Small v1.0| 4GB | 8k | 65.4 | [Link](https://chat.maritaca.ai/checkout/maritalk-small) |
 | MariTalk Local Large v1.0| 40GB | 8k | 73.0 | Lançamento em breve |
 | GPT-3.5-turbo | - | 16k | 67.0 | - |
