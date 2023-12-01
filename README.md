@@ -224,12 +224,6 @@ Lembre-se de sempre incluir produtos de qualidade e que sejam suficientes para a
 
 # Aspectos Técnicos
 
-### A API é gratuita?
-A API está disponível gratuitamente para todos os usuários. Planejamos introduzir uma versão paga no futuro que oferecerá maior capacidade e confiabilidade.
-
-### Limite de Taxa de Requisições
-No momento, há um limite de uma solicitação a cada 5 segundos para garantir que todos tenham a oportunidade de testar o modelo. Será retornado um erro HTTP 429 caso a taxa de requisições ultrapasse esse limite.
-
 ### Comprimento máximo de sequência
 Atualmente, suportamos um comprimento máximo de sequência de 8000 tokens, que é equivalente a aproximadamente 4000 palavras em português.
 
