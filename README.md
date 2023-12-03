@@ -109,10 +109,10 @@ A tabela abaixo compara essas duas versões e apresenta algumas comparações co
 
 | Modelo | GPU RAM (min)  | Max tokens | Pontuação média (14 Datasets)[^1] | Link para Download |
 |--|--|--|--|--|
-| MariTalk Local Small v1.0| 4GB | 8k | 65.4 | [Link](https://chat.maritaca.ai/checkout/maritalk-small) |
-| MariTalk Local Large v1.0| 40GB | 8k | 73.0 | Lançamento em breve |
-| GPT-3.5-turbo | - | 16k | 67.0 | - |
-| GPT-4-turbo | - | 132k | 80.6 | - |
+| MariTalk Local Small v1.0| 4GB | 8.000 | 65.4 | [Link](https://chat.maritaca.ai/checkout/maritalk-small) |
+| MariTalk Local Large v1.0| 40GB | 8.000 | 73.0 | Lançamento em breve |
+| GPT-3.5-turbo | - | 16k | 67,0 | - |
+| GPT-4-turbo | - | 132k | 80,6 | - |
 
 O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia. Atualmente, a MariTalk local roda apenas em GPUs da arquitetura Ampere (A100, A6000 e A10).
 
@@ -225,7 +225,10 @@ Lembre-se de sempre incluir produtos de qualidade e que sejam suficientes para a
 # Aspectos Técnicos
 
 ### Comprimento máximo de sequência
-Atualmente, suportamos um comprimento máximo de sequência de 8000 tokens, que é equivalente a aproximadamente 4000 palavras em português.
+Os modelos atuais têm um limite de sequência máxima de 8.000 tokens, o que corresponde a cerca de 4.000 palavras em português.
+Isso implica que a contagem total de tokens, incluindo tanto os tokens de entrada (ou seja, o prompt fornecido) quanto os tokens de saída (ou seja, os gerados pelo modelo), não deve exceder 8.000.
+Por exemplo, se o prompt contém 6.000 tokens, o valor máximo para o parâmetro max_tokens (isto é, a quantidade de tokens a serem gerados pelo modelo) deve ser de até 2.000 tokens.
+Cabe destacar que tanto os tokens de entrada quanto os de saída são cobrados igualmente.
 
 ### Capacidade de Processamento
 Leva cerca de 1 a 2 segundos para gerar o primeiro token, dado uma sequência de 1000 tokens como entrada.
