@@ -123,7 +123,7 @@ Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.<
 
 <h1 id="exemplo-de-uso">Exemplo de Uso</h1>
 
-<p>Mostramos abaixo um exemplo simples de uso em Python.</p>
+<p>Mostramos abaixo um exemplo simples de uso em Python. Na <a href="./examples/api/">pasta exemplos</a> existem mais códigos mostrando como chamar a API.</p>
 
 <p>Primeiramente, você precisa de uma chave da API, que pode ser obtida em <a href="https://chat.maritaca.ai/">chat.maritaca.ai</a> -> "Chaves da API" -> "Crie uma chave".</p>
 
@@ -224,40 +224,35 @@ A tabela abaixo compara essas duas versões e apresenta algumas comparações co
   <th>Max tokens</th>
   <th>Pontuação média (14 Datasets)<sup class="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup></th>
   <th>Link para Download</th>
-  <th>Preço</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>MariTalk Local Small v1.0</td>
   <td>4GB</td>
-  <td>8k</td>
+  <td>8.000</td>
   <td>65.4</td>
   <td><a href="https://chat.maritaca.ai/checkout/maritalk-small">Link</a></td>
-  <td>R$ 1910/Mês</td>
 </tr>
 <tr>
   <td>MariTalk Local Large v1.0</td>
   <td>40GB</td>
-  <td>8k</td>
+  <td>8.000</td>
   <td>73.0</td>
   <td>Lançamento em breve</td>
-  <td>R$ 4870/Mês</td>
 </tr>
 <tr>
   <td>GPT-3.5-turbo</td>
   <td>-</td>
   <td>16k</td>
-  <td>67.0</td>
-  <td>-</td>
+  <td>67,0</td>
   <td>-</td>
 </tr>
 <tr>
   <td>GPT-4-turbo</td>
   <td>-</td>
   <td>132k</td>
-  <td>80.6</td>
-  <td>-</td>
+  <td>80,6</td>
   <td>-</td>
 </tr>
 </tbody>
@@ -375,17 +370,13 @@ Lembre-se<span class="w"> </span>de<span class="w"> </span>sempre<span class="w"
 
 <h1 id="aspectos-tecnicos">Aspectos Técnicos</h1>
 
-<h3 id="a-api-e-gratuita">A API é gratuita?</h3>
-
-<p>A API está disponível gratuitamente para todos os usuários. Planejamos introduzir uma versão paga no futuro que oferecerá maior capacidade e confiabilidade.</p>
-
-<h3 id="limite-de-taxa-de-requisicoes">Limite de Taxa de Requisições</h3>
-
-<p>No momento, há um limite de uma solicitação a cada 5 segundos para garantir que todos tenham a oportunidade de testar o modelo. Será retornado um erro HTTP 429 caso a taxa de requisições ultrapasse esse limite.</p>
-
 <h3 id="comprimento-maximo-de-sequencia">Comprimento máximo de sequência</h3>
 
-<p>Atualmente, suportamos um comprimento máximo de sequência de 8000 tokens, que é equivalente a aproximadamente 4000 palavras em português.</p>
+<p>Os modelos atuais têm um limite de sequência máxima de 8.000 tokens, o que corresponde a cerca de 4.000 palavras em português.
+Isso implica que a contagem total de tokens, incluindo tanto os tokens de entrada (ou seja, o prompt fornecido) quanto os tokens de saída (ou seja, os gerados pelo modelo), não deve exceder 8.000.
+Por exemplo, se o prompt contém 6.000 tokens, o valor máximo para o parâmetro <code>max_tokens</code> (isto é, a quantidade de tokens a serem gerados pelo modelo) deve ser de até 2.000 tokens.</p>
+
+<p>Cabe destacar que tanto os tokens de entrada quanto os de saída são cobrados igualmente.</p>
 
 <h3 id="capacidade-de-processamento">Capacidade de Processamento</h3>
 
@@ -397,7 +388,7 @@ Após isso, novos tokens são gerados a uma taxa de 10 a 15 tokens/seg.</p>
 <p>Teste a MariTalk Large via interface web em:
 <a href="https://chat.maritaca.ai/">chat.maritaca.ai</a></p>
 
-<p><img src="imgs/web_interface.png" width="600"></p>
+<p><img src="https://raw.githubusercontent.com/maritaca-ai/maritalk-api/main/imgs/web_interface.png" width="600"></p>
 
 <div class="footnotes">
 <hr />
