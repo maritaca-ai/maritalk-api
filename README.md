@@ -9,6 +9,12 @@ Este repositório contém o código e a documentação explicando como usar a AP
 A MariTalk é uma assistente baseada em um modelo de linguagem que foi especialmente treinado para entender bem o português.
 Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.
 
+Este é um serviço pago disponível apenas para assinantes da MariTalk API. Para assinar, acesse [chat.maritaca.ai](https://chat.maritaca.ai/) -> "Meu Plano" -> "Assine a MariTalk API".
+
+A cobrança é feita por tokens, sendo o mesmo valor cobrado por tokens de entrada (i.e., prompt) e saída (i.e., gerados pelo modelo): R$5 a cada um milhão de tokens.
+
+Novos assinantes recebem R$20 em créditos da API.
+
 # Instalação
 
 Instale a biblioteca da MariTalk usando pip:
@@ -228,8 +234,6 @@ Lembre-se de sempre incluir produtos de qualidade e que sejam suficientes para a
 Os modelos atuais têm um limite de sequência máxima de 8.000 tokens, o que corresponde a cerca de 4.000 palavras em português.
 Isso implica que a contagem total de tokens, incluindo tanto os tokens de entrada (ou seja, o prompt fornecido) quanto os tokens de saída (ou seja, os gerados pelo modelo), não deve exceder 8.000.
 Por exemplo, se o prompt contém 6.000 tokens, o valor máximo para o parâmetro `max_tokens` (isto é, a quantidade de tokens a serem gerados pelo modelo) deve ser de até 2.000 tokens.
-
-Cabe destacar que tanto os tokens de entrada quanto os de saída são cobrados igualmente.
 
 ### Capacidade de Processamento
 Leva cerca de 1 a 2 segundos para gerar o primeiro token, dado uma sequência de 1000 tokens como entrada.
