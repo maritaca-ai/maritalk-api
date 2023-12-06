@@ -231,6 +231,12 @@ class MariTalkLocal:
 
         if response.ok:
             return response.json()
+
+        if response.headers.get("content-type") == "application/json":
+            data = response.json()
+            if "error" in data:
+                return data
+
         response.raise_for_status()
 
     def generate(
@@ -267,6 +273,11 @@ class MariTalkLocal:
                 A list of sequences to stop the generation process.
         """
 
+        if not isinstance(messages, str) and not isinstance(messages, list):
+            raise TypeError(
+                "You should pass a string or a list of messages as argument."
+            )
+
         if isinstance(messages, str):
             messages = [{"role": "user", "content": messages}]
 
@@ -283,7 +294,12 @@ class MariTalkLocal:
 
         if response.ok:
             return response.json()
-        # TODO better error message
+
+        if response.headers.get("content-type") == "application/json":
+            data = response.json()
+            if "error" in data:
+                return data
+
         response.raise_for_status()
 
     def generate_chat(self, *args, **kwargs):
