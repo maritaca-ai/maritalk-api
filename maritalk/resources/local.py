@@ -7,7 +7,7 @@ import atexit
 import subprocess
 from tqdm import tqdm
 from pathlib import Path
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Union
 from ctypes.util import find_library
 import requests
 from requests.exceptions import ConnectionError
@@ -191,7 +191,7 @@ class MariTalkLocal:
         response = requests.get(self.api_url)
         return response.json()
 
-    def generate(
+    def generate_raw(
         self,
         prompt: str,
         temperature: float = 0.7,
@@ -233,9 +233,9 @@ class MariTalkLocal:
             return response.json()
         response.raise_for_status()
 
-    def generate_chat(
+    def generate(
         self,
-        messages: List[Dict[str, str]],
+        messages: Union[str, List[Dict[str, str]]],
         temperature: float = 0.7,
         top_p: float = 0.95,
         max_tokens: int = 512,
@@ -246,8 +246,8 @@ class MariTalkLocal:
         Generate a completion for a given prompt.
 
         Args:
-            messages (`List[Dict[str, str]]`):
-                A list where each item should be a dictionary containing the keys `role` and `content`. For example:
+            messages (`Union[str, List[Dict[str, str]]]`):
+                A string with one message or a list where each item should be a dictionary containing the keys `role` and `content`. For example:
                 ```
                 messages = [
                     {"role": "user", "content": "bom dia, esta é a mensagem do usuario"},
@@ -267,10 +267,8 @@ class MariTalkLocal:
                 A list of sequences to stop the generation process.
         """
 
-        if not isinstance(messages, list):
-            raise TypeError(
-                "You should pass a list of messages on `messages`. For raw string prompts use `generate` method instead."
-            )
+        if isinstance(messages, str):
+            messages = [{"role": "user", "content": messages}]
 
         body = {
             "messages": messages,
@@ -285,4 +283,8 @@ class MariTalkLocal:
 
         if response.ok:
             return response.json()
+        # TODO better error message
         response.raise_for_status()
+
+    def generate_chat(self, *args, **kwargs):
+        raise Exception('This method was changed, please use `generate` for chat messages or `generate_raw` for raw few-shot examples instead.')
