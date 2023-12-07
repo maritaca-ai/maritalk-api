@@ -232,11 +232,11 @@ class MariTalkLocal:
         if response.ok:
             return response.json()
 
+        # Return the error message in case of a failed request
         if response.headers.get("content-type") == "application/json":
-            data = response.json()
-            if "error" in data:
-                return data
+            return response.json()
 
+        # Raise for any other failed responses
         response.raise_for_status()
 
     def generate(
@@ -295,11 +295,11 @@ class MariTalkLocal:
         if response.ok:
             return response.json()
 
+        # Return the error message in case of a failed request
         if response.headers.get("content-type") == "application/json":
-            data = response.json()
-            if "error" in data:
-                return data
+            return response.json()
 
+        # Raise for any other failed responses
         response.raise_for_status()
 
     def generate_chat(self, *args, **kwargs):
