@@ -65,4 +65,4 @@ Starting MariTalk Local API at http://localhost:9000
 {'output': 'nadador, marinho e azul.', 'queue_time': 0, 'prompt_time': 270, 'generation_time': 143}
 ```
 
-Para adiquirir uma licença da MariTalk Local [clique aqui](https://chat.maritaca.ai/checkout/maritalk-small).
+Para adquirir uma licença da MariTalk Local [clique aqui](https://maritaca.ai/#maritalk-local).
