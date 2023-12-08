@@ -120,7 +120,7 @@ A tabela abaixo compara essas duas versões e apresenta algumas comparações co
 | GPT-3.5-turbo | - | 16k | 67,0 | - |
 | GPT-4-turbo | - | 132k | 80,6 | - |
 
-O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia. Atualmente, a MariTalk local roda apenas em GPUs da arquitetura Ampere (A100, A6000 e A10).
+O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia. Atualmente, a MariTalk local roda apenas em GPUs da arquitetura Ampere (A100, A6000 e A10). [Neste link](./examples/oracle.md) você entra um passo a passo de como executar em uma instância na Oracle Cloud Infrastructure (OCI).
 
 Também disponibilizamos um [Google Colab](https://colab.research.google.com/drive/1Z-jtxISFTm9QOzErShck_eP_DcR8Jvct?usp=sharing) com os passos para executar a API em uma Nvidia A100 40GB (é necessário Colab Pro para executar o notebook).
 
@@ -164,7 +164,7 @@ messages = [
 ]
 
 # Gerando a resposta do chat
-chat_response = client.generate_chat(messages)
+chat_response = client.generate(messages)
 print(chat_response)  # {'output': 'nani, bento e leo.', 'queue_time': 0, 'prompt_time': 185, 'generation_time': 127}
 ```
 
@@ -244,4 +244,4 @@ Após isso, novos tokens são gerados a uma taxa de 10 a 15 tokens/seg.
 Teste a MariTalk Large via interface web em:
 [chat.maritaca.ai](https://chat.maritaca.ai/)
 
-<img src="https://raw.githubusercontent.com/maritaca-ai/maritalk-api/main/imgs/web_interface.png" width="600">
+<img src="https://raw.githubusercontent.com/maritaca-ai/maritalk-api/main/.github/imgs/web-interface.png" width="600">
