@@ -82,7 +82,8 @@ class MariTalkLocal:
         cuda_version: Optional[int] = None,
         ssl_version: Optional[int] = None,
     ):
-        if not os.path.exists(os.path.expanduser(bin_path)):
+        bin_path = os.path.expanduser(bin_path)
+        if not os.path.exists(bin_path):
             if not cuda_version:
                 check_gpu()
             detected_versions = find_libs()
