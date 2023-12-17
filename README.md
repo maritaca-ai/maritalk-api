@@ -115,8 +115,8 @@ A tabela abaixo compara essas duas versões e apresenta algumas comparações co
 
 | Modelo | GPU RAM (min)  | Max tokens | Pontuação média (14 Datasets)[^1] | Link para Download |
 |--|--|--|--|--|
-| MariTalk Local Small v1.0| 6GB | 8.000 | 65.4 | [Link](https://chat.maritaca.ai/checkout/maritalk-small) |
-| MariTalk Local Large v1.0| 24GB | 8.000 | 73.0 | Lançamento em breve |
+| MariTalk Local Small v1.0| 6GB | 8.000 | 65,4 | [Link](https://chat.maritaca.ai/checkout/maritalk-small) |
+| MariTalk Local Large v1.0| 24GB | 8.000 | 73,0 | Lançamento em breve |
 | GPT-3.5-turbo | - | 16k | 67,0 | - |
 | GPT-4-turbo | - | 132k | 80,6 | - |
 
