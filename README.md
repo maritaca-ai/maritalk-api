@@ -1,8 +1,9 @@
 ### Conteúdo
 - [Instalação](#instalação)  
 - [Executando via API](#exemplo-de-uso)
+- [Executando com o LangChain](https://colab.research.google.com/drive/1bka6wdgYQ9slKuNDRigBep4UY4HLhmHL?usp=sharing)
 - [Executando localmente](#modo-local)
-- [Web chat (gratuito)](#web-chat) 
+- [Web chat (gratuito)](#web-chat)
 
 # Introdução
 Este repositório contém o código e a documentação explicando como usar a API da MariTalk e a versão local para deploy on-premises.
