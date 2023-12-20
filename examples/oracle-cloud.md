@@ -1,6 +1,6 @@
 # Executando MariTalk Local na Oracle Cloud Infrastructure (OCI)
 
-Este tutorial mostra como executar o MariTalk Local na Oracle Cloud Infrastructure (OCI). Para isso, utilizaremos Docker em uma instância com a GPU Nvidia A10 (`VM.GPU.A10.1`).
+Este tutorial mostra como executar a MariTalk Local na Oracle Cloud Infrastructure (OCI). Para isso, utilizaremos Docker em uma instância com a GPU Nvidia A10 (`VM.GPU.A10.1`).
 
 1. Crie uma instância na OCI selecionando `NVIDIA GPU Cloud Machine Image` como imagem e `VM.GPU.A10.1` como shape.
 
