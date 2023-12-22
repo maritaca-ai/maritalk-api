@@ -3,6 +3,7 @@ from typing import List, Dict, Union
 from requests.exceptions import HTTPError
 from http import HTTPStatus
 
+
 class MaritalkHTTPError(HTTPError):
     def __init__(self, request_obj):
         self.request_obj = request_obj
