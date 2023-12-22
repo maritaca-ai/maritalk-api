@@ -21,7 +21,7 @@ class MaritalkHTTPError(HTTPError):
     def __str__(self):
         print(dir(self.request_obj))
         status_code_meaning = HTTPStatus(self.status_code).phrase
-        formatted_message = f"HTTP Error: {self.status_code} - {status_code_meaning}\n Detail: {self.message}"
+        formatted_message = f"HTTP Error: {self.status_code} - {status_code_meaning}\nDetail: {self.message}"
         return formatted_message
 
 
