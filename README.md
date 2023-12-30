@@ -1,7 +1,7 @@
 ### Conteúdo
 - [Instalação](#instalação)  
 - [Executando via API](#exemplo-de-uso)
-- [Executando com o LangChain](https://colab.research.google.com/drive/1bka6wdgYQ9slKuNDRigBep4UY4HLhmHL?usp=sharing)
+  - [API + RAG com o LangChain](https://colab.research.google.com/drive/1bka6wdgYQ9slKuNDRigBep4UY4HLhmHL?usp=sharing)
 - [Executando localmente](#modo-local)
 - [Chat (gratuito)](#web-chat)
 
