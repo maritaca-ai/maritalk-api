@@ -93,3 +93,5 @@ Starting MariTalk Local API at http://localhost:9000
 ## Observações
 
 - Se você estiver executando uma instância com um HDD em vez de um SSD, o carregamento inicial pode levar algum tempo para ser concluído, então o processo pode demorar alguns minutos para começar a responder às requisições.
+
+- Executando em uma GPU Nvidia A10 e considerando uma entrada de ~1.000 tokens e uma saída de ~500 tokens, espera-se um throughput de aproximadamente 17 tokens/s (ou 46 tokens/s processados no total).
