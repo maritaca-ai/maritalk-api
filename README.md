@@ -3,6 +3,7 @@
 - [Executando via API](#exemplo-de-uso)
 - [Executando com o LangChain](https://colab.research.google.com/drive/1bka6wdgYQ9slKuNDRigBep4UY4HLhmHL?usp=sharing)
 - [Executando localmente](#modo-local)
+  - [Em GPUs da Oracle Cloud (OCI)](./examples/oracle-cloud.md)
 - [Chat (gratuito)](#web-chat)
 
 # Introdução
@@ -121,7 +122,7 @@ A tabela abaixo compara essas duas versões e apresenta algumas comparações co
 | GPT-3.5-turbo | - | 16k | 67,0 | - |
 | GPT-4-turbo | - | 132k | 80,6 | - |
 
-O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia. Atualmente, a MariTalk local roda apenas em GPUs da arquitetura Ampere (A100, A6000 e A10). [Neste link](./examples/oracle.md) você entra um passo a passo de como executar em uma instância na Oracle Cloud Infrastructure (OCI).
+O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia. Atualmente, a MariTalk local roda apenas em GPUs da arquitetura Ampere (A100, A6000 e A10).
 
 Também disponibilizamos um [Google Colab](https://colab.research.google.com/drive/1Z-jtxISFTm9QOzErShck_eP_DcR8Jvct?usp=sharing) com os passos para executar a API em uma Nvidia A100 40GB (é necessário Colab Pro para executar o notebook).
 
