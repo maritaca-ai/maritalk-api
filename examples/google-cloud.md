@@ -1,6 +1,6 @@
 # Executando MariTalk Local na Google Cloud Platform (GCP)
 
-Este tutorial mostra como executar a MariTalk Local na Google Cloud Platform (GCP). Para isso, utilizaremos Docker em uma instância com a GPU NVIDIA L4 24GB.
+Este tutorial mostra como executar a MariTalk Local Small na Google Cloud Platform (GCP). Para isso, utilizaremos Docker em uma instância com a GPU NVIDIA L4 24GB.
 
 1. Crie uma instância na GCP selecionando NVIDIA L4 como __GPU type__ em __Machine configuration__.
 
