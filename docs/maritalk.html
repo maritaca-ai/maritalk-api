@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="pdoc 14.1.0"/>
+    <meta name="generator" content="pdoc 14.2.0"/>
     <title>maritalk API documentation</title>
 
     <style>/*! * Bootstrap Reboot v5.0.0 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md) */*,::after,::before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}hr{margin:1rem 0;color:inherit;background-color:currentColor;border:0;opacity:.25}hr:not([size]){height:1px}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2}h1{font-size:calc(1.375rem + 1.5vw)}@media (min-width:1200px){h1{font-size:2.5rem}}h2{font-size:calc(1.325rem + .9vw)}@media (min-width:1200px){h2{font-size:2rem}}h3{font-size:calc(1.3rem + .6vw)}@media (min-width:1200px){h3{font-size:1.75rem}}h4{font-size:calc(1.275rem + .3vw)}@media (min-width:1200px){h4{font-size:1.5rem}}h5{font-size:1.25rem}h6{font-size:1rem}p{margin-top:0;margin-bottom:1rem}abbr[data-bs-original-title],abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted;cursor:help;-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none}address{margin-bottom:1rem;font-style:normal;line-height:inherit}ol,ul{padding-left:2rem}dl,ol,ul{margin-top:0;margin-bottom:1rem}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}dt{font-weight:700}dd{margin-bottom:.5rem;margin-left:0}blockquote{margin:0 0 1rem}b,strong{font-weight:bolder}small{font-size:.875em}mark{padding:.2em;background-color:#fcf8e3}sub,sup{position:relative;font-size:.75em;line-height:0;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}a{color:#0d6efd;text-decoration:underline}a:hover{color:#0a58ca}a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em;direction:ltr;unicode-bidi:bidi-override}pre{display:block;margin-top:0;margin-bottom:1rem;overflow:auto;font-size:.875em}pre code{font-size:inherit;color:inherit;word-break:normal}code{font-size:.875em;color:#d63384;word-wrap:break-word}a>code{color:inherit}kbd{padding:.2rem .4rem;font-size:.875em;color:#fff;background-color:#212529;border-radius:.2rem}kbd kbd{padding:0;font-size:1em;font-weight:700}figure{margin:0 0 1rem}img,svg{vertical-align:middle}table{caption-side:bottom;border-collapse:collapse}caption{padding-top:.5rem;padding-bottom:.5rem;color:#6c757d;text-align:left}th{text-align:inherit;text-align:-webkit-match-parent}tbody,td,tfoot,th,thead,tr{border-color:inherit;border-style:solid;border-width:0}label{display:inline-block}button{border-radius:0}button:focus:not(:focus-visible){outline:0}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}[role=button]{cursor:pointer}select{word-wrap:normal}select:disabled{opacity:1}[list]::-webkit-calendar-picker-indicator{display:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled){cursor:pointer}::-moz-focus-inner{padding:0;border-style:none}textarea{resize:vertical}fieldset{min-width:0;padding:0;margin:0;border:0}legend{float:left;width:100%;padding:0;margin-bottom:.5rem;font-size:calc(1.275rem + .3vw);line-height:inherit}@media (min-width:1200px){legend{font-size:1.5rem}}legend+*{clear:left}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}[type=search]{outline-offset:-2px;-webkit-appearance:textfield}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::file-selector-button{font:inherit}::-webkit-file-upload-button{font:inherit;-webkit-appearance:button}output{display:inline-block}iframe{border:0}summary{display:list-item;cursor:pointer}progress{vertical-align:baseline}[hidden]{display:none!important}</style>
@@ -73,6 +73,9 @@
                                 <a class="function" href="#MariTalkLocal.status">status</a>
                         </li>
                         <li>
+                                <a class="function" href="#MariTalkLocal.generate_raw">generate_raw</a>
+                        </li>
+                        <li>
                                 <a class="function" href="#MariTalkLocal.generate">generate</a>
                         </li>
                         <li>
@@ -102,8 +105,9 @@ maritalk    </h1>
 <ul>
 <li><a href="#instalação">Instalação</a>  </li>
 <li><a href="#exemplo-de-uso">Executando via API</a></li>
+<li><a href="https://colab.research.google.com/drive/1bka6wdgYQ9slKuNDRigBep4UY4HLhmHL?usp=sharing">Executando com o LangChain</a></li>
 <li><a href="#modo-local">Executando localmente</a></li>
-<li><a href="#web-chat">Web chat (gratuito)</a> </li>
+<li><a href="#web-chat">Chat (gratuito)</a></li>
 </ul>
 
 <h1 id="introducao">Introdução</h1>
@@ -111,6 +115,12 @@ maritalk    </h1>
 <p>Este repositório contém o código e a documentação explicando como usar a API da MariTalk e a versão local para deploy on-premises.
 A MariTalk é uma assistente baseada em um modelo de linguagem que foi especialmente treinado para entender bem o português.
 Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.</p>
+
+<p>Este é um serviço pago disponível apenas para assinantes da MariTalk API. Para assinar, acesse <a href="https://chat.maritaca.ai/">chat.maritaca.ai</a> -> "Meu Plano" -> "Assine a MariTalk API".</p>
+
+<p>A cobrança é feita por tokens, sendo o mesmo valor cobrado por tokens de entrada (i.e., prompt) e saída (i.e., gerados pelo modelo): R$5 a cada um milhão de tokens.</p>
+
+<p>Novos assinantes recebem R$20 em créditos da API.</p>
 
 <h1 id="instalacao">Instalação</h1>
 
@@ -229,16 +239,16 @@ A tabela abaixo compara essas duas versões e apresenta algumas comparações co
 <tbody>
 <tr>
   <td>MariTalk Local Small v1.0</td>
-  <td>4GB</td>
+  <td>6GB</td>
   <td>8.000</td>
-  <td>65.4</td>
+  <td>65,4</td>
   <td><a href="https://chat.maritaca.ai/checkout/maritalk-small">Link</a></td>
 </tr>
 <tr>
   <td>MariTalk Local Large v1.0</td>
-  <td>40GB</td>
+  <td>24GB</td>
   <td>8.000</td>
-  <td>73.0</td>
+  <td>73,0</td>
   <td>Lançamento em breve</td>
 </tr>
 <tr>
@@ -258,7 +268,7 @@ A tabela abaixo compara essas duas versões e apresenta algumas comparações co
 </tbody>
 </table>
 
-<p>O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia. Atualmente, a MariTalk local roda apenas em GPUs da arquitetura Ampere (A100, A6000 e A10).</p>
+<p>O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia. Atualmente, a MariTalk local roda apenas em GPUs da arquitetura Ampere (A100, A6000 e A10). <a href="./examples/oracle.md">Neste link</a> você entra um passo a passo de como executar em uma instância na Oracle Cloud Infrastructure (OCI).</p>
 
 <p>Também disponibilizamos um <a href="https://colab.research.google.com/drive/1Z-jtxISFTm9QOzErShck_eP_DcR8Jvct?usp=sharing">Google Colab</a> com os passos para executar a API em uma Nvidia A100 40GB (é necessário Colab Pro para executar o notebook).</p>
 
@@ -300,7 +310,7 @@ A tabela abaixo compara essas duas versões e apresenta algumas comparações co
 <span class="p">]</span>
 
 <span class="c1"># Gerando a resposta do chat</span>
-<span class="n">chat_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">generate_chat</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
+<span class="n">chat_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">chat_response</span><span class="p">)</span>  <span class="c1"># {&#39;output&#39;: &#39;nani, bento e leo.&#39;, &#39;queue_time&#39;: 0, &#39;prompt_time&#39;: 185, &#39;generation_time&#39;: 127}</span>
 </code></pre>
 </div>
@@ -376,8 +386,6 @@ Lembre-se<span class="w"> </span>de<span class="w"> </span>sempre<span class="w"
 Isso implica que a contagem total de tokens, incluindo tanto os tokens de entrada (ou seja, o prompt fornecido) quanto os tokens de saída (ou seja, os gerados pelo modelo), não deve exceder 8.000.
 Por exemplo, se o prompt contém 6.000 tokens, o valor máximo para o parâmetro <code>max_tokens</code> (isto é, a quantidade de tokens a serem gerados pelo modelo) deve ser de até 2.000 tokens.</p>
 
-<p>Cabe destacar que tanto os tokens de entrada quanto os de saída são cobrados igualmente.</p>
-
 <h3 id="capacidade-de-processamento">Capacidade de Processamento</h3>
 
 <p>Leva cerca de 1 a 2 segundos para gerar o primeiro token, dado uma sequência de 1000 tokens como entrada.
@@ -388,7 +396,7 @@ Após isso, novos tokens são gerados a uma taxa de 10 a 15 tokens/seg.</p>
 <p>Teste a MariTalk Large via interface web em:
 <a href="https://chat.maritaca.ai/">chat.maritaca.ai</a></p>
 
-<p><img src="https://raw.githubusercontent.com/maritaca-ai/maritalk-api/main/imgs/web_interface.png" width="600"></p>
+<p><img src="https://raw.githubusercontent.com/maritaca-ai/maritalk-api/main/.github/imgs/web-interface.png" width="600"></p>
 
 <div class="footnotes">
 <hr />
@@ -801,7 +809,7 @@ If False, messages should be a string representing the prompt. chat_mode=False i
 </span><span id="MariTalkLocal-192"><a href="#MariTalkLocal-192"><span class="linenos">192</span></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api_url</span><span class="p">)</span>
 </span><span id="MariTalkLocal-193"><a href="#MariTalkLocal-193"><span class="linenos">193</span></a>        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </span><span id="MariTalkLocal-194"><a href="#MariTalkLocal-194"><span class="linenos">194</span></a>
-</span><span id="MariTalkLocal-195"><a href="#MariTalkLocal-195"><span class="linenos">195</span></a>    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span>
+</span><span id="MariTalkLocal-195"><a href="#MariTalkLocal-195"><span class="linenos">195</span></a>    <span class="k">def</span> <span class="nf">generate_raw</span><span class="p">(</span>
 </span><span id="MariTalkLocal-196"><a href="#MariTalkLocal-196"><span class="linenos">196</span></a>        <span class="bp">self</span><span class="p">,</span>
 </span><span id="MariTalkLocal-197"><a href="#MariTalkLocal-197"><span class="linenos">197</span></a>        <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 </span><span id="MariTalkLocal-198"><a href="#MariTalkLocal-198"><span class="linenos">198</span></a>        <span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span>
@@ -809,93 +817,119 @@ If False, messages should be a string representing the prompt. chat_mode=False i
 </span><span id="MariTalkLocal-200"><a href="#MariTalkLocal-200"><span class="linenos">200</span></a>        <span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
 </span><span id="MariTalkLocal-201"><a href="#MariTalkLocal-201"><span class="linenos">201</span></a>        <span class="n">do_sample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 </span><span id="MariTalkLocal-202"><a href="#MariTalkLocal-202"><span class="linenos">202</span></a>        <span class="n">stop_sequences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
-</span><span id="MariTalkLocal-203"><a href="#MariTalkLocal-203"><span class="linenos">203</span></a>    <span class="p">):</span>
-</span><span id="MariTalkLocal-204"><a href="#MariTalkLocal-204"><span class="linenos">204</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="MariTalkLocal-205"><a href="#MariTalkLocal-205"><span class="linenos">205</span></a><span class="sd">        Generate a completion for a given prompt.</span>
-</span><span id="MariTalkLocal-206"><a href="#MariTalkLocal-206"><span class="linenos">206</span></a>
-</span><span id="MariTalkLocal-207"><a href="#MariTalkLocal-207"><span class="linenos">207</span></a><span class="sd">        Args:</span>
-</span><span id="MariTalkLocal-208"><a href="#MariTalkLocal-208"><span class="linenos">208</span></a><span class="sd">            prompt (`str`):</span>
-</span><span id="MariTalkLocal-209"><a href="#MariTalkLocal-209"><span class="linenos">209</span></a><span class="sd">                The initial prompt to generate completions for. It can be the beginning of a text to be completed or an instruction for performing a task.</span>
-</span><span id="MariTalkLocal-210"><a href="#MariTalkLocal-210"><span class="linenos">210</span></a><span class="sd">            temperature (`float`, *optional*, defaults to `0.7`):</span>
-</span><span id="MariTalkLocal-211"><a href="#MariTalkLocal-211"><span class="linenos">211</span></a><span class="sd">                The sampling temperature for the next token probability. Higher values generate more random texts, while lower values will make it more deterministic.</span>
-</span><span id="MariTalkLocal-212"><a href="#MariTalkLocal-212"><span class="linenos">212</span></a><span class="sd">            top_p (`float`, *optional*, defaults to `0.95`):</span>
-</span><span id="MariTalkLocal-213"><a href="#MariTalkLocal-213"><span class="linenos">213</span></a><span class="sd">                The top probability mass to use on nucleus sampling. Read more at: https://arxiv.org/abs/1904.09751.</span>
-</span><span id="MariTalkLocal-214"><a href="#MariTalkLocal-214"><span class="linenos">214</span></a><span class="sd">            max_tokens (`int`, *optional*, defaults to `512`):</span>
-</span><span id="MariTalkLocal-215"><a href="#MariTalkLocal-215"><span class="linenos">215</span></a><span class="sd">                Maximum number of tokens to generate.</span>
-</span><span id="MariTalkLocal-216"><a href="#MariTalkLocal-216"><span class="linenos">216</span></a><span class="sd">            do_sample (`bool`, *optional*, defaults to `True`):</span>
-</span><span id="MariTalkLocal-217"><a href="#MariTalkLocal-217"><span class="linenos">217</span></a><span class="sd">                Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.</span>
-</span><span id="MariTalkLocal-218"><a href="#MariTalkLocal-218"><span class="linenos">218</span></a><span class="sd">            stop_sequences (`List[str]`, *optional*):</span>
-</span><span id="MariTalkLocal-219"><a href="#MariTalkLocal-219"><span class="linenos">219</span></a><span class="sd">                A list of sequences to stop the generation process.</span>
-</span><span id="MariTalkLocal-220"><a href="#MariTalkLocal-220"><span class="linenos">220</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="MariTalkLocal-221"><a href="#MariTalkLocal-221"><span class="linenos">221</span></a>
-</span><span id="MariTalkLocal-222"><a href="#MariTalkLocal-222"><span class="linenos">222</span></a>        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="MariTalkLocal-223"><a href="#MariTalkLocal-223"><span class="linenos">223</span></a>            <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">,</span>
-</span><span id="MariTalkLocal-224"><a href="#MariTalkLocal-224"><span class="linenos">224</span></a>            <span class="s2">&quot;do_sample&quot;</span><span class="p">:</span> <span class="n">do_sample</span><span class="p">,</span>
-</span><span id="MariTalkLocal-225"><a href="#MariTalkLocal-225"><span class="linenos">225</span></a>            <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="n">temperature</span><span class="p">,</span>
-</span><span id="MariTalkLocal-226"><a href="#MariTalkLocal-226"><span class="linenos">226</span></a>            <span class="s2">&quot;top_p&quot;</span><span class="p">:</span> <span class="n">top_p</span><span class="p">,</span>
-</span><span id="MariTalkLocal-227"><a href="#MariTalkLocal-227"><span class="linenos">227</span></a>            <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="n">max_tokens</span><span class="p">,</span>
-</span><span id="MariTalkLocal-228"><a href="#MariTalkLocal-228"><span class="linenos">228</span></a>            <span class="s2">&quot;stop_sequences&quot;</span><span class="p">:</span> <span class="n">stop_sequences</span><span class="p">,</span>
-</span><span id="MariTalkLocal-229"><a href="#MariTalkLocal-229"><span class="linenos">229</span></a>        <span class="p">}</span>
-</span><span id="MariTalkLocal-230"><a href="#MariTalkLocal-230"><span class="linenos">230</span></a>
-</span><span id="MariTalkLocal-231"><a href="#MariTalkLocal-231"><span class="linenos">231</span></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">api_url</span><span class="si">}</span><span class="s2">/generate&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-</span><span id="MariTalkLocal-232"><a href="#MariTalkLocal-232"><span class="linenos">232</span></a>
-</span><span id="MariTalkLocal-233"><a href="#MariTalkLocal-233"><span class="linenos">233</span></a>        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
-</span><span id="MariTalkLocal-234"><a href="#MariTalkLocal-234"><span class="linenos">234</span></a>            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</span><span id="MariTalkLocal-235"><a href="#MariTalkLocal-235"><span class="linenos">235</span></a>        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+</span><span id="MariTalkLocal-203"><a href="#MariTalkLocal-203"><span class="linenos">203</span></a>        <span class="n">seed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="MariTalkLocal-204"><a href="#MariTalkLocal-204"><span class="linenos">204</span></a>    <span class="p">):</span>
+</span><span id="MariTalkLocal-205"><a href="#MariTalkLocal-205"><span class="linenos">205</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="MariTalkLocal-206"><a href="#MariTalkLocal-206"><span class="linenos">206</span></a><span class="sd">        Generate a completion for a given prompt.</span>
+</span><span id="MariTalkLocal-207"><a href="#MariTalkLocal-207"><span class="linenos">207</span></a>
+</span><span id="MariTalkLocal-208"><a href="#MariTalkLocal-208"><span class="linenos">208</span></a><span class="sd">        Args:</span>
+</span><span id="MariTalkLocal-209"><a href="#MariTalkLocal-209"><span class="linenos">209</span></a><span class="sd">            prompt (`str`):</span>
+</span><span id="MariTalkLocal-210"><a href="#MariTalkLocal-210"><span class="linenos">210</span></a><span class="sd">                The initial prompt to generate completions for. It can be the beginning of a text to be completed or an instruction for performing a task.</span>
+</span><span id="MariTalkLocal-211"><a href="#MariTalkLocal-211"><span class="linenos">211</span></a><span class="sd">            temperature (`float`, *optional*, defaults to `0.7`):</span>
+</span><span id="MariTalkLocal-212"><a href="#MariTalkLocal-212"><span class="linenos">212</span></a><span class="sd">                The sampling temperature for the next token probability. Higher values generate more random texts, while lower values will make it more deterministic.</span>
+</span><span id="MariTalkLocal-213"><a href="#MariTalkLocal-213"><span class="linenos">213</span></a><span class="sd">            top_p (`float`, *optional*, defaults to `0.95`):</span>
+</span><span id="MariTalkLocal-214"><a href="#MariTalkLocal-214"><span class="linenos">214</span></a><span class="sd">                The top probability mass to use on nucleus sampling. Read more at: https://arxiv.org/abs/1904.09751.</span>
+</span><span id="MariTalkLocal-215"><a href="#MariTalkLocal-215"><span class="linenos">215</span></a><span class="sd">            max_tokens (`int`, *optional*, defaults to `512`):</span>
+</span><span id="MariTalkLocal-216"><a href="#MariTalkLocal-216"><span class="linenos">216</span></a><span class="sd">                Maximum number of tokens to generate.</span>
+</span><span id="MariTalkLocal-217"><a href="#MariTalkLocal-217"><span class="linenos">217</span></a><span class="sd">            do_sample (`bool`, *optional*, defaults to `True`):</span>
+</span><span id="MariTalkLocal-218"><a href="#MariTalkLocal-218"><span class="linenos">218</span></a><span class="sd">                Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.</span>
+</span><span id="MariTalkLocal-219"><a href="#MariTalkLocal-219"><span class="linenos">219</span></a><span class="sd">            stop_sequences (`List[str]`, *optional*):</span>
+</span><span id="MariTalkLocal-220"><a href="#MariTalkLocal-220"><span class="linenos">220</span></a><span class="sd">                A list of sequences to stop the generation process.</span>
+</span><span id="MariTalkLocal-221"><a href="#MariTalkLocal-221"><span class="linenos">221</span></a><span class="sd">            seed (`int`, *optional*, defaults to `None`):</span>
+</span><span id="MariTalkLocal-222"><a href="#MariTalkLocal-222"><span class="linenos">222</span></a><span class="sd">                Seed to use during the random sampling process to make it reproducible.</span>
+</span><span id="MariTalkLocal-223"><a href="#MariTalkLocal-223"><span class="linenos">223</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="MariTalkLocal-224"><a href="#MariTalkLocal-224"><span class="linenos">224</span></a>
+</span><span id="MariTalkLocal-225"><a href="#MariTalkLocal-225"><span class="linenos">225</span></a>        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="MariTalkLocal-226"><a href="#MariTalkLocal-226"><span class="linenos">226</span></a>            <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">,</span>
+</span><span id="MariTalkLocal-227"><a href="#MariTalkLocal-227"><span class="linenos">227</span></a>            <span class="s2">&quot;do_sample&quot;</span><span class="p">:</span> <span class="n">do_sample</span><span class="p">,</span>
+</span><span id="MariTalkLocal-228"><a href="#MariTalkLocal-228"><span class="linenos">228</span></a>            <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="n">temperature</span><span class="p">,</span>
+</span><span id="MariTalkLocal-229"><a href="#MariTalkLocal-229"><span class="linenos">229</span></a>            <span class="s2">&quot;top_p&quot;</span><span class="p">:</span> <span class="n">top_p</span><span class="p">,</span>
+</span><span id="MariTalkLocal-230"><a href="#MariTalkLocal-230"><span class="linenos">230</span></a>            <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="n">max_tokens</span><span class="p">,</span>
+</span><span id="MariTalkLocal-231"><a href="#MariTalkLocal-231"><span class="linenos">231</span></a>            <span class="s2">&quot;stop_sequences&quot;</span><span class="p">:</span> <span class="n">stop_sequences</span><span class="p">,</span>
+</span><span id="MariTalkLocal-232"><a href="#MariTalkLocal-232"><span class="linenos">232</span></a>            <span class="s2">&quot;seed&quot;</span><span class="p">:</span> <span class="n">seed</span><span class="p">,</span>
+</span><span id="MariTalkLocal-233"><a href="#MariTalkLocal-233"><span class="linenos">233</span></a>        <span class="p">}</span>
+</span><span id="MariTalkLocal-234"><a href="#MariTalkLocal-234"><span class="linenos">234</span></a>
+</span><span id="MariTalkLocal-235"><a href="#MariTalkLocal-235"><span class="linenos">235</span></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">api_url</span><span class="si">}</span><span class="s2">/generate&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 </span><span id="MariTalkLocal-236"><a href="#MariTalkLocal-236"><span class="linenos">236</span></a>
-</span><span id="MariTalkLocal-237"><a href="#MariTalkLocal-237"><span class="linenos">237</span></a>    <span class="k">def</span> <span class="nf">generate_chat</span><span class="p">(</span>
-</span><span id="MariTalkLocal-238"><a href="#MariTalkLocal-238"><span class="linenos">238</span></a>        <span class="bp">self</span><span class="p">,</span>
-</span><span id="MariTalkLocal-239"><a href="#MariTalkLocal-239"><span class="linenos">239</span></a>        <span class="n">messages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span>
-</span><span id="MariTalkLocal-240"><a href="#MariTalkLocal-240"><span class="linenos">240</span></a>        <span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span>
-</span><span id="MariTalkLocal-241"><a href="#MariTalkLocal-241"><span class="linenos">241</span></a>        <span class="n">top_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
-</span><span id="MariTalkLocal-242"><a href="#MariTalkLocal-242"><span class="linenos">242</span></a>        <span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
-</span><span id="MariTalkLocal-243"><a href="#MariTalkLocal-243"><span class="linenos">243</span></a>        <span class="n">do_sample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-</span><span id="MariTalkLocal-244"><a href="#MariTalkLocal-244"><span class="linenos">244</span></a>        <span class="n">stop_sequences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
-</span><span id="MariTalkLocal-245"><a href="#MariTalkLocal-245"><span class="linenos">245</span></a>    <span class="p">):</span>
-</span><span id="MariTalkLocal-246"><a href="#MariTalkLocal-246"><span class="linenos">246</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="MariTalkLocal-247"><a href="#MariTalkLocal-247"><span class="linenos">247</span></a><span class="sd">        Generate a completion for a given prompt.</span>
-</span><span id="MariTalkLocal-248"><a href="#MariTalkLocal-248"><span class="linenos">248</span></a>
-</span><span id="MariTalkLocal-249"><a href="#MariTalkLocal-249"><span class="linenos">249</span></a><span class="sd">        Args:</span>
-</span><span id="MariTalkLocal-250"><a href="#MariTalkLocal-250"><span class="linenos">250</span></a><span class="sd">            messages (`List[Dict[str, str]]`):</span>
-</span><span id="MariTalkLocal-251"><a href="#MariTalkLocal-251"><span class="linenos">251</span></a><span class="sd">                A list where each item should be a dictionary containing the keys `role` and `content`. For example:</span>
-</span><span id="MariTalkLocal-252"><a href="#MariTalkLocal-252"><span class="linenos">252</span></a><span class="sd">                ```</span>
-</span><span id="MariTalkLocal-253"><a href="#MariTalkLocal-253"><span class="linenos">253</span></a><span class="sd">                messages = [</span>
-</span><span id="MariTalkLocal-254"><a href="#MariTalkLocal-254"><span class="linenos">254</span></a><span class="sd">                    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;bom dia, esta é a mensagem do usuario&quot;},</span>
-</span><span id="MariTalkLocal-255"><a href="#MariTalkLocal-255"><span class="linenos">255</span></a><span class="sd">                    {&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;bom dia, esta é a resposta do assistente&quot;},</span>
-</span><span id="MariTalkLocal-256"><a href="#MariTalkLocal-256"><span class="linenos">256</span></a><span class="sd">                    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Você pode me falar quanto é 25 + 27?&quot;},</span>
-</span><span id="MariTalkLocal-257"><a href="#MariTalkLocal-257"><span class="linenos">257</span></a><span class="sd">                ]</span>
-</span><span id="MariTalkLocal-258"><a href="#MariTalkLocal-258"><span class="linenos">258</span></a><span class="sd">                ```</span>
-</span><span id="MariTalkLocal-259"><a href="#MariTalkLocal-259"><span class="linenos">259</span></a><span class="sd">            temperature (`float`, *optional*, defaults to `0.7`):</span>
-</span><span id="MariTalkLocal-260"><a href="#MariTalkLocal-260"><span class="linenos">260</span></a><span class="sd">                The sampling temperature for the next token probability. Higher values generate more random texts, while lower values will make it more deterministic.</span>
-</span><span id="MariTalkLocal-261"><a href="#MariTalkLocal-261"><span class="linenos">261</span></a><span class="sd">            top_p (`float`, *optional*, defaults to `0.95`):</span>
-</span><span id="MariTalkLocal-262"><a href="#MariTalkLocal-262"><span class="linenos">262</span></a><span class="sd">                The top probability mass to use on nucleus sampling. Read more at: https://arxiv.org/abs/1904.09751.</span>
-</span><span id="MariTalkLocal-263"><a href="#MariTalkLocal-263"><span class="linenos">263</span></a><span class="sd">            max_tokens (`int`, *optional*, defaults to `512`):</span>
-</span><span id="MariTalkLocal-264"><a href="#MariTalkLocal-264"><span class="linenos">264</span></a><span class="sd">                Maximum number of tokens to generate.</span>
-</span><span id="MariTalkLocal-265"><a href="#MariTalkLocal-265"><span class="linenos">265</span></a><span class="sd">            do_sample (`bool`, *optional*, defaults to `True`):</span>
-</span><span id="MariTalkLocal-266"><a href="#MariTalkLocal-266"><span class="linenos">266</span></a><span class="sd">                Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.</span>
-</span><span id="MariTalkLocal-267"><a href="#MariTalkLocal-267"><span class="linenos">267</span></a><span class="sd">            stop_sequences (`List[str]`, *optional*):</span>
-</span><span id="MariTalkLocal-268"><a href="#MariTalkLocal-268"><span class="linenos">268</span></a><span class="sd">                A list of sequences to stop the generation process.</span>
-</span><span id="MariTalkLocal-269"><a href="#MariTalkLocal-269"><span class="linenos">269</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="MariTalkLocal-270"><a href="#MariTalkLocal-270"><span class="linenos">270</span></a>
-</span><span id="MariTalkLocal-271"><a href="#MariTalkLocal-271"><span class="linenos">271</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-</span><span id="MariTalkLocal-272"><a href="#MariTalkLocal-272"><span class="linenos">272</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-</span><span id="MariTalkLocal-273"><a href="#MariTalkLocal-273"><span class="linenos">273</span></a>                <span class="s2">&quot;You should pass a list of messages on `messages`. For raw string prompts use `generate` method instead.&quot;</span>
-</span><span id="MariTalkLocal-274"><a href="#MariTalkLocal-274"><span class="linenos">274</span></a>            <span class="p">)</span>
-</span><span id="MariTalkLocal-275"><a href="#MariTalkLocal-275"><span class="linenos">275</span></a>
-</span><span id="MariTalkLocal-276"><a href="#MariTalkLocal-276"><span class="linenos">276</span></a>        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="MariTalkLocal-277"><a href="#MariTalkLocal-277"><span class="linenos">277</span></a>            <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
-</span><span id="MariTalkLocal-278"><a href="#MariTalkLocal-278"><span class="linenos">278</span></a>            <span class="s2">&quot;do_sample&quot;</span><span class="p">:</span> <span class="n">do_sample</span><span class="p">,</span>
-</span><span id="MariTalkLocal-279"><a href="#MariTalkLocal-279"><span class="linenos">279</span></a>            <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="n">temperature</span><span class="p">,</span>
-</span><span id="MariTalkLocal-280"><a href="#MariTalkLocal-280"><span class="linenos">280</span></a>            <span class="s2">&quot;top_p&quot;</span><span class="p">:</span> <span class="n">top_p</span><span class="p">,</span>
-</span><span id="MariTalkLocal-281"><a href="#MariTalkLocal-281"><span class="linenos">281</span></a>            <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="n">max_tokens</span><span class="p">,</span>
-</span><span id="MariTalkLocal-282"><a href="#MariTalkLocal-282"><span class="linenos">282</span></a>            <span class="s2">&quot;stop_sequences&quot;</span><span class="p">:</span> <span class="n">stop_sequences</span><span class="p">,</span>
-</span><span id="MariTalkLocal-283"><a href="#MariTalkLocal-283"><span class="linenos">283</span></a>        <span class="p">}</span>
-</span><span id="MariTalkLocal-284"><a href="#MariTalkLocal-284"><span class="linenos">284</span></a>
-</span><span id="MariTalkLocal-285"><a href="#MariTalkLocal-285"><span class="linenos">285</span></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">api_url</span><span class="si">}</span><span class="s2">/chat/generate&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-</span><span id="MariTalkLocal-286"><a href="#MariTalkLocal-286"><span class="linenos">286</span></a>
-</span><span id="MariTalkLocal-287"><a href="#MariTalkLocal-287"><span class="linenos">287</span></a>        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
-</span><span id="MariTalkLocal-288"><a href="#MariTalkLocal-288"><span class="linenos">288</span></a>            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</span><span id="MariTalkLocal-289"><a href="#MariTalkLocal-289"><span class="linenos">289</span></a>        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+</span><span id="MariTalkLocal-237"><a href="#MariTalkLocal-237"><span class="linenos">237</span></a>        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+</span><span id="MariTalkLocal-238"><a href="#MariTalkLocal-238"><span class="linenos">238</span></a>            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="MariTalkLocal-239"><a href="#MariTalkLocal-239"><span class="linenos">239</span></a>
+</span><span id="MariTalkLocal-240"><a href="#MariTalkLocal-240"><span class="linenos">240</span></a>        <span class="c1"># Return the error message in case of a failed request</span>
+</span><span id="MariTalkLocal-241"><a href="#MariTalkLocal-241"><span class="linenos">241</span></a>        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content-type&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;application/json&quot;</span><span class="p">:</span>
+</span><span id="MariTalkLocal-242"><a href="#MariTalkLocal-242"><span class="linenos">242</span></a>            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="MariTalkLocal-243"><a href="#MariTalkLocal-243"><span class="linenos">243</span></a>
+</span><span id="MariTalkLocal-244"><a href="#MariTalkLocal-244"><span class="linenos">244</span></a>        <span class="c1"># Raise for any other failed responses</span>
+</span><span id="MariTalkLocal-245"><a href="#MariTalkLocal-245"><span class="linenos">245</span></a>        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+</span><span id="MariTalkLocal-246"><a href="#MariTalkLocal-246"><span class="linenos">246</span></a>
+</span><span id="MariTalkLocal-247"><a href="#MariTalkLocal-247"><span class="linenos">247</span></a>    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span>
+</span><span id="MariTalkLocal-248"><a href="#MariTalkLocal-248"><span class="linenos">248</span></a>        <span class="bp">self</span><span class="p">,</span>
+</span><span id="MariTalkLocal-249"><a href="#MariTalkLocal-249"><span class="linenos">249</span></a>        <span class="n">messages</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]],</span>
+</span><span id="MariTalkLocal-250"><a href="#MariTalkLocal-250"><span class="linenos">250</span></a>        <span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span>
+</span><span id="MariTalkLocal-251"><a href="#MariTalkLocal-251"><span class="linenos">251</span></a>        <span class="n">top_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
+</span><span id="MariTalkLocal-252"><a href="#MariTalkLocal-252"><span class="linenos">252</span></a>        <span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+</span><span id="MariTalkLocal-253"><a href="#MariTalkLocal-253"><span class="linenos">253</span></a>        <span class="n">do_sample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+</span><span id="MariTalkLocal-254"><a href="#MariTalkLocal-254"><span class="linenos">254</span></a>        <span class="n">stop_sequences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
+</span><span id="MariTalkLocal-255"><a href="#MariTalkLocal-255"><span class="linenos">255</span></a>        <span class="n">seed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="MariTalkLocal-256"><a href="#MariTalkLocal-256"><span class="linenos">256</span></a>    <span class="p">):</span>
+</span><span id="MariTalkLocal-257"><a href="#MariTalkLocal-257"><span class="linenos">257</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="MariTalkLocal-258"><a href="#MariTalkLocal-258"><span class="linenos">258</span></a><span class="sd">        Generate a completion for a given prompt.</span>
+</span><span id="MariTalkLocal-259"><a href="#MariTalkLocal-259"><span class="linenos">259</span></a>
+</span><span id="MariTalkLocal-260"><a href="#MariTalkLocal-260"><span class="linenos">260</span></a><span class="sd">        Args:</span>
+</span><span id="MariTalkLocal-261"><a href="#MariTalkLocal-261"><span class="linenos">261</span></a><span class="sd">            messages (`Union[str, List[Dict[str, str]]]`):</span>
+</span><span id="MariTalkLocal-262"><a href="#MariTalkLocal-262"><span class="linenos">262</span></a><span class="sd">                A string with one message or a list where each item should be a dictionary containing the keys `role` and `content`. For example:</span>
+</span><span id="MariTalkLocal-263"><a href="#MariTalkLocal-263"><span class="linenos">263</span></a><span class="sd">                ```</span>
+</span><span id="MariTalkLocal-264"><a href="#MariTalkLocal-264"><span class="linenos">264</span></a><span class="sd">                messages = [</span>
+</span><span id="MariTalkLocal-265"><a href="#MariTalkLocal-265"><span class="linenos">265</span></a><span class="sd">                    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;bom dia, esta é a mensagem do usuario&quot;},</span>
+</span><span id="MariTalkLocal-266"><a href="#MariTalkLocal-266"><span class="linenos">266</span></a><span class="sd">                    {&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;bom dia, esta é a resposta do assistente&quot;},</span>
+</span><span id="MariTalkLocal-267"><a href="#MariTalkLocal-267"><span class="linenos">267</span></a><span class="sd">                    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Você pode me falar quanto é 25 + 27?&quot;},</span>
+</span><span id="MariTalkLocal-268"><a href="#MariTalkLocal-268"><span class="linenos">268</span></a><span class="sd">                ]</span>
+</span><span id="MariTalkLocal-269"><a href="#MariTalkLocal-269"><span class="linenos">269</span></a><span class="sd">                ```</span>
+</span><span id="MariTalkLocal-270"><a href="#MariTalkLocal-270"><span class="linenos">270</span></a><span class="sd">            temperature (`float`, *optional*, defaults to `0.7`):</span>
+</span><span id="MariTalkLocal-271"><a href="#MariTalkLocal-271"><span class="linenos">271</span></a><span class="sd">                The sampling temperature for the next token probability. Higher values generate more random texts, while lower values will make it more deterministic.</span>
+</span><span id="MariTalkLocal-272"><a href="#MariTalkLocal-272"><span class="linenos">272</span></a><span class="sd">            top_p (`float`, *optional*, defaults to `0.95`):</span>
+</span><span id="MariTalkLocal-273"><a href="#MariTalkLocal-273"><span class="linenos">273</span></a><span class="sd">                The top probability mass to use on nucleus sampling. Read more at: https://arxiv.org/abs/1904.09751.</span>
+</span><span id="MariTalkLocal-274"><a href="#MariTalkLocal-274"><span class="linenos">274</span></a><span class="sd">            max_tokens (`int`, *optional*, defaults to `512`):</span>
+</span><span id="MariTalkLocal-275"><a href="#MariTalkLocal-275"><span class="linenos">275</span></a><span class="sd">                Maximum number of tokens to generate.</span>
+</span><span id="MariTalkLocal-276"><a href="#MariTalkLocal-276"><span class="linenos">276</span></a><span class="sd">            do_sample (`bool`, *optional*, defaults to `True`):</span>
+</span><span id="MariTalkLocal-277"><a href="#MariTalkLocal-277"><span class="linenos">277</span></a><span class="sd">                Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.</span>
+</span><span id="MariTalkLocal-278"><a href="#MariTalkLocal-278"><span class="linenos">278</span></a><span class="sd">            stop_sequences (`List[str]`, *optional*):</span>
+</span><span id="MariTalkLocal-279"><a href="#MariTalkLocal-279"><span class="linenos">279</span></a><span class="sd">                A list of sequences to stop the generation process.</span>
+</span><span id="MariTalkLocal-280"><a href="#MariTalkLocal-280"><span class="linenos">280</span></a><span class="sd">            seed (`int`, *optional*, defaults to `None`):</span>
+</span><span id="MariTalkLocal-281"><a href="#MariTalkLocal-281"><span class="linenos">281</span></a><span class="sd">                Seed to use during the random sampling process to make it reproducible.</span>
+</span><span id="MariTalkLocal-282"><a href="#MariTalkLocal-282"><span class="linenos">282</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="MariTalkLocal-283"><a href="#MariTalkLocal-283"><span class="linenos">283</span></a>
+</span><span id="MariTalkLocal-284"><a href="#MariTalkLocal-284"><span class="linenos">284</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+</span><span id="MariTalkLocal-285"><a href="#MariTalkLocal-285"><span class="linenos">285</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+</span><span id="MariTalkLocal-286"><a href="#MariTalkLocal-286"><span class="linenos">286</span></a>                <span class="s2">&quot;You should pass a string or a list of messages as argument.&quot;</span>
+</span><span id="MariTalkLocal-287"><a href="#MariTalkLocal-287"><span class="linenos">287</span></a>            <span class="p">)</span>
+</span><span id="MariTalkLocal-288"><a href="#MariTalkLocal-288"><span class="linenos">288</span></a>
+</span><span id="MariTalkLocal-289"><a href="#MariTalkLocal-289"><span class="linenos">289</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="MariTalkLocal-290"><a href="#MariTalkLocal-290"><span class="linenos">290</span></a>            <span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">}]</span>
+</span><span id="MariTalkLocal-291"><a href="#MariTalkLocal-291"><span class="linenos">291</span></a>
+</span><span id="MariTalkLocal-292"><a href="#MariTalkLocal-292"><span class="linenos">292</span></a>        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="MariTalkLocal-293"><a href="#MariTalkLocal-293"><span class="linenos">293</span></a>            <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
+</span><span id="MariTalkLocal-294"><a href="#MariTalkLocal-294"><span class="linenos">294</span></a>            <span class="s2">&quot;do_sample&quot;</span><span class="p">:</span> <span class="n">do_sample</span><span class="p">,</span>
+</span><span id="MariTalkLocal-295"><a href="#MariTalkLocal-295"><span class="linenos">295</span></a>            <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="n">temperature</span><span class="p">,</span>
+</span><span id="MariTalkLocal-296"><a href="#MariTalkLocal-296"><span class="linenos">296</span></a>            <span class="s2">&quot;top_p&quot;</span><span class="p">:</span> <span class="n">top_p</span><span class="p">,</span>
+</span><span id="MariTalkLocal-297"><a href="#MariTalkLocal-297"><span class="linenos">297</span></a>            <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="n">max_tokens</span><span class="p">,</span>
+</span><span id="MariTalkLocal-298"><a href="#MariTalkLocal-298"><span class="linenos">298</span></a>            <span class="s2">&quot;stop_sequences&quot;</span><span class="p">:</span> <span class="n">stop_sequences</span><span class="p">,</span>
+</span><span id="MariTalkLocal-299"><a href="#MariTalkLocal-299"><span class="linenos">299</span></a>            <span class="s2">&quot;seed&quot;</span><span class="p">:</span> <span class="n">seed</span><span class="p">,</span>
+</span><span id="MariTalkLocal-300"><a href="#MariTalkLocal-300"><span class="linenos">300</span></a>        <span class="p">}</span>
+</span><span id="MariTalkLocal-301"><a href="#MariTalkLocal-301"><span class="linenos">301</span></a>
+</span><span id="MariTalkLocal-302"><a href="#MariTalkLocal-302"><span class="linenos">302</span></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">api_url</span><span class="si">}</span><span class="s2">/chat/generate&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+</span><span id="MariTalkLocal-303"><a href="#MariTalkLocal-303"><span class="linenos">303</span></a>
+</span><span id="MariTalkLocal-304"><a href="#MariTalkLocal-304"><span class="linenos">304</span></a>        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+</span><span id="MariTalkLocal-305"><a href="#MariTalkLocal-305"><span class="linenos">305</span></a>            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="MariTalkLocal-306"><a href="#MariTalkLocal-306"><span class="linenos">306</span></a>
+</span><span id="MariTalkLocal-307"><a href="#MariTalkLocal-307"><span class="linenos">307</span></a>        <span class="c1"># Return the error message in case of a failed request</span>
+</span><span id="MariTalkLocal-308"><a href="#MariTalkLocal-308"><span class="linenos">308</span></a>        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content-type&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;application/json&quot;</span><span class="p">:</span>
+</span><span id="MariTalkLocal-309"><a href="#MariTalkLocal-309"><span class="linenos">309</span></a>            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="MariTalkLocal-310"><a href="#MariTalkLocal-310"><span class="linenos">310</span></a>
+</span><span id="MariTalkLocal-311"><a href="#MariTalkLocal-311"><span class="linenos">311</span></a>        <span class="c1"># Raise for any other failed responses</span>
+</span><span id="MariTalkLocal-312"><a href="#MariTalkLocal-312"><span class="linenos">312</span></a>        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+</span><span id="MariTalkLocal-313"><a href="#MariTalkLocal-313"><span class="linenos">313</span></a>
+</span><span id="MariTalkLocal-314"><a href="#MariTalkLocal-314"><span class="linenos">314</span></a>    <span class="k">def</span> <span class="nf">generate_chat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span><span id="MariTalkLocal-315"><a href="#MariTalkLocal-315"><span class="linenos">315</span></a>        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;This method was changed, please use `generate` for chat messages or `generate_raw` for raw few-shot examples instead.&#39;</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -1104,58 +1138,68 @@ If False, messages should be a string representing the prompt. chat_mode=False i
     
 
                             </div>
-                            <div id="MariTalkLocal.generate" class="classattr">
-                                        <input id="MariTalkLocal.generate-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="MariTalkLocal.generate_raw" class="classattr">
+                                        <input id="MariTalkLocal.generate_raw-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">generate</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span>,</span><span class="param">	<span class="n">top_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span>,</span><span class="param">	<span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span>,</span><span class="param">	<span class="n">do_sample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">stop_sequences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></span><span class="return-annotation">):</span></span>
+        <span class="name">generate_raw</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span>,</span><span class="param">	<span class="n">top_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span>,</span><span class="param">	<span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span>,</span><span class="param">	<span class="n">do_sample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">stop_sequences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>,</span><span class="param">	<span class="n">seed</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
 
-                <label class="view-source-button" for="MariTalkLocal.generate-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="MariTalkLocal.generate_raw-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#MariTalkLocal.generate"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MariTalkLocal.generate-195"><a href="#MariTalkLocal.generate-195"><span class="linenos">195</span></a>    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span>
-</span><span id="MariTalkLocal.generate-196"><a href="#MariTalkLocal.generate-196"><span class="linenos">196</span></a>        <span class="bp">self</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate-197"><a href="#MariTalkLocal.generate-197"><span class="linenos">197</span></a>        <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate-198"><a href="#MariTalkLocal.generate-198"><span class="linenos">198</span></a>        <span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate-199"><a href="#MariTalkLocal.generate-199"><span class="linenos">199</span></a>        <span class="n">top_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate-200"><a href="#MariTalkLocal.generate-200"><span class="linenos">200</span></a>        <span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate-201"><a href="#MariTalkLocal.generate-201"><span class="linenos">201</span></a>        <span class="n">do_sample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate-202"><a href="#MariTalkLocal.generate-202"><span class="linenos">202</span></a>        <span class="n">stop_sequences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
-</span><span id="MariTalkLocal.generate-203"><a href="#MariTalkLocal.generate-203"><span class="linenos">203</span></a>    <span class="p">):</span>
-</span><span id="MariTalkLocal.generate-204"><a href="#MariTalkLocal.generate-204"><span class="linenos">204</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="MariTalkLocal.generate-205"><a href="#MariTalkLocal.generate-205"><span class="linenos">205</span></a><span class="sd">        Generate a completion for a given prompt.</span>
-</span><span id="MariTalkLocal.generate-206"><a href="#MariTalkLocal.generate-206"><span class="linenos">206</span></a>
-</span><span id="MariTalkLocal.generate-207"><a href="#MariTalkLocal.generate-207"><span class="linenos">207</span></a><span class="sd">        Args:</span>
-</span><span id="MariTalkLocal.generate-208"><a href="#MariTalkLocal.generate-208"><span class="linenos">208</span></a><span class="sd">            prompt (`str`):</span>
-</span><span id="MariTalkLocal.generate-209"><a href="#MariTalkLocal.generate-209"><span class="linenos">209</span></a><span class="sd">                The initial prompt to generate completions for. It can be the beginning of a text to be completed or an instruction for performing a task.</span>
-</span><span id="MariTalkLocal.generate-210"><a href="#MariTalkLocal.generate-210"><span class="linenos">210</span></a><span class="sd">            temperature (`float`, *optional*, defaults to `0.7`):</span>
-</span><span id="MariTalkLocal.generate-211"><a href="#MariTalkLocal.generate-211"><span class="linenos">211</span></a><span class="sd">                The sampling temperature for the next token probability. Higher values generate more random texts, while lower values will make it more deterministic.</span>
-</span><span id="MariTalkLocal.generate-212"><a href="#MariTalkLocal.generate-212"><span class="linenos">212</span></a><span class="sd">            top_p (`float`, *optional*, defaults to `0.95`):</span>
-</span><span id="MariTalkLocal.generate-213"><a href="#MariTalkLocal.generate-213"><span class="linenos">213</span></a><span class="sd">                The top probability mass to use on nucleus sampling. Read more at: https://arxiv.org/abs/1904.09751.</span>
-</span><span id="MariTalkLocal.generate-214"><a href="#MariTalkLocal.generate-214"><span class="linenos">214</span></a><span class="sd">            max_tokens (`int`, *optional*, defaults to `512`):</span>
-</span><span id="MariTalkLocal.generate-215"><a href="#MariTalkLocal.generate-215"><span class="linenos">215</span></a><span class="sd">                Maximum number of tokens to generate.</span>
-</span><span id="MariTalkLocal.generate-216"><a href="#MariTalkLocal.generate-216"><span class="linenos">216</span></a><span class="sd">            do_sample (`bool`, *optional*, defaults to `True`):</span>
-</span><span id="MariTalkLocal.generate-217"><a href="#MariTalkLocal.generate-217"><span class="linenos">217</span></a><span class="sd">                Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.</span>
-</span><span id="MariTalkLocal.generate-218"><a href="#MariTalkLocal.generate-218"><span class="linenos">218</span></a><span class="sd">            stop_sequences (`List[str]`, *optional*):</span>
-</span><span id="MariTalkLocal.generate-219"><a href="#MariTalkLocal.generate-219"><span class="linenos">219</span></a><span class="sd">                A list of sequences to stop the generation process.</span>
-</span><span id="MariTalkLocal.generate-220"><a href="#MariTalkLocal.generate-220"><span class="linenos">220</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="MariTalkLocal.generate-221"><a href="#MariTalkLocal.generate-221"><span class="linenos">221</span></a>
-</span><span id="MariTalkLocal.generate-222"><a href="#MariTalkLocal.generate-222"><span class="linenos">222</span></a>        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="MariTalkLocal.generate-223"><a href="#MariTalkLocal.generate-223"><span class="linenos">223</span></a>            <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate-224"><a href="#MariTalkLocal.generate-224"><span class="linenos">224</span></a>            <span class="s2">&quot;do_sample&quot;</span><span class="p">:</span> <span class="n">do_sample</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate-225"><a href="#MariTalkLocal.generate-225"><span class="linenos">225</span></a>            <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="n">temperature</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate-226"><a href="#MariTalkLocal.generate-226"><span class="linenos">226</span></a>            <span class="s2">&quot;top_p&quot;</span><span class="p">:</span> <span class="n">top_p</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate-227"><a href="#MariTalkLocal.generate-227"><span class="linenos">227</span></a>            <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="n">max_tokens</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate-228"><a href="#MariTalkLocal.generate-228"><span class="linenos">228</span></a>            <span class="s2">&quot;stop_sequences&quot;</span><span class="p">:</span> <span class="n">stop_sequences</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate-229"><a href="#MariTalkLocal.generate-229"><span class="linenos">229</span></a>        <span class="p">}</span>
-</span><span id="MariTalkLocal.generate-230"><a href="#MariTalkLocal.generate-230"><span class="linenos">230</span></a>
-</span><span id="MariTalkLocal.generate-231"><a href="#MariTalkLocal.generate-231"><span class="linenos">231</span></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">api_url</span><span class="si">}</span><span class="s2">/generate&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-</span><span id="MariTalkLocal.generate-232"><a href="#MariTalkLocal.generate-232"><span class="linenos">232</span></a>
-</span><span id="MariTalkLocal.generate-233"><a href="#MariTalkLocal.generate-233"><span class="linenos">233</span></a>        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
-</span><span id="MariTalkLocal.generate-234"><a href="#MariTalkLocal.generate-234"><span class="linenos">234</span></a>            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</span><span id="MariTalkLocal.generate-235"><a href="#MariTalkLocal.generate-235"><span class="linenos">235</span></a>        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <a class="headerlink" href="#MariTalkLocal.generate_raw"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="MariTalkLocal.generate_raw-195"><a href="#MariTalkLocal.generate_raw-195"><span class="linenos">195</span></a>    <span class="k">def</span> <span class="nf">generate_raw</span><span class="p">(</span>
+</span><span id="MariTalkLocal.generate_raw-196"><a href="#MariTalkLocal.generate_raw-196"><span class="linenos">196</span></a>        <span class="bp">self</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate_raw-197"><a href="#MariTalkLocal.generate_raw-197"><span class="linenos">197</span></a>        <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate_raw-198"><a href="#MariTalkLocal.generate_raw-198"><span class="linenos">198</span></a>        <span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate_raw-199"><a href="#MariTalkLocal.generate_raw-199"><span class="linenos">199</span></a>        <span class="n">top_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate_raw-200"><a href="#MariTalkLocal.generate_raw-200"><span class="linenos">200</span></a>        <span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate_raw-201"><a href="#MariTalkLocal.generate_raw-201"><span class="linenos">201</span></a>        <span class="n">do_sample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate_raw-202"><a href="#MariTalkLocal.generate_raw-202"><span class="linenos">202</span></a>        <span class="n">stop_sequences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
+</span><span id="MariTalkLocal.generate_raw-203"><a href="#MariTalkLocal.generate_raw-203"><span class="linenos">203</span></a>        <span class="n">seed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate_raw-204"><a href="#MariTalkLocal.generate_raw-204"><span class="linenos">204</span></a>    <span class="p">):</span>
+</span><span id="MariTalkLocal.generate_raw-205"><a href="#MariTalkLocal.generate_raw-205"><span class="linenos">205</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="MariTalkLocal.generate_raw-206"><a href="#MariTalkLocal.generate_raw-206"><span class="linenos">206</span></a><span class="sd">        Generate a completion for a given prompt.</span>
+</span><span id="MariTalkLocal.generate_raw-207"><a href="#MariTalkLocal.generate_raw-207"><span class="linenos">207</span></a>
+</span><span id="MariTalkLocal.generate_raw-208"><a href="#MariTalkLocal.generate_raw-208"><span class="linenos">208</span></a><span class="sd">        Args:</span>
+</span><span id="MariTalkLocal.generate_raw-209"><a href="#MariTalkLocal.generate_raw-209"><span class="linenos">209</span></a><span class="sd">            prompt (`str`):</span>
+</span><span id="MariTalkLocal.generate_raw-210"><a href="#MariTalkLocal.generate_raw-210"><span class="linenos">210</span></a><span class="sd">                The initial prompt to generate completions for. It can be the beginning of a text to be completed or an instruction for performing a task.</span>
+</span><span id="MariTalkLocal.generate_raw-211"><a href="#MariTalkLocal.generate_raw-211"><span class="linenos">211</span></a><span class="sd">            temperature (`float`, *optional*, defaults to `0.7`):</span>
+</span><span id="MariTalkLocal.generate_raw-212"><a href="#MariTalkLocal.generate_raw-212"><span class="linenos">212</span></a><span class="sd">                The sampling temperature for the next token probability. Higher values generate more random texts, while lower values will make it more deterministic.</span>
+</span><span id="MariTalkLocal.generate_raw-213"><a href="#MariTalkLocal.generate_raw-213"><span class="linenos">213</span></a><span class="sd">            top_p (`float`, *optional*, defaults to `0.95`):</span>
+</span><span id="MariTalkLocal.generate_raw-214"><a href="#MariTalkLocal.generate_raw-214"><span class="linenos">214</span></a><span class="sd">                The top probability mass to use on nucleus sampling. Read more at: https://arxiv.org/abs/1904.09751.</span>
+</span><span id="MariTalkLocal.generate_raw-215"><a href="#MariTalkLocal.generate_raw-215"><span class="linenos">215</span></a><span class="sd">            max_tokens (`int`, *optional*, defaults to `512`):</span>
+</span><span id="MariTalkLocal.generate_raw-216"><a href="#MariTalkLocal.generate_raw-216"><span class="linenos">216</span></a><span class="sd">                Maximum number of tokens to generate.</span>
+</span><span id="MariTalkLocal.generate_raw-217"><a href="#MariTalkLocal.generate_raw-217"><span class="linenos">217</span></a><span class="sd">            do_sample (`bool`, *optional*, defaults to `True`):</span>
+</span><span id="MariTalkLocal.generate_raw-218"><a href="#MariTalkLocal.generate_raw-218"><span class="linenos">218</span></a><span class="sd">                Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.</span>
+</span><span id="MariTalkLocal.generate_raw-219"><a href="#MariTalkLocal.generate_raw-219"><span class="linenos">219</span></a><span class="sd">            stop_sequences (`List[str]`, *optional*):</span>
+</span><span id="MariTalkLocal.generate_raw-220"><a href="#MariTalkLocal.generate_raw-220"><span class="linenos">220</span></a><span class="sd">                A list of sequences to stop the generation process.</span>
+</span><span id="MariTalkLocal.generate_raw-221"><a href="#MariTalkLocal.generate_raw-221"><span class="linenos">221</span></a><span class="sd">            seed (`int`, *optional*, defaults to `None`):</span>
+</span><span id="MariTalkLocal.generate_raw-222"><a href="#MariTalkLocal.generate_raw-222"><span class="linenos">222</span></a><span class="sd">                Seed to use during the random sampling process to make it reproducible.</span>
+</span><span id="MariTalkLocal.generate_raw-223"><a href="#MariTalkLocal.generate_raw-223"><span class="linenos">223</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="MariTalkLocal.generate_raw-224"><a href="#MariTalkLocal.generate_raw-224"><span class="linenos">224</span></a>
+</span><span id="MariTalkLocal.generate_raw-225"><a href="#MariTalkLocal.generate_raw-225"><span class="linenos">225</span></a>        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="MariTalkLocal.generate_raw-226"><a href="#MariTalkLocal.generate_raw-226"><span class="linenos">226</span></a>            <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate_raw-227"><a href="#MariTalkLocal.generate_raw-227"><span class="linenos">227</span></a>            <span class="s2">&quot;do_sample&quot;</span><span class="p">:</span> <span class="n">do_sample</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate_raw-228"><a href="#MariTalkLocal.generate_raw-228"><span class="linenos">228</span></a>            <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="n">temperature</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate_raw-229"><a href="#MariTalkLocal.generate_raw-229"><span class="linenos">229</span></a>            <span class="s2">&quot;top_p&quot;</span><span class="p">:</span> <span class="n">top_p</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate_raw-230"><a href="#MariTalkLocal.generate_raw-230"><span class="linenos">230</span></a>            <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="n">max_tokens</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate_raw-231"><a href="#MariTalkLocal.generate_raw-231"><span class="linenos">231</span></a>            <span class="s2">&quot;stop_sequences&quot;</span><span class="p">:</span> <span class="n">stop_sequences</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate_raw-232"><a href="#MariTalkLocal.generate_raw-232"><span class="linenos">232</span></a>            <span class="s2">&quot;seed&quot;</span><span class="p">:</span> <span class="n">seed</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate_raw-233"><a href="#MariTalkLocal.generate_raw-233"><span class="linenos">233</span></a>        <span class="p">}</span>
+</span><span id="MariTalkLocal.generate_raw-234"><a href="#MariTalkLocal.generate_raw-234"><span class="linenos">234</span></a>
+</span><span id="MariTalkLocal.generate_raw-235"><a href="#MariTalkLocal.generate_raw-235"><span class="linenos">235</span></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">api_url</span><span class="si">}</span><span class="s2">/generate&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+</span><span id="MariTalkLocal.generate_raw-236"><a href="#MariTalkLocal.generate_raw-236"><span class="linenos">236</span></a>
+</span><span id="MariTalkLocal.generate_raw-237"><a href="#MariTalkLocal.generate_raw-237"><span class="linenos">237</span></a>        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+</span><span id="MariTalkLocal.generate_raw-238"><a href="#MariTalkLocal.generate_raw-238"><span class="linenos">238</span></a>            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="MariTalkLocal.generate_raw-239"><a href="#MariTalkLocal.generate_raw-239"><span class="linenos">239</span></a>
+</span><span id="MariTalkLocal.generate_raw-240"><a href="#MariTalkLocal.generate_raw-240"><span class="linenos">240</span></a>        <span class="c1"># Return the error message in case of a failed request</span>
+</span><span id="MariTalkLocal.generate_raw-241"><a href="#MariTalkLocal.generate_raw-241"><span class="linenos">241</span></a>        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content-type&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;application/json&quot;</span><span class="p">:</span>
+</span><span id="MariTalkLocal.generate_raw-242"><a href="#MariTalkLocal.generate_raw-242"><span class="linenos">242</span></a>            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="MariTalkLocal.generate_raw-243"><a href="#MariTalkLocal.generate_raw-243"><span class="linenos">243</span></a>
+</span><span id="MariTalkLocal.generate_raw-244"><a href="#MariTalkLocal.generate_raw-244"><span class="linenos">244</span></a>        <span class="c1"># Raise for any other failed responses</span>
+</span><span id="MariTalkLocal.generate_raw-245"><a href="#MariTalkLocal.generate_raw-245"><span class="linenos">245</span></a>        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
 </span></pre></div>
 
 
@@ -1170,75 +1214,89 @@ If False, messages should be a string representing the prompt. chat_mode=False i
 <li><strong>max_tokens (<code>int</code>, <em>optional</em>, defaults to <code>512</code>):</strong>  Maximum number of tokens to generate.</li>
 <li><strong>do_sample (<code>bool</code>, <em>optional</em>, defaults to <code>True</code>):</strong>  Whether to use sampling or not. <code>True</code> value means non-deterministic generations using sampling parameters and <code>False</code> value means deterministic generation using greedy decoding.</li>
 <li><strong>stop_sequences (<code>List[str]</code>, <em>optional</em>):</strong>  A list of sequences to stop the generation process.</li>
+<li><strong>seed (<code>int</code>, <em>optional</em>, defaults to <code>None</code>):</strong>  Seed to use during the random sampling process to make it reproducible.</li>
 </ul>
 </div>
 
 
                             </div>
-                            <div id="MariTalkLocal.generate_chat" class="classattr">
-                                        <input id="MariTalkLocal.generate_chat-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="MariTalkLocal.generate" class="classattr">
+                                        <input id="MariTalkLocal.generate-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">generate_chat</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">messages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span>,</span><span class="param">	<span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span>,</span><span class="param">	<span class="n">top_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span>,</span><span class="param">	<span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span>,</span><span class="param">	<span class="n">do_sample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">stop_sequences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></span><span class="return-annotation">):</span></span>
+        <span class="name">generate</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">messages</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]</span>,</span><span class="param">	<span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span>,</span><span class="param">	<span class="n">top_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span>,</span><span class="param">	<span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span>,</span><span class="param">	<span class="n">do_sample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">stop_sequences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>,</span><span class="param">	<span class="n">seed</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
 
-                <label class="view-source-button" for="MariTalkLocal.generate_chat-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="MariTalkLocal.generate-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#MariTalkLocal.generate_chat"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MariTalkLocal.generate_chat-237"><a href="#MariTalkLocal.generate_chat-237"><span class="linenos">237</span></a>    <span class="k">def</span> <span class="nf">generate_chat</span><span class="p">(</span>
-</span><span id="MariTalkLocal.generate_chat-238"><a href="#MariTalkLocal.generate_chat-238"><span class="linenos">238</span></a>        <span class="bp">self</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate_chat-239"><a href="#MariTalkLocal.generate_chat-239"><span class="linenos">239</span></a>        <span class="n">messages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span>
-</span><span id="MariTalkLocal.generate_chat-240"><a href="#MariTalkLocal.generate_chat-240"><span class="linenos">240</span></a>        <span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate_chat-241"><a href="#MariTalkLocal.generate_chat-241"><span class="linenos">241</span></a>        <span class="n">top_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate_chat-242"><a href="#MariTalkLocal.generate_chat-242"><span class="linenos">242</span></a>        <span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate_chat-243"><a href="#MariTalkLocal.generate_chat-243"><span class="linenos">243</span></a>        <span class="n">do_sample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate_chat-244"><a href="#MariTalkLocal.generate_chat-244"><span class="linenos">244</span></a>        <span class="n">stop_sequences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
-</span><span id="MariTalkLocal.generate_chat-245"><a href="#MariTalkLocal.generate_chat-245"><span class="linenos">245</span></a>    <span class="p">):</span>
-</span><span id="MariTalkLocal.generate_chat-246"><a href="#MariTalkLocal.generate_chat-246"><span class="linenos">246</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="MariTalkLocal.generate_chat-247"><a href="#MariTalkLocal.generate_chat-247"><span class="linenos">247</span></a><span class="sd">        Generate a completion for a given prompt.</span>
-</span><span id="MariTalkLocal.generate_chat-248"><a href="#MariTalkLocal.generate_chat-248"><span class="linenos">248</span></a>
-</span><span id="MariTalkLocal.generate_chat-249"><a href="#MariTalkLocal.generate_chat-249"><span class="linenos">249</span></a><span class="sd">        Args:</span>
-</span><span id="MariTalkLocal.generate_chat-250"><a href="#MariTalkLocal.generate_chat-250"><span class="linenos">250</span></a><span class="sd">            messages (`List[Dict[str, str]]`):</span>
-</span><span id="MariTalkLocal.generate_chat-251"><a href="#MariTalkLocal.generate_chat-251"><span class="linenos">251</span></a><span class="sd">                A list where each item should be a dictionary containing the keys `role` and `content`. For example:</span>
-</span><span id="MariTalkLocal.generate_chat-252"><a href="#MariTalkLocal.generate_chat-252"><span class="linenos">252</span></a><span class="sd">                ```</span>
-</span><span id="MariTalkLocal.generate_chat-253"><a href="#MariTalkLocal.generate_chat-253"><span class="linenos">253</span></a><span class="sd">                messages = [</span>
-</span><span id="MariTalkLocal.generate_chat-254"><a href="#MariTalkLocal.generate_chat-254"><span class="linenos">254</span></a><span class="sd">                    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;bom dia, esta é a mensagem do usuario&quot;},</span>
-</span><span id="MariTalkLocal.generate_chat-255"><a href="#MariTalkLocal.generate_chat-255"><span class="linenos">255</span></a><span class="sd">                    {&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;bom dia, esta é a resposta do assistente&quot;},</span>
-</span><span id="MariTalkLocal.generate_chat-256"><a href="#MariTalkLocal.generate_chat-256"><span class="linenos">256</span></a><span class="sd">                    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Você pode me falar quanto é 25 + 27?&quot;},</span>
-</span><span id="MariTalkLocal.generate_chat-257"><a href="#MariTalkLocal.generate_chat-257"><span class="linenos">257</span></a><span class="sd">                ]</span>
-</span><span id="MariTalkLocal.generate_chat-258"><a href="#MariTalkLocal.generate_chat-258"><span class="linenos">258</span></a><span class="sd">                ```</span>
-</span><span id="MariTalkLocal.generate_chat-259"><a href="#MariTalkLocal.generate_chat-259"><span class="linenos">259</span></a><span class="sd">            temperature (`float`, *optional*, defaults to `0.7`):</span>
-</span><span id="MariTalkLocal.generate_chat-260"><a href="#MariTalkLocal.generate_chat-260"><span class="linenos">260</span></a><span class="sd">                The sampling temperature for the next token probability. Higher values generate more random texts, while lower values will make it more deterministic.</span>
-</span><span id="MariTalkLocal.generate_chat-261"><a href="#MariTalkLocal.generate_chat-261"><span class="linenos">261</span></a><span class="sd">            top_p (`float`, *optional*, defaults to `0.95`):</span>
-</span><span id="MariTalkLocal.generate_chat-262"><a href="#MariTalkLocal.generate_chat-262"><span class="linenos">262</span></a><span class="sd">                The top probability mass to use on nucleus sampling. Read more at: https://arxiv.org/abs/1904.09751.</span>
-</span><span id="MariTalkLocal.generate_chat-263"><a href="#MariTalkLocal.generate_chat-263"><span class="linenos">263</span></a><span class="sd">            max_tokens (`int`, *optional*, defaults to `512`):</span>
-</span><span id="MariTalkLocal.generate_chat-264"><a href="#MariTalkLocal.generate_chat-264"><span class="linenos">264</span></a><span class="sd">                Maximum number of tokens to generate.</span>
-</span><span id="MariTalkLocal.generate_chat-265"><a href="#MariTalkLocal.generate_chat-265"><span class="linenos">265</span></a><span class="sd">            do_sample (`bool`, *optional*, defaults to `True`):</span>
-</span><span id="MariTalkLocal.generate_chat-266"><a href="#MariTalkLocal.generate_chat-266"><span class="linenos">266</span></a><span class="sd">                Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.</span>
-</span><span id="MariTalkLocal.generate_chat-267"><a href="#MariTalkLocal.generate_chat-267"><span class="linenos">267</span></a><span class="sd">            stop_sequences (`List[str]`, *optional*):</span>
-</span><span id="MariTalkLocal.generate_chat-268"><a href="#MariTalkLocal.generate_chat-268"><span class="linenos">268</span></a><span class="sd">                A list of sequences to stop the generation process.</span>
-</span><span id="MariTalkLocal.generate_chat-269"><a href="#MariTalkLocal.generate_chat-269"><span class="linenos">269</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="MariTalkLocal.generate_chat-270"><a href="#MariTalkLocal.generate_chat-270"><span class="linenos">270</span></a>
-</span><span id="MariTalkLocal.generate_chat-271"><a href="#MariTalkLocal.generate_chat-271"><span class="linenos">271</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-</span><span id="MariTalkLocal.generate_chat-272"><a href="#MariTalkLocal.generate_chat-272"><span class="linenos">272</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-</span><span id="MariTalkLocal.generate_chat-273"><a href="#MariTalkLocal.generate_chat-273"><span class="linenos">273</span></a>                <span class="s2">&quot;You should pass a list of messages on `messages`. For raw string prompts use `generate` method instead.&quot;</span>
-</span><span id="MariTalkLocal.generate_chat-274"><a href="#MariTalkLocal.generate_chat-274"><span class="linenos">274</span></a>            <span class="p">)</span>
-</span><span id="MariTalkLocal.generate_chat-275"><a href="#MariTalkLocal.generate_chat-275"><span class="linenos">275</span></a>
-</span><span id="MariTalkLocal.generate_chat-276"><a href="#MariTalkLocal.generate_chat-276"><span class="linenos">276</span></a>        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="MariTalkLocal.generate_chat-277"><a href="#MariTalkLocal.generate_chat-277"><span class="linenos">277</span></a>            <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate_chat-278"><a href="#MariTalkLocal.generate_chat-278"><span class="linenos">278</span></a>            <span class="s2">&quot;do_sample&quot;</span><span class="p">:</span> <span class="n">do_sample</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate_chat-279"><a href="#MariTalkLocal.generate_chat-279"><span class="linenos">279</span></a>            <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="n">temperature</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate_chat-280"><a href="#MariTalkLocal.generate_chat-280"><span class="linenos">280</span></a>            <span class="s2">&quot;top_p&quot;</span><span class="p">:</span> <span class="n">top_p</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate_chat-281"><a href="#MariTalkLocal.generate_chat-281"><span class="linenos">281</span></a>            <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="n">max_tokens</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate_chat-282"><a href="#MariTalkLocal.generate_chat-282"><span class="linenos">282</span></a>            <span class="s2">&quot;stop_sequences&quot;</span><span class="p">:</span> <span class="n">stop_sequences</span><span class="p">,</span>
-</span><span id="MariTalkLocal.generate_chat-283"><a href="#MariTalkLocal.generate_chat-283"><span class="linenos">283</span></a>        <span class="p">}</span>
-</span><span id="MariTalkLocal.generate_chat-284"><a href="#MariTalkLocal.generate_chat-284"><span class="linenos">284</span></a>
-</span><span id="MariTalkLocal.generate_chat-285"><a href="#MariTalkLocal.generate_chat-285"><span class="linenos">285</span></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">api_url</span><span class="si">}</span><span class="s2">/chat/generate&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-</span><span id="MariTalkLocal.generate_chat-286"><a href="#MariTalkLocal.generate_chat-286"><span class="linenos">286</span></a>
-</span><span id="MariTalkLocal.generate_chat-287"><a href="#MariTalkLocal.generate_chat-287"><span class="linenos">287</span></a>        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
-</span><span id="MariTalkLocal.generate_chat-288"><a href="#MariTalkLocal.generate_chat-288"><span class="linenos">288</span></a>            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</span><span id="MariTalkLocal.generate_chat-289"><a href="#MariTalkLocal.generate_chat-289"><span class="linenos">289</span></a>        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <a class="headerlink" href="#MariTalkLocal.generate"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="MariTalkLocal.generate-247"><a href="#MariTalkLocal.generate-247"><span class="linenos">247</span></a>    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span>
+</span><span id="MariTalkLocal.generate-248"><a href="#MariTalkLocal.generate-248"><span class="linenos">248</span></a>        <span class="bp">self</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate-249"><a href="#MariTalkLocal.generate-249"><span class="linenos">249</span></a>        <span class="n">messages</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]],</span>
+</span><span id="MariTalkLocal.generate-250"><a href="#MariTalkLocal.generate-250"><span class="linenos">250</span></a>        <span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate-251"><a href="#MariTalkLocal.generate-251"><span class="linenos">251</span></a>        <span class="n">top_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate-252"><a href="#MariTalkLocal.generate-252"><span class="linenos">252</span></a>        <span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate-253"><a href="#MariTalkLocal.generate-253"><span class="linenos">253</span></a>        <span class="n">do_sample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate-254"><a href="#MariTalkLocal.generate-254"><span class="linenos">254</span></a>        <span class="n">stop_sequences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
+</span><span id="MariTalkLocal.generate-255"><a href="#MariTalkLocal.generate-255"><span class="linenos">255</span></a>        <span class="n">seed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate-256"><a href="#MariTalkLocal.generate-256"><span class="linenos">256</span></a>    <span class="p">):</span>
+</span><span id="MariTalkLocal.generate-257"><a href="#MariTalkLocal.generate-257"><span class="linenos">257</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="MariTalkLocal.generate-258"><a href="#MariTalkLocal.generate-258"><span class="linenos">258</span></a><span class="sd">        Generate a completion for a given prompt.</span>
+</span><span id="MariTalkLocal.generate-259"><a href="#MariTalkLocal.generate-259"><span class="linenos">259</span></a>
+</span><span id="MariTalkLocal.generate-260"><a href="#MariTalkLocal.generate-260"><span class="linenos">260</span></a><span class="sd">        Args:</span>
+</span><span id="MariTalkLocal.generate-261"><a href="#MariTalkLocal.generate-261"><span class="linenos">261</span></a><span class="sd">            messages (`Union[str, List[Dict[str, str]]]`):</span>
+</span><span id="MariTalkLocal.generate-262"><a href="#MariTalkLocal.generate-262"><span class="linenos">262</span></a><span class="sd">                A string with one message or a list where each item should be a dictionary containing the keys `role` and `content`. For example:</span>
+</span><span id="MariTalkLocal.generate-263"><a href="#MariTalkLocal.generate-263"><span class="linenos">263</span></a><span class="sd">                ```</span>
+</span><span id="MariTalkLocal.generate-264"><a href="#MariTalkLocal.generate-264"><span class="linenos">264</span></a><span class="sd">                messages = [</span>
+</span><span id="MariTalkLocal.generate-265"><a href="#MariTalkLocal.generate-265"><span class="linenos">265</span></a><span class="sd">                    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;bom dia, esta é a mensagem do usuario&quot;},</span>
+</span><span id="MariTalkLocal.generate-266"><a href="#MariTalkLocal.generate-266"><span class="linenos">266</span></a><span class="sd">                    {&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;bom dia, esta é a resposta do assistente&quot;},</span>
+</span><span id="MariTalkLocal.generate-267"><a href="#MariTalkLocal.generate-267"><span class="linenos">267</span></a><span class="sd">                    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Você pode me falar quanto é 25 + 27?&quot;},</span>
+</span><span id="MariTalkLocal.generate-268"><a href="#MariTalkLocal.generate-268"><span class="linenos">268</span></a><span class="sd">                ]</span>
+</span><span id="MariTalkLocal.generate-269"><a href="#MariTalkLocal.generate-269"><span class="linenos">269</span></a><span class="sd">                ```</span>
+</span><span id="MariTalkLocal.generate-270"><a href="#MariTalkLocal.generate-270"><span class="linenos">270</span></a><span class="sd">            temperature (`float`, *optional*, defaults to `0.7`):</span>
+</span><span id="MariTalkLocal.generate-271"><a href="#MariTalkLocal.generate-271"><span class="linenos">271</span></a><span class="sd">                The sampling temperature for the next token probability. Higher values generate more random texts, while lower values will make it more deterministic.</span>
+</span><span id="MariTalkLocal.generate-272"><a href="#MariTalkLocal.generate-272"><span class="linenos">272</span></a><span class="sd">            top_p (`float`, *optional*, defaults to `0.95`):</span>
+</span><span id="MariTalkLocal.generate-273"><a href="#MariTalkLocal.generate-273"><span class="linenos">273</span></a><span class="sd">                The top probability mass to use on nucleus sampling. Read more at: https://arxiv.org/abs/1904.09751.</span>
+</span><span id="MariTalkLocal.generate-274"><a href="#MariTalkLocal.generate-274"><span class="linenos">274</span></a><span class="sd">            max_tokens (`int`, *optional*, defaults to `512`):</span>
+</span><span id="MariTalkLocal.generate-275"><a href="#MariTalkLocal.generate-275"><span class="linenos">275</span></a><span class="sd">                Maximum number of tokens to generate.</span>
+</span><span id="MariTalkLocal.generate-276"><a href="#MariTalkLocal.generate-276"><span class="linenos">276</span></a><span class="sd">            do_sample (`bool`, *optional*, defaults to `True`):</span>
+</span><span id="MariTalkLocal.generate-277"><a href="#MariTalkLocal.generate-277"><span class="linenos">277</span></a><span class="sd">                Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.</span>
+</span><span id="MariTalkLocal.generate-278"><a href="#MariTalkLocal.generate-278"><span class="linenos">278</span></a><span class="sd">            stop_sequences (`List[str]`, *optional*):</span>
+</span><span id="MariTalkLocal.generate-279"><a href="#MariTalkLocal.generate-279"><span class="linenos">279</span></a><span class="sd">                A list of sequences to stop the generation process.</span>
+</span><span id="MariTalkLocal.generate-280"><a href="#MariTalkLocal.generate-280"><span class="linenos">280</span></a><span class="sd">            seed (`int`, *optional*, defaults to `None`):</span>
+</span><span id="MariTalkLocal.generate-281"><a href="#MariTalkLocal.generate-281"><span class="linenos">281</span></a><span class="sd">                Seed to use during the random sampling process to make it reproducible.</span>
+</span><span id="MariTalkLocal.generate-282"><a href="#MariTalkLocal.generate-282"><span class="linenos">282</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="MariTalkLocal.generate-283"><a href="#MariTalkLocal.generate-283"><span class="linenos">283</span></a>
+</span><span id="MariTalkLocal.generate-284"><a href="#MariTalkLocal.generate-284"><span class="linenos">284</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+</span><span id="MariTalkLocal.generate-285"><a href="#MariTalkLocal.generate-285"><span class="linenos">285</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+</span><span id="MariTalkLocal.generate-286"><a href="#MariTalkLocal.generate-286"><span class="linenos">286</span></a>                <span class="s2">&quot;You should pass a string or a list of messages as argument.&quot;</span>
+</span><span id="MariTalkLocal.generate-287"><a href="#MariTalkLocal.generate-287"><span class="linenos">287</span></a>            <span class="p">)</span>
+</span><span id="MariTalkLocal.generate-288"><a href="#MariTalkLocal.generate-288"><span class="linenos">288</span></a>
+</span><span id="MariTalkLocal.generate-289"><a href="#MariTalkLocal.generate-289"><span class="linenos">289</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="MariTalkLocal.generate-290"><a href="#MariTalkLocal.generate-290"><span class="linenos">290</span></a>            <span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">}]</span>
+</span><span id="MariTalkLocal.generate-291"><a href="#MariTalkLocal.generate-291"><span class="linenos">291</span></a>
+</span><span id="MariTalkLocal.generate-292"><a href="#MariTalkLocal.generate-292"><span class="linenos">292</span></a>        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="MariTalkLocal.generate-293"><a href="#MariTalkLocal.generate-293"><span class="linenos">293</span></a>            <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate-294"><a href="#MariTalkLocal.generate-294"><span class="linenos">294</span></a>            <span class="s2">&quot;do_sample&quot;</span><span class="p">:</span> <span class="n">do_sample</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate-295"><a href="#MariTalkLocal.generate-295"><span class="linenos">295</span></a>            <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="n">temperature</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate-296"><a href="#MariTalkLocal.generate-296"><span class="linenos">296</span></a>            <span class="s2">&quot;top_p&quot;</span><span class="p">:</span> <span class="n">top_p</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate-297"><a href="#MariTalkLocal.generate-297"><span class="linenos">297</span></a>            <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="n">max_tokens</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate-298"><a href="#MariTalkLocal.generate-298"><span class="linenos">298</span></a>            <span class="s2">&quot;stop_sequences&quot;</span><span class="p">:</span> <span class="n">stop_sequences</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate-299"><a href="#MariTalkLocal.generate-299"><span class="linenos">299</span></a>            <span class="s2">&quot;seed&quot;</span><span class="p">:</span> <span class="n">seed</span><span class="p">,</span>
+</span><span id="MariTalkLocal.generate-300"><a href="#MariTalkLocal.generate-300"><span class="linenos">300</span></a>        <span class="p">}</span>
+</span><span id="MariTalkLocal.generate-301"><a href="#MariTalkLocal.generate-301"><span class="linenos">301</span></a>
+</span><span id="MariTalkLocal.generate-302"><a href="#MariTalkLocal.generate-302"><span class="linenos">302</span></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">api_url</span><span class="si">}</span><span class="s2">/chat/generate&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+</span><span id="MariTalkLocal.generate-303"><a href="#MariTalkLocal.generate-303"><span class="linenos">303</span></a>
+</span><span id="MariTalkLocal.generate-304"><a href="#MariTalkLocal.generate-304"><span class="linenos">304</span></a>        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+</span><span id="MariTalkLocal.generate-305"><a href="#MariTalkLocal.generate-305"><span class="linenos">305</span></a>            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="MariTalkLocal.generate-306"><a href="#MariTalkLocal.generate-306"><span class="linenos">306</span></a>
+</span><span id="MariTalkLocal.generate-307"><a href="#MariTalkLocal.generate-307"><span class="linenos">307</span></a>        <span class="c1"># Return the error message in case of a failed request</span>
+</span><span id="MariTalkLocal.generate-308"><a href="#MariTalkLocal.generate-308"><span class="linenos">308</span></a>        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content-type&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;application/json&quot;</span><span class="p">:</span>
+</span><span id="MariTalkLocal.generate-309"><a href="#MariTalkLocal.generate-309"><span class="linenos">309</span></a>            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="MariTalkLocal.generate-310"><a href="#MariTalkLocal.generate-310"><span class="linenos">310</span></a>
+</span><span id="MariTalkLocal.generate-311"><a href="#MariTalkLocal.generate-311"><span class="linenos">311</span></a>        <span class="c1"># Raise for any other failed responses</span>
+</span><span id="MariTalkLocal.generate-312"><a href="#MariTalkLocal.generate-312"><span class="linenos">312</span></a>        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
 </span></pre></div>
 
 
@@ -1247,7 +1305,7 @@ If False, messages should be a string representing the prompt. chat_mode=False i
 <h6 id="arguments">Arguments:</h6>
 
 <ul>
-<li><strong>messages (<code>List[Dict[str, str]]</code>):</strong>  A list where each item should be a dictionary containing the keys <code>role</code> and <code>content</code>. For example:
+<li><strong>messages (<code>Union[str, List[Dict[str, str]]]</code>):</strong>  A string with one message or a list where each item should be a dictionary containing the keys <code>role</code> and <code>content</code>. For example:
 <pre><code>messages = [
     {"role": "user", "content": "bom dia, esta é a mensagem do usuario"},
     {"role": "assistant", "content": "bom dia, esta é a resposta do assistente"},
@@ -1259,9 +1317,29 @@ If False, messages should be a string representing the prompt. chat_mode=False i
 <li><strong>max_tokens (<code>int</code>, <em>optional</em>, defaults to <code>512</code>):</strong>  Maximum number of tokens to generate.</li>
 <li><strong>do_sample (<code>bool</code>, <em>optional</em>, defaults to <code>True</code>):</strong>  Whether to use sampling or not. <code>True</code> value means non-deterministic generations using sampling parameters and <code>False</code> value means deterministic generation using greedy decoding.</li>
 <li><strong>stop_sequences (<code>List[str]</code>, <em>optional</em>):</strong>  A list of sequences to stop the generation process.</li>
+<li><strong>seed (<code>int</code>, <em>optional</em>, defaults to <code>None</code>):</strong>  Seed to use during the random sampling process to make it reproducible.</li>
 </ul>
 </div>
 
+
+                            </div>
+                            <div id="MariTalkLocal.generate_chat" class="classattr">
+                                        <input id="MariTalkLocal.generate_chat-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">generate_chat</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="o">*</span><span class="n">args</span>, </span><span class="param"><span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="MariTalkLocal.generate_chat-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#MariTalkLocal.generate_chat"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="MariTalkLocal.generate_chat-314"><a href="#MariTalkLocal.generate_chat-314"><span class="linenos">314</span></a>    <span class="k">def</span> <span class="nf">generate_chat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span><span id="MariTalkLocal.generate_chat-315"><a href="#MariTalkLocal.generate_chat-315"><span class="linenos">315</span></a>        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;This method was changed, please use `generate` for chat messages or `generate_raw` for raw few-shot examples instead.&#39;</span><span class="p">)</span>
+</span></pre></div>
+
+
+    
 
                             </div>
                 </section>

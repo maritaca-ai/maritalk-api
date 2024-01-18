@@ -1,8 +1,10 @@
 ### Conteúdo
 - [Instalação](#instalação)  
 - [Executando via API](#exemplo-de-uso)
+- [Executando com o LangChain](https://colab.research.google.com/drive/1bka6wdgYQ9slKuNDRigBep4UY4HLhmHL?usp=sharing)
 - [Executando localmente](#modo-local)
-- [Web chat (gratuito)](#web-chat) 
+  - [Em GPUs da Oracle Cloud (OCI)](./examples/oracle-cloud.md)
+- [Chat (gratuito)](#web-chat)
 
 # Introdução
 Este repositório contém o código e a documentação explicando como usar a API da MariTalk e a versão local para deploy on-premises.
@@ -115,12 +117,12 @@ A tabela abaixo compara essas duas versões e apresenta algumas comparações co
 
 | Modelo | GPU RAM (min)  | Max tokens | Pontuação média (14 Datasets)[^1] | Link para Download |
 |--|--|--|--|--|
-| MariTalk Local Small v1.0| 6GB | 8.000 | 65.4 | [Link](https://chat.maritaca.ai/checkout/maritalk-small) |
-| MariTalk Local Large v1.0| 24GB | 8.000 | 73.0 | Lançamento em breve |
+| MariTalk Local Small v1.0| 6GB | 8.000 | 65,4 | [Link](https://chat.maritaca.ai/checkout/maritalk-small) |
+| MariTalk Local Large v1.0| 24GB | 8.000 | 73,0 | Lançamento em breve |
 | GPT-3.5-turbo | - | 16k | 67,0 | - |
 | GPT-4-turbo | - | 132k | 80,6 | - |
 
-O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia. Atualmente, a MariTalk local roda apenas em GPUs da arquitetura Ampere (A100, A6000 e A10). [Neste link](./examples/oracle.md) você entra um passo a passo de como executar em uma instância na Oracle Cloud Infrastructure (OCI).
+O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia. Atualmente, a MariTalk local roda apenas em GPUs da arquitetura Ampere (A100, A6000 e A10).
 
 Também disponibilizamos um [Google Colab](https://colab.research.google.com/drive/1Z-jtxISFTm9QOzErShck_eP_DcR8Jvct?usp=sharing) com os passos para executar a API em uma Nvidia A100 40GB (é necessário Colab Pro para executar o notebook).
 

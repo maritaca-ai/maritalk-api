@@ -7,7 +7,7 @@ import atexit
 import subprocess
 from tqdm import tqdm
 from pathlib import Path
-from typing import List, Dict, Optional, Union
+from typing import List, Dict, Optional, Union, Optional
 from ctypes.util import find_library
 import requests
 from requests.exceptions import ConnectionError
@@ -200,6 +200,7 @@ class MariTalkLocal:
         max_tokens: int = 512,
         do_sample: bool = True,
         stop_sequences: List[str] = [],
+        seed: Optional[int] = None,
     ):
         """
         Generate a completion for a given prompt.
@@ -217,6 +218,8 @@ class MariTalkLocal:
                 Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.
             stop_sequences (`List[str]`, *optional*):
                 A list of sequences to stop the generation process.
+            seed (`int`, *optional*, defaults to `None`):
+                Seed to use during the random sampling process to make it reproducible.
         """
 
         body = {
@@ -226,6 +229,7 @@ class MariTalkLocal:
             "top_p": top_p,
             "max_tokens": max_tokens,
             "stop_sequences": stop_sequences,
+            "seed": seed,
         }
 
         response = requests.post(f"{self.api_url}/generate", json=body)
@@ -248,6 +252,7 @@ class MariTalkLocal:
         max_tokens: int = 512,
         do_sample: bool = True,
         stop_sequences: List[str] = [],
+        seed: Optional[int] = None,
     ):
         """
         Generate a completion for a given prompt.
@@ -272,6 +277,8 @@ class MariTalkLocal:
                 Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.
             stop_sequences (`List[str]`, *optional*):
                 A list of sequences to stop the generation process.
+            seed (`int`, *optional*, defaults to `None`):
+                Seed to use during the random sampling process to make it reproducible.
         """
 
         if not isinstance(messages, str) and not isinstance(messages, list):
@@ -289,6 +296,7 @@ class MariTalkLocal:
             "top_p": top_p,
             "max_tokens": max_tokens,
             "stop_sequences": stop_sequences,
+            "seed": seed,
         }
 
         response = requests.post(f"{self.api_url}/chat/generate", json=body)

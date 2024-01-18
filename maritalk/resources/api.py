@@ -1,5 +1,30 @@
 import requests
 from typing import List, Dict, Union
+from requests.exceptions import HTTPError
+from http import HTTPStatus
+
+
+class MaritalkHTTPError(HTTPError):
+    def __init__(self, request_obj):
+        self.request_obj = request_obj
+        try:
+            response_json = request_obj.json()
+            if "detail" in response_json:
+                api_message = response_json["detail"]
+            elif "message" in response_json:
+                api_message = response_json["message"]
+            else:
+                api_message = response_json
+        except:
+            api_message = request_obj.text
+
+        self.message = api_message
+        self.status_code = request_obj.status_code
+
+    def __str__(self):
+        status_code_meaning = HTTPStatus(self.status_code).phrase
+        formatted_message = f"HTTP Error: {self.status_code} - {status_code_meaning}\nDetail: {self.message}"
+        return formatted_message
 
 
 class MariTalk:
@@ -90,4 +115,4 @@ class MariTalk:
         if response.ok:
             return response.json()["answer"]
         else:
-            response.raise_for_status()
+            raise MaritalkHTTPError(response)
