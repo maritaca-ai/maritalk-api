@@ -11,7 +11,7 @@ Este repositório contém o código e a documentação explicando como usar a AP
 A MariTalk é uma assistente baseada em um modelo de linguagem que foi especialmente treinado para entender bem o português.
 Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.
 
-Este é um serviço pago disponível apenas para assinantes da MariTalk API. Para assinar, acesse [chat.maritaca.ai](https://chat.maritaca.ai/) -> "Meu Plano" -> "Assine a MariTalk API".
+Este é um serviço pago que requer a validação de um meio de pagamento, como um cartão de crédito. Para validar, acesse [chat.maritaca.ai](https://chat.maritaca.ai/) -> "Meu Plano" -> "Validar meio de pagamento".
 
 A cobrança é feita por tokens, sendo o mesmo valor cobrado por tokens de entrada (i.e., prompt) e saída (i.e., gerados pelo modelo): R$5 a cada um milhão de tokens.
 
