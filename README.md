@@ -1,7 +1,7 @@
 ### Conteúdo
 - [Instalação](#instalação)  
 - [Executando via API](#exemplo-de-uso)
-- [Executando com o LangChain](https://colab.research.google.com/drive/1bka6wdgYQ9slKuNDRigBep4UY4HLhmHL?usp=sharing)
+  - [MariTalk + RAG usando LangChain](https://colab.research.google.com/drive/1bka6wdgYQ9slKuNDRigBep4UY4HLhmHL?usp=sharing)
 - [Executando localmente](#modo-local)
   - [Em GPUs da Oracle Cloud (OCI)](./examples/oracle-cloud.md)
 - [Chat (gratuito)](#web-chat)
