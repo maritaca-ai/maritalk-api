@@ -4,6 +4,7 @@
   - [MariTalk + RAG usando LangChain](https://colab.research.google.com/drive/1bka6wdgYQ9slKuNDRigBep4UY4HLhmHL?usp=sharing)
 - [Executando localmente](#modo-local)
   - [Em GPUs da Oracle Cloud (OCI)](./examples/oracle-cloud.md)
+  - [Em GPUs da Google Cloud (GCP)](./examples/google-cloud.md)
 - [Chat (gratuito)](#web-chat)
 
 # Introdução
