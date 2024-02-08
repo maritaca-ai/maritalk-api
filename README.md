@@ -111,6 +111,25 @@ Este Google Colab contém outros exemplos de uso da API através de requisiçõe
 
 Você pode encontrar mais detalhes sobre os parâmetros mostrados acima (do_sample, max_tokens, etc) em https://chat.maritaca.ai/docs
 
+## Estimando o número de tokens
+Use os tokenizadores dos modelos MariTalk, disponíveis na HuggingFace, para saber o número de tokens em um dado prompt.
+
+Isso pode ser útil para saber de antemão o quanto suas requisições irão custar.
+
+Exemplo de uso:
+```python
+import transformers
+tokenizer = transformers.AutoTokenizer.from_pretrained("maritaca-ai/maritalk-tokenizer-large")
+
+prompt = "Com quantos paus se faz uma canoa?"
+
+tokens = tokenizer.encode(prompt)
+
+print(f'O prompt "{prompt}" contém {len(tokens)} tokens.')
+```
+
+Note que os tokenizadores da MariTalk Small e Large são diferentes.
+
 # Modo local
 
 Além da API da Maritaca AI, é possível executar a MariTalk localmente em duas versões, small e large.
