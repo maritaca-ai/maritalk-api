@@ -113,6 +113,6 @@ class MariTalk:
         )
 
         if response.ok:
-            return response.json()["answer"]
+            return response.json()
         else:
             raise MaritalkHTTPError(response)
