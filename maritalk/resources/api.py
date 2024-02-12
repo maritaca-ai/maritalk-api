@@ -28,10 +28,12 @@ class MaritalkHTTPError(HTTPError):
 
 
 class MariTalk:
-    def __init__(self, key: str, api_url: str = "https://chat.maritaca.ai/api"):
+    def __init__(self, key: str, api_url: str = "https://chat.maritaca.ai/api", model="MariTalk"):
         self.key = key
         """@private"""
         self.api_url = api_url
+        """@private"""
+        self.model = model
         """@private"""
 
     def generate(
@@ -93,7 +95,7 @@ class MariTalk:
                 )
 
         body = {
-            "model": "MariTalk",
+            "model": self.model,
             "messages": messages,
             "chat_mode": chat_mode,
             "do_sample": do_sample,
