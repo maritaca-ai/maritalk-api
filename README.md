@@ -34,12 +34,20 @@ Primeiramente, você precisa de uma chave da API, que pode ser obtida em [chat.m
 ```python
 import maritalk
 
-model = maritalk.MariTalk(key="insira sua chave aqui. Ex: '100088...'")
+model = maritalk.MariTalk(
+    key="insira sua chave aqui. Ex: '100088...'",
+    model="maritalk"  # No momento, "maritalk" aponta para "maritalk-large-2024-01-08"
+)
 
-answer = model.generate("Quanto é 25 + 27?")
+response = model.generate("Quanto é 25 + 27?")
+answer = response["answer"]
 
 print(f"Resposta: {answer}")   # Deve imprimir algo como "25 + 27 é igual a 52."
 ```
+
+Atualmente apenas suportamos o modelo "maritalk-large-2024-01-08". Mais modelos serão suportados em breve.
+
+Note que o dicionário `response` contém a chave `usage`, que informa a quantidade de tokens de entrada e saída que serão cobrados.
 
 ## Modo chat
 
@@ -60,7 +68,7 @@ answer = model.generate(
     do_sample=True,
     max_tokens=200,
     temperature=0.7,
-    top_p=0.95)
+    top_p=0.95)["answer"]
 
 print(f"Resposta: {answer}")   # Deve imprimir algo como "nemo, dory e neptuno."
 ```
@@ -90,7 +98,7 @@ answer = model.generate(
     do_sample=False,
     max_tokens=20,
     stopping_tokens=["\n"]
-)
+)["answer"]
 
 print(f"Resposta: {answer.strip()}")  # Deve imprimir "positiva"
 ```
@@ -111,10 +119,8 @@ Este Google Colab contém outros exemplos de uso da API através de requisiçõe
 
 Você pode encontrar mais detalhes sobre os parâmetros mostrados acima (do_sample, max_tokens, etc) em https://chat.maritaca.ai/docs
 
-## Estimando o número de tokens
-Use os tokenizadores dos modelos MariTalk, disponíveis na HuggingFace, para saber o número de tokens em um dado prompt.
-
-Isso pode ser útil para saber de antemão o quanto suas requisições irão custar.
+## Como saber o número de tokens que serão cobrados?
+Para saber de antemão o quanto suas requisições irão custar, use os tokenizadores dos modelos MariTalk, disponíveis na HuggingFace, para saber o número de tokens em um dado prompt.
 
 Exemplo de uso:
 ```python
