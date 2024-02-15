@@ -28,7 +28,7 @@ class MaritalkHTTPError(HTTPError):
 
 
 class MariTalk:
-    def __init__(self, key: str, api_url: str = "https://chat.maritaca.ai/api", model="MariTalk"):
+    def __init__(self, key: str, api_url: str = "https://chat.maritaca.ai/api", model="maritalk"):
         self.key = key
         """@private"""
         self.api_url = api_url
