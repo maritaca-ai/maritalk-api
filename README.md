@@ -1,11 +1,21 @@
 ### Conteúdo
+
+**Maritalk API**
+- [Introdução](#introdução)  
 - [Instalação](#instalação)  
-- [Executando via API](#exemplo-de-uso)
-  - [MariTalk + RAG usando LangChain](https://colab.research.google.com/drive/1bka6wdgYQ9slKuNDRigBep4UY4HLhmHL?usp=sharing)
-- [Executando localmente](#modo-local)
-  - [Em GPUs da Oracle Cloud (OCI)](./examples/oracle-cloud.md)
-  - [Em GPUs da Google Cloud (GCP)](./examples/google-cloud.md)
-- [Chat (gratuito)](#web-chat)
+- [Exemplo de uso](#exemplo-de-uso)
+- [Exemplo de uso via requisições HTTP - Python](./examples/api/maritalk_via_requisições_https.ipynb)
+- [Exemplo de uso via requisições HTTP - JavaScript](./examples/api/maritalk_via_requisições_https.js)
+- [Exemplo MariTalk + RAG com LangChain](./examples/api/maritalk_langchain.ipynb)
+- [Documentação Swagger](https://chat.maritaca.ai/docs)
+
+**MariTalk Local**
+  - [Executando localmente](#modo-local)
+  - [Exemplo Google Colab Pro](./examples/local/colab-pro.ipynb)
+  - [Em GPUs da Oracle Cloud (OCI)](./examples/local/oracle-cloud.md)
+  - [Em GPUs da Google Cloud (GCP)](./examples/local/google-cloud.md)
+
+[Chat (gratuito)](#web-chat)
 
 # Introdução
 Este repositório contém o código e a documentação explicando como usar a API da MariTalk e a versão local para deploy on-premises.
@@ -14,7 +24,7 @@ Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.
 
 Este é um serviço pago que requer a validação de um meio de pagamento, como um cartão de crédito. Para validar, acesse [chat.maritaca.ai](https://chat.maritaca.ai/) -> "Meu Plano" -> "Validar forma de pagamento".
 
-A cobrança é feita por tokens, sendo o mesmo valor cobrado por tokens de entrada (i.e., prompt) e saída (i.e., gerados pelo modelo): R$5 a cada um milhão de tokens.
+A cobrança é feita por tokens, sendo o mesmo valor cobrado por tokens de entrada (i.e., prompt) e saída (i.e., gerados pelo modelo).
 
 Novos assinantes recebem R$20 em créditos da API.
 
@@ -111,14 +121,6 @@ Para tarefas com apenas uma resposta correta, como no exemplo acima, é recomend
 
 Para tarefas de geração de textos diversos ou longos, é recomendado usar `do_sample=True` e `temperature=0.7`. Quanto maior a temperatura, mais diversos serão os textos gerados, mas há maior chance de o modelo "alucinar" e gerar textos sem sentido. Quanto menor a temperatura, a resposta é mais conservadora, mas corre o risco de gerar textos repetidos.
 
-## Usando a API via requisições HTTP
-
-Este Google Colab contém outros exemplos de uso da API através de requisições HTTP:
-
-[Exemplo no Google Colab](https://colab.research.google.com/drive/1DyaxA_rWfgvpY95Jqc3_OsBN9Y13PhdX?usp=sharing)
-
-Você pode encontrar mais detalhes sobre os parâmetros mostrados acima (do_sample, max_tokens, etc) em https://chat.maritaca.ai/docs
-
 ## Como saber o número de tokens que serão cobrados?
 Para saber de antemão o quanto suas requisições irão custar, use os tokenizadores dos modelos MariTalk, disponíveis na HuggingFace, para saber o número de tokens em um dado prompt.
 
@@ -149,8 +151,6 @@ A tabela abaixo compara essas duas versões e apresenta algumas comparações co
 | GPT-4-turbo | - | 132k | 80,6 | - |
 
 O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia. Atualmente, a MariTalk local roda apenas em GPUs da arquitetura Ampere (A100, A6000 e A10).
-
-Também disponibilizamos um [Google Colab](https://colab.research.google.com/drive/1Z-jtxISFTm9QOzErShck_eP_DcR8Jvct?usp=sharing) com os passos para executar a API em uma Nvidia A100 40GB (é necessário Colab Pro para executar o notebook).
 
 [^1]: Datasets em Português do [Poeta benchmark](https://arxiv.org/abs/2304.07880).
 
