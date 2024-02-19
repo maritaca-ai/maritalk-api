@@ -1,6 +1,6 @@
 ### Conteúdo
 
-**Maritalk API**
+**MariTalk API**
 - [Introdução](#introdução)  
 - [Instalação](#instalação)  
 - [Exemplo de uso](#exemplo-de-uso)
