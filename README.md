@@ -4,16 +4,16 @@
 - [Introdução](#introdução)  
 - [Instalação](#instalação)  
 - [Exemplo de uso](#exemplo-de-uso)
-- [Exemplo de uso via requisições HTTP - Python](./examples/api/maritalk_via_requisições_https.ipynb)
-- [Exemplo de uso via requisições HTTP - JavaScript](./examples/api/maritalk_via_requisições_https.js)
-- [Exemplo MariTalk + RAG com LangChain](./examples/api/maritalk_langchain.ipynb)
+- [Exemplo de uso via requisições HTTP - Python](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_via_requisições_https.ipynb)
+- [Exemplo de uso via requisições HTTP - JavaScript](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_via_requisições_https.js)
+- [Exemplo MariTalk + RAG com LangChain](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_langchain.ipynb)
 - [Documentação Swagger](https://chat.maritaca.ai/docs)
 
 **MariTalk Local**
   - [Executando localmente](#modo-local)
-  - [Exemplo Google Colab Pro](./examples/local/colab-pro.ipynb)
-  - [Em GPUs da Oracle Cloud (OCI)](./examples/local/oracle-cloud.md)
-  - [Em GPUs da Google Cloud (GCP)](./examples/local/google-cloud.md)
+  - [Exemplo Google Colab Pro](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/colab-pro.ipynb)
+  - [Em GPUs da Oracle Cloud (OCI)](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/oracle-cloud.md)
+  - [Em GPUs da Google Cloud (GCP)](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/google-cloud.md)
 
 [Chat (gratuito)](#web-chat)
 
