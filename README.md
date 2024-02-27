@@ -128,7 +128,7 @@ Para saber de antemão o quanto suas requisições irão custar, use os tokeniza
 Exemplo de uso:
 ```python
 import transformers
-tokenizer = transformers.AutoTokenizer.from_pretrained("maritaca-ai/maritalk-tokenizer-large")
+tokenizer = transformers.AutoTokenizer.from_pretrained("maritaca-ai/sabia-2-tokenizer-medium")
 
 prompt = "Com quantos paus se faz uma canoa?"
 
@@ -137,7 +137,7 @@ tokens = tokenizer.encode(prompt)
 print(f'O prompt "{prompt}" contém {len(tokens)} tokens.')
 ```
 
-Note que os tokenizadores da MariTalk Small e Large são diferentes.
+Note que os tokenizadores da Sabiá-2 Small e Medium são diferentes.
 
 # Modo local
 
