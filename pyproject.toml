@@ -24,9 +24,15 @@ dependencies = [
     "httpx",
 ]
 
+
 [tool.setuptools.packages]
 find = {}
 
 [project.urls]
 "Homepage" = "https://github.com/maritaca-ai/maritalk-api"
 "Bug Tracker" = "https://github.com/maritaca-ai/maritalk-api/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit==3.0.2",
+]

@@ -3,13 +3,9 @@ import requests
 from typing import AsyncGenerator, Generator, List, Dict, Union
 from requests.exceptions import HTTPError
 from http import HTTPStatus
+import httpx
 
-import httpx
-import requests
-from typing import AsyncGenerator, List, Dict, Union
-from requests.exceptions import HTTPError
-from http import HTTPStatus
-import httpx
+
 
 
 class MaritalkHTTPError(HTTPError):
