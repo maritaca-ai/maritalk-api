@@ -1,178 +1,1427 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="pdoc 13.1.1"/>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content="pdoc 13.1.1" />
     <title>maritalk API documentation</title>
 
-    <style>/*! * Bootstrap Reboot v5.0.0 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md) */*,::after,::before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}hr{margin:1rem 0;color:inherit;background-color:currentColor;border:0;opacity:.25}hr:not([size]){height:1px}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2}h1{font-size:calc(1.375rem + 1.5vw)}@media (min-width:1200px){h1{font-size:2.5rem}}h2{font-size:calc(1.325rem + .9vw)}@media (min-width:1200px){h2{font-size:2rem}}h3{font-size:calc(1.3rem + .6vw)}@media (min-width:1200px){h3{font-size:1.75rem}}h4{font-size:calc(1.275rem + .3vw)}@media (min-width:1200px){h4{font-size:1.5rem}}h5{font-size:1.25rem}h6{font-size:1rem}p{margin-top:0;margin-bottom:1rem}abbr[data-bs-original-title],abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted;cursor:help;-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none}address{margin-bottom:1rem;font-style:normal;line-height:inherit}ol,ul{padding-left:2rem}dl,ol,ul{margin-top:0;margin-bottom:1rem}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}dt{font-weight:700}dd{margin-bottom:.5rem;margin-left:0}blockquote{margin:0 0 1rem}b,strong{font-weight:bolder}small{font-size:.875em}mark{padding:.2em;background-color:#fcf8e3}sub,sup{position:relative;font-size:.75em;line-height:0;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}a{color:#0d6efd;text-decoration:underline}a:hover{color:#0a58ca}a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em;direction:ltr;unicode-bidi:bidi-override}pre{display:block;margin-top:0;margin-bottom:1rem;overflow:auto;font-size:.875em}pre code{font-size:inherit;color:inherit;word-break:normal}code{font-size:.875em;color:#d63384;word-wrap:break-word}a>code{color:inherit}kbd{padding:.2rem .4rem;font-size:.875em;color:#fff;background-color:#212529;border-radius:.2rem}kbd kbd{padding:0;font-size:1em;font-weight:700}figure{margin:0 0 1rem}img,svg{vertical-align:middle}table{caption-side:bottom;border-collapse:collapse}caption{padding-top:.5rem;padding-bottom:.5rem;color:#6c757d;text-align:left}th{text-align:inherit;text-align:-webkit-match-parent}tbody,td,tfoot,th,thead,tr{border-color:inherit;border-style:solid;border-width:0}label{display:inline-block}button{border-radius:0}button:focus:not(:focus-visible){outline:0}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}[role=button]{cursor:pointer}select{word-wrap:normal}select:disabled{opacity:1}[list]::-webkit-calendar-picker-indicator{display:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled){cursor:pointer}::-moz-focus-inner{padding:0;border-style:none}textarea{resize:vertical}fieldset{min-width:0;padding:0;margin:0;border:0}legend{float:left;width:100%;padding:0;margin-bottom:.5rem;font-size:calc(1.275rem + .3vw);line-height:inherit}@media (min-width:1200px){legend{font-size:1.5rem}}legend+*{clear:left}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}[type=search]{outline-offset:-2px;-webkit-appearance:textfield}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::file-selector-button{font:inherit}::-webkit-file-upload-button{font:inherit;-webkit-appearance:button}output{display:inline-block}iframe{border:0}summary{display:list-item;cursor:pointer}progress{vertical-align:baseline}[hidden]{display:none!important}</style>
-    <style>/*! syntax-highlighting.css */pre{line-height:125%;}span.linenos{color:inherit; background-color:transparent; padding-left:5px; padding-right:20px;}.pdoc-code .hll{background-color:#ffffcc}.pdoc-code{background:#f8f8f8;}.pdoc-code .c{color:#3D7B7B; font-style:italic}.pdoc-code .err{border:1px solid #FF0000}.pdoc-code .k{color:#008000; font-weight:bold}.pdoc-code .o{color:#666666}.pdoc-code .ch{color:#3D7B7B; font-style:italic}.pdoc-code .cm{color:#3D7B7B; font-style:italic}.pdoc-code .cp{color:#9C6500}.pdoc-code .cpf{color:#3D7B7B; font-style:italic}.pdoc-code .c1{color:#3D7B7B; font-style:italic}.pdoc-code .cs{color:#3D7B7B; font-style:italic}.pdoc-code .gd{color:#A00000}.pdoc-code .ge{font-style:italic}.pdoc-code .gr{color:#E40000}.pdoc-code .gh{color:#000080; font-weight:bold}.pdoc-code .gi{color:#008400}.pdoc-code .go{color:#717171}.pdoc-code .gp{color:#000080; font-weight:bold}.pdoc-code .gs{font-weight:bold}.pdoc-code .gu{color:#800080; font-weight:bold}.pdoc-code .gt{color:#0044DD}.pdoc-code .kc{color:#008000; font-weight:bold}.pdoc-code .kd{color:#008000; font-weight:bold}.pdoc-code .kn{color:#008000; font-weight:bold}.pdoc-code .kp{color:#008000}.pdoc-code .kr{color:#008000; font-weight:bold}.pdoc-code .kt{color:#B00040}.pdoc-code .m{color:#666666}.pdoc-code .s{color:#BA2121}.pdoc-code .na{color:#687822}.pdoc-code .nb{color:#008000}.pdoc-code .nc{color:#0000FF; font-weight:bold}.pdoc-code .no{color:#880000}.pdoc-code .nd{color:#AA22FF}.pdoc-code .ni{color:#717171; font-weight:bold}.pdoc-code .ne{color:#CB3F38; font-weight:bold}.pdoc-code .nf{color:#0000FF}.pdoc-code .nl{color:#767600}.pdoc-code .nn{color:#0000FF; font-weight:bold}.pdoc-code .nt{color:#008000; font-weight:bold}.pdoc-code .nv{color:#19177C}.pdoc-code .ow{color:#AA22FF; font-weight:bold}.pdoc-code .w{color:#bbbbbb}.pdoc-code .mb{color:#666666}.pdoc-code .mf{color:#666666}.pdoc-code .mh{color:#666666}.pdoc-code .mi{color:#666666}.pdoc-code .mo{color:#666666}.pdoc-code .sa{color:#BA2121}.pdoc-code .sb{color:#BA2121}.pdoc-code .sc{color:#BA2121}.pdoc-code .dl{color:#BA2121}.pdoc-code .sd{color:#BA2121; font-style:italic}.pdoc-code .s2{color:#BA2121}.pdoc-code .se{color:#AA5D1F; font-weight:bold}.pdoc-code .sh{color:#BA2121}.pdoc-code .si{color:#A45A77; font-weight:bold}.pdoc-code .sx{color:#008000}.pdoc-code .sr{color:#A45A77}.pdoc-code .s1{color:#BA2121}.pdoc-code .ss{color:#19177C}.pdoc-code .bp{color:#008000}.pdoc-code .fm{color:#0000FF}.pdoc-code .vc{color:#19177C}.pdoc-code .vg{color:#19177C}.pdoc-code .vi{color:#19177C}.pdoc-code .vm{color:#19177C}.pdoc-code .il{color:#666666}</style>
-    <style>/*! theme.css */:root{--pdoc-background:#fff;}.pdoc{--text:#212529;--muted:#6c757d;--link:#3660a5;--link-hover:#1659c5;--code:#f8f8f8;--active:#fff598;--accent:#eee;--accent2:#c1c1c1;--nav-hover:rgba(255, 255, 255, 0.5);--name:#0066BB;--def:#008800;--annotation:#007020;}</style>
-    <style>/*! layout.css */html, body{width:100%;height:100%;}html, main{scroll-behavior:smooth;}body{background-color:var(--pdoc-background);}@media (max-width:769px){#navtoggle{cursor:pointer;position:absolute;width:50px;height:40px;top:1rem;right:1rem;border-color:var(--text);color:var(--text);display:flex;opacity:0.8;z-index:999;}#navtoggle:hover{opacity:1;}#togglestate + div{display:none;}#togglestate:checked + div{display:inherit;}main, header{padding:2rem 3vw;}header + main{margin-top:-3rem;}.git-button{display:none !important;}nav input[type="search"]{max-width:77%;}nav input[type="search"]:first-child{margin-top:-6px;}nav input[type="search"]:valid ~ *{display:none !important;}}@media (min-width:770px){:root{--sidebar-width:clamp(12.5rem, 28vw, 22rem);}nav{position:fixed;overflow:auto;height:100vh;width:var(--sidebar-width);}main, header{padding:3rem 2rem 3rem calc(var(--sidebar-width) + 3rem);width:calc(54rem + var(--sidebar-width));max-width:100%;}header + main{margin-top:-4rem;}#navtoggle{display:none;}}#togglestate{position:absolute;height:0;opacity:0;}nav.pdoc{--pad:clamp(0.5rem, 2vw, 1.75rem);--indent:1.5rem;background-color:var(--accent);border-right:1px solid var(--accent2);box-shadow:0 0 20px rgba(50, 50, 50, .2) inset;padding:0 0 0 var(--pad);overflow-wrap:anywhere;scrollbar-width:thin; scrollbar-color:var(--accent2) transparent }nav.pdoc::-webkit-scrollbar{width:.4rem; }nav.pdoc::-webkit-scrollbar-thumb{background-color:var(--accent2); }nav.pdoc > div{padding:var(--pad) 0;}nav.pdoc .module-list-button{display:inline-flex;align-items:center;color:var(--text);border-color:var(--muted);margin-bottom:1rem;}nav.pdoc .module-list-button:hover{border-color:var(--text);}nav.pdoc input[type=search]{display:block;outline-offset:0;width:calc(100% - var(--pad));}nav.pdoc .logo{max-width:calc(100% - var(--pad));max-height:35vh;display:block;margin:0 auto 1rem;transform:translate(calc(-.5 * var(--pad)), 0);}nav.pdoc ul{list-style:none;padding-left:0;}nav.pdoc > div > ul{margin-left:calc(0px - var(--pad));}nav.pdoc li a{padding:.2rem 0 .2rem calc(var(--pad) + var(--indent));}nav.pdoc > div > ul > li > a{padding-left:var(--pad);}nav.pdoc li{transition:all 100ms;}nav.pdoc li:hover{background-color:var(--nav-hover);}nav.pdoc a, nav.pdoc a:hover{color:var(--text);}nav.pdoc a{display:block;}nav.pdoc > h2:first-of-type{margin-top:1.5rem;}nav.pdoc .class:before{content:"class ";color:var(--muted);}nav.pdoc .function:after{content:"()";color:var(--muted);}nav.pdoc footer:before{content:"";display:block;width:calc(100% - var(--pad));border-top:solid var(--accent2) 1px;margin-top:1.5rem;padding-top:.5rem;}nav.pdoc footer{font-size:small;}</style>
-    <style>/*! content.css */.pdoc{color:var(--text);box-sizing:border-box;line-height:1.5;background:none;}.pdoc .pdoc-button{cursor:pointer;display:inline-block;border:solid black 1px;border-radius:2px;font-size:.75rem;padding:calc(0.5em - 1px) 1em;transition:100ms all;}.pdoc .pdoc-alert{padding:1rem 1rem 1rem calc(1.5rem + 24px);border:1px solid transparent;border-radius:.25rem;background-repeat:no-repeat;background-position:1rem center;margin-bottom:1rem;}.pdoc .pdoc-alert > *:last-child{margin-bottom:0;}.pdoc .pdoc-alert-note {color:#084298;background-color:#cfe2ff;border-color:#b6d4fe;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23084298%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M8%2016A8%208%200%201%200%208%200a8%208%200%200%200%200%2016zm.93-9.412-1%204.705c-.07.34.029.533.304.533.194%200%20.487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703%200-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381%202.29-.287zM8%205.5a1%201%200%201%201%200-2%201%201%200%200%201%200%202z%22/%3E%3C/svg%3E");}.pdoc .pdoc-alert-warning{color:#664d03;background-color:#fff3cd;border-color:#ffecb5;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23664d03%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M8.982%201.566a1.13%201.13%200%200%200-1.96%200L.165%2013.233c-.457.778.091%201.767.98%201.767h13.713c.889%200%201.438-.99.98-1.767L8.982%201.566zM8%205c.535%200%20.954.462.9.995l-.35%203.507a.552.552%200%200%201-1.1%200L7.1%205.995A.905.905%200%200%201%208%205zm.002%206a1%201%200%201%201%200%202%201%201%200%200%201%200-2z%22/%3E%3C/svg%3E");}.pdoc .pdoc-alert-danger{color:#842029;background-color:#f8d7da;border-color:#f5c2c7;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23842029%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M5.52.359A.5.5%200%200%201%206%200h4a.5.5%200%200%201%20.474.658L8.694%206H12.5a.5.5%200%200%201%20.395.807l-7%209a.5.5%200%200%201-.873-.454L6.823%209.5H3.5a.5.5%200%200%201-.48-.641l2.5-8.5z%22/%3E%3C/svg%3E");}.pdoc .visually-hidden{position:absolute !important;width:1px !important;height:1px !important;padding:0 !important;margin:-1px !important;overflow:hidden !important;clip:rect(0, 0, 0, 0) !important;white-space:nowrap !important;border:0 !important;}.pdoc h1, .pdoc h2, .pdoc h3{font-weight:300;margin:.3em 0;padding:.2em 0;}.pdoc > section:not(.module-info) h1{font-size:1.5rem;font-weight:500;}.pdoc > section:not(.module-info) h2{font-size:1.4rem;font-weight:500;}.pdoc > section:not(.module-info) h3{font-size:1.3rem;font-weight:500;}.pdoc > section:not(.module-info) h4{font-size:1.2rem;}.pdoc > section:not(.module-info) h5{font-size:1.1rem;}.pdoc a{text-decoration:none;color:var(--link);}.pdoc a:hover{color:var(--link-hover);}.pdoc blockquote{margin-left:2rem;}.pdoc pre{border-top:1px solid var(--accent2);border-bottom:1px solid var(--accent2);margin-top:0;margin-bottom:1em;padding:.5rem 0 .5rem .5rem;overflow-x:auto;background-color:var(--code);}.pdoc code{color:var(--text);padding:.2em .4em;margin:0;font-size:85%;background-color:var(--code);border-radius:6px;}.pdoc a > code{color:inherit;}.pdoc pre > code{display:inline-block;font-size:inherit;background:none;border:none;padding:0;}.pdoc > section:not(.module-info){margin-bottom:1.5rem;}.pdoc .modulename{margin-top:0;font-weight:bold;}.pdoc .modulename a{color:var(--link);transition:100ms all;}.pdoc .git-button{float:right;border:solid var(--link) 1px;}.pdoc .git-button:hover{background-color:var(--link);color:var(--pdoc-background);}.view-source-toggle-state,.view-source-toggle-state ~ .pdoc-code{display:none;}.view-source-toggle-state:checked ~ .pdoc-code{display:block;}.view-source-button{display:inline-block;float:right;font-size:.75rem;line-height:1.5rem;color:var(--muted);padding:0 .4rem 0 1.3rem;cursor:pointer;text-indent:-2px;}.view-source-button > span{visibility:hidden;}.module-info .view-source-button{float:none;display:flex;justify-content:flex-end;margin:-1.2rem .4rem -.2rem 0;}.view-source-button::before{position:absolute;content:"View Source";display:list-item;list-style-type:disclosure-closed;}.view-source-toggle-state:checked ~ .attr .view-source-button::before,.view-source-toggle-state:checked ~ .view-source-button::before{list-style-type:disclosure-open;}.pdoc .docstring{margin-bottom:1.5rem;}.pdoc section:not(.module-info) .docstring{margin-left:clamp(0rem, 5vw - 2rem, 1rem);}.pdoc .docstring .pdoc-code{margin-left:1em;margin-right:1em;}.pdoc h1:target,.pdoc h2:target,.pdoc h3:target,.pdoc h4:target,.pdoc h5:target,.pdoc h6:target,.pdoc .pdoc-code > pre > span:target{background-color:var(--active);box-shadow:-1rem 0 0 0 var(--active);}.pdoc .pdoc-code > pre > span:target{display:block;}.pdoc div:target > .attr,.pdoc section:target > .attr,.pdoc dd:target > a{background-color:var(--active);}.pdoc *{scroll-margin:2rem;}.pdoc .pdoc-code .linenos{user-select:none;}.pdoc .attr:hover{filter:contrast(0.95);}.pdoc section, .pdoc .classattr{position:relative;}.pdoc .headerlink{--width:clamp(1rem, 3vw, 2rem);position:absolute;top:0;left:calc(0rem - var(--width));transition:all 100ms ease-in-out;opacity:0;}.pdoc .headerlink::before{content:"#";display:block;text-align:center;width:var(--width);height:2.3rem;line-height:2.3rem;font-size:1.5rem;}.pdoc .attr:hover ~ .headerlink,.pdoc *:target > .headerlink,.pdoc .headerlink:hover{opacity:1;}.pdoc .attr{display:block;margin:.5rem 0 .5rem;padding:.4rem .4rem .4rem 1rem;background-color:var(--accent);overflow-x:auto;}.pdoc .classattr{margin-left:2rem;}.pdoc .name{color:var(--name);font-weight:bold;}.pdoc .def{color:var(--def);font-weight:bold;}.pdoc .signature{background-color:transparent;}.pdoc .param, .pdoc .return-annotation{white-space:pre;}.pdoc .signature.multiline .param{display:block;}.pdoc .signature.condensed .param{display:inline-block;}.pdoc .annotation{color:var(--annotation);}.pdoc .view-value-toggle-state,.pdoc .view-value-toggle-state ~ .default_value{display:none;}.pdoc .view-value-toggle-state:checked ~ .default_value{display:inherit;}.pdoc .view-value-button{font-size:.5rem;vertical-align:middle;border-style:dashed;margin-top:-0.1rem;}.pdoc .view-value-button:hover{background:white;}.pdoc .view-value-button::before{content:"show";text-align:center;width:2.2em;display:inline-block;}.pdoc .view-value-toggle-state:checked ~ .view-value-button::before{content:"hide";}.pdoc .inherited{margin-left:2rem;}.pdoc .inherited dt{font-weight:700;}.pdoc .inherited dt, .pdoc .inherited dd{display:inline;margin-left:0;margin-bottom:.5rem;}.pdoc .inherited dd:not(:last-child):after{content:", ";}.pdoc .inherited .class:before{content:"class ";}.pdoc .inherited .function a:after{content:"()";}.pdoc .search-result .docstring{overflow:auto;max-height:25vh;}.pdoc .search-result.focused > .attr{background-color:var(--active);}.pdoc .attribution{margin-top:2rem;display:block;opacity:0.5;transition:all 200ms;filter:grayscale(100%);}.pdoc .attribution:hover{opacity:1;filter:grayscale(0%);}.pdoc .attribution img{margin-left:5px;height:35px;vertical-align:middle;width:70px;transition:all 200ms;}.pdoc table{display:block;width:max-content;max-width:100%;overflow:auto;margin-bottom:1rem;}.pdoc table th{font-weight:600;}.pdoc table th, .pdoc table td{padding:6px 13px;border:1px solid var(--accent2);}</style>
-    <style>/*! custom.css */</style></head>
-<body>
+    <style>
+      /*! * Bootstrap Reboot v5.0.0 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md) */
+      *,
+      ::after,
+      ::before {
+        box-sizing: border-box;
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        :root {
+          scroll-behavior: smooth;
+        }
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+          "Noto Color Emoji";
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+      }
+      hr {
+        margin: 1rem 0;
+        color: inherit;
+        background-color: currentColor;
+        border: 0;
+        opacity: 0.25;
+      }
+      hr:not([size]) {
+        height: 1px;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+      h1 {
+        font-size: calc(1.375rem + 1.5vw);
+      }
+      @media (min-width: 1200px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+      }
+      h2 {
+        font-size: calc(1.325rem + 0.9vw);
+      }
+      @media (min-width: 1200px) {
+        h2 {
+          font-size: 2rem;
+        }
+      }
+      h3 {
+        font-size: calc(1.3rem + 0.6vw);
+      }
+      @media (min-width: 1200px) {
+        h3 {
+          font-size: 1.75rem;
+        }
+      }
+      h4 {
+        font-size: calc(1.275rem + 0.3vw);
+      }
+      @media (min-width: 1200px) {
+        h4 {
+          font-size: 1.5rem;
+        }
+      }
+      h5 {
+        font-size: 1.25rem;
+      }
+      h6 {
+        font-size: 1rem;
+      }
+      p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+      abbr[data-bs-original-title],
+      abbr[title] {
+        -webkit-text-decoration: underline dotted;
+        text-decoration: underline dotted;
+        cursor: help;
+        -webkit-text-decoration-skip-ink: none;
+        text-decoration-skip-ink: none;
+      }
+      address {
+        margin-bottom: 1rem;
+        font-style: normal;
+        line-height: inherit;
+      }
+      ol,
+      ul {
+        padding-left: 2rem;
+      }
+      dl,
+      ol,
+      ul {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+      ol ol,
+      ol ul,
+      ul ol,
+      ul ul {
+        margin-bottom: 0;
+      }
+      dt {
+        font-weight: 700;
+      }
+      dd {
+        margin-bottom: 0.5rem;
+        margin-left: 0;
+      }
+      blockquote {
+        margin: 0 0 1rem;
+      }
+      b,
+      strong {
+        font-weight: bolder;
+      }
+      small {
+        font-size: 0.875em;
+      }
+      mark {
+        padding: 0.2em;
+        background-color: #fcf8e3;
+      }
+      sub,
+      sup {
+        position: relative;
+        font-size: 0.75em;
+        line-height: 0;
+        vertical-align: baseline;
+      }
+      sub {
+        bottom: -0.25em;
+      }
+      sup {
+        top: -0.5em;
+      }
+      a {
+        color: #0d6efd;
+        text-decoration: underline;
+      }
+      a:hover {
+        color: #0a58ca;
+      }
+      a:not([href]):not([class]),
+      a:not([href]):not([class]):hover {
+        color: inherit;
+        text-decoration: none;
+      }
+      code,
+      kbd,
+      pre,
+      samp {
+        font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+          "Courier New", monospace;
+        font-size: 1em;
+        direction: ltr;
+        unicode-bidi: bidi-override;
+      }
+      pre {
+        display: block;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        overflow: auto;
+        font-size: 0.875em;
+      }
+      pre code {
+        font-size: inherit;
+        color: inherit;
+        word-break: normal;
+      }
+      code {
+        font-size: 0.875em;
+        color: #d63384;
+        word-wrap: break-word;
+      }
+      a > code {
+        color: inherit;
+      }
+      kbd {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.875em;
+        color: #fff;
+        background-color: #212529;
+        border-radius: 0.2rem;
+      }
+      kbd kbd {
+        padding: 0;
+        font-size: 1em;
+        font-weight: 700;
+      }
+      figure {
+        margin: 0 0 1rem;
+      }
+      img,
+      svg {
+        vertical-align: middle;
+      }
+      table {
+        caption-side: bottom;
+        border-collapse: collapse;
+      }
+      caption {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        color: #6c757d;
+        text-align: left;
+      }
+      th {
+        text-align: inherit;
+        text-align: -webkit-match-parent;
+      }
+      tbody,
+      td,
+      tfoot,
+      th,
+      thead,
+      tr {
+        border-color: inherit;
+        border-style: solid;
+        border-width: 0;
+      }
+      label {
+        display: inline-block;
+      }
+      button {
+        border-radius: 0;
+      }
+      button:focus:not(:focus-visible) {
+        outline: 0;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      [role="button"] {
+        cursor: pointer;
+      }
+      select {
+        word-wrap: normal;
+      }
+      select:disabled {
+        opacity: 1;
+      }
+      [list]::-webkit-calendar-picker-indicator {
+        display: none;
+      }
+      [type="button"],
+      [type="reset"],
+      [type="submit"],
+      button {
+        -webkit-appearance: button;
+      }
+      [type="button"]:not(:disabled),
+      [type="reset"]:not(:disabled),
+      [type="submit"]:not(:disabled),
+      button:not(:disabled) {
+        cursor: pointer;
+      }
+      ::-moz-focus-inner {
+        padding: 0;
+        border-style: none;
+      }
+      textarea {
+        resize: vertical;
+      }
+      fieldset {
+        min-width: 0;
+        padding: 0;
+        margin: 0;
+        border: 0;
+      }
+      legend {
+        float: left;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 0.5rem;
+        font-size: calc(1.275rem + 0.3vw);
+        line-height: inherit;
+      }
+      @media (min-width: 1200px) {
+        legend {
+          font-size: 1.5rem;
+        }
+      }
+      legend + * {
+        clear: left;
+      }
+      ::-webkit-datetime-edit-day-field,
+      ::-webkit-datetime-edit-fields-wrapper,
+      ::-webkit-datetime-edit-hour-field,
+      ::-webkit-datetime-edit-minute,
+      ::-webkit-datetime-edit-month-field,
+      ::-webkit-datetime-edit-text,
+      ::-webkit-datetime-edit-year-field {
+        padding: 0;
+      }
+      ::-webkit-inner-spin-button {
+        height: auto;
+      }
+      [type="search"] {
+        outline-offset: -2px;
+        -webkit-appearance: textfield;
+      }
+      ::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+      ::-webkit-color-swatch-wrapper {
+        padding: 0;
+      }
+      ::file-selector-button {
+        font: inherit;
+      }
+      ::-webkit-file-upload-button {
+        font: inherit;
+        -webkit-appearance: button;
+      }
+      output {
+        display: inline-block;
+      }
+      iframe {
+        border: 0;
+      }
+      summary {
+        display: list-item;
+        cursor: pointer;
+      }
+      progress {
+        vertical-align: baseline;
+      }
+      [hidden] {
+        display: none !important;
+      }
+    </style>
+    <style>
+      /*! syntax-highlighting.css */
+      pre {
+        line-height: 125%;
+      }
+      span.linenos {
+        color: inherit;
+        background-color: transparent;
+        padding-left: 5px;
+        padding-right: 20px;
+      }
+      .pdoc-code .hll {
+        background-color: #ffffcc;
+      }
+      .pdoc-code {
+        background: #f8f8f8;
+      }
+      .pdoc-code .c {
+        color: #3d7b7b;
+        font-style: italic;
+      }
+      .pdoc-code .err {
+        border: 1px solid #ff0000;
+      }
+      .pdoc-code .k {
+        color: #008000;
+        font-weight: bold;
+      }
+      .pdoc-code .o {
+        color: #666666;
+      }
+      .pdoc-code .ch {
+        color: #3d7b7b;
+        font-style: italic;
+      }
+      .pdoc-code .cm {
+        color: #3d7b7b;
+        font-style: italic;
+      }
+      .pdoc-code .cp {
+        color: #9c6500;
+      }
+      .pdoc-code .cpf {
+        color: #3d7b7b;
+        font-style: italic;
+      }
+      .pdoc-code .c1 {
+        color: #3d7b7b;
+        font-style: italic;
+      }
+      .pdoc-code .cs {
+        color: #3d7b7b;
+        font-style: italic;
+      }
+      .pdoc-code .gd {
+        color: #a00000;
+      }
+      .pdoc-code .ge {
+        font-style: italic;
+      }
+      .pdoc-code .gr {
+        color: #e40000;
+      }
+      .pdoc-code .gh {
+        color: #000080;
+        font-weight: bold;
+      }
+      .pdoc-code .gi {
+        color: #008400;
+      }
+      .pdoc-code .go {
+        color: #717171;
+      }
+      .pdoc-code .gp {
+        color: #000080;
+        font-weight: bold;
+      }
+      .pdoc-code .gs {
+        font-weight: bold;
+      }
+      .pdoc-code .gu {
+        color: #800080;
+        font-weight: bold;
+      }
+      .pdoc-code .gt {
+        color: #0044dd;
+      }
+      .pdoc-code .kc {
+        color: #008000;
+        font-weight: bold;
+      }
+      .pdoc-code .kd {
+        color: #008000;
+        font-weight: bold;
+      }
+      .pdoc-code .kn {
+        color: #008000;
+        font-weight: bold;
+      }
+      .pdoc-code .kp {
+        color: #008000;
+      }
+      .pdoc-code .kr {
+        color: #008000;
+        font-weight: bold;
+      }
+      .pdoc-code .kt {
+        color: #b00040;
+      }
+      .pdoc-code .m {
+        color: #666666;
+      }
+      .pdoc-code .s {
+        color: #ba2121;
+      }
+      .pdoc-code .na {
+        color: #687822;
+      }
+      .pdoc-code .nb {
+        color: #008000;
+      }
+      .pdoc-code .nc {
+        color: #0000ff;
+        font-weight: bold;
+      }
+      .pdoc-code .no {
+        color: #880000;
+      }
+      .pdoc-code .nd {
+        color: #aa22ff;
+      }
+      .pdoc-code .ni {
+        color: #717171;
+        font-weight: bold;
+      }
+      .pdoc-code .ne {
+        color: #cb3f38;
+        font-weight: bold;
+      }
+      .pdoc-code .nf {
+        color: #0000ff;
+      }
+      .pdoc-code .nl {
+        color: #767600;
+      }
+      .pdoc-code .nn {
+        color: #0000ff;
+        font-weight: bold;
+      }
+      .pdoc-code .nt {
+        color: #008000;
+        font-weight: bold;
+      }
+      .pdoc-code .nv {
+        color: #19177c;
+      }
+      .pdoc-code .ow {
+        color: #aa22ff;
+        font-weight: bold;
+      }
+      .pdoc-code .w {
+        color: #bbbbbb;
+      }
+      .pdoc-code .mb {
+        color: #666666;
+      }
+      .pdoc-code .mf {
+        color: #666666;
+      }
+      .pdoc-code .mh {
+        color: #666666;
+      }
+      .pdoc-code .mi {
+        color: #666666;
+      }
+      .pdoc-code .mo {
+        color: #666666;
+      }
+      .pdoc-code .sa {
+        color: #ba2121;
+      }
+      .pdoc-code .sb {
+        color: #ba2121;
+      }
+      .pdoc-code .sc {
+        color: #ba2121;
+      }
+      .pdoc-code .dl {
+        color: #ba2121;
+      }
+      .pdoc-code .sd {
+        color: #ba2121;
+        font-style: italic;
+      }
+      .pdoc-code .s2 {
+        color: #ba2121;
+      }
+      .pdoc-code .se {
+        color: #aa5d1f;
+        font-weight: bold;
+      }
+      .pdoc-code .sh {
+        color: #ba2121;
+      }
+      .pdoc-code .si {
+        color: #a45a77;
+        font-weight: bold;
+      }
+      .pdoc-code .sx {
+        color: #008000;
+      }
+      .pdoc-code .sr {
+        color: #a45a77;
+      }
+      .pdoc-code .s1 {
+        color: #ba2121;
+      }
+      .pdoc-code .ss {
+        color: #19177c;
+      }
+      .pdoc-code .bp {
+        color: #008000;
+      }
+      .pdoc-code .fm {
+        color: #0000ff;
+      }
+      .pdoc-code .vc {
+        color: #19177c;
+      }
+      .pdoc-code .vg {
+        color: #19177c;
+      }
+      .pdoc-code .vi {
+        color: #19177c;
+      }
+      .pdoc-code .vm {
+        color: #19177c;
+      }
+      .pdoc-code .il {
+        color: #666666;
+      }
+    </style>
+    <style>
+      /*! theme.css */
+      :root {
+        --pdoc-background: #fff;
+      }
+      .pdoc {
+        --text: #212529;
+        --muted: #6c757d;
+        --link: #3660a5;
+        --link-hover: #1659c5;
+        --code: #f8f8f8;
+        --active: #fff598;
+        --accent: #eee;
+        --accent2: #c1c1c1;
+        --nav-hover: rgba(255, 255, 255, 0.5);
+        --name: #0066bb;
+        --def: #008800;
+        --annotation: #007020;
+      }
+    </style>
+    <style>
+      /*! layout.css */
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      html,
+      main {
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: var(--pdoc-background);
+      }
+      @media (max-width: 769px) {
+        #navtoggle {
+          cursor: pointer;
+          position: absolute;
+          width: 50px;
+          height: 40px;
+          top: 1rem;
+          right: 1rem;
+          border-color: var(--text);
+          color: var(--text);
+          display: flex;
+          opacity: 0.8;
+          z-index: 999;
+        }
+        #navtoggle:hover {
+          opacity: 1;
+        }
+        #togglestate + div {
+          display: none;
+        }
+        #togglestate:checked + div {
+          display: inherit;
+        }
+        main,
+        header {
+          padding: 2rem 3vw;
+        }
+        header + main {
+          margin-top: -3rem;
+        }
+        .git-button {
+          display: none !important;
+        }
+        nav input[type="search"] {
+          max-width: 77%;
+        }
+        nav input[type="search"]:first-child {
+          margin-top: -6px;
+        }
+        nav input[type="search"]:valid ~ * {
+          display: none !important;
+        }
+      }
+      @media (min-width: 770px) {
+        :root {
+          --sidebar-width: clamp(12.5rem, 28vw, 22rem);
+        }
+        nav {
+          position: fixed;
+          overflow: auto;
+          height: 100vh;
+          width: var(--sidebar-width);
+        }
+        main,
+        header {
+          padding: 3rem 2rem 3rem calc(var(--sidebar-width) + 3rem);
+          width: calc(54rem + var(--sidebar-width));
+          max-width: 100%;
+        }
+        header + main {
+          margin-top: -4rem;
+        }
+        #navtoggle {
+          display: none;
+        }
+      }
+      #togglestate {
+        position: absolute;
+        height: 0;
+        opacity: 0;
+      }
+      nav.pdoc {
+        --pad: clamp(0.5rem, 2vw, 1.75rem);
+        --indent: 1.5rem;
+        background-color: var(--accent);
+        border-right: 1px solid var(--accent2);
+        box-shadow: 0 0 20px rgba(50, 50, 50, 0.2) inset;
+        padding: 0 0 0 var(--pad);
+        overflow-wrap: anywhere;
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent2) transparent;
+      }
+      nav.pdoc::-webkit-scrollbar {
+        width: 0.4rem;
+      }
+      nav.pdoc::-webkit-scrollbar-thumb {
+        background-color: var(--accent2);
+      }
+      nav.pdoc > div {
+        padding: var(--pad) 0;
+      }
+      nav.pdoc .module-list-button {
+        display: inline-flex;
+        align-items: center;
+        color: var(--text);
+        border-color: var(--muted);
+        margin-bottom: 1rem;
+      }
+      nav.pdoc .module-list-button:hover {
+        border-color: var(--text);
+      }
+      nav.pdoc input[type="search"] {
+        display: block;
+        outline-offset: 0;
+        width: calc(100% - var(--pad));
+      }
+      nav.pdoc .logo {
+        max-width: calc(100% - var(--pad));
+        max-height: 35vh;
+        display: block;
+        margin: 0 auto 1rem;
+        transform: translate(calc(-0.5 * var(--pad)), 0);
+      }
+      nav.pdoc ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      nav.pdoc > div > ul {
+        margin-left: calc(0px - var(--pad));
+      }
+      nav.pdoc li a {
+        padding: 0.2rem 0 0.2rem calc(var(--pad) + var(--indent));
+      }
+      nav.pdoc > div > ul > li > a {
+        padding-left: var(--pad);
+      }
+      nav.pdoc li {
+        transition: all 100ms;
+      }
+      nav.pdoc li:hover {
+        background-color: var(--nav-hover);
+      }
+      nav.pdoc a,
+      nav.pdoc a:hover {
+        color: var(--text);
+      }
+      nav.pdoc a {
+        display: block;
+      }
+      nav.pdoc > h2:first-of-type {
+        margin-top: 1.5rem;
+      }
+      nav.pdoc .class:before {
+        content: "class ";
+        color: var(--muted);
+      }
+      nav.pdoc .function:after {
+        content: "()";
+        color: var(--muted);
+      }
+      nav.pdoc footer:before {
+        content: "";
+        display: block;
+        width: calc(100% - var(--pad));
+        border-top: solid var(--accent2) 1px;
+        margin-top: 1.5rem;
+        padding-top: 0.5rem;
+      }
+      nav.pdoc footer {
+        font-size: small;
+      }
+    </style>
+    <style>
+      /*! content.css */
+      .pdoc {
+        color: var(--text);
+        box-sizing: border-box;
+        line-height: 1.5;
+        background: none;
+      }
+      .pdoc .pdoc-button {
+        cursor: pointer;
+        display: inline-block;
+        border: solid black 1px;
+        border-radius: 2px;
+        font-size: 0.75rem;
+        padding: calc(0.5em - 1px) 1em;
+        transition: 100ms all;
+      }
+      .pdoc .pdoc-alert {
+        padding: 1rem 1rem 1rem calc(1.5rem + 24px);
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+        background-repeat: no-repeat;
+        background-position: 1rem center;
+        margin-bottom: 1rem;
+      }
+      .pdoc .pdoc-alert > *:last-child {
+        margin-bottom: 0;
+      }
+      .pdoc .pdoc-alert-note {
+        color: #084298;
+        background-color: #cfe2ff;
+        border-color: #b6d4fe;
+        background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23084298%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M8%2016A8%208%200%201%200%208%200a8%208%200%200%200%200%2016zm.93-9.412-1%204.705c-.07.34.029.533.304.533.194%200%20.487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703%200-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381%202.29-.287zM8%205.5a1%201%200%201%201%200-2%201%201%200%200%201%200%202z%22/%3E%3C/svg%3E");
+      }
+      .pdoc .pdoc-alert-warning {
+        color: #664d03;
+        background-color: #fff3cd;
+        border-color: #ffecb5;
+        background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23664d03%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M8.982%201.566a1.13%201.13%200%200%200-1.96%200L.165%2013.233c-.457.778.091%201.767.98%201.767h13.713c.889%200%201.438-.99.98-1.767L8.982%201.566zM8%205c.535%200%20.954.462.9.995l-.35%203.507a.552.552%200%200%201-1.1%200L7.1%205.995A.905.905%200%200%201%208%205zm.002%206a1%201%200%201%201%200%202%201%201%200%200%201%200-2z%22/%3E%3C/svg%3E");
+      }
+      .pdoc .pdoc-alert-danger {
+        color: #842029;
+        background-color: #f8d7da;
+        border-color: #f5c2c7;
+        background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23842029%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M5.52.359A.5.5%200%200%201%206%200h4a.5.5%200%200%201%20.474.658L8.694%206H12.5a.5.5%200%200%201%20.395.807l-7%209a.5.5%200%200%201-.873-.454L6.823%209.5H3.5a.5.5%200%200%201-.48-.641l2.5-8.5z%22/%3E%3C/svg%3E");
+      }
+      .pdoc .visually-hidden {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+      }
+      .pdoc h1,
+      .pdoc h2,
+      .pdoc h3 {
+        font-weight: 300;
+        margin: 0.3em 0;
+        padding: 0.2em 0;
+      }
+      .pdoc > section:not(.module-info) h1 {
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+      .pdoc > section:not(.module-info) h2 {
+        font-size: 1.4rem;
+        font-weight: 500;
+      }
+      .pdoc > section:not(.module-info) h3 {
+        font-size: 1.3rem;
+        font-weight: 500;
+      }
+      .pdoc > section:not(.module-info) h4 {
+        font-size: 1.2rem;
+      }
+      .pdoc > section:not(.module-info) h5 {
+        font-size: 1.1rem;
+      }
+      .pdoc a {
+        text-decoration: none;
+        color: var(--link);
+      }
+      .pdoc a:hover {
+        color: var(--link-hover);
+      }
+      .pdoc blockquote {
+        margin-left: 2rem;
+      }
+      .pdoc pre {
+        border-top: 1px solid var(--accent2);
+        border-bottom: 1px solid var(--accent2);
+        margin-top: 0;
+        margin-bottom: 1em;
+        padding: 0.5rem 0 0.5rem 0.5rem;
+        overflow-x: auto;
+        background-color: var(--code);
+      }
+      .pdoc code {
+        color: var(--text);
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: var(--code);
+        border-radius: 6px;
+      }
+      .pdoc a > code {
+        color: inherit;
+      }
+      .pdoc pre > code {
+        display: inline-block;
+        font-size: inherit;
+        background: none;
+        border: none;
+        padding: 0;
+      }
+      .pdoc > section:not(.module-info) {
+        margin-bottom: 1.5rem;
+      }
+      .pdoc .modulename {
+        margin-top: 0;
+        font-weight: bold;
+      }
+      .pdoc .modulename a {
+        color: var(--link);
+        transition: 100ms all;
+      }
+      .pdoc .git-button {
+        float: right;
+        border: solid var(--link) 1px;
+      }
+      .pdoc .git-button:hover {
+        background-color: var(--link);
+        color: var(--pdoc-background);
+      }
+      .view-source-toggle-state,
+      .view-source-toggle-state ~ .pdoc-code {
+        display: none;
+      }
+      .view-source-toggle-state:checked ~ .pdoc-code {
+        display: block;
+      }
+      .view-source-button {
+        display: inline-block;
+        float: right;
+        font-size: 0.75rem;
+        line-height: 1.5rem;
+        color: var(--muted);
+        padding: 0 0.4rem 0 1.3rem;
+        cursor: pointer;
+        text-indent: -2px;
+      }
+      .view-source-button > span {
+        visibility: hidden;
+      }
+      .module-info .view-source-button {
+        float: none;
+        display: flex;
+        justify-content: flex-end;
+        margin: -1.2rem 0.4rem -0.2rem 0;
+      }
+      .view-source-button::before {
+        position: absolute;
+        content: "View Source";
+        display: list-item;
+        list-style-type: disclosure-closed;
+      }
+      .view-source-toggle-state:checked ~ .attr .view-source-button::before,
+      .view-source-toggle-state:checked ~ .view-source-button::before {
+        list-style-type: disclosure-open;
+      }
+      .pdoc .docstring {
+        margin-bottom: 1.5rem;
+      }
+      .pdoc section:not(.module-info) .docstring {
+        margin-left: clamp(0rem, 5vw - 2rem, 1rem);
+      }
+      .pdoc .docstring .pdoc-code {
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+      .pdoc h1:target,
+      .pdoc h2:target,
+      .pdoc h3:target,
+      .pdoc h4:target,
+      .pdoc h5:target,
+      .pdoc h6:target,
+      .pdoc .pdoc-code > pre > span:target {
+        background-color: var(--active);
+        box-shadow: -1rem 0 0 0 var(--active);
+      }
+      .pdoc .pdoc-code > pre > span:target {
+        display: block;
+      }
+      .pdoc div:target > .attr,
+      .pdoc section:target > .attr,
+      .pdoc dd:target > a {
+        background-color: var(--active);
+      }
+      .pdoc * {
+        scroll-margin: 2rem;
+      }
+      .pdoc .pdoc-code .linenos {
+        user-select: none;
+      }
+      .pdoc .attr:hover {
+        filter: contrast(0.95);
+      }
+      .pdoc section,
+      .pdoc .classattr {
+        position: relative;
+      }
+      .pdoc .headerlink {
+        --width: clamp(1rem, 3vw, 2rem);
+        position: absolute;
+        top: 0;
+        left: calc(0rem - var(--width));
+        transition: all 100ms ease-in-out;
+        opacity: 0;
+      }
+      .pdoc .headerlink::before {
+        content: "#";
+        display: block;
+        text-align: center;
+        width: var(--width);
+        height: 2.3rem;
+        line-height: 2.3rem;
+        font-size: 1.5rem;
+      }
+      .pdoc .attr:hover ~ .headerlink,
+      .pdoc *:target > .headerlink,
+      .pdoc .headerlink:hover {
+        opacity: 1;
+      }
+      .pdoc .attr {
+        display: block;
+        margin: 0.5rem 0 0.5rem;
+        padding: 0.4rem 0.4rem 0.4rem 1rem;
+        background-color: var(--accent);
+        overflow-x: auto;
+      }
+      .pdoc .classattr {
+        margin-left: 2rem;
+      }
+      .pdoc .name {
+        color: var(--name);
+        font-weight: bold;
+      }
+      .pdoc .def {
+        color: var(--def);
+        font-weight: bold;
+      }
+      .pdoc .signature {
+        background-color: transparent;
+      }
+      .pdoc .param,
+      .pdoc .return-annotation {
+        white-space: pre;
+      }
+      .pdoc .signature.multiline .param {
+        display: block;
+      }
+      .pdoc .signature.condensed .param {
+        display: inline-block;
+      }
+      .pdoc .annotation {
+        color: var(--annotation);
+      }
+      .pdoc .view-value-toggle-state,
+      .pdoc .view-value-toggle-state ~ .default_value {
+        display: none;
+      }
+      .pdoc .view-value-toggle-state:checked ~ .default_value {
+        display: inherit;
+      }
+      .pdoc .view-value-button {
+        font-size: 0.5rem;
+        vertical-align: middle;
+        border-style: dashed;
+        margin-top: -0.1rem;
+      }
+      .pdoc .view-value-button:hover {
+        background: white;
+      }
+      .pdoc .view-value-button::before {
+        content: "show";
+        text-align: center;
+        width: 2.2em;
+        display: inline-block;
+      }
+      .pdoc .view-value-toggle-state:checked ~ .view-value-button::before {
+        content: "hide";
+      }
+      .pdoc .inherited {
+        margin-left: 2rem;
+      }
+      .pdoc .inherited dt {
+        font-weight: 700;
+      }
+      .pdoc .inherited dt,
+      .pdoc .inherited dd {
+        display: inline;
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+      }
+      .pdoc .inherited dd:not(:last-child):after {
+        content: ", ";
+      }
+      .pdoc .inherited .class:before {
+        content: "class ";
+      }
+      .pdoc .inherited .function a:after {
+        content: "()";
+      }
+      .pdoc .search-result .docstring {
+        overflow: auto;
+        max-height: 25vh;
+      }
+      .pdoc .search-result.focused > .attr {
+        background-color: var(--active);
+      }
+      .pdoc .attribution {
+        margin-top: 2rem;
+        display: block;
+        opacity: 0.5;
+        transition: all 200ms;
+        filter: grayscale(100%);
+      }
+      .pdoc .attribution:hover {
+        opacity: 1;
+        filter: grayscale(0%);
+      }
+      .pdoc .attribution img {
+        margin-left: 5px;
+        height: 35px;
+        vertical-align: middle;
+        width: 70px;
+        transition: all 200ms;
+      }
+      .pdoc table {
+        display: block;
+        width: max-content;
+        max-width: 100%;
+        overflow: auto;
+        margin-bottom: 1rem;
+      }
+      .pdoc table th {
+        font-weight: 600;
+      }
+      .pdoc table th,
+      .pdoc table td {
+        padding: 6px 13px;
+        border: 1px solid var(--accent2);
+      }
+    </style>
+    <style>
+      /*! custom.css */
+    </style>
+  </head>
+  <body>
     <nav class="pdoc">
-        <label id="navtoggle" for="togglestate" class="pdoc-button"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke-linecap='round' stroke="currentColor" stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg></label>
-        <input id="togglestate" type="checkbox" aria-hidden="true" tabindex="-1">
-        <div>
-
-
-            <h2>Contents</h2>
+      <label id="navtoggle" for="togglestate" class="pdoc-button"
+        ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+          <path
+            stroke-linecap="round"
+            stroke="currentColor"
+            stroke-miterlimit="10"
+            stroke-width="2"
+            d="M4 7h22M4 15h22M4 23h22"
+          /></svg
+      ></label>
+      <input
+        id="togglestate"
+        type="checkbox"
+        aria-hidden="true"
+        tabindex="-1"
+      />
+      <div>
+        <h2>Contents</h2>
+        <ul>
+          <li><a href="#introducao">Introdução</a></li>
+          <li><a href="#instalacao">Instalação</a></li>
+          <li>
+            <a href="#exemplo-de-uso">Exemplo de Uso</a>
             <ul>
-  <li><a href="#introducao">Introdução</a></li>
-  <li><a href="#instalacao">Instalação</a></li>
-  <li><a href="#exemplo-de-uso">Exemplo de Uso</a>
-  <ul>
-    <li><a href="#modo-chat">Modo chat</a></li>
-    <li><a href="#exemplos-few-shot">Exemplos few-shot</a></li>
-    <li><a href="#como-saber-o-numero-de-tokens-que-serao-cobrados">Como saber o número de tokens que serão cobrados?</a></li>
-  </ul></li>
-  <li><a href="#modo-local">Modo local</a>
-  <ul>
-    <li><a href="#executando-em-python">Executando em Python</a></li>
-    <li><a href="#executando-o-binario-diretamente">Executando o binário diretamente</a></li>
-  </ul></li>
-  <li><a href="#aspectos-tecnicos">Aspectos Técnicos</a></li>
-  <li><a href="#web-chat">Web Chat</a></li>
-</ul>
+              <li><a href="#modo-chat">Modo chat</a></li>
+              <li><a href="#exemplos-few-shot">Exemplos few-shot</a></li>
+              <li>
+                <a href="#como-saber-o-numero-de-tokens-que-serao-cobrados"
+                  >Como saber o número de tokens que serão cobrados?</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#modo-local">Modo local</a>
+            <ul>
+              <li><a href="#executando-em-python">Executando em Python</a></li>
+              <li>
+                <a href="#executando-o-binario-diretamente"
+                  >Executando o binário diretamente</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li><a href="#aspectos-tecnicos">Aspectos Técnicos</a></li>
+          <li><a href="#web-chat">Web Chat</a></li>
+        </ul>
 
+        <h2>API Documentation</h2>
+        <ul class="memberlist">
+          <li>
+            <a class="class" href="#MariTalk">MariTalk</a>
+            <ul class="memberlist">
+              <li>
+                <a class="function" href="#MariTalk.__init__">MariTalk</a>
+              </li>
+              <li>
+                <a class="variable" href="#MariTalk.key">key</a>
+              </li>
+              <li>
+                <a class="variable" href="#MariTalk.api_url">api_url</a>
+              </li>
+              <li>
+                <a class="variable" href="#MariTalk.model">model</a>
+              </li>
+              <li>
+                <a class="function" href="#MariTalk.generate">generate</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a class="class" href="#MariTalkLocal">MariTalkLocal</a>
+            <ul class="memberlist">
+              <li>
+                <a class="function" href="#MariTalkLocal.__init__"
+                  >MariTalkLocal</a
+                >
+              </li>
+              <li>
+                <a class="variable" href="#MariTalkLocal.api_url">api_url</a>
+              </li>
+              <li>
+                <a class="variable" href="#MariTalkLocal.port">port</a>
+              </li>
+              <li>
+                <a class="variable" href="#MariTalkLocal.process">process</a>
+              </li>
+              <li>
+                <a class="function" href="#MariTalkLocal.start_server"
+                  >start_server</a
+                >
+              </li>
+              <li>
+                <a class="function" href="#MariTalkLocal.stop_server"
+                  >stop_server</a
+                >
+              </li>
+              <li>
+                <a class="function" href="#MariTalkLocal.download">download</a>
+              </li>
+              <li>
+                <a class="function" href="#MariTalkLocal.status">status</a>
+              </li>
+              <li>
+                <a class="function" href="#MariTalkLocal.generate_raw"
+                  >generate_raw</a
+                >
+              </li>
+              <li>
+                <a class="function" href="#MariTalkLocal.generate">generate</a>
+              </li>
+              <li>
+                <a class="function" href="#MariTalkLocal.generate_chat"
+                  >generate_chat</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
 
-
-            <h2>API Documentation</h2>
-                <ul class="memberlist">
-            <li>
-                    <a class="class" href="#MariTalk">MariTalk</a>
-                            <ul class="memberlist">
-                        <li>
-                                <a class="function" href="#MariTalk.__init__">MariTalk</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#MariTalk.key">key</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#MariTalk.api_url">api_url</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#MariTalk.model">model</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MariTalk.generate">generate</a>
-                        </li>
-                </ul>
-
-            </li>
-            <li>
-                    <a class="class" href="#MariTalkLocal">MariTalkLocal</a>
-                            <ul class="memberlist">
-                        <li>
-                                <a class="function" href="#MariTalkLocal.__init__">MariTalkLocal</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#MariTalkLocal.api_url">api_url</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#MariTalkLocal.port">port</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#MariTalkLocal.process">process</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MariTalkLocal.start_server">start_server</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MariTalkLocal.stop_server">stop_server</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MariTalkLocal.download">download</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MariTalkLocal.status">status</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MariTalkLocal.generate_raw">generate_raw</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MariTalkLocal.generate">generate</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MariTalkLocal.generate_chat">generate_chat</a>
-                        </li>
-                </ul>
-
-            </li>
-    </ul>
-
-
-
-        <a class="attribution" title="pdoc: Python API documentation generator" href="https://pdoc.dev" target="_blank">
-            built with <span class="visually-hidden">pdoc</span><img
-                alt="pdoc logo"
-                src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20role%3D%22img%22%20aria-label%3D%22pdoc%20logo%22%20width%3D%22300%22%20height%3D%22150%22%20viewBox%3D%22-1%200%2060%2030%22%3E%3Ctitle%3Epdoc%3C/title%3E%3Cpath%20d%3D%22M29.621%2021.293c-.011-.273-.214-.475-.511-.481a.5.5%200%200%200-.489.503l-.044%201.393c-.097.551-.695%201.215-1.566%201.704-.577.428-1.306.486-2.193.182-1.426-.617-2.467-1.654-3.304-2.487l-.173-.172a3.43%203.43%200%200%200-.365-.306.49.49%200%200%200-.286-.196c-1.718-1.06-4.931-1.47-7.353.191l-.219.15c-1.707%201.187-3.413%202.131-4.328%201.03-.02-.027-.49-.685-.141-1.763.233-.721.546-2.408.772-4.076.042-.09.067-.187.046-.288.166-1.347.277-2.625.241-3.351%201.378-1.008%202.271-2.586%202.271-4.362%200-.976-.272-1.935-.788-2.774-.057-.094-.122-.18-.184-.268.033-.167.052-.339.052-.516%200-1.477-1.202-2.679-2.679-2.679-.791%200-1.496.352-1.987.9a6.3%206.3%200%200%200-1.001.029c-.492-.564-1.207-.929-2.012-.929-1.477%200-2.679%201.202-2.679%202.679A2.65%202.65%200%200%200%20.97%206.554c-.383.747-.595%201.572-.595%202.41%200%202.311%201.507%204.29%203.635%205.107-.037.699-.147%202.27-.423%203.294l-.137.461c-.622%202.042-2.515%208.257%201.727%2010.643%201.614.908%203.06%201.248%204.317%201.248%202.665%200%204.492-1.524%205.322-2.401%201.476-1.559%202.886-1.854%206.491.82%201.877%201.393%203.514%201.753%204.861%201.068%202.223-1.713%202.811-3.867%203.399-6.374.077-.846.056-1.469.054-1.537zm-4.835%204.313c-.054.305-.156.586-.242.629-.034-.007-.131-.022-.307-.157-.145-.111-.314-.478-.456-.908.221.121.432.25.675.355.115.039.219.051.33.081zm-2.251-1.238c-.05.33-.158.648-.252.694-.022.001-.125-.018-.307-.157-.217-.166-.488-.906-.639-1.573.358.344.754.693%201.198%201.036zm-3.887-2.337c-.006-.116-.018-.231-.041-.342.635.145%201.189.368%201.599.625.097.231.166.481.174.642-.03.049-.055.101-.067.158-.046.013-.128.026-.298.004-.278-.037-.901-.57-1.367-1.087zm-1.127-.497c.116.306.176.625.12.71-.019.014-.117.045-.345.016-.206-.027-.604-.332-.986-.695.41-.051.816-.056%201.211-.031zm-4.535%201.535c.209.22.379.47.358.598-.006.041-.088.138-.351.234-.144.055-.539-.063-.979-.259a11.66%2011.66%200%200%200%20.972-.573zm.983-.664c.359-.237.738-.418%201.126-.554.25.237.479.548.457.694-.006.042-.087.138-.351.235-.174.064-.694-.105-1.232-.375zm-3.381%201.794c-.022.145-.061.29-.149.401-.133.166-.358.248-.69.251h-.002c-.133%200-.306-.26-.45-.621.417.091.854.07%201.291-.031zm-2.066-8.077a4.78%204.78%200%200%201-.775-.584c.172-.115.505-.254.88-.378l-.105.962zm-.331%202.302a10.32%2010.32%200%200%201-.828-.502c.202-.143.576-.328.984-.49l-.156.992zm-.45%202.157l-.701-.403c.214-.115.536-.249.891-.376a11.57%2011.57%200%200%201-.19.779zm-.181%201.716c.064.398.194.702.298.893-.194-.051-.435-.162-.736-.398.061-.119.224-.3.438-.495zM8.87%204.141c0%20.152-.123.276-.276.276s-.275-.124-.275-.276.123-.276.276-.276.275.124.275.276zm-.735-.389a1.15%201.15%200%200%200-.314.783%201.16%201.16%200%200%200%201.162%201.162c.457%200%20.842-.27%201.032-.653.026.117.042.238.042.362a1.68%201.68%200%200%201-1.679%201.679%201.68%201.68%200%200%201-1.679-1.679c0-.843.626-1.535%201.436-1.654zM5.059%205.406A1.68%201.68%200%200%201%203.38%207.085a1.68%201.68%200%200%201-1.679-1.679c0-.037.009-.072.011-.109.21.3.541.508.935.508a1.16%201.16%200%200%200%201.162-1.162%201.14%201.14%200%200%200-.474-.912c.015%200%20.03-.005.045-.005.926.001%201.679.754%201.679%201.68zM3.198%204.141c0%20.152-.123.276-.276.276s-.275-.124-.275-.276.123-.276.276-.276.275.124.275.276zM1.375%208.964c0-.52.103-1.035.288-1.52.466.394%201.06.64%201.717.64%201.144%200%202.116-.725%202.499-1.738.383%201.012%201.355%201.738%202.499%201.738.867%200%201.631-.421%202.121-1.062.307.605.478%201.267.478%201.942%200%202.486-2.153%204.51-4.801%204.51s-4.801-2.023-4.801-4.51zm24.342%2019.349c-.985.498-2.267.168-3.813-.979-3.073-2.281-5.453-3.199-7.813-.705-1.315%201.391-4.163%203.365-8.423.97-3.174-1.786-2.239-6.266-1.261-9.479l.146-.492c.276-1.02.395-2.457.444-3.268a6.11%206.11%200%200%200%201.18.115%206.01%206.01%200%200%200%202.536-.562l-.006.175c-.802.215-1.848.612-2.021%201.25-.079.295.021.601.274.837.219.203.415.364.598.501-.667.304-1.243.698-1.311%201.179-.02.144-.022.507.393.787.213.144.395.26.564.365-1.285.521-1.361.96-1.381%201.126-.018.142-.011.496.427.746l.854.489c-.473.389-.971.914-.999%201.429-.018.278.095.532.316.713.675.556%201.231.721%201.653.721.059%200%20.104-.014.158-.02.207.707.641%201.64%201.513%201.64h.013c.8-.008%201.236-.345%201.462-.626.173-.216.268-.457.325-.692.424.195.93.374%201.372.374.151%200%20.294-.021.423-.068.732-.27.944-.704.993-1.021.009-.061.003-.119.002-.179.266.086.538.147.789.147.15%200%20.294-.021.423-.069.542-.2.797-.489.914-.754.237.147.478.258.704.288.106.014.205.021.296.021.356%200%20.595-.101.767-.229.438.435%201.094.992%201.656%201.067.106.014.205.021.296.021a1.56%201.56%200%200%200%20.323-.035c.17.575.453%201.289.866%201.605.358.273.665.362.914.362a.99.99%200%200%200%20.421-.093%201.03%201.03%200%200%200%20.245-.164c.168.428.39.846.68%201.068.358.273.665.362.913.362a.99.99%200%200%200%20.421-.093c.317-.148.512-.448.639-.762.251.157.495.257.726.257.127%200%20.25-.024.37-.071.427-.17.706-.617.841-1.314.022-.015.047-.022.068-.038.067-.051.133-.104.196-.159-.443%201.486-1.107%202.761-2.086%203.257zM8.66%209.925a.5.5%200%201%200-1%200c0%20.653-.818%201.205-1.787%201.205s-1.787-.552-1.787-1.205a.5.5%200%201%200-1%200c0%201.216%201.25%202.205%202.787%202.205s2.787-.989%202.787-2.205zm4.4%2015.965l-.208.097c-2.661%201.258-4.708%201.436-6.086.527-1.542-1.017-1.88-3.19-1.844-4.198a.4.4%200%200%200-.385-.414c-.242-.029-.406.164-.414.385-.046%201.249.367%203.686%202.202%204.896.708.467%201.547.7%202.51.7%201.248%200%202.706-.392%204.362-1.174l.185-.086a.4.4%200%200%200%20.205-.527c-.089-.204-.326-.291-.527-.206zM9.547%202.292c.093.077.205.114.317.114a.5.5%200%200%200%20.318-.886L8.817.397a.5.5%200%200%200-.703.068.5.5%200%200%200%20.069.703l1.364%201.124zm-7.661-.065c.086%200%20.173-.022.253-.068l1.523-.893a.5.5%200%200%200-.506-.863l-1.523.892a.5.5%200%200%200-.179.685c.094.158.261.247.432.247z%22%20transform%3D%22matrix%28-1%200%200%201%2058%200%29%22%20fill%3D%22%233bb300%22/%3E%3Cpath%20d%3D%22M.3%2021.86V10.18q0-.46.02-.68.04-.22.18-.5.28-.54%201.34-.54%201.06%200%201.42.28.38.26.44.78.76-1.04%202.38-1.04%201.64%200%203.1%201.54%201.46%201.54%201.46%203.58%200%202.04-1.46%203.58-1.44%201.54-3.08%201.54-1.64%200-2.38-.92v4.04q0%20.46-.04.68-.02.22-.18.5-.14.3-.5.42-.36.12-.98.12-.62%200-1-.12-.36-.12-.52-.4-.14-.28-.18-.5-.02-.22-.02-.68zm3.96-9.42q-.46.54-.46%201.18%200%20.64.46%201.18.48.52%201.2.52.74%200%201.24-.52.52-.52.52-1.18%200-.66-.48-1.18-.48-.54-1.26-.54-.76%200-1.22.54zm14.741-8.36q.16-.3.54-.42.38-.12%201-.12.64%200%201.02.12.38.12.52.42.16.3.18.54.04.22.04.68v11.94q0%20.46-.04.7-.02.22-.18.5-.3.54-1.7.54-1.38%200-1.54-.98-.84.96-2.34.96-1.8%200-3.28-1.56-1.48-1.58-1.48-3.66%200-2.1%201.48-3.68%201.5-1.58%203.28-1.58%201.48%200%202.3%201v-4.2q0-.46.02-.68.04-.24.18-.52zm-3.24%2010.86q.52.54%201.26.54.74%200%201.22-.54.5-.54.5-1.18%200-.66-.48-1.22-.46-.56-1.26-.56-.8%200-1.28.56-.48.54-.48%201.2%200%20.66.52%201.2zm7.833-1.2q0-2.4%201.68-3.96%201.68-1.56%203.84-1.56%202.16%200%203.82%201.56%201.66%201.54%201.66%203.94%200%201.66-.86%202.96-.86%201.28-2.1%201.9-1.22.6-2.54.6-1.32%200-2.56-.64-1.24-.66-2.1-1.92-.84-1.28-.84-2.88zm4.18%201.44q.64.48%201.3.48.66%200%201.32-.5.66-.5.66-1.48%200-.98-.62-1.46-.62-.48-1.34-.48-.72%200-1.34.5-.62.5-.62%201.48%200%20.96.64%201.46zm11.412-1.44q0%20.84.56%201.32.56.46%201.18.46.64%200%201.18-.36.56-.38.9-.38.6%200%201.46%201.06.46.58.46%201.04%200%20.76-1.1%201.42-1.14.8-2.8.8-1.86%200-3.58-1.34-.82-.64-1.34-1.7-.52-1.08-.52-2.36%200-1.3.52-2.34.52-1.06%201.34-1.7%201.66-1.32%203.54-1.32.76%200%201.48.22.72.2%201.06.4l.32.2q.36.24.56.38.52.4.52.92%200%20.5-.42%201.14-.72%201.1-1.38%201.1-.38%200-1.08-.44-.36-.34-1.04-.34-.66%200-1.24.48-.58.48-.58%201.34z%22%20fill%3D%22green%22/%3E%3C/svg%3E"/>
+        <a
+          class="attribution"
+          title="pdoc: Python API documentation generator"
+          href="https://pdoc.dev"
+          target="_blank"
+        >
+          built with <span class="visually-hidden">pdoc</span
+          ><img
+            alt="pdoc logo"
+            src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20role%3D%22img%22%20aria-label%3D%22pdoc%20logo%22%20width%3D%22300%22%20height%3D%22150%22%20viewBox%3D%22-1%200%2060%2030%22%3E%3Ctitle%3Epdoc%3C/title%3E%3Cpath%20d%3D%22M29.621%2021.293c-.011-.273-.214-.475-.511-.481a.5.5%200%200%200-.489.503l-.044%201.393c-.097.551-.695%201.215-1.566%201.704-.577.428-1.306.486-2.193.182-1.426-.617-2.467-1.654-3.304-2.487l-.173-.172a3.43%203.43%200%200%200-.365-.306.49.49%200%200%200-.286-.196c-1.718-1.06-4.931-1.47-7.353.191l-.219.15c-1.707%201.187-3.413%202.131-4.328%201.03-.02-.027-.49-.685-.141-1.763.233-.721.546-2.408.772-4.076.042-.09.067-.187.046-.288.166-1.347.277-2.625.241-3.351%201.378-1.008%202.271-2.586%202.271-4.362%200-.976-.272-1.935-.788-2.774-.057-.094-.122-.18-.184-.268.033-.167.052-.339.052-.516%200-1.477-1.202-2.679-2.679-2.679-.791%200-1.496.352-1.987.9a6.3%206.3%200%200%200-1.001.029c-.492-.564-1.207-.929-2.012-.929-1.477%200-2.679%201.202-2.679%202.679A2.65%202.65%200%200%200%20.97%206.554c-.383.747-.595%201.572-.595%202.41%200%202.311%201.507%204.29%203.635%205.107-.037.699-.147%202.27-.423%203.294l-.137.461c-.622%202.042-2.515%208.257%201.727%2010.643%201.614.908%203.06%201.248%204.317%201.248%202.665%200%204.492-1.524%205.322-2.401%201.476-1.559%202.886-1.854%206.491.82%201.877%201.393%203.514%201.753%204.861%201.068%202.223-1.713%202.811-3.867%203.399-6.374.077-.846.056-1.469.054-1.537zm-4.835%204.313c-.054.305-.156.586-.242.629-.034-.007-.131-.022-.307-.157-.145-.111-.314-.478-.456-.908.221.121.432.25.675.355.115.039.219.051.33.081zm-2.251-1.238c-.05.33-.158.648-.252.694-.022.001-.125-.018-.307-.157-.217-.166-.488-.906-.639-1.573.358.344.754.693%201.198%201.036zm-3.887-2.337c-.006-.116-.018-.231-.041-.342.635.145%201.189.368%201.599.625.097.231.166.481.174.642-.03.049-.055.101-.067.158-.046.013-.128.026-.298.004-.278-.037-.901-.57-1.367-1.087zm-1.127-.497c.116.306.176.625.12.71-.019.014-.117.045-.345.016-.206-.027-.604-.332-.986-.695.41-.051.816-.056%201.211-.031zm-4.535%201.535c.209.22.379.47.358.598-.006.041-.088.138-.351.234-.144.055-.539-.063-.979-.259a11.66%2011.66%200%200%200%20.972-.573zm.983-.664c.359-.237.738-.418%201.126-.554.25.237.479.548.457.694-.006.042-.087.138-.351.235-.174.064-.694-.105-1.232-.375zm-3.381%201.794c-.022.145-.061.29-.149.401-.133.166-.358.248-.69.251h-.002c-.133%200-.306-.26-.45-.621.417.091.854.07%201.291-.031zm-2.066-8.077a4.78%204.78%200%200%201-.775-.584c.172-.115.505-.254.88-.378l-.105.962zm-.331%202.302a10.32%2010.32%200%200%201-.828-.502c.202-.143.576-.328.984-.49l-.156.992zm-.45%202.157l-.701-.403c.214-.115.536-.249.891-.376a11.57%2011.57%200%200%201-.19.779zm-.181%201.716c.064.398.194.702.298.893-.194-.051-.435-.162-.736-.398.061-.119.224-.3.438-.495zM8.87%204.141c0%20.152-.123.276-.276.276s-.275-.124-.275-.276.123-.276.276-.276.275.124.275.276zm-.735-.389a1.15%201.15%200%200%200-.314.783%201.16%201.16%200%200%200%201.162%201.162c.457%200%20.842-.27%201.032-.653.026.117.042.238.042.362a1.68%201.68%200%200%201-1.679%201.679%201.68%201.68%200%200%201-1.679-1.679c0-.843.626-1.535%201.436-1.654zM5.059%205.406A1.68%201.68%200%200%201%203.38%207.085a1.68%201.68%200%200%201-1.679-1.679c0-.037.009-.072.011-.109.21.3.541.508.935.508a1.16%201.16%200%200%200%201.162-1.162%201.14%201.14%200%200%200-.474-.912c.015%200%20.03-.005.045-.005.926.001%201.679.754%201.679%201.68zM3.198%204.141c0%20.152-.123.276-.276.276s-.275-.124-.275-.276.123-.276.276-.276.275.124.275.276zM1.375%208.964c0-.52.103-1.035.288-1.52.466.394%201.06.64%201.717.64%201.144%200%202.116-.725%202.499-1.738.383%201.012%201.355%201.738%202.499%201.738.867%200%201.631-.421%202.121-1.062.307.605.478%201.267.478%201.942%200%202.486-2.153%204.51-4.801%204.51s-4.801-2.023-4.801-4.51zm24.342%2019.349c-.985.498-2.267.168-3.813-.979-3.073-2.281-5.453-3.199-7.813-.705-1.315%201.391-4.163%203.365-8.423.97-3.174-1.786-2.239-6.266-1.261-9.479l.146-.492c.276-1.02.395-2.457.444-3.268a6.11%206.11%200%200%200%201.18.115%206.01%206.01%200%200%200%202.536-.562l-.006.175c-.802.215-1.848.612-2.021%201.25-.079.295.021.601.274.837.219.203.415.364.598.501-.667.304-1.243.698-1.311%201.179-.02.144-.022.507.393.787.213.144.395.26.564.365-1.285.521-1.361.96-1.381%201.126-.018.142-.011.496.427.746l.854.489c-.473.389-.971.914-.999%201.429-.018.278.095.532.316.713.675.556%201.231.721%201.653.721.059%200%20.104-.014.158-.02.207.707.641%201.64%201.513%201.64h.013c.8-.008%201.236-.345%201.462-.626.173-.216.268-.457.325-.692.424.195.93.374%201.372.374.151%200%20.294-.021.423-.068.732-.27.944-.704.993-1.021.009-.061.003-.119.002-.179.266.086.538.147.789.147.15%200%20.294-.021.423-.069.542-.2.797-.489.914-.754.237.147.478.258.704.288.106.014.205.021.296.021.356%200%20.595-.101.767-.229.438.435%201.094.992%201.656%201.067.106.014.205.021.296.021a1.56%201.56%200%200%200%20.323-.035c.17.575.453%201.289.866%201.605.358.273.665.362.914.362a.99.99%200%200%200%20.421-.093%201.03%201.03%200%200%200%20.245-.164c.168.428.39.846.68%201.068.358.273.665.362.913.362a.99.99%200%200%200%20.421-.093c.317-.148.512-.448.639-.762.251.157.495.257.726.257.127%200%20.25-.024.37-.071.427-.17.706-.617.841-1.314.022-.015.047-.022.068-.038.067-.051.133-.104.196-.159-.443%201.486-1.107%202.761-2.086%203.257zM8.66%209.925a.5.5%200%201%200-1%200c0%20.653-.818%201.205-1.787%201.205s-1.787-.552-1.787-1.205a.5.5%200%201%200-1%200c0%201.216%201.25%202.205%202.787%202.205s2.787-.989%202.787-2.205zm4.4%2015.965l-.208.097c-2.661%201.258-4.708%201.436-6.086.527-1.542-1.017-1.88-3.19-1.844-4.198a.4.4%200%200%200-.385-.414c-.242-.029-.406.164-.414.385-.046%201.249.367%203.686%202.202%204.896.708.467%201.547.7%202.51.7%201.248%200%202.706-.392%204.362-1.174l.185-.086a.4.4%200%200%200%20.205-.527c-.089-.204-.326-.291-.527-.206zM9.547%202.292c.093.077.205.114.317.114a.5.5%200%200%200%20.318-.886L8.817.397a.5.5%200%200%200-.703.068.5.5%200%200%200%20.069.703l1.364%201.124zm-7.661-.065c.086%200%20.173-.022.253-.068l1.523-.893a.5.5%200%200%200-.506-.863l-1.523.892a.5.5%200%200%200-.179.685c.094.158.261.247.432.247z%22%20transform%3D%22matrix%28-1%200%200%201%2058%200%29%22%20fill%3D%22%233bb300%22/%3E%3Cpath%20d%3D%22M.3%2021.86V10.18q0-.46.02-.68.04-.22.18-.5.28-.54%201.34-.54%201.06%200%201.42.28.38.26.44.78.76-1.04%202.38-1.04%201.64%200%203.1%201.54%201.46%201.54%201.46%203.58%200%202.04-1.46%203.58-1.44%201.54-3.08%201.54-1.64%200-2.38-.92v4.04q0%20.46-.04.68-.02.22-.18.5-.14.3-.5.42-.36.12-.98.12-.62%200-1-.12-.36-.12-.52-.4-.14-.28-.18-.5-.02-.22-.02-.68zm3.96-9.42q-.46.54-.46%201.18%200%20.64.46%201.18.48.52%201.2.52.74%200%201.24-.52.52-.52.52-1.18%200-.66-.48-1.18-.48-.54-1.26-.54-.76%200-1.22.54zm14.741-8.36q.16-.3.54-.42.38-.12%201-.12.64%200%201.02.12.38.12.52.42.16.3.18.54.04.22.04.68v11.94q0%20.46-.04.7-.02.22-.18.5-.3.54-1.7.54-1.38%200-1.54-.98-.84.96-2.34.96-1.8%200-3.28-1.56-1.48-1.58-1.48-3.66%200-2.1%201.48-3.68%201.5-1.58%203.28-1.58%201.48%200%202.3%201v-4.2q0-.46.02-.68.04-.24.18-.52zm-3.24%2010.86q.52.54%201.26.54.74%200%201.22-.54.5-.54.5-1.18%200-.66-.48-1.22-.46-.56-1.26-.56-.8%200-1.28.56-.48.54-.48%201.2%200%20.66.52%201.2zm7.833-1.2q0-2.4%201.68-3.96%201.68-1.56%203.84-1.56%202.16%200%203.82%201.56%201.66%201.54%201.66%203.94%200%201.66-.86%202.96-.86%201.28-2.1%201.9-1.22.6-2.54.6-1.32%200-2.56-.64-1.24-.66-2.1-1.92-.84-1.28-.84-2.88zm4.18%201.44q.64.48%201.3.48.66%200%201.32-.5.66-.5.66-1.48%200-.98-.62-1.46-.62-.48-1.34-.48-.72%200-1.34.5-.62.5-.62%201.48%200%20.96.64%201.46zm11.412-1.44q0%20.84.56%201.32.56.46%201.18.46.64%200%201.18-.36.56-.38.9-.38.6%200%201.46%201.06.46.58.46%201.04%200%20.76-1.1%201.42-1.14.8-2.8.8-1.86%200-3.58-1.34-.82-.64-1.34-1.7-.52-1.08-.52-2.36%200-1.3.52-2.34.52-1.06%201.34-1.7%201.66-1.32%203.54-1.32.76%200%201.48.22.72.2%201.06.4l.32.2q.36.24.56.38.52.4.52.92%200%20.5-.42%201.14-.72%201.1-1.38%201.1-.38%200-1.08-.44-.36-.34-1.04-.34-.66%200-1.24.48-.58.48-.58%201.34z%22%20fill%3D%22green%22/%3E%3C/svg%3E"
+          />
         </a>
-</div>
+      </div>
     </nav>
     <main class="pdoc">
-            <section class="module-info">
-                    <h1 class="modulename">
-maritalk    </h1>
+      <section class="module-info">
+        <h1 class="modulename">maritalk</h1>
 
-                        <div class="docstring"><h3 id="conteudo">Conteúdo</h3>
+        <div class="docstring">
+          <h3 id="conteudo">Conteúdo</h3>
 
-<p><strong>MariTalk API</strong></p>
+          <p><strong>MariTalk API</strong></p>
 
-<ul>
-<li><a href="#introdução">Introdução</a>  </li>
-<li><a href="#instalação">Instalação</a>  </li>
-<li><a href="#exemplo-de-uso">Exemplo de uso</a></li>
-<li><a href="https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_via_requisições_https.ipynb">Exemplo de uso via requisições HTTP - Python</a></li>
-<li><a href="https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_via_requisições_https.js">Exemplo de uso via requisições HTTP - JavaScript</a></li>
-<li><a href="https://github.com/langchain-ai/langchain/blob/master/docs/docs/integrations/chat/maritalk.ipynb">Exemplo MariTalk + RAG com LangChain</a></li>
-<li><a href="https://github.com/run-llama/llama_index/blob/main/docs/examples/llm/maritalk.ipynb">Exemplo Maritalk no LlamaIndex</a></li>
-<li><a href="https://chat.maritaca.ai/docs">Documentação Swagger</a></li>
-</ul>
+          <ul>
+            <li><a href="#introdução">Introdução</a></li>
+            <li><a href="#instalação">Instalação</a></li>
+            <li><a href="#exemplo-de-uso">Exemplo de uso</a></li>
+            <li>
+              <a
+                href="https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_via_requisições_https.ipynb"
+                >Exemplo de uso via requisições HTTP - Python</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_via_requisições_https.js"
+                >Exemplo de uso via requisições HTTP - JavaScript</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/langchain-ai/langchain/blob/master/docs/docs/integrations/chat/maritalk.ipynb"
+                >Exemplo MariTalk + RAG com LangChain</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/run-llama/llama_index/blob/main/docs/examples/llm/maritalk.ipynb"
+                >Exemplo Maritalk no LlamaIndex</a
+              >
+            </li>
+            <li>
+              <a href="https://chat.maritaca.ai/docs">Documentação Swagger</a>
+            </li>
+          </ul>
 
-<p><strong>MariTalk Local</strong></p>
+          <p><strong>MariTalk Local</strong></p>
 
-<ul>
-<li><a href="#modo-local">Executando localmente</a></li>
-<li><a href="https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/colab-pro.ipynb">Exemplo Google Colab Pro</a></li>
-<li><a href="https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/oracle-cloud.md">Em GPUs da Oracle Cloud (OCI)</a></li>
-<li><a href="https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/google-cloud.md">Em GPUs da Google Cloud (GCP)</a></li>
-</ul>
+          <ul>
+            <li><a href="#modo-local">Executando localmente</a></li>
+            <li>
+              <a
+                href="https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/colab-pro.ipynb"
+                >Exemplo Google Colab Pro</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/oracle-cloud.md"
+                >Em GPUs da Oracle Cloud (OCI)</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/google-cloud.md"
+                >Em GPUs da Google Cloud (GCP)</a
+              >
+            </li>
+          </ul>
 
-<p><a href="#web-chat">Chat (gratuito)</a></p>
+          <p><a href="#web-chat">Chat (gratuito)</a></p>
 
-<h1 id="introducao">Introdução</h1>
+          <h1 id="introducao">Introdução</h1>
 
-<p>Este repositório contém o código e a documentação explicando como usar a API da MariTalk e a versão local para deploy on-premises.
-A MariTalk é uma assistente baseada em um modelo de linguagem que foi especialmente treinado para entender bem o português.
-Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.</p>
+          <p>
+            Este repositório contém o código e a documentação explicando como
+            usar a API da MariTalk e a versão local para deploy on-premises. A
+            MariTalk é uma assistente baseada em um modelo de linguagem que foi
+            especialmente treinado para entender bem o português. Ela é capaz de
+            seguir instruções de maneira zero-shot, assim como o ChatGPT.
+          </p>
 
-<p>Este é um serviço pago que requer a validação de um meio de pagamento, como um cartão de crédito. Para validar, acesse <a href="https://chat.maritaca.ai/">chat.maritaca.ai</a> -> "Meu Plano" -> "Validar forma de pagamento".</p>
+          <p>
+            Este é um serviço pago que requer a validação de um meio de
+            pagamento, como um cartão de crédito. Para validar, acesse
+            <a href="https://chat.maritaca.ai/">chat.maritaca.ai</a> -> "Meu
+            Plano" -> "Validar forma de pagamento".
+          </p>
 
-<p>A cobrança é feita por tokens, sendo o mesmo valor cobrado por tokens de entrada (i.e., prompt) e saída (i.e., gerados pelo modelo).</p>
+          <p>
+            A cobrança é feita por tokens, sendo o mesmo valor cobrado por
+            tokens de entrada (i.e., prompt) e saída (i.e., gerados pelo
+            modelo).
+          </p>
 
-<p>Novos assinantes recebem R$20 em créditos da API.</p>
+          <p>Novos assinantes recebem R$20 em créditos da API.</p>
 
-<h1 id="instalacao">Instalação</h1>
+          <h1 id="instalacao">Instalação</h1>
 
-<p>Instale a biblioteca da MariTalk usando pip:</p>
+          <p>Instale a biblioteca da MariTalk usando pip:</p>
 
-<div class="pdoc-code codehilite">
-<pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>maritalk
+          <div class="pdoc-code codehilite">
+            <pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>maritalk
 </code></pre>
-</div>
+          </div>
 
-<h1 id="exemplo-de-uso">Exemplo de Uso</h1>
+          <h1 id="exemplo-de-uso">Exemplo de Uso</h1>
 
-<p>Mostramos abaixo um exemplo simples de uso em Python. Na <a href="https://github.com/maritaca-ai/maritalk-api/tree/main/examples/api">pasta exemplos</a> existem mais códigos mostrando como chamar a API.</p>
+          <p>
+            Mostramos abaixo um exemplo simples de uso em Python. Na
+            <a
+              href="https://github.com/maritaca-ai/maritalk-api/tree/main/examples/api"
+              >pasta exemplos</a
+            >
+            existem mais códigos mostrando como chamar a API.
+          </p>
 
-<p>Primeiramente, você precisa de uma chave da API, que pode ser obtida em <a href="https://chat.maritaca.ai/">chat.maritaca.ai</a> -> "Chaves da API" -> "Crie uma chave".</p>
+          <p>
+            Primeiramente, você precisa de uma chave da API, que pode ser obtida
+            em <a href="https://chat.maritaca.ai/">chat.maritaca.ai</a> ->
+            "Chaves da API" -> "Crie uma chave".
+          </p>
 
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="kn">import</span> <span class="nn">maritalk</span>
+          <div class="pdoc-code codehilite">
+            <pre><span></span><code><span class="kn">import</span> <span class="nn">maritalk</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n"><a href="#MariTalk">maritalk.MariTalk</a></span><span class="p">(</span>
     <span class="n">key</span><span class="o">=</span><span class="s2">&quot;insira sua chave aqui. Ex: &#39;100088...&#39;&quot;</span><span class="p">,</span>
@@ -184,22 +1433,37 @@ Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.<
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resposta: </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>   <span class="c1"># Deve imprimir algo como &quot;25 + 27 é igual a 52.&quot;</span>
 </code></pre>
-</div>
+          </div>
 
-<p>Atualmente apenas suportamos o modelo "maritalk-large-2024-01-08". Mais modelos serão suportados em breve.</p>
+          <p>
+            Atualmente apenas suportamos o modelo "maritalk-large-2024-01-08".
+            Mais modelos serão suportados em breve.
+          </p>
 
-<p>Note que o dicionário <code>response</code> contém a chave <code>usage</code>, que informa a quantidade de tokens de entrada e saída que serão cobrados.</p>
+          <p>
+            Note que o dicionário <code>response</code> contém a chave
+            <code>usage</code>, que informa a quantidade de tokens de entrada e
+            saída que serão cobrados.
+          </p>
 
-<h2 id="modo-chat">Modo chat</h2>
+          <h2 id="modo-chat">Modo chat</h2>
 
-<p>Você pode definir uma conversa especificando uma lista de dicionários, sendo que cada dicionário precisar ter duas chaves: <code>content</code> e <code>role</code>.</p>
+          <p>
+            Você pode definir uma conversa especificando uma lista de
+            dicionários, sendo que cada dicionário precisar ter duas chaves:
+            <code>content</code> e <code>role</code>.
+          </p>
 
-<p>Atualmente, a API da MariTalk suporta dois valores para <code>role</code>: "user" para mensagens do usuário, e "assistant" para mensagens do assistente.</p>
+          <p>
+            Atualmente, a API da MariTalk suporta dois valores para
+            <code>role</code>: "user" para mensagens do usuário, e "assistant"
+            para mensagens do assistente.
+          </p>
 
-<p>Mostramos um exemplo de conversa abaixo:</p>
+          <p>Mostramos um exemplo de conversa abaixo:</p>
 
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="nv">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>
+          <div class="pdoc-code codehilite">
+            <pre><span></span><code><span class="nv">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>
 <span class="w">    </span><span class="o">{</span><span class="s2">&quot;role&quot;</span>:<span class="w"> </span><span class="s2">&quot;user&quot;</span>,<span class="w"> </span><span class="s2">&quot;content&quot;</span>:<span class="w"> </span><span class="s2">&quot;sugira três nomes para a minha cachorra&quot;</span><span class="o">}</span>,
 <span class="w">    </span><span class="o">{</span><span class="s2">&quot;role&quot;</span>:<span class="w"> </span><span class="s2">&quot;assistant&quot;</span>,<span class="w"> </span><span class="s2">&quot;content&quot;</span>:<span class="w"> </span><span class="s2">&quot;nina, bela e luna.&quot;</span><span class="o">}</span>,
 <span class="w">    </span><span class="o">{</span><span class="s2">&quot;role&quot;</span>:<span class="w"> </span><span class="s2">&quot;user&quot;</span>,<span class="w"> </span><span class="s2">&quot;content&quot;</span>:<span class="w"> </span><span class="s2">&quot;e para o meu peixe?&quot;</span><span class="o">}</span>,
@@ -214,17 +1478,26 @@ Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.<
 
 print<span class="o">(</span>f<span class="s2">&quot;Resposta: {answer}&quot;</span><span class="o">)</span><span class="w">   </span><span class="c1"># Deve imprimir algo como &quot;nemo, dory e neptuno.&quot;</span>
 </code></pre>
-</div>
+          </div>
 
-<h2 id="exemplos-few-shot">Exemplos few-shot</h2>
+          <h2 id="exemplos-few-shot">Exemplos few-shot</h2>
 
-<p>Embora a MariTalk seja capaz de responder a instruções sem nenhum exemplo de demonstração, fornecer alguns exemplos da tarefa pode melhorar significativamente a qualidade de suas respostas.</p>
+          <p>
+            Embora a MariTalk seja capaz de responder a instruções sem nenhum
+            exemplo de demonstração, fornecer alguns exemplos da tarefa pode
+            melhorar significativamente a qualidade de suas respostas.
+          </p>
 
-<p>Abaixo mostramos como isso é feito para uma tarefa simples de análise de sentimento, i.e., classificar se uma resenha de filme é positiva ou negativa.
-Neste caso, passaremos dois exemplos few-shot, um positivo e outro negativo, e um terceiro exemplo, para o qual a MariTalk efetivamente fará a predição.</p>
+          <p>
+            Abaixo mostramos como isso é feito para uma tarefa simples de
+            análise de sentimento, i.e., classificar se uma resenha de filme é
+            positiva ou negativa. Neste caso, passaremos dois exemplos few-shot,
+            um positivo e outro negativo, e um terceiro exemplo, para o qual a
+            MariTalk efetivamente fará a predição.
+          </p>
 
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Classifique a resenha de filme como &quot;positiva&quot; ou &quot;negativa&quot;.</span>
+          <div class="pdoc-code codehilite">
+            <pre><span></span><code><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Classifique a resenha de filme como &quot;positiva&quot; ou &quot;negativa&quot;.</span>
 
 <span class="s2">Resenha: Gostei muito do filme, é o melhor do ano!</span>
 <span class="s2">Classe: positiva</span>
@@ -245,24 +1518,49 @@ Neste caso, passaremos dois exemplos few-shot, um positivo e outro negativo, e u
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resposta: </span><span class="si">{</span><span class="n">answer</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># Deve imprimir &quot;positiva&quot;</span>
 </code></pre>
-</div>
+          </div>
 
-<p>Note que usamos <code>chat_mode=False</code>, pois melhora a qualidade das respostas quando usando exemplos few-shot.</p>
+          <p>
+            Note que usamos <code>chat_mode=False</code>, pois melhora a
+            qualidade das respostas quando usando exemplos few-shot.
+          </p>
 
-<p>O argumento <code>stopping_tokens=["\n"]</code> é usado para interromper a geração quando o token "\n" é gerado. Isso é necessário porque, quando não estamos no modo chat, o modelo pode não saber quando interromper a geração.</p>
+          <p>
+            O argumento <code>stopping_tokens=["\n"]</code> é usado para
+            interromper a geração quando o token "\n" é gerado. Isso é
+            necessário porque, quando não estamos no modo chat, o modelo pode
+            não saber quando interromper a geração.
+          </p>
 
-<p>Para tarefas com apenas uma resposta correta, como no exemplo acima, é recomendado usar <code>do_sample=False</code>. Isso garante que a mesma resposta seja gerada dado um prompt específico.</p>
+          <p>
+            Para tarefas com apenas uma resposta correta, como no exemplo acima,
+            é recomendado usar <code>do_sample=False</code>. Isso garante que a
+            mesma resposta seja gerada dado um prompt específico.
+          </p>
 
-<p>Para tarefas de geração de textos diversos ou longos, é recomendado usar <code>do_sample=True</code> e <code>temperature=0.7</code>. Quanto maior a temperatura, mais diversos serão os textos gerados, mas há maior chance de o modelo "alucinar" e gerar textos sem sentido. Quanto menor a temperatura, a resposta é mais conservadora, mas corre o risco de gerar textos repetidos.</p>
+          <p>
+            Para tarefas de geração de textos diversos ou longos, é recomendado
+            usar <code>do_sample=True</code> e <code>temperature=0.7</code>.
+            Quanto maior a temperatura, mais diversos serão os textos gerados,
+            mas há maior chance de o modelo "alucinar" e gerar textos sem
+            sentido. Quanto menor a temperatura, a resposta é mais conservadora,
+            mas corre o risco de gerar textos repetidos.
+          </p>
 
-<h2 id="como-saber-o-numero-de-tokens-que-serao-cobrados">Como saber o número de tokens que serão cobrados?</h2>
+          <h2 id="como-saber-o-numero-de-tokens-que-serao-cobrados">
+            Como saber o número de tokens que serão cobrados?
+          </h2>
 
-<p>Para saber de antemão o quanto suas requisições irão custar, use os tokenizadores dos modelos MariTalk, disponíveis na HuggingFace, para saber o número de tokens em um dado prompt.</p>
+          <p>
+            Para saber de antemão o quanto suas requisições irão custar, use os
+            tokenizadores dos modelos MariTalk, disponíveis na HuggingFace, para
+            saber o número de tokens em um dado prompt.
+          </p>
 
-<p>Exemplo de uso:</p>
+          <p>Exemplo de uso:</p>
 
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="kn">import</span> <span class="nn">transformers</span>
+          <div class="pdoc-code codehilite">
+            <pre><span></span><code><span class="kn">import</span> <span class="nn">transformers</span>
 <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;maritaca-ai/sabia-2-tokenizer-medium&quot;</span><span class="p">)</span>
 
 <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Com quantos paus se faz uma canoa?&quot;</span>
@@ -271,65 +1569,89 @@ Neste caso, passaremos dois exemplos few-shot, um positivo e outro negativo, e u
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;O prompt &quot;</span><span class="si">{</span><span class="n">prompt</span><span class="si">}</span><span class="s1">&quot; contém </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span><span class="si">}</span><span class="s1"> tokens.&#39;</span><span class="p">)</span>
 </code></pre>
-</div>
+          </div>
 
-<p>Note que os tokenizadores da Sabiá-2 Small e Medium são diferentes.</p>
+          <p>
+            Note que os tokenizadores da Sabiá-2 Small e Medium são diferentes.
+          </p>
 
-<h1 id="modo-local">Modo local</h1>
+          <h1 id="modo-local">Modo local</h1>
 
-<p>Além da API da Maritaca AI, é possível executar a MariTalk localmente em duas versões, small e large.
-A tabela abaixo compara essas duas versões e apresenta algumas comparações com os modelos da OpenAI.</p>
+          <p>
+            Além da API da Maritaca AI, é possível executar a MariTalk
+            localmente em duas versões, small e large. A tabela abaixo compara
+            essas duas versões e apresenta algumas comparações com os modelos da
+            OpenAI.
+          </p>
 
-<table>
-<thead>
-<tr>
-  <th>Modelo</th>
-  <th>GPU RAM (min)</th>
-  <th>Max tokens</th>
-  <th>Pontuação média (14 Datasets)<sup class="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup></th>
-  <th>Link para Download</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>MariTalk Local Small v1.0</td>
-  <td>6GB</td>
-  <td>8.000</td>
-  <td>65,4</td>
-  <td><a href="https://chat.maritaca.ai/checkout/maritalk-small">Link</a></td>
-</tr>
-<tr>
-  <td>MariTalk Local Large v1.0</td>
-  <td>24GB</td>
-  <td>8.000</td>
-  <td>73,0</td>
-  <td>Lançamento em breve</td>
-</tr>
-<tr>
-  <td>GPT-3.5-turbo</td>
-  <td>-</td>
-  <td>16k</td>
-  <td>67,0</td>
-  <td>-</td>
-</tr>
-<tr>
-  <td>GPT-4-turbo</td>
-  <td>-</td>
-  <td>132k</td>
-  <td>80,6</td>
-  <td>-</td>
-</tr>
-</tbody>
-</table>
+          <table>
+            <thead>
+              <tr>
+                <th>Modelo</th>
+                <th>GPU RAM (min)</th>
+                <th>Max tokens</th>
+                <th>
+                  Pontuação média (14 Datasets)<sup
+                    class="footnote-ref"
+                    id="fnref-1"
+                    ><a href="#fn-1">1</a></sup
+                  >
+                </th>
+                <th>Link para Download</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MariTalk Local Small v1.0</td>
+                <td>6GB</td>
+                <td>8.000</td>
+                <td>65,4</td>
+                <td>
+                  <a href="https://chat.maritaca.ai/checkout/maritalk-small"
+                    >Link</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>MariTalk Local Large v1.0</td>
+                <td>24GB</td>
+                <td>8.000</td>
+                <td>73,0</td>
+                <td>Lançamento em breve</td>
+              </tr>
+              <tr>
+                <td>GPT-3.5-turbo</td>
+                <td>-</td>
+                <td>16k</td>
+                <td>67,0</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>GPT-4-turbo</td>
+                <td>-</td>
+                <td>132k</td>
+                <td>80,6</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
 
-<p>O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia. Atualmente, a MariTalk local roda apenas em GPUs da arquitetura Ampere (A100, A6000 e A10).</p>
+          <p>
+            O executável roda em máquinas Linux 64-bit com uma ou mais GPUs
+            Nvidia. Atualmente, a MariTalk local roda apenas em GPUs da
+            arquitetura Ampere (A100, A6000 e A10).
+          </p>
 
-<h2 id="executando-em-python">Executando em Python</h2>
+          <h2 id="executando-em-python">Executando em Python</h2>
 
-<p>Uma vez obtida uma chave de licença usando um dos links acima, é possível fazer o download, inicializar e executar a MariTalk local utilizando a biblioteca em Python, conforme exemplo abaixo.</p>
+          <p>
+            Uma vez obtida uma chave de licença usando um dos links acima, é
+            possível fazer o download, inicializar e executar a MariTalk local
+            utilizando a biblioteca em Python, conforme exemplo abaixo.
+          </p>
 
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="kn">import</span> <span class="nn">maritalk</span>
+          <div class="pdoc-code codehilite">
+            <pre><span></span><code><span class="kn">import</span> <span class="nn">maritalk</span>
 
 <span class="c1"># Criando uma instância do cliente MariTalkLocal</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n"><a href="#MariTalkLocal">maritalk.MariTalkLocal</a></span><span class="p">()</span>
@@ -365,48 +1687,86 @@ A tabela abaixo compara essas duas versões e apresenta algumas comparações co
 <span class="n">chat_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">chat_response</span><span class="p">)</span>  <span class="c1"># {&#39;output&#39;: &#39;nani, bento e leo.&#39;, &#39;queue_time&#39;: 0, &#39;prompt_time&#39;: 185, &#39;generation_time&#39;: 127}</span>
 </code></pre>
-</div>
+          </div>
 
-<p>O retorno das chamadas contém o texto gerado e os tempos de espera, de execução do prompt e da geração do texto para fins de debug do usuário.</p>
+          <p>
+            O retorno das chamadas contém o texto gerado e os tempos de espera,
+            de execução do prompt e da geração do texto para fins de debug do
+            usuário.
+          </p>
 
-<h2 id="executando-o-binario-diretamente">Executando o binário diretamente</h2>
+          <h2 id="executando-o-binario-diretamente">
+            Executando o binário diretamente
+          </h2>
 
-<p>Também é possivel executar o servidor diretamente no terminal, sem o wrapper em python.</p>
+          <p>
+            Também é possivel executar o servidor diretamente no terminal, sem o
+            wrapper em python.
+          </p>
 
-<h4 id="download">Download</h4>
+          <h4 id="download">Download</h4>
 
-<div class="pdoc-code codehilite">
-<pre><span></span><code>wget<span class="w"> </span>-O<span class="w"> </span>maritalk<span class="w"> </span>&lt;link<span class="w"> </span><span class="k">do</span><span class="w"> </span>binário<span class="w"> </span>recebido<span class="w"> </span>no<span class="w"> </span>email&gt;<span class="w"> </span>
+          <div class="pdoc-code codehilite">
+            <pre><span></span><code>wget<span class="w"> </span>-O<span class="w"> </span>maritalk<span class="w"> </span>&lt;link<span class="w"> </span><span class="k">do</span><span class="w"> </span>binário<span class="w"> </span>recebido<span class="w"> </span>no<span class="w"> </span>email&gt;<span class="w"> </span>
 </code></pre>
-</div>
+          </div>
 
-<h4 id="dependencias">Dependências</h4>
+          <h4 id="dependencias">Dependências</h4>
 
-<p>As principais dependências são as bibliotecas CUDA para comunicação com a GPU e de SSL. Para instalar as bibliotecas da Nvidia compatíveis com seu driver, é recomendado instalar o CUDA Toolkit na versão 11 ou 12. Exemplo: <code>apt install cuda-toolkit-12</code>. Atualmente suportamos as versões de CUDA 11 e 12 e Ubuntu versões 20 e 22. Caso queria sobrescrever a detecção automática das versões locais na hora do download do binário compatível, utilize o argumento <code>cuda_version</code> ou <code>ssl_version</code>, exemplo: <code>client.start_server('00000-00000-00000-00000', cuda_version=12)</code>.</p>
+          <p>
+            As principais dependências são as bibliotecas CUDA para comunicação
+            com a GPU e de SSL. Para instalar as bibliotecas da Nvidia
+            compatíveis com seu driver, é recomendado instalar o CUDA Toolkit na
+            versão 11 ou 12. Exemplo: <code>apt install cuda-toolkit-12</code>.
+            Atualmente suportamos as versões de CUDA 11 e 12 e Ubuntu versões 20
+            e 22. Caso queria sobrescrever a detecção automática das versões
+            locais na hora do download do binário compatível, utilize o
+            argumento <code>cuda_version</code> ou <code>ssl_version</code>,
+            exemplo:
+            <code
+              >client.start_server('00000-00000-00000-00000',
+              cuda_version=12)</code
+            >.
+          </p>
 
-<p>Também é possível executar a MariTalk em um container Docker utilizando as imagens da Nvidia com as dependências necessárias já instaladas. Por exemplo, a imagem <code>nvidia/cuda:11.8.0-devel-ubuntu22.04</code> pode ser utilizada para executar o binário compatível com Ubuntu 22 e CUDA 11.</p>
+          <p>
+            Também é possível executar a MariTalk em um container Docker
+            utilizando as imagens da Nvidia com as dependências necessárias já
+            instaladas. Por exemplo, a imagem
+            <code>nvidia/cuda:11.8.0-devel-ubuntu22.04</code> pode ser utilizada
+            para executar o binário compatível com Ubuntu 22 e CUDA 11.
+          </p>
 
-<h4 id="execucao">Execução</h4>
+          <h4 id="execucao">Execução</h4>
 
-<div class="pdoc-code codehilite">
-<pre><span></span><code>$<span class="w"> </span>./maritalk<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>--license<span class="w"> </span>&lt;LICENSE&gt;
+          <div class="pdoc-code codehilite">
+            <pre><span></span><code>$<span class="w"> </span>./maritalk<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>--license<span class="w"> </span>&lt;LICENSE&gt;
 </code></pre>
-</div>
+          </div>
 
-<p><code>--license &lt;LICENSE&gt;</code>: Sua chave de licença.</p>
+          <p><code>--license &lt;LICENSE&gt;</code>: Sua chave de licença.</p>
 
-<p><code>-p, --port &lt;PORT&gt;</code>: Porta HTTP para escutar. [padrão: 9000]</p>
+          <p>
+            <code>-p, --port &lt;PORT&gt;</code>: Porta HTTP para escutar.
+            [padrão: 9000]
+          </p>
 
-<p><code>-h, --help</code>: Mostra uma mensagem de ajuda com a descrição dos argumentos disponíveis.</p>
+          <p>
+            <code>-h, --help</code>: Mostra uma mensagem de ajuda com a
+            descrição dos argumentos disponíveis.
+          </p>
 
-<p><code>-V, --version</code>: Mostra a versão do executável.</p>
+          <p><code>-V, --version</code>: Mostra a versão do executável.</p>
 
-<h4 id="modo-interativo">Modo interativo</h4>
+          <h4 id="modo-interativo">Modo interativo</h4>
 
-<p>Também é possível utilizar a MariTalk Local no próprio terminal sem precisar fazer requisções à API através do modo interativo:</p>
+          <p>
+            Também é possível utilizar a MariTalk Local no próprio terminal sem
+            precisar fazer requisções à API através do modo interativo:
+          </p>
 
-<div class="pdoc-code codehilite">
-<pre><span></span><code>$<span class="w"> </span>./maritalk<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>--license<span class="w"> </span>&lt;LICENSE&gt;<span class="w"> </span>--interactive
+          <div class="pdoc-code codehilite">
+            <pre><span></span><code>$<span class="w"> </span>./maritalk<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>--license<span class="w"> </span>&lt;LICENSE&gt;<span class="w"> </span>--interactive
 <span class="o">(</span>...<span class="o">)</span>
 &gt;&gt;<span class="w"> </span>olá
 MariTalk:<span class="w"> </span>Olá!<span class="w"> </span>Como<span class="w"> </span>posso<span class="w"> </span>ajudar<span class="w"> </span>você<span class="w"> </span>hoje?
@@ -428,43 +1788,80 @@ MariTalk:<span class="w"> </span>Aqui<span class="w"> </span>está<span class="w
 
 Lembre-se<span class="w"> </span>de<span class="w"> </span>sempre<span class="w"> </span>incluir<span class="w"> </span>produtos<span class="w"> </span>de<span class="w"> </span>qualidade<span class="w"> </span>e<span class="w"> </span>que<span class="w"> </span>sejam<span class="w"> </span>suficientes<span class="w"> </span>para<span class="w"> </span>atender<span class="w"> </span>a<span class="w"> </span>todos<span class="w"> </span>os<span class="w"> </span>convidados.
 </code></pre>
-</div>
+          </div>
 
-<h1 id="aspectos-tecnicos">Aspectos Técnicos</h1>
+          <h1 id="aspectos-tecnicos">Aspectos Técnicos</h1>
 
-<h3 id="comprimento-maximo-de-sequencia">Comprimento máximo de sequência</h3>
+          <h3 id="comprimento-maximo-de-sequencia">
+            Comprimento máximo de sequência
+          </h3>
 
-<p>Os modelos atuais têm um limite de sequência máxima de 8.000 tokens, o que corresponde a cerca de 4.000 palavras em português.
-Isso implica que a contagem total de tokens, incluindo tanto os tokens de entrada (ou seja, o prompt fornecido) quanto os tokens de saída (ou seja, os gerados pelo modelo), não deve exceder 8.000.
-Por exemplo, se o prompt contém 6.000 tokens, o valor máximo para o parâmetro <code>max_tokens</code> (isto é, a quantidade de tokens a serem gerados pelo modelo) deve ser de até 2.000 tokens.</p>
+          <p>
+            Os modelos atuais têm um limite de sequência máxima de 8.000 tokens,
+            o que corresponde a cerca de 4.000 palavras em português. Isso
+            implica que a contagem total de tokens, incluindo tanto os tokens de
+            entrada (ou seja, o prompt fornecido) quanto os tokens de saída (ou
+            seja, os gerados pelo modelo), não deve exceder 8.000. Por exemplo,
+            se o prompt contém 6.000 tokens, o valor máximo para o parâmetro
+            <code>max_tokens</code> (isto é, a quantidade de tokens a serem
+            gerados pelo modelo) deve ser de até 2.000 tokens.
+          </p>
 
-<h3 id="capacidade-de-processamento">Capacidade de Processamento</h3>
+          <h3 id="capacidade-de-processamento">Capacidade de Processamento</h3>
 
-<p>Leva cerca de 1 a 2 segundos para gerar o primeiro token, dado uma sequência de 1000 tokens como entrada.
-Após isso, novos tokens são gerados a uma taxa de 10 a 15 tokens/seg.</p>
+          <p>
+            Leva cerca de 1 a 2 segundos para gerar o primeiro token, dado uma
+            sequência de 1000 tokens como entrada. Após isso, novos tokens são
+            gerados a uma taxa de 10 a 15 tokens/seg.
+          </p>
 
-<h1 id="web-chat">Web Chat</h1>
+          <h1 id="web-chat">Web Chat</h1>
 
-<p>Teste a MariTalk Large via interface web em:
-<a href="https://chat.maritaca.ai/">chat.maritaca.ai</a></p>
+          <p>
+            Teste a MariTalk Large via interface web em:
+            <a href="https://chat.maritaca.ai/">chat.maritaca.ai</a>
+          </p>
 
-<p><img src="https://raw.githubusercontent.com/maritaca-ai/maritalk-api/main/.github/imgs/web-interface.png" width="600"></p>
+          <p>
+            <img
+              src="https://raw.githubusercontent.com/maritaca-ai/maritalk-api/main/.github/imgs/web-interface.png"
+              width="600"
+            />
+          </p>
 
-<div class="footnotes">
-<hr />
-<ol>
-<li id="fn-1">
-<p>Datasets em Português do <a href="https://arxiv.org/abs/2304.07880">Poeta benchmark</a>.&#160;<a href="#fnref-1" class="footnoteBackLink" title="Jump back to footnote 1 in the text.">&#8617;</a></p>
-</li>
-</ol>
-</div>
-</div>
+          <div class="footnotes">
+            <hr />
+            <ol>
+              <li id="fn-1">
+                <p>
+                  Datasets em Português do
+                  <a href="https://arxiv.org/abs/2304.07880">Poeta benchmark</a
+                  >.&#160;<a
+                    href="#fnref-1"
+                    class="footnoteBackLink"
+                    title="Jump back to footnote 1 in the text."
+                    >&#8617;</a
+                  >
+                </p>
+              </li>
+            </ol>
+          </div>
+        </div>
 
-                        <input id="mod-maritalk-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+        <input
+          id="mod-maritalk-view-source"
+          class="view-source-toggle-state"
+          type="checkbox"
+          aria-hidden="true"
+          tabindex="-1"
+        />
 
-                        <label class="view-source-button" for="mod-maritalk-view-source"><span>View Source</span></label>
+        <label class="view-source-button" for="mod-maritalk-view-source"
+          ><span>View Source</span></label
+        >
 
-                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">1</span></a><span class="sd">&quot;&quot;&quot;</span>
+        <div class="pdoc-code codehilite">
+          <pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">1</span></a><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos">2</span></a><span class="sd">.. include:: ../README.md</span>
 </span><span id="L-3"><a href="#L-3"><span class="linenos">3</span></a><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-4"><a href="#L-4"><span class="linenos">4</span></a>
@@ -472,22 +1869,28 @@ Após isso, novos tokens são gerados a uma taxa de 10 a 15 tokens/seg.</p>
 </span><span id="L-6"><a href="#L-6"><span class="linenos">6</span></a><span class="kn">from</span> <span class="nn">.resources.local</span> <span class="kn">import</span> <span class="n">MariTalkLocal</span>
 </span><span id="L-7"><a href="#L-7"><span class="linenos">7</span></a>
 </span><span id="L-8"><a href="#L-8"><span class="linenos">8</span></a><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;MariTalk&quot;</span><span class="p">,</span>  <span class="s2">&quot;MariTalkLocal&quot;</span><span class="p">]</span>
-</span></pre></div>
+</span></pre>
+        </div>
+      </section>
+      <section id="MariTalk">
+        <input
+          id="MariTalk-view-source"
+          class="view-source-toggle-state"
+          type="checkbox"
+          aria-hidden="true"
+          tabindex="-1"
+        />
+        <div class="attr class">
+          <span class="def">class</span>
+          <span class="name">MariTalk</span>:
 
-
-            </section>
-                <section id="MariTalk">
-                            <input id="MariTalk-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr class">
-            
-    <span class="def">class</span>
-    <span class="name">MariTalk</span>:
-
-                <label class="view-source-button" for="MariTalk-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#MariTalk"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MariTalk-31"><a href="#MariTalk-31"><span class="linenos"> 31</span></a><span class="k">class</span> <span class="nc">MariTalk</span><span class="p">:</span>
+          <label class="view-source-button" for="MariTalk-view-source"
+            ><span>View Source</span></label
+          >
+        </div>
+        <a class="headerlink" href="#MariTalk"></a>
+        <div class="pdoc-code codehilite">
+          <pre><span></span><span id="MariTalk-31"><a href="#MariTalk-31"><span class="linenos"> 31</span></a><span class="k">class</span> <span class="nc">MariTalk</span><span class="p">:</span>
 </span><span id="MariTalk-32"><a href="#MariTalk-32"><span class="linenos"> 32</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;https://chat.maritaca.ai/api&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;maritalk&quot;</span><span class="p">):</span>
 </span><span id="MariTalk-33"><a href="#MariTalk-33"><span class="linenos"> 33</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">key</span>
 </span><span id="MariTalk-34"><a href="#MariTalk-34"><span class="linenos"> 34</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private&quot;&quot;&quot;</span>
@@ -578,85 +1981,133 @@ Após isso, novos tokens são gerados a uma taxa de 10 a 15 tokens/seg.</p>
 </span><span id="MariTalk-119"><a href="#MariTalk-119"><span class="linenos">119</span></a>            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </span><span id="MariTalk-120"><a href="#MariTalk-120"><span class="linenos">120</span></a>        <span class="k">else</span><span class="p">:</span>
 </span><span id="MariTalk-121"><a href="#MariTalk-121"><span class="linenos">121</span></a>            <span class="k">raise</span> <span class="n">MaritalkHTTPError</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-</span></pre></div>
+</span></pre>
+        </div>
 
+        <div id="MariTalk.__init__" class="classattr">
+          <input
+            id="MariTalk.__init__-view-source"
+            class="view-source-toggle-state"
+            type="checkbox"
+            aria-hidden="true"
+            tabindex="-1"
+          />
+          <div class="attr function">
+            <span class="name">MariTalk</span
+            ><span class="signature pdoc-code multiline"
+              >(<span class="param">
+                <span class="n">key</span><span class="p">:</span>
+                <span class="nb">str</span>,</span
+              ><span class="param">
+                <span class="n">api_url</span><span class="p">:</span>
+                <span class="nb">str</span> <span class="o">=</span>
+                <span class="s1">&#39;https://chat.maritaca.ai/api&#39;</span
+                >,</span
+              ><span class="param">
+                <span class="n">model</span><span class="o">=</span
+                ><span class="s1">&#39;maritalk&#39;</span></span
+              >)</span
+            >
 
-    
-
-                            <div id="MariTalk.__init__" class="classattr">
-                                        <input id="MariTalk.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="name">MariTalk</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">key</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;https://chat.maritaca.ai/api&#39;</span>,</span><span class="param">	<span class="n">model</span><span class="o">=</span><span class="s1">&#39;maritalk&#39;</span></span>)</span>
-
-                <label class="view-source-button" for="MariTalk.__init__-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#MariTalk.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MariTalk.__init__-32"><a href="#MariTalk.__init__-32"><span class="linenos">32</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;https://chat.maritaca.ai/api&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;maritalk&quot;</span><span class="p">):</span>
+            <label
+              class="view-source-button"
+              for="MariTalk.__init__-view-source"
+              ><span>View Source</span></label
+            >
+          </div>
+          <a class="headerlink" href="#MariTalk.__init__"></a>
+          <div class="pdoc-code codehilite">
+            <pre><span></span><span id="MariTalk.__init__-32"><a href="#MariTalk.__init__-32"><span class="linenos">32</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;https://chat.maritaca.ai/api&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;maritalk&quot;</span><span class="p">):</span>
 </span><span id="MariTalk.__init__-33"><a href="#MariTalk.__init__-33"><span class="linenos">33</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">key</span>
 </span><span id="MariTalk.__init__-34"><a href="#MariTalk.__init__-34"><span class="linenos">34</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private&quot;&quot;&quot;</span>
 </span><span id="MariTalk.__init__-35"><a href="#MariTalk.__init__-35"><span class="linenos">35</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">api_url</span> <span class="o">=</span> <span class="n">api_url</span>
 </span><span id="MariTalk.__init__-36"><a href="#MariTalk.__init__-36"><span class="linenos">36</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private&quot;&quot;&quot;</span>
 </span><span id="MariTalk.__init__-37"><a href="#MariTalk.__init__-37"><span class="linenos">37</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
 </span><span id="MariTalk.__init__-38"><a href="#MariTalk.__init__-38"><span class="linenos">38</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private&quot;&quot;&quot;</span>
-</span></pre></div>
-
-
-    
-
-                            </div>
-                            <div id="MariTalk.key" class="classattr">
-                                <div class="attr variable">
+</span></pre>
+          </div>
+        </div>
+        <div id="MariTalk.key" class="classattr">
+          <div class="attr variable">
             <span class="name">key</span>
+          </div>
+          <a class="headerlink" href="#MariTalk.key"></a>
 
-        
-    </div>
-    <a class="headerlink" href="#MariTalk.key"></a>
-    
-            <div class="docstring"><p>@private</p>
-</div>
-
-
-                            </div>
-                            <div id="MariTalk.api_url" class="classattr">
-                                <div class="attr variable">
+          <div class="docstring"><p>@private</p></div>
+        </div>
+        <div id="MariTalk.api_url" class="classattr">
+          <div class="attr variable">
             <span class="name">api_url</span>
+          </div>
+          <a class="headerlink" href="#MariTalk.api_url"></a>
 
-        
-    </div>
-    <a class="headerlink" href="#MariTalk.api_url"></a>
-    
-            <div class="docstring"><p>@private</p>
-</div>
-
-
-                            </div>
-                            <div id="MariTalk.model" class="classattr">
-                                <div class="attr variable">
+          <div class="docstring"><p>@private</p></div>
+        </div>
+        <div id="MariTalk.model" class="classattr">
+          <div class="attr variable">
             <span class="name">model</span>
+          </div>
+          <a class="headerlink" href="#MariTalk.model"></a>
 
-        
-    </div>
-    <a class="headerlink" href="#MariTalk.model"></a>
-    
-            <div class="docstring"><p>@private</p>
-</div>
+          <div class="docstring"><p>@private</p></div>
+        </div>
+        <div id="MariTalk.generate" class="classattr">
+          <input
+            id="MariTalk.generate-view-source"
+            class="view-source-toggle-state"
+            type="checkbox"
+            aria-hidden="true"
+            tabindex="-1"
+          />
+          <div class="attr function">
+            <span class="def">def</span>
+            <span class="name">generate</span
+            ><span class="signature pdoc-code multiline"
+              >(<span class="param"> <span class="bp">self</span>,</span
+              ><span class="param">
+                <span class="n">messages</span><span class="p">:</span>
+                <span class="n">Union</span><span class="p">[</span
+                ><span class="nb">str</span><span class="p">,</span>
+                <span class="n">List</span><span class="p">[</span
+                ><span class="n">Dict</span><span class="p">[</span
+                ><span class="nb">str</span><span class="p">,</span>
+                <span class="nb">str</span><span class="p">]]]</span>,</span
+              ><span class="param">
+                <span class="n">chat_mode</span><span class="p">:</span>
+                <span class="nb">bool</span> <span class="o">=</span>
+                <span class="kc">True</span>,</span
+              ><span class="param">
+                <span class="n">temperature</span><span class="p">:</span>
+                <span class="nb">float</span> <span class="o">=</span>
+                <span class="mf">0.7</span>,</span
+              ><span class="param">
+                <span class="n">top_p</span><span class="p">:</span>
+                <span class="nb">float</span> <span class="o">=</span>
+                <span class="mf">0.95</span>,</span
+              ><span class="param">
+                <span class="n">max_tokens</span><span class="p">:</span>
+                <span class="nb">int</span> <span class="o">=</span>
+                <span class="mi">512</span>,</span
+              ><span class="param">
+                <span class="n">do_sample</span><span class="p">:</span>
+                <span class="nb">bool</span> <span class="o">=</span>
+                <span class="kc">True</span>,</span
+              ><span class="param">
+                <span class="n">stopping_tokens</span><span class="p">:</span>
+                <span class="n">List</span> <span class="o">=</span>
+                <span class="p">[]</span></span
+              ><span class="return-annotation">):</span></span
+            >
 
-
-                            </div>
-                            <div id="MariTalk.generate" class="classattr">
-                                        <input id="MariTalk.generate-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">generate</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">messages</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]</span>,</span><span class="param">	<span class="n">chat_mode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span>,</span><span class="param">	<span class="n">top_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span>,</span><span class="param">	<span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span>,</span><span class="param">	<span class="n">do_sample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">stopping_tokens</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="p">[]</span></span><span class="return-annotation">):</span></span>
-
-                <label class="view-source-button" for="MariTalk.generate-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#MariTalk.generate"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MariTalk.generate-40"><a href="#MariTalk.generate-40"><span class="linenos"> 40</span></a>    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span>
+            <label
+              class="view-source-button"
+              for="MariTalk.generate-view-source"
+              ><span>View Source</span></label
+            >
+          </div>
+          <a class="headerlink" href="#MariTalk.generate"></a>
+          <div class="pdoc-code codehilite">
+            <pre><span></span><span id="MariTalk.generate-40"><a href="#MariTalk.generate-40"><span class="linenos"> 40</span></a>    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span>
 </span><span id="MariTalk.generate-41"><a href="#MariTalk.generate-41"><span class="linenos"> 41</span></a>        <span class="bp">self</span><span class="p">,</span>
 </span><span id="MariTalk.generate-42"><a href="#MariTalk.generate-42"><span class="linenos"> 42</span></a>        <span class="n">messages</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]],</span>
 </span><span id="MariTalk.generate-43"><a href="#MariTalk.generate-43"><span class="linenos"> 43</span></a>        <span class="n">chat_mode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -738,48 +2189,114 @@ Após isso, novos tokens são gerados a uma taxa de 10 a 15 tokens/seg.</p>
 </span><span id="MariTalk.generate-119"><a href="#MariTalk.generate-119"><span class="linenos">119</span></a>            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </span><span id="MariTalk.generate-120"><a href="#MariTalk.generate-120"><span class="linenos">120</span></a>        <span class="k">else</span><span class="p">:</span>
 </span><span id="MariTalk.generate-121"><a href="#MariTalk.generate-121"><span class="linenos">121</span></a>            <span class="k">raise</span> <span class="n">MaritalkHTTPError</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-</span></pre></div>
+</span></pre>
+          </div>
 
+          <div class="docstring">
+            <p>Generate a response from a list of messages.</p>
 
-            <div class="docstring"><p>Generate a response from a list of messages.</p>
+            <h6 id="arguments">Arguments:</h6>
 
-<h6 id="arguments">Arguments:</h6>
-
-<ul>
-<li><strong>messages (<code>Union[str, List[Dict[str, str]]]</code>, <em>optional</em>):</strong>  If chat_mode=True, messages should be a string representing a single user message or a list of messages comprising a conversation between the user and the assistant.
-If messages is a list, each item of the list should be a dictionary containing the keys <code>role</code> and <code>content</code>. For example:
-<pre><code>messages = [
+            <ul>
+              <li>
+                <strong
+                  >messages (<code>Union[str, List[Dict[str, str]]]</code>,
+                  <em>optional</em>):</strong
+                >
+                If chat_mode=True, messages should be a string representing a
+                single user message or a list of messages comprising a
+                conversation between the user and the assistant. If messages is
+                a list, each item of the list should be a dictionary containing
+                the keys <code>role</code> and <code>content</code>. For
+                example:
+                <pre><code>messages = [
     {"role": "user", "content": "bom dia, esta é a mensagem do usuario"},
     {"role": "assistant", "content": "bom dia, esta é a resposta do assistente"},
     {"role": "user", "content": "Você pode me falar quanto é 25 + 27?"},
 ]
 </code></pre>
-If chat_mode=False, messages should be a string representing a prompt.</li>
-<li><strong>chat_mode (<code>bool</code>, <em>optional</em>, defaults to True):</strong>  If True, the model will run in chat mode, in which messages is either a string representing a single user message or a list of messages representing the conversation between the user and the assistant.
-If False, messages should be a string representing the prompt. chat_mode=False is recommended when using few-shot examples.</li>
-<li><strong>temperature (<code>float</code>, <em>optional</em>, defaults to <code>0.7</code>):</strong>  The sampling temperature for the next token probability. Higher values generate more random texts, while lower values will make it more deterministic.</li>
-<li><strong>top_p (<code>float</code>, <em>optional</em>, defaults to <code>0.95</code>):</strong>  The top probability mass to use on nucleus sampling. Read more at: <a href="https://arxiv.org/abs/1904.09751">https://arxiv.org/abs/1904.09751</a>.</li>
-<li><strong>max_tokens (<code>int</code>, <em>optional</em>, defaults to <code>512</code>):</strong>  Maximum number of tokens to generate.</li>
-<li><strong>do_sample (<code>bool</code>, <em>optional</em>, defaults to <code>True</code>):</strong>  Whether to use sampling or not. <code>True</code> value means non-deterministic generations using sampling parameters and <code>False</code> value means deterministic generation using greedy decoding.</li>
-<li><strong>stopping_tokens (<code>List</code>, <em>optional</em>):</strong>  A list of tokens to use as a stop criteria.</li>
-</ul>
-</div>
+                If chat_mode=False, messages should be a string representing a
+                prompt.
+              </li>
+              <li>
+                <strong
+                  >chat_mode (<code>bool</code>, <em>optional</em>, defaults to
+                  True):</strong
+                >
+                If True, the model will run in chat mode, in which messages is
+                either a string representing a single user message or a list of
+                messages representing the conversation between the user and the
+                assistant. If False, messages should be a string representing
+                the prompt. chat_mode=False is recommended when using few-shot
+                examples.
+              </li>
+              <li>
+                <strong
+                  >temperature (<code>float</code>, <em>optional</em>, defaults
+                  to <code>0.7</code>):</strong
+                >
+                The sampling temperature for the next token probability. Higher
+                values generate more random texts, while lower values will make
+                it more deterministic.
+              </li>
+              <li>
+                <strong
+                  >top_p (<code>float</code>, <em>optional</em>, defaults to
+                  <code>0.95</code>):</strong
+                >
+                The top probability mass to use on nucleus sampling. Read more
+                at:
+                <a href="https://arxiv.org/abs/1904.09751"
+                  >https://arxiv.org/abs/1904.09751</a
+                >.
+              </li>
+              <li>
+                <strong
+                  >max_tokens (<code>int</code>, <em>optional</em>, defaults to
+                  <code>512</code>):</strong
+                >
+                Maximum number of tokens to generate.
+              </li>
+              <li>
+                <strong
+                  >do_sample (<code>bool</code>, <em>optional</em>, defaults to
+                  <code>True</code>):</strong
+                >
+                Whether to use sampling or not. <code>True</code> value means
+                non-deterministic generations using sampling parameters and
+                <code>False</code> value means deterministic generation using
+                greedy decoding.
+              </li>
+              <li>
+                <strong
+                  >stopping_tokens (<code>List</code>,
+                  <em>optional</em>):</strong
+                >
+                A list of tokens to use as a stop criteria.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section id="MariTalkLocal">
+        <input
+          id="MariTalkLocal-view-source"
+          class="view-source-toggle-state"
+          type="checkbox"
+          aria-hidden="true"
+          tabindex="-1"
+        />
+        <div class="attr class">
+          <span class="def">class</span>
+          <span class="name">MariTalkLocal</span>:
 
-
-                            </div>
-                </section>
-                <section id="MariTalkLocal">
-                            <input id="MariTalkLocal-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr class">
-            
-    <span class="def">class</span>
-    <span class="name">MariTalkLocal</span>:
-
-                <label class="view-source-button" for="MariTalkLocal-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#MariTalkLocal"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MariTalkLocal-70"><a href="#MariTalkLocal-70"><span class="linenos"> 70</span></a><span class="k">class</span> <span class="nc">MariTalkLocal</span><span class="p">:</span>
+          <label class="view-source-button" for="MariTalkLocal-view-source"
+            ><span>View Source</span></label
+          >
+        </div>
+        <a class="headerlink" href="#MariTalkLocal"></a>
+        <div class="pdoc-code codehilite">
+          <pre><span></span><span id="MariTalkLocal-70"><a href="#MariTalkLocal-70"><span class="linenos"> 70</span></a><span class="k">class</span> <span class="nc">MariTalkLocal</span><span class="p">:</span>
 </span><span id="MariTalkLocal-71"><a href="#MariTalkLocal-71"><span class="linenos"> 71</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">9000</span><span class="p">):</span>
 </span><span id="MariTalkLocal-72"><a href="#MariTalkLocal-72"><span class="linenos"> 72</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;http://</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span>
 </span><span id="MariTalkLocal-73"><a href="#MariTalkLocal-73"><span class="linenos"> 73</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private&quot;&quot;&quot;</span>
@@ -1026,85 +2543,117 @@ If False, messages should be a string representing the prompt. chat_mode=False i
 </span><span id="MariTalkLocal-314"><a href="#MariTalkLocal-314"><span class="linenos">314</span></a>
 </span><span id="MariTalkLocal-315"><a href="#MariTalkLocal-315"><span class="linenos">315</span></a>    <span class="k">def</span> <span class="nf">generate_chat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 </span><span id="MariTalkLocal-316"><a href="#MariTalkLocal-316"><span class="linenos">316</span></a>        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;This method was changed, please use `generate` for chat messages or `generate_raw` for raw few-shot examples instead.&#39;</span><span class="p">)</span>
-</span></pre></div>
+</span></pre>
+        </div>
 
+        <div id="MariTalkLocal.__init__" class="classattr">
+          <input
+            id="MariTalkLocal.__init__-view-source"
+            class="view-source-toggle-state"
+            type="checkbox"
+            aria-hidden="true"
+            tabindex="-1"
+          />
+          <div class="attr function">
+            <span class="name">MariTalkLocal</span
+            ><span class="signature pdoc-code condensed"
+              >(<span class="param"
+                ><span class="n">host</span><span class="p">:</span>
+                <span class="nb">str</span> <span class="o">=</span>
+                <span class="s1">&#39;localhost&#39;</span>, </span
+              ><span class="param"
+                ><span class="n">port</span><span class="p">:</span>
+                <span class="nb">int</span> <span class="o">=</span>
+                <span class="mi">9000</span></span
+              >)</span
+            >
 
-    
-
-                            <div id="MariTalkLocal.__init__" class="classattr">
-                                        <input id="MariTalkLocal.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="name">MariTalkLocal</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>, </span><span class="param"><span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">9000</span></span>)</span>
-
-                <label class="view-source-button" for="MariTalkLocal.__init__-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#MariTalkLocal.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MariTalkLocal.__init__-71"><a href="#MariTalkLocal.__init__-71"><span class="linenos">71</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">9000</span><span class="p">):</span>
+            <label
+              class="view-source-button"
+              for="MariTalkLocal.__init__-view-source"
+              ><span>View Source</span></label
+            >
+          </div>
+          <a class="headerlink" href="#MariTalkLocal.__init__"></a>
+          <div class="pdoc-code codehilite">
+            <pre><span></span><span id="MariTalkLocal.__init__-71"><a href="#MariTalkLocal.__init__-71"><span class="linenos">71</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">9000</span><span class="p">):</span>
 </span><span id="MariTalkLocal.__init__-72"><a href="#MariTalkLocal.__init__-72"><span class="linenos">72</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;http://</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span>
 </span><span id="MariTalkLocal.__init__-73"><a href="#MariTalkLocal.__init__-73"><span class="linenos">73</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private&quot;&quot;&quot;</span>
 </span><span id="MariTalkLocal.__init__-74"><a href="#MariTalkLocal.__init__-74"><span class="linenos">74</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span>
 </span><span id="MariTalkLocal.__init__-75"><a href="#MariTalkLocal.__init__-75"><span class="linenos">75</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private&quot;&quot;&quot;</span>
 </span><span id="MariTalkLocal.__init__-76"><a href="#MariTalkLocal.__init__-76"><span class="linenos">76</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">process</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="MariTalkLocal.__init__-77"><a href="#MariTalkLocal.__init__-77"><span class="linenos">77</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private&quot;&quot;&quot;</span>
-</span></pre></div>
-
-
-    
-
-                            </div>
-                            <div id="MariTalkLocal.api_url" class="classattr">
-                                <div class="attr variable">
+</span></pre>
+          </div>
+        </div>
+        <div id="MariTalkLocal.api_url" class="classattr">
+          <div class="attr variable">
             <span class="name">api_url</span>
+          </div>
+          <a class="headerlink" href="#MariTalkLocal.api_url"></a>
 
-        
-    </div>
-    <a class="headerlink" href="#MariTalkLocal.api_url"></a>
-    
-            <div class="docstring"><p>@private</p>
-</div>
-
-
-                            </div>
-                            <div id="MariTalkLocal.port" class="classattr">
-                                <div class="attr variable">
+          <div class="docstring"><p>@private</p></div>
+        </div>
+        <div id="MariTalkLocal.port" class="classattr">
+          <div class="attr variable">
             <span class="name">port</span>
+          </div>
+          <a class="headerlink" href="#MariTalkLocal.port"></a>
 
-        
-    </div>
-    <a class="headerlink" href="#MariTalkLocal.port"></a>
-    
-            <div class="docstring"><p>@private</p>
-</div>
-
-
-                            </div>
-                            <div id="MariTalkLocal.process" class="classattr">
-                                <div class="attr variable">
+          <div class="docstring"><p>@private</p></div>
+        </div>
+        <div id="MariTalkLocal.process" class="classattr">
+          <div class="attr variable">
             <span class="name">process</span>
+          </div>
+          <a class="headerlink" href="#MariTalkLocal.process"></a>
 
-        
-    </div>
-    <a class="headerlink" href="#MariTalkLocal.process"></a>
-    
-            <div class="docstring"><p>@private</p>
-</div>
+          <div class="docstring"><p>@private</p></div>
+        </div>
+        <div id="MariTalkLocal.start_server" class="classattr">
+          <input
+            id="MariTalkLocal.start_server-view-source"
+            class="view-source-toggle-state"
+            type="checkbox"
+            aria-hidden="true"
+            tabindex="-1"
+          />
+          <div class="attr function">
+            <span class="def">def</span>
+            <span class="name">start_server</span
+            ><span class="signature pdoc-code multiline"
+              >(<span class="param"> <span class="bp">self</span>,</span
+              ><span class="param">
+                <span class="n">license</span><span class="p">:</span>
+                <span class="nb">str</span>,</span
+              ><span class="param">
+                <span class="n">bin_path</span><span class="p">:</span>
+                <span class="nb">str</span> <span class="o">=</span>
+                <span class="s1">&#39;~/bin/maritalk&#39;</span>,</span
+              ><span class="param">
+                <span class="n">cuda_version</span><span class="p">:</span>
+                <span class="n">Union</span><span class="p">[</span
+                ><span class="nb">int</span><span class="p">,</span>
+                <span class="n">NoneType</span><span class="p">]</span>
+                <span class="o">=</span> <span class="kc">None</span>,</span
+              ><span class="param">
+                <span class="n">ssl_version</span><span class="p">:</span>
+                <span class="n">Union</span><span class="p">[</span
+                ><span class="nb">int</span><span class="p">,</span>
+                <span class="n">NoneType</span><span class="p">]</span>
+                <span class="o">=</span> <span class="kc">None</span></span
+              ><span class="return-annotation">):</span></span
+            >
 
-
-                            </div>
-                            <div id="MariTalkLocal.start_server" class="classattr">
-                                        <input id="MariTalkLocal.start_server-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">start_server</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">license</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">bin_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;~/bin/maritalk&#39;</span>,</span><span class="param">	<span class="n">cuda_version</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">ssl_version</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
-
-                <label class="view-source-button" for="MariTalkLocal.start_server-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#MariTalkLocal.start_server"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MariTalkLocal.start_server-79"><a href="#MariTalkLocal.start_server-79"><span class="linenos"> 79</span></a>    <span class="k">def</span> <span class="nf">start_server</span><span class="p">(</span>
+            <label
+              class="view-source-button"
+              for="MariTalkLocal.start_server-view-source"
+              ><span>View Source</span></label
+            >
+          </div>
+          <a class="headerlink" href="#MariTalkLocal.start_server"></a>
+          <div class="pdoc-code codehilite">
+            <pre><span></span><span id="MariTalkLocal.start_server-79"><a href="#MariTalkLocal.start_server-79"><span class="linenos"> 79</span></a>    <span class="k">def</span> <span class="nf">start_server</span><span class="p">(</span>
 </span><span id="MariTalkLocal.start_server-80"><a href="#MariTalkLocal.start_server-80"><span class="linenos"> 80</span></a>        <span class="bp">self</span><span class="p">,</span>
 </span><span id="MariTalkLocal.start_server-81"><a href="#MariTalkLocal.start_server-81"><span class="linenos"> 81</span></a>        <span class="n">license</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 </span><span id="MariTalkLocal.start_server-82"><a href="#MariTalkLocal.start_server-82"><span class="linenos"> 82</span></a>        <span class="n">bin_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;~/bin/maritalk&quot;</span><span class="p">,</span>
@@ -1160,47 +2709,78 @@ If False, messages should be a string representing the prompt. chat_mode=False i
 </span><span id="MariTalkLocal.start_server-132"><a href="#MariTalkLocal.start_server-132"><span class="linenos">132</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">stop_server</span><span class="p">()</span>
 </span><span id="MariTalkLocal.start_server-133"><a href="#MariTalkLocal.start_server-133"><span class="linenos">133</span></a>
 </span><span id="MariTalkLocal.start_server-134"><a href="#MariTalkLocal.start_server-134"><span class="linenos">134</span></a>        <span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">terminate</span><span class="p">)</span>
-</span></pre></div>
+</span></pre>
+          </div>
+        </div>
+        <div id="MariTalkLocal.stop_server" class="classattr">
+          <input
+            id="MariTalkLocal.stop_server-view-source"
+            class="view-source-toggle-state"
+            type="checkbox"
+            aria-hidden="true"
+            tabindex="-1"
+          />
+          <div class="attr function">
+            <span class="def">def</span>
+            <span class="name">stop_server</span
+            ><span class="signature pdoc-code condensed"
+              >(<span class="param"><span class="bp">self</span></span
+              ><span class="return-annotation">):</span></span
+            >
 
-
-    
-
-                            </div>
-                            <div id="MariTalkLocal.stop_server" class="classattr">
-                                        <input id="MariTalkLocal.stop_server-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">stop_server</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
-
-                <label class="view-source-button" for="MariTalkLocal.stop_server-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#MariTalkLocal.stop_server"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MariTalkLocal.stop_server-136"><a href="#MariTalkLocal.stop_server-136"><span class="linenos">136</span></a>    <span class="k">def</span> <span class="nf">stop_server</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <label
+              class="view-source-button"
+              for="MariTalkLocal.stop_server-view-source"
+              ><span>View Source</span></label
+            >
+          </div>
+          <a class="headerlink" href="#MariTalkLocal.stop_server"></a>
+          <div class="pdoc-code codehilite">
+            <pre><span></span><span id="MariTalkLocal.stop_server-136"><a href="#MariTalkLocal.stop_server-136"><span class="linenos">136</span></a>    <span class="k">def</span> <span class="nf">stop_server</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </span><span id="MariTalkLocal.stop_server-137"><a href="#MariTalkLocal.stop_server-137"><span class="linenos">137</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="p">:</span>
 </span><span id="MariTalkLocal.stop_server-138"><a href="#MariTalkLocal.stop_server-138"><span class="linenos">138</span></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No process attached to this client!&quot;</span><span class="p">)</span>
 </span><span id="MariTalkLocal.stop_server-139"><a href="#MariTalkLocal.stop_server-139"><span class="linenos">139</span></a>            <span class="k">return</span>
 </span><span id="MariTalkLocal.stop_server-140"><a href="#MariTalkLocal.stop_server-140"><span class="linenos">140</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
 </span><span id="MariTalkLocal.stop_server-141"><a href="#MariTalkLocal.stop_server-141"><span class="linenos">141</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">process</span> <span class="o">=</span> <span class="kc">None</span>
-</span></pre></div>
+</span></pre>
+          </div>
+        </div>
+        <div id="MariTalkLocal.download" class="classattr">
+          <input
+            id="MariTalkLocal.download-view-source"
+            class="view-source-toggle-state"
+            type="checkbox"
+            aria-hidden="true"
+            tabindex="-1"
+          />
+          <div class="attr function">
+            <span class="def">def</span>
+            <span class="name">download</span
+            ><span class="signature pdoc-code condensed"
+              >(<span class="param"><span class="bp">cls</span>, </span
+              ><span class="param"
+                ><span class="n">license</span><span class="p">:</span>
+                <span class="nb">str</span>, </span
+              ><span class="param"
+                ><span class="n">bin_path</span><span class="p">:</span>
+                <span class="nb">str</span>, </span
+              ><span class="param"
+                ><span class="n">dependencies</span><span class="p">:</span>
+                <span class="n">Dict</span><span class="p">[</span
+                ><span class="nb">str</span><span class="p">,</span>
+                <span class="nb">int</span><span class="p">]</span></span
+              ><span class="return-annotation">):</span></span
+            >
 
-
-    
-
-                            </div>
-                            <div id="MariTalkLocal.download" class="classattr">
-                                        <input id="MariTalkLocal.download-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">download</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">license</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">bin_path</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">dependencies</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span></span><span class="return-annotation">):</span></span>
-
-                <label class="view-source-button" for="MariTalkLocal.download-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#MariTalkLocal.download"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MariTalkLocal.download-143"><a href="#MariTalkLocal.download-143"><span class="linenos">143</span></a>    <span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">license</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">bin_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dependencies</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]):</span>
+            <label
+              class="view-source-button"
+              for="MariTalkLocal.download-view-source"
+              ><span>View Source</span></label
+            >
+          </div>
+          <a class="headerlink" href="#MariTalkLocal.download"></a>
+          <div class="pdoc-code codehilite">
+            <pre><span></span><span id="MariTalkLocal.download-143"><a href="#MariTalkLocal.download-143"><span class="linenos">143</span></a>    <span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">license</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">bin_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dependencies</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]):</span>
 </span><span id="MariTalkLocal.download-144"><a href="#MariTalkLocal.download-144"><span class="linenos">144</span></a>        <span class="n">download_url</span> <span class="o">=</span> <span class="p">(</span>
 </span><span id="MariTalkLocal.download-145"><a href="#MariTalkLocal.download-145"><span class="linenos">145</span></a>            <span class="s2">&quot;https://m64xplb35dhr3se7ipvtmbdnk40ahktr.lambda-url.us-east-1.on.aws/&quot;</span>
 </span><span id="MariTalkLocal.download-146"><a href="#MariTalkLocal.download-146"><span class="linenos">146</span></a>        <span class="p">)</span>
@@ -1248,44 +2828,94 @@ If False, messages should be a string representing the prompt. chat_mode=False i
 </span><span id="MariTalkLocal.download-188"><a href="#MariTalkLocal.download-188"><span class="linenos">188</span></a>                    <span class="p">)</span>
 </span><span id="MariTalkLocal.download-189"><a href="#MariTalkLocal.download-189"><span class="linenos">189</span></a>        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 </span><span id="MariTalkLocal.download-190"><a href="#MariTalkLocal.download-190"><span class="linenos">190</span></a>            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error downloading MariTalk binary: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span></pre></div>
+</span></pre>
+          </div>
+        </div>
+        <div id="MariTalkLocal.status" class="classattr">
+          <input
+            id="MariTalkLocal.status-view-source"
+            class="view-source-toggle-state"
+            type="checkbox"
+            aria-hidden="true"
+            tabindex="-1"
+          />
+          <div class="attr function">
+            <span class="def">def</span>
+            <span class="name">status</span
+            ><span class="signature pdoc-code condensed"
+              >(<span class="param"><span class="bp">self</span></span
+              ><span class="return-annotation">):</span></span
+            >
 
-
-    
-
-                            </div>
-                            <div id="MariTalkLocal.status" class="classattr">
-                                        <input id="MariTalkLocal.status-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">status</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
-
-                <label class="view-source-button" for="MariTalkLocal.status-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#MariTalkLocal.status"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MariTalkLocal.status-192"><a href="#MariTalkLocal.status-192"><span class="linenos">192</span></a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <label
+              class="view-source-button"
+              for="MariTalkLocal.status-view-source"
+              ><span>View Source</span></label
+            >
+          </div>
+          <a class="headerlink" href="#MariTalkLocal.status"></a>
+          <div class="pdoc-code codehilite">
+            <pre><span></span><span id="MariTalkLocal.status-192"><a href="#MariTalkLocal.status-192"><span class="linenos">192</span></a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </span><span id="MariTalkLocal.status-193"><a href="#MariTalkLocal.status-193"><span class="linenos">193</span></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api_url</span><span class="p">)</span>
 </span><span id="MariTalkLocal.status-194"><a href="#MariTalkLocal.status-194"><span class="linenos">194</span></a>        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</span></pre></div>
+</span></pre>
+          </div>
+        </div>
+        <div id="MariTalkLocal.generate_raw" class="classattr">
+          <input
+            id="MariTalkLocal.generate_raw-view-source"
+            class="view-source-toggle-state"
+            type="checkbox"
+            aria-hidden="true"
+            tabindex="-1"
+          />
+          <div class="attr function">
+            <span class="def">def</span>
+            <span class="name">generate_raw</span
+            ><span class="signature pdoc-code multiline"
+              >(<span class="param"> <span class="bp">self</span>,</span
+              ><span class="param">
+                <span class="n">prompt</span><span class="p">:</span>
+                <span class="nb">str</span>,</span
+              ><span class="param">
+                <span class="n">temperature</span><span class="p">:</span>
+                <span class="nb">float</span> <span class="o">=</span>
+                <span class="mf">0.7</span>,</span
+              ><span class="param">
+                <span class="n">top_p</span><span class="p">:</span>
+                <span class="nb">float</span> <span class="o">=</span>
+                <span class="mf">0.95</span>,</span
+              ><span class="param">
+                <span class="n">max_tokens</span><span class="p">:</span>
+                <span class="nb">int</span> <span class="o">=</span>
+                <span class="mi">512</span>,</span
+              ><span class="param">
+                <span class="n">do_sample</span><span class="p">:</span>
+                <span class="nb">bool</span> <span class="o">=</span>
+                <span class="kc">True</span>,</span
+              ><span class="param">
+                <span class="n">stop_sequences</span><span class="p">:</span>
+                <span class="n">List</span><span class="p">[</span
+                ><span class="nb">str</span><span class="p">]</span>
+                <span class="o">=</span> <span class="p">[]</span>,</span
+              ><span class="param">
+                <span class="n">seed</span><span class="p">:</span>
+                <span class="n">Union</span><span class="p">[</span
+                ><span class="nb">int</span><span class="p">,</span>
+                <span class="n">NoneType</span><span class="p">]</span>
+                <span class="o">=</span> <span class="kc">None</span></span
+              ><span class="return-annotation">):</span></span
+            >
 
-
-    
-
-                            </div>
-                            <div id="MariTalkLocal.generate_raw" class="classattr">
-                                        <input id="MariTalkLocal.generate_raw-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">generate_raw</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span>,</span><span class="param">	<span class="n">top_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span>,</span><span class="param">	<span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span>,</span><span class="param">	<span class="n">do_sample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">stop_sequences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>,</span><span class="param">	<span class="n">seed</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
-
-                <label class="view-source-button" for="MariTalkLocal.generate_raw-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#MariTalkLocal.generate_raw"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MariTalkLocal.generate_raw-196"><a href="#MariTalkLocal.generate_raw-196"><span class="linenos">196</span></a>    <span class="k">def</span> <span class="nf">generate_raw</span><span class="p">(</span>
+            <label
+              class="view-source-button"
+              for="MariTalkLocal.generate_raw-view-source"
+              ><span>View Source</span></label
+            >
+          </div>
+          <a class="headerlink" href="#MariTalkLocal.generate_raw"></a>
+          <div class="pdoc-code codehilite">
+            <pre><span></span><span id="MariTalkLocal.generate_raw-196"><a href="#MariTalkLocal.generate_raw-196"><span class="linenos">196</span></a>    <span class="k">def</span> <span class="nf">generate_raw</span><span class="p">(</span>
 </span><span id="MariTalkLocal.generate_raw-197"><a href="#MariTalkLocal.generate_raw-197"><span class="linenos">197</span></a>        <span class="bp">self</span><span class="p">,</span>
 </span><span id="MariTalkLocal.generate_raw-198"><a href="#MariTalkLocal.generate_raw-198"><span class="linenos">198</span></a>        <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 </span><span id="MariTalkLocal.generate_raw-199"><a href="#MariTalkLocal.generate_raw-199"><span class="linenos">199</span></a>        <span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span>
@@ -1336,38 +2966,135 @@ If False, messages should be a string representing the prompt. chat_mode=False i
 </span><span id="MariTalkLocal.generate_raw-244"><a href="#MariTalkLocal.generate_raw-244"><span class="linenos">244</span></a>
 </span><span id="MariTalkLocal.generate_raw-245"><a href="#MariTalkLocal.generate_raw-245"><span class="linenos">245</span></a>        <span class="c1"># Raise for any other failed responses</span>
 </span><span id="MariTalkLocal.generate_raw-246"><a href="#MariTalkLocal.generate_raw-246"><span class="linenos">246</span></a>        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-</span></pre></div>
+</span></pre>
+          </div>
 
+          <div class="docstring">
+            <p>Generate a completion for a given prompt.</p>
 
-            <div class="docstring"><p>Generate a completion for a given prompt.</p>
+            <h6 id="arguments">Arguments:</h6>
 
-<h6 id="arguments">Arguments:</h6>
+            <ul>
+              <li>
+                <strong>prompt (<code>str</code>):</strong> The initial prompt
+                to generate completions for. It can be the beginning of a text
+                to be completed or an instruction for performing a task.
+              </li>
+              <li>
+                <strong
+                  >temperature (<code>float</code>, <em>optional</em>, defaults
+                  to <code>0.7</code>):</strong
+                >
+                The sampling temperature for the next token probability. Higher
+                values generate more random texts, while lower values will make
+                it more deterministic.
+              </li>
+              <li>
+                <strong
+                  >top_p (<code>float</code>, <em>optional</em>, defaults to
+                  <code>0.95</code>):</strong
+                >
+                The top probability mass to use on nucleus sampling. Read more
+                at:
+                <a href="https://arxiv.org/abs/1904.09751"
+                  >https://arxiv.org/abs/1904.09751</a
+                >.
+              </li>
+              <li>
+                <strong
+                  >max_tokens (<code>int</code>, <em>optional</em>, defaults to
+                  <code>512</code>):</strong
+                >
+                Maximum number of tokens to generate.
+              </li>
+              <li>
+                <strong
+                  >do_sample (<code>bool</code>, <em>optional</em>, defaults to
+                  <code>True</code>):</strong
+                >
+                Whether to use sampling or not. <code>True</code> value means
+                non-deterministic generations using sampling parameters and
+                <code>False</code> value means deterministic generation using
+                greedy decoding.
+              </li>
+              <li>
+                <strong
+                  >stop_sequences (<code>List[str]</code>,
+                  <em>optional</em>):</strong
+                >
+                A list of sequences to stop the generation process.
+              </li>
+              <li>
+                <strong
+                  >seed (<code>int</code>, <em>optional</em>, defaults to
+                  <code>None</code>):</strong
+                >
+                Seed to use during the random sampling process to make it
+                reproducible.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="MariTalkLocal.generate" class="classattr">
+          <input
+            id="MariTalkLocal.generate-view-source"
+            class="view-source-toggle-state"
+            type="checkbox"
+            aria-hidden="true"
+            tabindex="-1"
+          />
+          <div class="attr function">
+            <span class="def">def</span>
+            <span class="name">generate</span
+            ><span class="signature pdoc-code multiline"
+              >(<span class="param"> <span class="bp">self</span>,</span
+              ><span class="param">
+                <span class="n">messages</span><span class="p">:</span>
+                <span class="n">Union</span><span class="p">[</span
+                ><span class="nb">str</span><span class="p">,</span>
+                <span class="n">List</span><span class="p">[</span
+                ><span class="n">Dict</span><span class="p">[</span
+                ><span class="nb">str</span><span class="p">,</span>
+                <span class="nb">str</span><span class="p">]]]</span>,</span
+              ><span class="param">
+                <span class="n">temperature</span><span class="p">:</span>
+                <span class="nb">float</span> <span class="o">=</span>
+                <span class="mf">0.7</span>,</span
+              ><span class="param">
+                <span class="n">top_p</span><span class="p">:</span>
+                <span class="nb">float</span> <span class="o">=</span>
+                <span class="mf">0.95</span>,</span
+              ><span class="param">
+                <span class="n">max_tokens</span><span class="p">:</span>
+                <span class="nb">int</span> <span class="o">=</span>
+                <span class="mi">512</span>,</span
+              ><span class="param">
+                <span class="n">do_sample</span><span class="p">:</span>
+                <span class="nb">bool</span> <span class="o">=</span>
+                <span class="kc">True</span>,</span
+              ><span class="param">
+                <span class="n">stop_sequences</span><span class="p">:</span>
+                <span class="n">List</span><span class="p">[</span
+                ><span class="nb">str</span><span class="p">]</span>
+                <span class="o">=</span> <span class="p">[]</span>,</span
+              ><span class="param">
+                <span class="n">seed</span><span class="p">:</span>
+                <span class="n">Union</span><span class="p">[</span
+                ><span class="nb">int</span><span class="p">,</span>
+                <span class="n">NoneType</span><span class="p">]</span>
+                <span class="o">=</span> <span class="kc">None</span></span
+              ><span class="return-annotation">):</span></span
+            >
 
-<ul>
-<li><strong>prompt (<code>str</code>):</strong>  The initial prompt to generate completions for. It can be the beginning of a text to be completed or an instruction for performing a task.</li>
-<li><strong>temperature (<code>float</code>, <em>optional</em>, defaults to <code>0.7</code>):</strong>  The sampling temperature for the next token probability. Higher values generate more random texts, while lower values will make it more deterministic.</li>
-<li><strong>top_p (<code>float</code>, <em>optional</em>, defaults to <code>0.95</code>):</strong>  The top probability mass to use on nucleus sampling. Read more at: <a href="https://arxiv.org/abs/1904.09751">https://arxiv.org/abs/1904.09751</a>.</li>
-<li><strong>max_tokens (<code>int</code>, <em>optional</em>, defaults to <code>512</code>):</strong>  Maximum number of tokens to generate.</li>
-<li><strong>do_sample (<code>bool</code>, <em>optional</em>, defaults to <code>True</code>):</strong>  Whether to use sampling or not. <code>True</code> value means non-deterministic generations using sampling parameters and <code>False</code> value means deterministic generation using greedy decoding.</li>
-<li><strong>stop_sequences (<code>List[str]</code>, <em>optional</em>):</strong>  A list of sequences to stop the generation process.</li>
-<li><strong>seed (<code>int</code>, <em>optional</em>, defaults to <code>None</code>):</strong>  Seed to use during the random sampling process to make it reproducible.</li>
-</ul>
-</div>
-
-
-                            </div>
-                            <div id="MariTalkLocal.generate" class="classattr">
-                                        <input id="MariTalkLocal.generate-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">generate</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">messages</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]</span>,</span><span class="param">	<span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span>,</span><span class="param">	<span class="n">top_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span>,</span><span class="param">	<span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span>,</span><span class="param">	<span class="n">do_sample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">stop_sequences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>,</span><span class="param">	<span class="n">seed</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
-
-                <label class="view-source-button" for="MariTalkLocal.generate-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#MariTalkLocal.generate"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MariTalkLocal.generate-248"><a href="#MariTalkLocal.generate-248"><span class="linenos">248</span></a>    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span>
+            <label
+              class="view-source-button"
+              for="MariTalkLocal.generate-view-source"
+              ><span>View Source</span></label
+            >
+          </div>
+          <a class="headerlink" href="#MariTalkLocal.generate"></a>
+          <div class="pdoc-code codehilite">
+            <pre><span></span><span id="MariTalkLocal.generate-248"><a href="#MariTalkLocal.generate-248"><span class="linenos">248</span></a>    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span>
 </span><span id="MariTalkLocal.generate-249"><a href="#MariTalkLocal.generate-249"><span class="linenos">249</span></a>        <span class="bp">self</span><span class="p">,</span>
 </span><span id="MariTalkLocal.generate-250"><a href="#MariTalkLocal.generate-250"><span class="linenos">250</span></a>        <span class="n">messages</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]],</span>
 </span><span id="MariTalkLocal.generate-251"><a href="#MariTalkLocal.generate-251"><span class="linenos">251</span></a>        <span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span>
@@ -1433,52 +3160,119 @@ If False, messages should be a string representing the prompt. chat_mode=False i
 </span><span id="MariTalkLocal.generate-311"><a href="#MariTalkLocal.generate-311"><span class="linenos">311</span></a>
 </span><span id="MariTalkLocal.generate-312"><a href="#MariTalkLocal.generate-312"><span class="linenos">312</span></a>        <span class="c1"># Raise for any other failed responses</span>
 </span><span id="MariTalkLocal.generate-313"><a href="#MariTalkLocal.generate-313"><span class="linenos">313</span></a>        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-</span></pre></div>
+</span></pre>
+          </div>
 
+          <div class="docstring">
+            <p>Generate a completion for a given prompt.</p>
 
-            <div class="docstring"><p>Generate a completion for a given prompt.</p>
+            <h6 id="arguments">Arguments:</h6>
 
-<h6 id="arguments">Arguments:</h6>
-
-<ul>
-<li><strong>messages (<code>Union[str, List[Dict[str, str]]]</code>):</strong>  A string with one message or a list where each item should be a dictionary containing the keys <code>role</code> and <code>content</code>. For example:
-<pre><code>messages = [
+            <ul>
+              <li>
+                <strong
+                  >messages (<code>Union[str, List[Dict[str, str]]]</code
+                  >):</strong
+                >
+                A string with one message or a list where each item should be a
+                dictionary containing the keys <code>role</code> and
+                <code>content</code>. For example:
+                <pre><code>messages = [
     {"role": "user", "content": "bom dia, esta é a mensagem do usuario"},
     {"role": "assistant", "content": "bom dia, esta é a resposta do assistente"},
     {"role": "user", "content": "Você pode me falar quanto é 25 + 27?"},
 ]
-</code></pre></li>
-<li><strong>temperature (<code>float</code>, <em>optional</em>, defaults to <code>0.7</code>):</strong>  The sampling temperature for the next token probability. Higher values generate more random texts, while lower values will make it more deterministic.</li>
-<li><strong>top_p (<code>float</code>, <em>optional</em>, defaults to <code>0.95</code>):</strong>  The top probability mass to use on nucleus sampling. Read more at: <a href="https://arxiv.org/abs/1904.09751">https://arxiv.org/abs/1904.09751</a>.</li>
-<li><strong>max_tokens (<code>int</code>, <em>optional</em>, defaults to <code>512</code>):</strong>  Maximum number of tokens to generate.</li>
-<li><strong>do_sample (<code>bool</code>, <em>optional</em>, defaults to <code>True</code>):</strong>  Whether to use sampling or not. <code>True</code> value means non-deterministic generations using sampling parameters and <code>False</code> value means deterministic generation using greedy decoding.</li>
-<li><strong>stop_sequences (<code>List[str]</code>, <em>optional</em>):</strong>  A list of sequences to stop the generation process.</li>
-<li><strong>seed (<code>int</code>, <em>optional</em>, defaults to <code>None</code>):</strong>  Seed to use during the random sampling process to make it reproducible.</li>
-</ul>
-</div>
+</code></pre>
+              </li>
+              <li>
+                <strong
+                  >temperature (<code>float</code>, <em>optional</em>, defaults
+                  to <code>0.7</code>):</strong
+                >
+                The sampling temperature for the next token probability. Higher
+                values generate more random texts, while lower values will make
+                it more deterministic.
+              </li>
+              <li>
+                <strong
+                  >top_p (<code>float</code>, <em>optional</em>, defaults to
+                  <code>0.95</code>):</strong
+                >
+                The top probability mass to use on nucleus sampling. Read more
+                at:
+                <a href="https://arxiv.org/abs/1904.09751"
+                  >https://arxiv.org/abs/1904.09751</a
+                >.
+              </li>
+              <li>
+                <strong
+                  >max_tokens (<code>int</code>, <em>optional</em>, defaults to
+                  <code>512</code>):</strong
+                >
+                Maximum number of tokens to generate.
+              </li>
+              <li>
+                <strong
+                  >do_sample (<code>bool</code>, <em>optional</em>, defaults to
+                  <code>True</code>):</strong
+                >
+                Whether to use sampling or not. <code>True</code> value means
+                non-deterministic generations using sampling parameters and
+                <code>False</code> value means deterministic generation using
+                greedy decoding.
+              </li>
+              <li>
+                <strong
+                  >stop_sequences (<code>List[str]</code>,
+                  <em>optional</em>):</strong
+                >
+                A list of sequences to stop the generation process.
+              </li>
+              <li>
+                <strong
+                  >seed (<code>int</code>, <em>optional</em>, defaults to
+                  <code>None</code>):</strong
+                >
+                Seed to use during the random sampling process to make it
+                reproducible.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="MariTalkLocal.generate_chat" class="classattr">
+          <input
+            id="MariTalkLocal.generate_chat-view-source"
+            class="view-source-toggle-state"
+            type="checkbox"
+            aria-hidden="true"
+            tabindex="-1"
+          />
+          <div class="attr function">
+            <span class="def">def</span>
+            <span class="name">generate_chat</span
+            ><span class="signature pdoc-code condensed"
+              >(<span class="param"><span class="bp">self</span>, </span
+              ><span class="param"
+                ><span class="o">*</span><span class="n">args</span>, </span
+              ><span class="param"
+                ><span class="o">**</span><span class="n">kwargs</span></span
+              ><span class="return-annotation">):</span></span
+            >
 
-
-                            </div>
-                            <div id="MariTalkLocal.generate_chat" class="classattr">
-                                        <input id="MariTalkLocal.generate_chat-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">generate_chat</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="o">*</span><span class="n">args</span>, </span><span class="param"><span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">):</span></span>
-
-                <label class="view-source-button" for="MariTalkLocal.generate_chat-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#MariTalkLocal.generate_chat"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MariTalkLocal.generate_chat-315"><a href="#MariTalkLocal.generate_chat-315"><span class="linenos">315</span></a>    <span class="k">def</span> <span class="nf">generate_chat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <label
+              class="view-source-button"
+              for="MariTalkLocal.generate_chat-view-source"
+              ><span>View Source</span></label
+            >
+          </div>
+          <a class="headerlink" href="#MariTalkLocal.generate_chat"></a>
+          <div class="pdoc-code codehilite">
+            <pre><span></span><span id="MariTalkLocal.generate_chat-315"><a href="#MariTalkLocal.generate_chat-315"><span class="linenos">315</span></a>    <span class="k">def</span> <span class="nf">generate_chat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 </span><span id="MariTalkLocal.generate_chat-316"><a href="#MariTalkLocal.generate_chat-316"><span class="linenos">316</span></a>        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;This method was changed, please use `generate` for chat messages or `generate_raw` for raw few-shot examples instead.&#39;</span><span class="p">)</span>
-</span></pre></div>
-
-
-    
-
-                            </div>
-                </section>
+</span></pre>
+          </div>
+        </div>
+      </section>
     </main>
-</body>
+  </body>
 </html>
