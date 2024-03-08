@@ -1,8 +1,9 @@
 ### Conteúdo
 
 **MariTalk API**
-- [Introdução](#introdução)  
-- [Instalação](#instalação)  
+
+- [Introdução](#introdução)
+- [Instalação](#instalação)
 - [Exemplo de uso](#exemplo-de-uso)
 - [Exemplo de uso via requisições HTTP - Python](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_via_requisições_https.ipynb)
 - [Exemplo de uso via requisições HTTP - JavaScript](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_via_requisições_https.js)
@@ -11,14 +12,16 @@
 - [Documentação Swagger](https://chat.maritaca.ai/docs)
 
 **MariTalk Local**
-  - [Executando localmente](#modo-local)
-  - [Exemplo Google Colab Pro](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/colab-pro.ipynb)
-  - [Em GPUs da Oracle Cloud (OCI)](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/oracle-cloud.md)
-  - [Em GPUs da Google Cloud (GCP)](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/google-cloud.md)
+
+- [Executando localmente](#modo-local)
+- [Exemplo Google Colab Pro](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/colab-pro.ipynb)
+- [Em GPUs da Oracle Cloud (OCI)](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/oracle-cloud.md)
+- [Em GPUs da Google Cloud (GCP)](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/google-cloud.md)
 
 [Chat (gratuito)](#web-chat)
 
 # Introdução
+
 Este repositório contém o código e a documentação explicando como usar a API da MariTalk e a versão local para deploy on-premises.
 A MariTalk é uma assistente baseada em um modelo de linguagem que foi especialmente treinado para entender bem o português.
 Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.
@@ -32,6 +35,7 @@ Após validar uma forma de pagamento, você receberá R$20 em créditos da API.
 # Instalação
 
 Instale a biblioteca da MariTalk usando pip:
+
 ```bash
 pip install maritalk
 ```
@@ -108,6 +112,7 @@ Você pode definir uma conversa especificando uma lista de dicionários, sendo q
 Atualmente, a API da MariTalk suporta três valores para `role`: "system" para mensagem de instrução do chatbot, "user" para mensagens do usuário, e "assistant" para mensagens do assistente.
 
 Mostramos um exemplo de conversa abaixo:
+
 ```bash
 messages = [
     {"role": "user", "content": "sugira três nomes para a minha cachorra"},
@@ -164,9 +169,11 @@ Para tarefas com apenas uma resposta correta, como no exemplo acima, é recomend
 Para tarefas de geração de textos diversos ou longos, é recomendado usar `do_sample=True` e `temperature=0.7`. Quanto maior a temperatura, mais diversos serão os textos gerados, mas há maior chance de o modelo "alucinar" e gerar textos sem sentido. Quanto menor a temperatura, a resposta é mais conservadora, mas corre o risco de gerar textos repetidos.
 
 ## Como saber o número de tokens que serão cobrados?
+
 Para saber de antemão o quanto suas requisições irão custar, use os tokenizadores dos modelos MariTalk, disponíveis na HuggingFace, para saber o número de tokens em um dado prompt.
 
 Exemplo de uso:
+
 ```python
 import transformers
 tokenizer = transformers.AutoTokenizer.from_pretrained("maritaca-ai/sabia-2-tokenizer-medium")
@@ -232,14 +239,14 @@ print(chat_response)  # {'output': 'nani, bento e leo.', 'queue_time': 0, 'promp
 
 O retorno das chamadas contém o texto gerado e os tempos de espera, de execução do prompt e da geração do texto para fins de debug do usuário.
 
-
 ## Executando o binário diretamente
 
 Também é possivel executar o servidor diretamente no terminal, sem o wrapper em python.
 
 #### Download
+
 ```bash
-wget -O maritalk <link do binário recebido no email> 
+wget -O maritalk <link do binário recebido no email>
 ```
 
 #### Dependências
