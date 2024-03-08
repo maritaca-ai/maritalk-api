@@ -2,20 +2,19 @@ name: Build docs
 
 on:
   push:
-    branches: [ "github-actions" ]
+    branches: ["github-actions"]
   pull_request:
-    branches: [ "github-actions" ]
+    branches: ["github-actions"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: python3 -m pip install pdoc
+      - name: Install dependencies
+        run: python3 -m pip install pdoc
 
-    - name: Build
-      run: make docks
+      - name: Build
+        run: make docks

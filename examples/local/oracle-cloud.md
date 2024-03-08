@@ -23,7 +23,7 @@ $ nvidia-smi
 |  0%   38C    P8               21W / 150W|      0MiB / 23028MiB |      0%      Default |
 |                                         |                      |                  N/A |
 +-----------------------------------------+----------------------+----------------------+
-                                                                                         
+
 +---------------------------------------------------------------------------------------+
 | Processes:                                                                            |
 |  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
@@ -38,7 +38,7 @@ Você pode instalar as dependências necessárias diretamente no Sistema Operaci
 <details>
 <summary>Sistema Operacional</summary>
 
-3. Você pode instalar as dependências necessárias manualmente através do gerenciador de pacotes `apt`. O pacote necessário é o `cuda-toolkit-12`, que irá instalar as bibliotecas (*.so) necessárias para executar o binário da MariTalk Local.
+3. Você pode instalar as dependências necessárias manualmente através do gerenciador de pacotes `apt`. O pacote necessário é o `cuda-toolkit-12`, que irá instalar as bibliotecas (\*.so) necessárias para executar o binário da MariTalk Local.
 
 ```
 $ sudo apt update
@@ -50,6 +50,7 @@ $ sudo apt install cuda-toolkit-12
 ```
 $ python3 -m pip install maritalk
 ```
+
 </details>
 
 <details>
@@ -68,6 +69,7 @@ $ apt update
 $ apt install python3 python3-pip
 $ python3 -m pip install maritalk
 ```
+
 </details>
 
 5. Inicie um console Python (`$ python3`) para iniciar o servidor da MariTalk Local e comece a testar!

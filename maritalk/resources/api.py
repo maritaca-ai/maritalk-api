@@ -5,6 +5,8 @@ from requests.exceptions import HTTPError
 from http import HTTPStatus
 
 import httpx
+import requests
+from requests.exceptions import HTTPError
 
 
 class MaritalkHTTPError(HTTPError):
@@ -18,7 +20,7 @@ class MaritalkHTTPError(HTTPError):
                 api_message = response_json["message"]
             else:
                 api_message = response_json
-        except:
+        except Exception:
             api_message = request_obj.text
 
         self.message = api_message
@@ -31,7 +33,9 @@ class MaritalkHTTPError(HTTPError):
 
 
 class MariTalk:
-    def __init__(self, key: str, api_url: str = "https://chat.maritaca.ai/api", model="maritalk"):
+    def __init__(
+        self, key: str, api_url: str = "https://chat.maritaca.ai/api", model="maritalk"
+    ):
         self.key = key
         """@private"""
         self.api_url = api_url
@@ -94,7 +98,7 @@ class MariTalk:
         top_p: float = 0.95,
         max_tokens: int = 512,
         do_sample: bool = True,
-        stopping_tokens: List = [],
+        stopping_tokens: List = None,
         stream: bool = False,
         return_async_generator: bool = False,
         num_tokens_per_message: int = 4
@@ -104,8 +108,10 @@ class MariTalk:
 
         Args:
             messages (`Union[str, List[Dict[str, str]]]`, *optional*):
-                If chat_mode=True, messages should be a string representing a single user message or a list of messages comprising a conversation between the user and the assistant.
-                If messages is a list, each item of the list should be a dictionary containing the keys `role` and `content`. For example:
+                If chat_mode=True, messages should be a string representing a single user message or
+                a list of messages comprising a conversation between the user and the assistant.
+                If messages is a list, each item of the list should be a dictionary containing the keys
+                `role` and `content`. For example:
                 ```
                 messages = [
                     {"role": "user", "content": "bom dia, esta é a mensagem do usuario"},
@@ -115,16 +121,20 @@ class MariTalk:
                 ```
                 If chat_mode=False, messages should be a string representing a prompt.
             chat_mode (`bool`, *optional*, defaults to True):
-                If True, the model will run in chat mode, in which messages is either a string representing a single user message or a list of messages representing the conversation between the user and the assistant.
-                If False, messages should be a string representing the prompt. chat_mode=False is recommended when using few-shot examples.
+                If True, the model will run in chat mode, in which messages is either a string representing a single
+                user message or a list of messages representing the conversation between the user and the assistant.
+                If False, messages should be a string representing the prompt. chat_mode=False is recommended when
+                using few-shot examples.
             temperature (`float`, *optional*, defaults to `0.7`):
-                The sampling temperature for the next token probability. Higher values generate more random texts, while lower values will make it more deterministic.
+                The sampling temperature for the next token probability. Higher values generate more random texts,
+                while lower values will make it more deterministic.
             top_p (`float`, *optional*, defaults to `0.95`):
                 The top probability mass to use on nucleus sampling. Read more at: https://arxiv.org/abs/1904.09751.
             max_tokens (`int`, *optional*, defaults to `512`):
                 Maximum number of tokens to generate.
             do_sample (`bool`, *optional*, defaults to `True`):
-                Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.
+                Whether to use sampling or not. `True` value means non-deterministic generations using
+                sampling parameters and `False` value means deterministic generation using greedy decoding.
             stopping_tokens (`List`, *optional*):
                 A list of tokens to use as a stop criteria.
             stream (`bool`, *optional*, defaults to `False`):
@@ -132,8 +142,11 @@ class MariTalk:
             return_async_generator (`bool`, *optional*, defaults to `False`):
                 If True, the function will return an async generator that yields the response from the server. If False, the function will return a generator.
             num_tokens_per_message (`int`, *optional*, defaults to `4`):
-                The number of tokens to yield per message when using the async generator. This argument is only used when `stream=True`.
+                The number of tokens to yield per message when using the async generator.
+                This argument is only used when `stream=True`.
         """
+        if stopping_tokens is None:
+            stopping_tokens = []
 
         if chat_mode:
             if not (
@@ -145,7 +158,8 @@ class MariTalk:
                 )
             ):
                 raise TypeError(
-                    "Invalid `messages` argument format. It's expected to be a `str` or a list of dictionaries containing `role` and `content` keys."
+                    "Invalid `messages` argument format. It's expected to be a `str` or a list "
+                    "of dictionaries containing `role` and `content` keys."
                 )
         else:
             if not isinstance(messages, str):
@@ -163,7 +177,7 @@ class MariTalk:
             "max_tokens": max_tokens,
             "stopping_tokens": stopping_tokens,
             "stream": stream,
-            "num_tokens_per_message": num_tokens_per_message
+            "num_tokens_per_message": num_tokens_per_message,
         }
 
         headers = {}
