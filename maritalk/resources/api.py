@@ -1,7 +1,9 @@
+import json
 import requests
-from typing import List, Dict, Union
+from typing import AsyncGenerator, List, Dict, Union
 from requests.exceptions import HTTPError
 from http import HTTPStatus
+import httpx
 
 
 class MaritalkHTTPError(HTTPError):
@@ -36,6 +38,20 @@ class MariTalk:
         self.model = model
         """@private"""
 
+    @staticmethod
+    async def _async_generate(url: str, headers: dict, data: dict) -> AsyncGenerator:
+        try:
+            async with httpx.AsyncClient() as client:
+                async with client.stream("POST", url, data=json.dumps(data), headers=headers) as response:
+                    response.raise_for_status()  # Raises an exception for 4xx/5xx responses
+                    async for line in response.aiter_lines():
+                        if line.startswith("data: "):
+                            data = line.replace("data: ", "")
+                            if data:
+                                yield json.loads(data)
+        except Exception as e:
+            raise Exception("An error occurred while trying to connect to the server: ") from e
+
     def generate(
         self,
         messages: Union[str, List[Dict[str, str]]],
@@ -45,6 +61,8 @@ class MariTalk:
         max_tokens: int = 512,
         do_sample: bool = True,
         stopping_tokens: List = [],
+        stream: bool = False,
+        num_tokens_per_message: int = 4
     ):
         """
         Generate a response from a list of messages.
@@ -74,6 +92,10 @@ class MariTalk:
                 Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.
             stopping_tokens (`List`, *optional*):
                 A list of tokens to use as a stop criteria.
+            stream (`bool`, *optional*, defaults to `False`):
+                If True, the method will return an async generator that yields the response as it comes from the server. If False, the method will return the full response as a dictionary.
+            num_tokens_per_message (`int`, *optional*, defaults to `4`):
+                The number of tokens to yield per message when using the async generator. This argument is only used when `stream=True`.
         """
 
         if chat_mode:
@@ -103,6 +125,8 @@ class MariTalk:
             "top_p": top_p,
             "max_tokens": max_tokens,
             "stopping_tokens": stopping_tokens,
+            "stream": stream,
+            "num_tokens_per_message": num_tokens_per_message
         }
 
         headers = {}
@@ -110,11 +134,14 @@ class MariTalk:
         if self.key is not None:
             headers["Authorization"] = "Key " + self.key
 
-        response = requests.post(
-            self.api_url + "/chat/inference", json=body, headers=headers
-        )
-
-        if response.ok:
-            return response.json()
+        if stream:
+            return self._async_generate(self.api_url + "/chat/inference", headers, body)
         else:
-            raise MaritalkHTTPError(response)
+            response = requests.post(
+                self.api_url + "/chat/inference", json=body, headers=headers
+            )
+
+            if response.ok:
+                return response.json()
+            else:
+                raise MaritalkHTTPError(response)
