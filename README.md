@@ -141,7 +141,7 @@ Note que os tokenizadores da Sabiá-2 Small e Medium são diferentes.
 
 Além da API da Maritaca AI, é possível executar a MariTalk localmente em duas versões, small e large.
 
-(Para mais fazer download dos modelos e obter uma licença, consulte esta seção)[https://maritaca.ai/#maritalk-local]
+(Para fazer download dos modelos e obter uma licença, consulte esta seção)[https://maritaca.ai/#maritalk-local]
 
 O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia.
 
