@@ -25,9 +25,9 @@ Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.
 
 Este é um serviço pago que requer a validação de um meio de pagamento, como um cartão de crédito. Para validar, acesse [chat.maritaca.ai](https://chat.maritaca.ai/) -> "Meu Plano" -> "Validar forma de pagamento".
 
-A cobrança é feita por tokens, sendo o mesmo valor cobrado por tokens de entrada (i.e., prompt) e saída (i.e., gerados pelo modelo).
+[Consulte os preço aqui.](https://maritaca.ai/#pricing)
 
-Novos assinantes recebem R$20 em créditos da API.
+Após validar uma forma de pagamento, você receberá R$20 em créditos da API.
 
 # Instalação
 
@@ -47,7 +47,7 @@ import maritalk
 
 model = maritalk.MariTalk(
     key="insira sua chave aqui. Ex: '100088...'",
-    model="maritalk"  # No momento, "maritalk" aponta para "maritalk-large-2024-01-08"
+    model="sabia-2-medium"  # No momento, suportamos os modelos sabia-2-medium e sabia-2-small
 )
 
 response = model.generate("Quanto é 25 + 27?")
@@ -56,15 +56,13 @@ answer = response["answer"]
 print(f"Resposta: {answer}")   # Deve imprimir algo como "25 + 27 é igual a 52."
 ```
 
-Atualmente apenas suportamos o modelo "maritalk-large-2024-01-08". Mais modelos serão suportados em breve.
-
 Note que o dicionário `response` contém a chave `usage`, que informa a quantidade de tokens de entrada e saída que serão cobrados.
 
 ## Modo chat
 
 Você pode definir uma conversa especificando uma lista de dicionários, sendo que cada dicionário precisar ter duas chaves: `content` e `role`.
 
-Atualmente, a API da MariTalk suporta dois valores para `role`: "user" para mensagens do usuário, e "assistant" para mensagens do assistente.
+Atualmente, a API da MariTalk suporta três valores para `role`: "system" para mensagem de instrução do chatbot, "user" para mensagens do usuário, e "assistant" para mensagens do assistente.
 
 Mostramos um exemplo de conversa abaixo:
 ```bash
@@ -142,22 +140,14 @@ Note que os tokenizadores da Sabiá-2 Small e Medium são diferentes.
 # Modo local
 
 Além da API da Maritaca AI, é possível executar a MariTalk localmente em duas versões, small e large.
-A tabela abaixo compara essas duas versões e apresenta algumas comparações com os modelos da OpenAI.
 
-| Modelo | GPU RAM (min)  | Max tokens | Pontuação média (14 Datasets)[^1] | Link para Download |
-|--|--|--|--|--|
-| MariTalk Local Small v1.0| 6GB | 8.000 | 65,4 | [Link](https://chat.maritaca.ai/checkout/maritalk-small) |
-| MariTalk Local Large v1.0| 24GB | 8.000 | 73,0 | Lançamento em breve |
-| GPT-3.5-turbo | - | 16k | 67,0 | - |
-| GPT-4-turbo | - | 132k | 80,6 | - |
+(Para mais fazer download dos modelos e obter uma licença, consulte esta seção)[https://maritaca.ai/#maritalk-local]
 
-O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia. Atualmente, a MariTalk local roda apenas em GPUs da arquitetura Ampere (A100, A6000 e A10).
-
-[^1]: Datasets em Português do [Poeta benchmark](https://arxiv.org/abs/2304.07880).
+O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia.
 
 ## Executando em Python
 
-Uma vez obtida uma chave de licença usando um dos links acima, é possível fazer o download, inicializar e executar a MariTalk local utilizando a biblioteca em Python, conforme exemplo abaixo.
+Uma vez obtida uma chave de licença, é possível fazer o download, inicializar e executar a MariTalk local utilizando a biblioteca em Python, conforme exemplo abaixo.
 
 ```python
 import maritalk
@@ -260,13 +250,11 @@ Lembre-se de sempre incluir produtos de qualidade e que sejam suficientes para a
 # Aspectos Técnicos
 
 ### Comprimento máximo de sequência
+
 Os modelos atuais têm um limite de sequência máxima de 8.000 tokens, o que corresponde a cerca de 4.000 palavras em português.
 Isso implica que a contagem total de tokens, incluindo tanto os tokens de entrada (ou seja, o prompt fornecido) quanto os tokens de saída (ou seja, os gerados pelo modelo), não deve exceder 8.000.
-Por exemplo, se o prompt contém 6.000 tokens, o valor máximo para o parâmetro `max_tokens` (isto é, a quantidade de tokens a serem gerados pelo modelo) deve ser de até 2.000 tokens.
 
-### Capacidade de Processamento
-Leva cerca de 1 a 2 segundos para gerar o primeiro token, dado uma sequência de 1000 tokens como entrada.
-Após isso, novos tokens são gerados a uma taxa de 10 a 15 tokens/seg.
+Por exemplo, se o prompt contém 6.000 tokens, o valor máximo para o parâmetro `max_tokens` (isto é, a quantidade de tokens a serem gerados pelo modelo) deve ser de até 2.000 tokens.
 
 # Web Chat
 
