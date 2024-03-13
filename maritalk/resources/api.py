@@ -1,10 +1,9 @@
 import json
-from http import HTTPStatus
-from typing import AsyncGenerator, Dict, List, Union
-
-import httpx
 import requests
+from typing import AsyncGenerator, List, Dict, Union
 from requests.exceptions import HTTPError
+from http import HTTPStatus
+import httpx
 
 
 class MaritalkHTTPError(HTTPError):
@@ -18,7 +17,7 @@ class MaritalkHTTPError(HTTPError):
                 api_message = response_json["message"]
             else:
                 api_message = response_json
-        except Exception:
+        except:
             api_message = request_obj.text
 
         self.message = api_message
@@ -31,9 +30,7 @@ class MaritalkHTTPError(HTTPError):
 
 
 class MariTalk:
-    def __init__(
-        self, key: str, api_url: str = "https://chat.maritaca.ai/api", model="maritalk"
-    ):
+    def __init__(self, key: str, api_url: str = "https://chat.maritaca.ai/api", model="maritalk"):
         self.key = key
         """@private"""
         self.api_url = api_url
@@ -45,9 +42,7 @@ class MariTalk:
     async def _async_generate(url: str, headers: dict, data: dict) -> AsyncGenerator:
         try:
             async with httpx.AsyncClient() as client:
-                async with client.stream(
-                    "POST", url, data=json.dumps(data), headers=headers
-                ) as response:
+                async with client.stream("POST", url, data=json.dumps(data), headers=headers) as response:
                     response.raise_for_status()  # Raises an exception for 4xx/5xx responses
                     async for line in response.aiter_lines():
                         if line.startswith("data: "):
@@ -55,9 +50,7 @@ class MariTalk:
                             if data:
                                 yield json.loads(data)
         except Exception as e:
-            raise Exception(
-                "An error occurred while trying to connect to the server: "
-            ) from e
+            raise Exception("An error occurred while trying to connect to the server: ") from e
 
     def generate(
         self,
@@ -67,19 +60,17 @@ class MariTalk:
         top_p: float = 0.95,
         max_tokens: int = 512,
         do_sample: bool = True,
-        stopping_tokens: List = None,
+        stopping_tokens: List = [],
         stream: bool = False,
-        num_tokens_per_message: int = 4,
+        num_tokens_per_message: int = 4
     ):
         """
         Generate a response from a list of messages.
 
         Args:
             messages (`Union[str, List[Dict[str, str]]]`, *optional*):
-                If chat_mode=True, messages should be a string representing a single user message or
-                a list of messages comprising a conversation between the user and the assistant.
-                If messages is a list, each item of the list should be a dictionary containing the keys
-                `role` and `content`. For example:
+                If chat_mode=True, messages should be a string representing a single user message or a list of messages comprising a conversation between the user and the assistant.
+                If messages is a list, each item of the list should be a dictionary containing the keys `role` and `content`. For example:
                 ```
                 messages = [
                     {"role": "user", "content": "bom dia, esta é a mensagem do usuario"},
@@ -89,31 +80,23 @@ class MariTalk:
                 ```
                 If chat_mode=False, messages should be a string representing a prompt.
             chat_mode (`bool`, *optional*, defaults to True):
-                If True, the model will run in chat mode, in which messages is either a string representing a single
-                user message or a list of messages representing the conversation between the user and the assistant.
-                If False, messages should be a string representing the prompt. chat_mode=False is recommended when
-                using few-shot examples.
+                If True, the model will run in chat mode, in which messages is either a string representing a single user message or a list of messages representing the conversation between the user and the assistant.
+                If False, messages should be a string representing the prompt. chat_mode=False is recommended when using few-shot examples.
             temperature (`float`, *optional*, defaults to `0.7`):
-                The sampling temperature for the next token probability. Higher values generate more random texts,
-                while lower values will make it more deterministic.
+                The sampling temperature for the next token probability. Higher values generate more random texts, while lower values will make it more deterministic.
             top_p (`float`, *optional*, defaults to `0.95`):
                 The top probability mass to use on nucleus sampling. Read more at: https://arxiv.org/abs/1904.09751.
             max_tokens (`int`, *optional*, defaults to `512`):
                 Maximum number of tokens to generate.
             do_sample (`bool`, *optional*, defaults to `True`):
-                Whether to use sampling or not. `True` value means non-deterministic generations using
-                sampling parameters and `False` value means deterministic generation using greedy decoding.
+                Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.
             stopping_tokens (`List`, *optional*):
                 A list of tokens to use as a stop criteria.
             stream (`bool`, *optional*, defaults to `False`):
-                If True, the method will return an async generator that yields the response as it comes from the server.
-                If False, the method will return the full response as a dictionary.
+                If True, the method will return an async generator that yields the response as it comes from the server. If False, the method will return the full response as a dictionary.
             num_tokens_per_message (`int`, *optional*, defaults to `4`):
-                The number of tokens to yield per message when using the async generator.
-                This argument is only used when `stream=True`.
+                The number of tokens to yield per message when using the async generator. This argument is only used when `stream=True`.
         """
-        if stopping_tokens is None:
-            stopping_tokens = []
 
         if chat_mode:
             if not (
@@ -125,8 +108,7 @@ class MariTalk:
                 )
             ):
                 raise TypeError(
-                    "Invalid `messages` argument format. It's expected to be a `str` or a list "
-                    "of dictionaries containing `role` and `content` keys."
+                    "Invalid `messages` argument format. It's expected to be a `str` or a list of dictionaries containing `role` and `content` keys."
                 )
         else:
             if not isinstance(messages, str):
@@ -144,7 +126,7 @@ class MariTalk:
             "max_tokens": max_tokens,
             "stopping_tokens": stopping_tokens,
             "stream": stream,
-            "num_tokens_per_message": num_tokens_per_message,
+            "num_tokens_per_message": num_tokens_per_message
         }
 
         headers = {}
