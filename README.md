@@ -60,7 +60,7 @@ Note que o dicionário `response` contém a chave `usage`, que informa a quantid
 
 ### Streaming
 
-Em alguns casos, pode ser útil gerar a resposta em partes, em vez de esperar a resposta completa, especialmente para tarefas de geração de texto longo, onde a resposta pode ser muito longa e demorar para ser gerada. Nesses casos, é possível usar o método `stream` para gerar a resposta em partes. Disponibilizamos dois modos de retorno para o método `stream`: 
+Em alguns casos, pode ser útil gerar a resposta em partes, em vez de esperar a resposta completa, especialmente para tarefas de geração de texto longo, onde a resposta pode ser muito longa e demorar para ser gerada. Nesses casos, disponibilizamos dois modos de retorno: 
 
 #### Generator
 - O método `stream` retorna um `generator` que gera partes da resposta à medida que elas são geradas pelo modelo.
