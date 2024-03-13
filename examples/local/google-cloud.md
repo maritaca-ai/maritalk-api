@@ -2,7 +2,7 @@
 
 Este tutorial mostra como executar a MariTalk Local Small na Google Cloud Platform (GCP). Para isso, utilizaremos uma instância com a GPU NVIDIA L4 24GB.
 
-1. Crie uma instância na GCP selecionando NVIDIA L4 como **GPU type** em **Machine configuration** e Ubuntu 22.04 LTS como imagem.
+1. Crie uma instância na GCP selecionando NVIDIA L4 como __GPU type__ em __Machine configuration__ e Ubuntu 22.04 LTS como imagem.
 
 ![](/.github/imgs/gcp-screenshot.png)
 
@@ -21,7 +21,7 @@ $ nvidia-smi
 | N/A   44C    P8    16W /  72W |      0MiB / 23034MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
-
+                                                                               
 +-----------------------------------------------------------------------------+
 | Processes:                                                                  |
 |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
@@ -36,7 +36,7 @@ Você pode instalar as dependências necessárias diretamente no Sistema Operaci
 <details>
 <summary>Sistema Operacional</summary>
 
-3. Você pode instalar as dependências necessárias manualmente através do gerenciador de pacotes `apt`. O pacote necessário é o `cuda-toolkit-12`, que irá instalar as bibliotecas (\*.so) necessárias para executar o binário da MariTalk Local.
+3. Você pode instalar as dependências necessárias manualmente através do gerenciador de pacotes `apt`. O pacote necessário é o `cuda-toolkit-12`, que irá instalar as bibliotecas (*.so) necessárias para executar o binário da MariTalk Local.
 
 ```
 $ sudo apt update
@@ -48,7 +48,6 @@ $ sudo apt install cuda-toolkit-12
 ```
 $ python3 -m pip install maritalk
 ```
-
 </details>
 
 <details>
@@ -67,7 +66,6 @@ $ apt update
 $ apt install python3 python3-pip
 $ python3 -m pip install maritalk
 ```
-
 </details>
 
 5. Inicie um console Python (`$ python3`) para iniciar o servidor da MariTalk Local e comece a testar!

@@ -7,7 +7,6 @@ import httpx
 
 
 
-
 class MaritalkHTTPError(HTTPError):
     def __init__(self, request_obj):
         self.request_obj = request_obj
