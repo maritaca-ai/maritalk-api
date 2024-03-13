@@ -63,7 +63,7 @@ Note que o dicionário `response` contém a chave `usage`, que informa a quantid
 Em alguns casos, pode ser útil gerar a resposta em partes, em vez de esperar a resposta completa, especialmente para tarefas de geração de texto longo, onde a resposta pode ser muito longa e demorar para ser gerada. Nesses casos, disponibilizamos dois modos de retorno: 
 
 #### Generator
-- O método `stream` retorna um `generator` que gera partes da resposta à medida que elas são geradas pelo modelo.
+- O parâmetro `stream` retorna um `generator` que gera partes da resposta à medida que elas são geradas pelo modelo.
 ```python
 for response in model.generate(
     messages,
@@ -78,7 +78,7 @@ for response in model.generate(
 ```
 
 #### AsyncGenerator
-- O método `stream` retorna um `async_generator` que gera partes da resposta à medida que elas são geradas pelo modelo.
+- O parâmetro `stream` retorna um `async_generator` que gera partes da resposta à medida que elas são geradas pelo modelo.
 ```python
 import anyio
 
