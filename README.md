@@ -293,6 +293,7 @@ Lembre-se de sempre incluir produtos de qualidade e que sejam suficientes para a
 # Aspectos Técnicos
 
 ### Comprimento máximo de sequência
+
 Os modelos atuais têm um limite de sequência máxima de 8.000 tokens, o que corresponde a cerca de 4.000 palavras em português.
 Isso implica que a contagem total de tokens, incluindo tanto os tokens de entrada (ou seja, o prompt fornecido) quanto os tokens de saída (ou seja, os gerados pelo modelo), não deve exceder 8.000.
 
