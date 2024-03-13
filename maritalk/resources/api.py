@@ -1,8 +1,9 @@
 import json
 import requests
-from typing import AsyncGenerator, List, Dict, Union
+from typing import AsyncGenerator, Generator, List, Dict, Union
 from requests.exceptions import HTTPError
 from http import HTTPStatus
+
 import httpx
 
 
@@ -40,17 +41,50 @@ class MariTalk:
 
     @staticmethod
     async def _async_generate(url: str, headers: dict, data: dict) -> AsyncGenerator:
+        """
+        Returns an async generator that yields the response from the server.
+        Args:
+            url (`str`): 
+                The URL to connect to.
+            headers (`dict`):
+                The headers to be sent with the request.
+            data (`dict`):
+                The data to be sent with the request.
+        """
         try:
             async with httpx.AsyncClient() as client:
                 async with client.stream("POST", url, data=json.dumps(data), headers=headers) as response:
-                    response.raise_for_status()  # Raises an exception for 4xx/5xx responses
+                    response.raise_for_status()
                     async for line in response.aiter_lines():
+                        if line == "":
+                            continue
                         if line.startswith("data: "):
                             data = line.replace("data: ", "")
                             if data:
                                 yield json.loads(data)
         except Exception as e:
-            raise Exception("An error occurred while trying to connect to the server: ") from e
+            raise Exception(f"An error occurred while trying to connect to the server: {str(e)}")
+
+    @staticmethod
+    def _generate_streaming(response: requests.Response) -> Generator:
+        """
+        Returns a generator that yields the response from the server.
+        Args:
+            response (`requests.Response`):
+                The response object returned from the server.
+        """
+        try:
+            for contents in response.iter_lines():
+                payload = contents.decode("utf-8")
+                if payload == "":
+                    continue
+                if payload.startswith("data: "):
+                    data = payload.replace("data: ", "")
+                    if data:
+                        yield json.loads(data)
+        except Exception as e:
+            raise Exception(f"An error occurred while trying to connect to the server: {str(e)}") 
+        
 
     def generate(
         self,
@@ -62,6 +96,7 @@ class MariTalk:
         do_sample: bool = True,
         stopping_tokens: List = [],
         stream: bool = False,
+        return_async_generator: bool = False,
         num_tokens_per_message: int = 4
     ):
         """
@@ -93,7 +128,9 @@ class MariTalk:
             stopping_tokens (`List`, *optional*):
                 A list of tokens to use as a stop criteria.
             stream (`bool`, *optional*, defaults to `False`):
-                If True, the method will return an async generator that yields the response as it comes from the server. If False, the method will return the full response as a dictionary.
+                If True, the function will stream the response from the server. This is useful when generating a large amount of tokens, as it will allow you to consume the response as it is being generated. If False, the function will return the entire response at once.
+            return_async_generator (`bool`, *optional*, defaults to `False`):
+                If True, the function will return an async generator that yields the response from the server. If False, the function will return a generator.
             num_tokens_per_message (`int`, *optional*, defaults to `4`):
                 The number of tokens to yield per message when using the async generator. This argument is only used when `stream=True`.
         """
@@ -133,9 +170,17 @@ class MariTalk:
 
         if self.key is not None:
             headers["Authorization"] = "Key " + self.key
-
+    
         if stream:
-            return self._async_generate(self.api_url + "/chat/inference", headers, body)
+            if return_async_generator:
+                return self._async_generate(self.api_url + "/chat/inference", headers, body)
+            else:
+                response = requests.post(
+                    self.api_url + "/chat/inference", json=body, headers=headers, stream=True
+                )
+                if not response.ok:
+                    raise MaritalkHTTPError(response)
+                return self._generate_streaming(response)
         else:
             response = requests.post(
                 self.api_url + "/chat/inference", json=body, headers=headers

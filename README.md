@@ -60,16 +60,27 @@ Note que o dicionário `response` contém a chave `usage`, que informa a quantid
 
 ### Streaming
 
-Em alguns casos, pode ser útil gerar a resposta em partes, em vez de esperar a resposta completa, especialmente para tarefas de geração de texto longo, onde a resposta pode ser muito longa e demorar para ser gerada. Nesses casos, é possível usar o método `stream` para gerar a resposta em partes.
+Em alguns casos, pode ser útil gerar a resposta em partes, em vez de esperar a resposta completa, especialmente para tarefas de geração de texto longo, onde a resposta pode ser muito longa e demorar para ser gerada. Nesses casos, é possível usar o método `stream` para gerar a resposta em partes. Disponibilizamos dois modos de retorno para o método `stream`: 
 
+#### Generator
+- O método `stream` retorna um `generator` que gera partes da resposta à medida que elas são geradas pelo modelo.
+```python
+for response in model.generate(
+    messages,
+    do_sample=True,
+    max_tokens=200,
+    temperature=0.7,
+    top_p=0.95,
+    stream=True,
+    num_tokens_per_message=4
+):
+    print(response)
+```
+
+#### AsyncGenerator
+- O método `stream` retorna um `async_generator` que gera partes da resposta à medida que elas são geradas pelo modelo.
 ```python
 import anyio
-
-messages = [
-    {"role": "user", "content": "sugira três nomes para a minha cachorra"},
-    {"role": "assistant", "content": "nina, bela e luna."},
-    {"role": "user", "content": "e para o meu peixe?"},
-]
 
 async_generator = model.generate(
     messages,
@@ -78,6 +89,7 @@ async_generator = model.generate(
     temperature=0.7,
     top_p=0.95,
     stream=True,
+    return_async_generator=True,
     num_tokens_per_message=4
 )
 
@@ -86,7 +98,7 @@ async def consume_generator():
         print(response)
         # Seu código aqui...
 
-anyio.run(consume_generator) # Deve imprimir algo como "nemo, dory e neptuno."
+anyio.run(consume_generator)
 ```
 
 ## Modo chat
