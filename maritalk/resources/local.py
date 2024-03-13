@@ -1,32 +1,37 @@
-import atexit
-import csv
 import os
-import subprocess
+import re
+import csv
 import time
+import shutil
+import atexit
+import subprocess
+from tqdm import tqdm
+from pathlib import Path
+from typing import List, Dict, Optional, Union, Optional
 from ctypes.util import find_library
-from typing import Dict, List, Optional, Union
-
 import requests
 from requests.exceptions import ConnectionError
-from tqdm import tqdm
 
 
 def check_gpu():
     try:
         result = subprocess.run(
             [
-                "nvidia-smi",
-                "--query-gpu=name,compute_cap",
-                "--format=csv",
+                'nvidia-smi',
+                '--query-gpu=name,compute_cap',
+                '--format=csv',
             ],
             capture_output=True,
             text=True,
             check=True,
         )
 
-        reader = csv.reader(result.stdout.strip().split("\n"))
+        reader = csv.reader(result.stdout.strip().split('\n'))
 
+        headers = next(reader)
         rows = list(reader)
+
+        gpu_info = []
 
         for row in rows:
             gpu_name, compute_cap = row
@@ -34,8 +39,7 @@ def check_gpu():
                 return True
 
         raise Exception(
-            f"The detected device is not supported: {gpu_name}. We currently support "
-            "Nvidia Ampere GPUs with compute capability >=8.0."
+            f"The detected device is not supported: {gpu_name}. We currently support Nvidia Ampere GPUs with compute capability >=8.0."
         )
     except subprocess.CalledProcessError as e:
         raise Exception(f"Error executing command: {e}")
@@ -91,13 +95,11 @@ class MariTalkLocal:
 
             if dependencies["openssl_version"] is None:
                 raise Exception(
-                    "No libssl.so found. OpenSSL v1 or v3 is required to run MariTalk. "
-                    "You can manually set the version using the `ssl_version` argument."
+                    "No libssl.so found. OpenSSL v1 or v3 is required to run MariTalk. You can manually set the version using the `ssl_version` argument."
                 )
             if dependencies["cuda_version"] is None:
                 raise Exception(
-                    "No libcublas.so found. cuBLAS v11 or v12 is required to run MariTalk. "
-                    "You can manually set the version using the `cuda_version` argument."
+                    "No libcublas.so found. cuBLAS v11 or v12 is required to run MariTalk. You can manually set the version using the `cuda_version` argument."
                 )
 
             os.makedirs(os.path.dirname(bin_path), exist_ok=True)
@@ -114,14 +116,14 @@ class MariTalkLocal:
             try:
                 if self.process.poll() is not None:
                     output, _ = self.process.communicate()
-                    output = output.decode("utf-8")
+                    output = output.decode('utf-8')
                     raise Exception(
                         f"Failed to start process.\nOutput: {output}\nTry to run it manually: `{' '.join(args)}`"
                     )
 
                 self.status()
                 break
-            except ConnectionError:
+            except ConnectionError as ex:
                 time.sleep(1)
 
         def terminate():
@@ -197,7 +199,7 @@ class MariTalkLocal:
         top_p: float = 0.95,
         max_tokens: int = 512,
         do_sample: bool = True,
-        stop_sequences: List[str] = None,
+        stop_sequences: List[str] = [],
         seed: Optional[int] = None,
     ):
         """
@@ -205,25 +207,20 @@ class MariTalkLocal:
 
         Args:
             prompt (`str`):
-                The initial prompt to generate completions for. It can be the beginning of a text to be completed
-                or an instruction for performing a task.
+                The initial prompt to generate completions for. It can be the beginning of a text to be completed or an instruction for performing a task.
             temperature (`float`, *optional*, defaults to `0.7`):
-                The sampling temperature for the next token probability. Higher values generate more random texts,
-                while lower values will make it more deterministic.
+                The sampling temperature for the next token probability. Higher values generate more random texts, while lower values will make it more deterministic.
             top_p (`float`, *optional*, defaults to `0.95`):
                 The top probability mass to use on nucleus sampling. Read more at: https://arxiv.org/abs/1904.09751.
             max_tokens (`int`, *optional*, defaults to `512`):
                 Maximum number of tokens to generate.
             do_sample (`bool`, *optional*, defaults to `True`):
-                Whether to use sampling or not. `True` value means non-deterministic generations using sampling
-                parameters and `False` value means deterministic generation using greedy decoding.
+                Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.
             stop_sequences (`List[str]`, *optional*):
                 A list of sequences to stop the generation process.
             seed (`int`, *optional*, defaults to `None`):
                 Seed to use during the random sampling process to make it reproducible.
         """
-        if stop_sequences is None:
-            stop_sequences = []
 
         body = {
             "prompt": prompt,
@@ -254,7 +251,7 @@ class MariTalkLocal:
         top_p: float = 0.95,
         max_tokens: int = 512,
         do_sample: bool = True,
-        stop_sequences: List[str] = None,
+        stop_sequences: List[str] = [],
         seed: Optional[int] = None,
     ):
         """
@@ -262,8 +259,7 @@ class MariTalkLocal:
 
         Args:
             messages (`Union[str, List[Dict[str, str]]]`):
-                A string with one message or a list where each item should be a dictionary containing
-                the keys `role` and `content`. For example:
+                A string with one message or a list where each item should be a dictionary containing the keys `role` and `content`. For example:
                 ```
                 messages = [
                     {"role": "user", "content": "bom dia, esta é a mensagem do usuario"},
@@ -272,22 +268,18 @@ class MariTalkLocal:
                 ]
                 ```
             temperature (`float`, *optional*, defaults to `0.7`):
-                The sampling temperature for the next token probability.
-                Higher values generate more random texts, while lower values will make it more deterministic.
+                The sampling temperature for the next token probability. Higher values generate more random texts, while lower values will make it more deterministic.
             top_p (`float`, *optional*, defaults to `0.95`):
                 The top probability mass to use on nucleus sampling. Read more at: https://arxiv.org/abs/1904.09751.
             max_tokens (`int`, *optional*, defaults to `512`):
                 Maximum number of tokens to generate.
             do_sample (`bool`, *optional*, defaults to `True`):
-                Whether to use sampling or not. `True` value means non-deterministic generations using sampling
-                parameters and `False` value means deterministic generation using greedy decoding.
+                Whether to use sampling or not. `True` value means non-deterministic generations using sampling parameters and `False` value means deterministic generation using greedy decoding.
             stop_sequences (`List[str]`, *optional*):
                 A list of sequences to stop the generation process.
             seed (`int`, *optional*, defaults to `None`):
                 Seed to use during the random sampling process to make it reproducible.
         """
-        if stop_sequences is None:
-            stop_sequences = []
 
         if not isinstance(messages, str) and not isinstance(messages, list):
             raise TypeError(
@@ -320,7 +312,4 @@ class MariTalkLocal:
         response.raise_for_status()
 
     def generate_chat(self, *args, **kwargs):
-        raise Exception(
-            "This method was changed, please use `generate` for chat messages or "
-            "`generate_raw` for raw few-shot examples instead."
-        )
+        raise Exception('This method was changed, please use `generate` for chat messages or `generate_raw` for raw few-shot examples instead.')
