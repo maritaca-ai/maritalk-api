@@ -31,8 +31,6 @@ def check_gpu():
         headers = next(reader)
         rows = list(reader)
 
-        gpu_info = []
-
         for row in rows:
             gpu_name, compute_cap = row
             if float(compute_cap) >= 8.0:
@@ -48,14 +46,7 @@ def check_gpu():
 def find_libs():
     versions = {
         "cuda_version": None,
-        "openssl_version": None,
     }
-
-    ssl_lib = find_library("ssl")
-    if "libssl.so.1" in ssl_lib:
-        versions["openssl_version"] = 1
-    if "libssl.so.3" in ssl_lib:
-        versions["openssl_version"] = 3
 
     cublas_lib = find_library("cublas")
     if cublas_lib and ".11" in cublas_lib:
@@ -80,7 +71,6 @@ class MariTalkLocal:
         license: str,
         bin_path: str = "~/bin/maritalk",
         cuda_version: Optional[int] = None,
-        ssl_version: Optional[int] = None,
     ):
         bin_path = os.path.expanduser(bin_path)
         if not os.path.exists(bin_path):
@@ -89,14 +79,9 @@ class MariTalkLocal:
             detected_versions = find_libs()
 
             dependencies = {
-                "cuda_version": cuda_version or detected_versions["cuda_version"],
-                "openssl_version": ssl_version or detected_versions["openssl_version"],
+                "cuda_version": cuda_version or detected_versions["cuda_version"]
             }
 
-            if dependencies["openssl_version"] is None:
-                raise Exception(
-                    "No libssl.so found. OpenSSL v1 or v3 is required to run MariTalk. You can manually set the version using the `ssl_version` argument."
-                )
             if dependencies["cuda_version"] is None:
                 raise Exception(
                     "No libcublas.so found. cuBLAS v11 or v12 is required to run MariTalk. You can manually set the version using the `cuda_version` argument."
@@ -147,7 +132,6 @@ class MariTalkLocal:
             download_url,
             json={
                 "license": license,
-                "openssl_version": dependencies["openssl_version"],
                 "cuda_version": dependencies["cuda_version"],
             },
         )
