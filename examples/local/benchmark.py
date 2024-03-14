@@ -20,6 +20,7 @@ import random
 import argparse
 import statistics
 import pandas as pd
+pd.set_option("display.precision", 1)
 from tqdm import tqdm
 import concurrent.futures
 import matplotlib.pyplot as plt
@@ -54,10 +55,10 @@ parser.add_argument(
     help="Number of times to repeat the request to obtain an average",
 )
 parser.add_argument(
-    "--prompt-size", default=1_000, type=int, help="Input prompt size in tokens"
+    "--prompt-size", default=550, type=int, help="Input prompt size in tokens"
 )
 parser.add_argument(
-    "--max-tokens", default=500, type=int, help="Maximum tokens to be generated"
+    "--max-tokens", default=150, type=int, help="Maximum tokens to be generated"
 )
 parser.add_argument(
     "--tokenizer",
@@ -91,7 +92,7 @@ if args.license:
 tokenizer = AutoTokenizer.from_pretrained(args.tokenizer)
 results = []
 
-for concurrenty in tqdm(args.concurrency):
+for concurrency in tqdm(args.concurrency):
     for i in range(args.n_repeats):
         prompt = " ".join([str(i) for i in range(args.prompt_size)])
         prompt_size = len(tokenizer.tokenize(prompt))
@@ -102,10 +103,10 @@ for concurrenty in tqdm(args.concurrency):
             )
             prompt_size = len(tokenizer.tokenize(prompt))
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=concurrenty) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=concurrency) as executor:
             futures = [
                 executor.submit(request, client, prompt, args.max_tokens)
-                for _ in range(concurrenty)
+                for _ in range(concurrency)
             ]
             concurrent.futures.wait(futures)
             for future in futures:
@@ -113,7 +114,7 @@ for concurrenty in tqdm(args.concurrency):
                 generated_tokens = len(tokenizer.tokenize(result["output"]))
                 results.append(
                     {
-                        "concurrenty": concurrenty,
+                        "concurrency": concurrency,
                         "i": i,
                         "prompt_size": prompt_size,
                         "generated_tokens": generated_tokens,
@@ -126,18 +127,18 @@ df = pd.DataFrame(results)
 df.drop(labels=df.query("generated_tokens < 100").index, inplace=True)
 df["generated_tps"] = df["generated_tokens"] / df["generation_time"]
 df["total_tps"] = (df["prompt_size"] + df["generated_tokens"]) / df["total_time"]
-df_results = df.groupby("concurrenty")[["generated_tps", "total_tps"]].agg(
+df_results = df.groupby("concurrency")[["generated_tps", "total_tps"]].agg(
     ["mean", "median", "std"]
 )
 print(df_results)
 
-df_grouped = df.groupby(["concurrenty", "i"])[["prompt_size", "generated_tokens"]].sum()
+df_grouped = df.groupby(["concurrency", "i"])[["prompt_size", "generated_tokens"]].sum()
 df_grouped["system_tokens"] = df_grouped["prompt_size"] + df_grouped["generated_tokens"]
-total_times = df.groupby(["concurrenty", "i"])["total_time"].median()
+total_times = df.groupby(["concurrency", "i"])["total_time"].median()
 system_tokens = df_grouped["system_tokens"] / total_times
 print()
 print("System tokens")
-print(system_tokens.groupby("concurrenty").agg(["median", "std"]))
+print(system_tokens.groupby("concurrency").agg(["median", "std"]))
 df.to_csv(f"benchmark.csv", index=False)
 
 fig, ax = plt.subplots()
@@ -160,15 +161,15 @@ ax.errorbar(
     color="green",
 )
 ax.errorbar(
-    system_tokens.groupby("concurrenty").median().index,
-    system_tokens.groupby("concurrenty").median(),
-    yerr=system_tokens.groupby("concurrenty").std(),
+    system_tokens.groupby("concurrency").median().index,
+    system_tokens.groupby("concurrency").median(),
+    yerr=system_tokens.groupby("concurrency").std(),
     label="system_tps",
     color="red",
 )
 
 ax.legend(loc="lower right")
-ax.set_xticks(system_tokens.groupby("concurrenty").median().index)
+ax.set_xticks(system_tokens.groupby("concurrency").median().index)
 ax.set_xlabel("Concurrency")
 ax.set_ylabel("Tokens/s")
 
