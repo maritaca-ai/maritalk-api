@@ -80,7 +80,7 @@ for response in model.generate(
 #### AsyncGenerator
 - O parâmetro `stream` retorna um `async_generator` que gera partes da resposta à medida que elas são geradas pelo modelo.
 ```python
-import anyio
+import asyncio
 
 async_generator = model.generate(
     messages,
@@ -98,7 +98,7 @@ async def consume_generator():
         print(response)
         # Seu código aqui...
 
-anyio.run(consume_generator)
+asyncio.run(consume_generator)
 ```
 
 ## Modo chat
