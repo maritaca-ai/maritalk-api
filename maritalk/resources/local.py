@@ -41,6 +41,10 @@ def check_gpu():
         )
     except subprocess.CalledProcessError as e:
         raise Exception(f"Error executing command: {e}")
+    except FileNotFoundError as e:
+        raise Exception(
+            "Nvidia-smi is not installed. Please install the Nvidia driver and the CUDA toolkit."
+        )
 
 
 def find_libs():
