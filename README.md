@@ -58,6 +58,49 @@ print(f"Resposta: {answer}")   # Deve imprimir algo como "25 + 27 é igual a 52.
 
 Note que o dicionário `response` contém a chave `usage`, que informa a quantidade de tokens de entrada e saída que serão cobrados.
 
+### Streaming
+
+Em alguns casos, pode ser útil gerar a resposta em partes, em vez de esperar a resposta completa, especialmente para tarefas de geração de texto longo, onde a resposta pode ser muito longa e demorar para ser gerada. Nesses casos, disponibilizamos dois modos de retorno: 
+
+#### Generator
+- O parâmetro `stream` retorna um `generator` que gera partes da resposta à medida que elas são geradas pelo modelo.
+```python
+for response in model.generate(
+    messages,
+    do_sample=True,
+    max_tokens=200,
+    temperature=0.7,
+    top_p=0.95,
+    stream=True,
+    num_tokens_per_message=4
+):
+    print(response)
+```
+
+#### AsyncGenerator
+- O parâmetro `stream` retorna um `async_generator` que gera partes da resposta à medida que elas são geradas pelo modelo.
+```python
+import asyncio
+
+async_generator = model.generate(
+    messages,
+    do_sample=True,
+    max_tokens=200,
+    temperature=0.7,
+    top_p=0.95,
+    stream=True,
+    return_async_generator=True,
+    num_tokens_per_message=4
+)
+
+async def consume_generator():
+    async for response in async_generator:
+        print(response)
+        # Seu código aqui...
+
+asyncio.run(consume_generator)
+```
+
 ## Modo chat
 
 Você pode definir uma conversa especificando uma lista de dicionários, sendo que cada dicionário precisar ter duas chaves: `content` e `role`.
