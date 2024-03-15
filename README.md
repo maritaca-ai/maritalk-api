@@ -6,7 +6,7 @@
 - [Exemplo de uso](#exemplo-de-uso)
 - [Exemplo de uso via requisições HTTP - Python](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_via_requisições_https.ipynb)
 - [Exemplo de uso via requisições HTTP - JavaScript](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_via_requisições_https.js)
-- [Exemplo MariTalk + RAG com LangChain](https://github.com/langchain-ai/langchain/blob/master/docs/docs/integrations/chat/maritalk.ipynb)
+- [Exemplo MariTalk + RAG com LangChain](https://python.langchain.com/docs/integrations/chat/maritalk)
 - [Exemplo Maritalk no LlamaIndex](https://github.com/run-llama/llama_index/blob/main/docs/examples/llm/maritalk.ipynb)
 - [Documentação Swagger](https://chat.maritaca.ai/docs)
 
