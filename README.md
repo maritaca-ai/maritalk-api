@@ -10,11 +10,7 @@
 - [Exemplo Maritalk no LlamaIndex](https://github.com/run-llama/llama_index/blob/main/docs/examples/llm/maritalk.ipynb)
 - [Documentação Swagger](https://chat.maritaca.ai/docs)
 
-**MariTalk Local**
-  - [Executando localmente](https://github.com/maritaca-ai/maritalk-api/blob/main/README-Local.md)
-  - [Exemplo Google Colab Pro](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/colab-pro.ipynb)
-  - [Em GPUs da Oracle Cloud (OCI)](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/oracle-cloud.md)
-  - [Em GPUs da Google Cloud (GCP)](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/google-cloud.md)
+[MariTalk local](https://github.com/maritaca-ai/maritalk-api/blob/main/README-Local.md)
 
 [Chat (gratuito)](#web-chat)
 

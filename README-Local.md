@@ -1,5 +1,14 @@
 
-# Modo local
+**MariTalk Local**
+  - [Introdução](#introduçãoo)
+  - [Executando em Python](#executando-em-python)
+  - [Executando o binário diretamente](#executando-o-binário-diretamente)
+  - [Exemplo Google Colab Pro](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/colab-pro.ipynb)
+  - [Em GPUs da Oracle Cloud (OCI)](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/oracle-cloud.md)
+  - [Em GPUs da Google Cloud (GCP)](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/google-cloud.md)
+
+
+## Introdução
 
 Além da API da Maritaca AI, é possível executar a MariTalk localmente em duas versões, small e large.
 
