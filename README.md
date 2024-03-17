@@ -59,11 +59,11 @@ print(f"Resposta: {answer}")   # Deve imprimir algo como "25 + 27 é igual a 52.
 Note que o dicionário `response` contém a chave `usage`, que informa a quantidade de tokens de entrada e saída que serão cobrados.
 
 ### Streaming
-
-Em alguns casos, pode ser útil gerar a resposta token a token, em vez de esperar a resposta completa, especialmente para tarefas de geração de texto longo, onde a resposta pode ser muito longa e demorar para ser gerada. Nesses casos, disponibilizamos dois modos de retorno:
+Para tarefas de geração de texto longo, como a criação de um artigo extenso ou a tradução de um documento grande, pode ser vantajoso receber a resposta em partes, à medida que o texto é gerado, em vez de esperar pelo texto completo. Isso tornar a aplicação mais responsiva e eficiente, especialmente quando o texto gerado é extenso. Oferecemos duas abordagens para atender a essa necessidade: o uso de um generator e de um async_generator.
 
 #### Generator
-- O parâmetro `stream=True` retorna um `generator` que gera partes da resposta à medida que elas são geradas pelo modelo.
+- Ao use `stream=True`, o código irá retornar um `generator`. Este `generator` fornecerá as partes da resposta conforme elas são geradas pelo modelo, permitindo que você imprima ou processe os tokens à medida que são produzidos.
+
 ```python
 for response in model.generate(
     messages,
@@ -78,7 +78,8 @@ for response in model.generate(
 ```
 
 #### AsyncGenerator
-- O parâmetro `stream=True` e `return_async_generator=True` retorna um `async_generator` que gera partes da resposta à medida que elas são geradas pelo modelo.
+Ao utilizar `stream=True` em conjunto com `return_async_generator=True`, o código irá retornar um `async_generator`. Este tipo de gerador é projetado para ser consumido de forma assíncrona, o que significa que você pode executar o código que consome o `async_generator` em paralelo com outras tarefas, melhorando a eficiência do seu processamento.
+
 ```python
 import asyncio
 
