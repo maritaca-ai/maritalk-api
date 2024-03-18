@@ -75,7 +75,7 @@ for response in model.generate(
 ```
 
 #### AsyncGenerator
-Ao utilizar `stream=True` em conjunto com `return_async_generator=True`, o código irá retornar um `async_generator`. Este tipo de gerador é projetado para ser consumido de forma assíncrona, o que significa que você pode executar o código que consome o `async_generator` em paralelo com outras tarefas, melhorando a eficiência do seu processamento.
+Ao utilizar `stream=True` em conjunto com `return_async_generator=True`, o código irá retornar um `AsyncGenerator`. Este tipo de gerador é projetado para ser consumido de forma assíncrona, o que significa que você pode executar o código que consome o `AsyncGenerator` de maneira concorrente com outras tarefas, melhorando a eficiência do seu processamento.
 
 ```python
 import asyncio
