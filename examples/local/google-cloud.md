@@ -52,7 +52,7 @@ $ python3 -m pip install maritalk
 >>> client = maritalk.MariTalkLocal()
 >>> client.start_server(license='<SUA LICENÇA AQUI>')
 Downloading MariTalk-small (path: /root/bin/maritalk)...
-/root/bin/maritalk: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 4.12G/4.12G [03:10<00:00, 21.6MB/s]
+/root/bin/maritalk: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 14.6G/14.6G [09:42<00:00, 25.1MB/s]
 Starting MariTalk Local API at http://localhost:9000
 >>> client.status()
 {'status': 'idle'}
