@@ -88,7 +88,7 @@ Também é possivel executar o servidor diretamente no terminal, sem o wrapper e
 
 #### Download
 ```bash
-wget -O maritalk <link do exectuável recebido no email>
+wget -O maritalk <link do executável recebido no email>
 ```
 
 #### Dependências
