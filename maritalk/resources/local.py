@@ -61,6 +61,89 @@ def find_libs():
     return versions
 
 
+def download(license: str, bin_path: str, dependencies: Dict[str, int]):
+    download_url = (
+        "https://m64xplb35dhr3se7ipvtmbdnk40ahktr.lambda-url.us-east-1.on.aws/"
+    )
+    response = requests.post(
+        download_url,
+        json={
+            "license": license,
+            "cuda_version": dependencies["cuda_version"],
+        },
+    )
+    if not response.ok:
+        raise Exception(response.text)
+
+    result = response.json()
+
+    if "presigned_url" not in result:
+        raise ValueError(f"Failed to validate license ({license}): {result}")
+
+    file_url = result["presigned_url"]
+    model_size = result["model_size"]
+
+    print(f"Downloading MariTalk-{model_size} (path: {bin_path})...")
+
+    try:
+        with requests.get(file_url, stream=True) as response:
+            response.raise_for_status()
+            file_size = int(response.headers.get("content-length", 0))
+            if file_size > 0:
+                progress_bar = tqdm(
+                    total=file_size,
+                    unit="B",
+                    unit_scale=True,
+                    desc=bin_path,
+                )
+                with open(bin_path, "wb") as out:
+                    for chunk in response.iter_content(chunk_size=16384):
+                        out.write(chunk)
+                        progress_bar.update(len(chunk))
+
+                os.chmod(bin_path, 0o744)
+            else:
+                raise Exception(
+                    f"Invalid response from the server while downloading: {response.text}"
+                )
+    except requests.exceptions.RequestException as e:
+        raise Exception(f"Error downloading MariTalk binary: {e}")
+
+
+def start_server(
+    license: str,
+    bin_path: str = "~/bin/maritalk",
+    cuda_version: Optional[int] = None,
+    port: int = 9000,
+):
+    bin_path = os.path.expanduser(bin_path)
+    if not os.path.exists(bin_path):
+        if not cuda_version:
+            check_gpu()
+        detected_versions = find_libs()
+
+        dependencies = {
+            "cuda_version": cuda_version or detected_versions["cuda_version"]
+        }
+
+        if dependencies["cuda_version"] is None:
+            raise Exception(
+                "No libcublas.so found. cuBLAS v11 or v12 is required to run MariTalk. You can manually set the version using the `cuda_version` argument."
+            )
+
+        bin_folder = os.path.dirname(bin_path)
+        if bin_folder:
+            os.makedirs(bin_folder, exist_ok=True)
+        download(license, bin_path, dependencies)
+
+    args = [bin_path, "--license", license, "--port", str(port)]
+    return subprocess.Popen(
+        args,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+    )
+
+
 class MariTalkLocal:
     def __init__(self, host: str = "localhost", port: int = 9000):
         self.api_url = f"http://{host}:{port}"
@@ -76,31 +159,8 @@ class MariTalkLocal:
         bin_path: str = "~/bin/maritalk",
         cuda_version: Optional[int] = None,
     ):
-        bin_path = os.path.expanduser(bin_path)
-        if not os.path.exists(bin_path):
-            if not cuda_version:
-                check_gpu()
-            detected_versions = find_libs()
-
-            dependencies = {
-                "cuda_version": cuda_version or detected_versions["cuda_version"]
-            }
-
-            if dependencies["cuda_version"] is None:
-                raise Exception(
-                    "No libcublas.so found. cuBLAS v11 or v12 is required to run MariTalk. You can manually set the version using the `cuda_version` argument."
-                )
-
-            os.makedirs(os.path.dirname(bin_path), exist_ok=True)
-            self.download(license, bin_path, dependencies)
-
         print(f"Starting MariTalk Local API at http://localhost:{self.port}")
-        args = [bin_path, "--license", license, "--port", str(self.port)]
-        self.process = subprocess.Popen(
-            args,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-        )
+        self.process = start_server(license, bin_path, cuda_version, self.port)
         while True:
             try:
                 if self.process.poll() is not None:
@@ -127,54 +187,6 @@ class MariTalkLocal:
             return
         self.process.terminate()
         self.process = None
-
-    def download(cls, license: str, bin_path: str, dependencies: Dict[str, int]):
-        download_url = (
-            "https://m64xplb35dhr3se7ipvtmbdnk40ahktr.lambda-url.us-east-1.on.aws/"
-        )
-        response = requests.post(
-            download_url,
-            json={
-                "license": license,
-                "cuda_version": dependencies["cuda_version"],
-            },
-        )
-        if not response.ok:
-            raise Exception(response.text)
-
-        result = response.json()
-
-        if "presigned_url" not in result:
-            raise ValueError(f"Failed to validate license ({license}): {result}")
-
-        file_url = result["presigned_url"]
-        model_size = result["model_size"]
-
-        print(f"Downloading MariTalk-{model_size} (path: {bin_path})...")
-
-        try:
-            with requests.get(file_url, stream=True) as response:
-                response.raise_for_status()
-                file_size = int(response.headers.get("content-length", 0))
-                if file_size > 0:
-                    progress_bar = tqdm(
-                        total=file_size,
-                        unit="B",
-                        unit_scale=True,
-                        desc=bin_path,
-                    )
-                    with open(bin_path, "wb") as out:
-                        for chunk in response.iter_content(chunk_size=16384):
-                            out.write(chunk)
-                            progress_bar.update(len(chunk))
-
-                    os.chmod(bin_path, 0o744)
-                else:
-                    raise Exception(
-                        f"Invalid response from the server while downloading: {response.text}"
-                    )
-        except requests.exceptions.RequestException as e:
-            raise Exception(f"Error downloading MariTalk binary: {e}")
 
     def status(self):
         response = requests.get(self.api_url)
