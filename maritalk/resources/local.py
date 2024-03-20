@@ -62,52 +62,52 @@ def find_libs():
 
 
 def download(license: str, bin_path: str, dependencies: Dict[str, int]):
-        download_url = (
-            "https://m64xplb35dhr3se7ipvtmbdnk40ahktr.lambda-url.us-east-1.on.aws/"
-        )
-        response = requests.post(
-            download_url,
-            json={
-                "license": license,
-                "cuda_version": dependencies["cuda_version"],
-            },
-        )
-        if not response.ok:
-            raise Exception(response.text)
+    download_url = (
+        "https://m64xplb35dhr3se7ipvtmbdnk40ahktr.lambda-url.us-east-1.on.aws/"
+    )
+    response = requests.post(
+        download_url,
+        json={
+            "license": license,
+            "cuda_version": dependencies["cuda_version"],
+        },
+    )
+    if not response.ok:
+        raise Exception(response.text)
 
-        result = response.json()
+    result = response.json()
 
-        if "presigned_url" not in result:
-            raise ValueError(f"Failed to validate license ({license}): {result}")
+    if "presigned_url" not in result:
+        raise ValueError(f"Failed to validate license ({license}): {result}")
 
-        file_url = result["presigned_url"]
-        model_size = result["model_size"]
+    file_url = result["presigned_url"]
+    model_size = result["model_size"]
 
-        print(f"Downloading MariTalk-{model_size} (path: {bin_path})...")
+    print(f"Downloading MariTalk-{model_size} (path: {bin_path})...")
 
-        try:
-            with requests.get(file_url, stream=True) as response:
-                response.raise_for_status()
-                file_size = int(response.headers.get("content-length", 0))
-                if file_size > 0:
-                    progress_bar = tqdm(
-                        total=file_size,
-                        unit="B",
-                        unit_scale=True,
-                        desc=bin_path,
-                    )
-                    with open(bin_path, "wb") as out:
-                        for chunk in response.iter_content(chunk_size=16384):
-                            out.write(chunk)
-                            progress_bar.update(len(chunk))
+    try:
+        with requests.get(file_url, stream=True) as response:
+            response.raise_for_status()
+            file_size = int(response.headers.get("content-length", 0))
+            if file_size > 0:
+                progress_bar = tqdm(
+                    total=file_size,
+                    unit="B",
+                    unit_scale=True,
+                    desc=bin_path,
+                )
+                with open(bin_path, "wb") as out:
+                    for chunk in response.iter_content(chunk_size=16384):
+                        out.write(chunk)
+                        progress_bar.update(len(chunk))
 
-                    os.chmod(bin_path, 0o744)
-                else:
-                    raise Exception(
-                        f"Invalid response from the server while downloading: {response.text}"
-                    )
-        except requests.exceptions.RequestException as e:
-            raise Exception(f"Error downloading MariTalk binary: {e}")
+                os.chmod(bin_path, 0o744)
+            else:
+                raise Exception(
+                    f"Invalid response from the server while downloading: {response.text}"
+                )
+    except requests.exceptions.RequestException as e:
+        raise Exception(f"Error downloading MariTalk binary: {e}")
 
 
 def start_server(
@@ -160,7 +160,7 @@ class MariTalkLocal:
         cuda_version: Optional[int] = None,
     ):
         print(f"Starting MariTalk Local API at http://localhost:{self.port}")
-        self.process = start_server(license, bin_path, cuda_version)
+        self.process = start_server(license, bin_path, cuda_version, self.port)
         while True:
             try:
                 if self.process.poll() is not None:
