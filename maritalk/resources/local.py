@@ -61,74 +61,7 @@ def find_libs():
     return versions
 
 
-class MariTalkLocal:
-    def __init__(self, host: str = "localhost", port: int = 9000):
-        self.api_url = f"http://{host}:{port}"
-        """@private"""
-        self.port = port
-        """@private"""
-        self.process = None
-        """@private"""
-
-    def start_server(
-        self,
-        license: str,
-        bin_path: str = "~/bin/maritalk",
-        cuda_version: Optional[int] = None,
-    ):
-        bin_path = os.path.expanduser(bin_path)
-        if not os.path.exists(bin_path):
-            if not cuda_version:
-                check_gpu()
-            detected_versions = find_libs()
-
-            dependencies = {
-                "cuda_version": cuda_version or detected_versions["cuda_version"]
-            }
-
-            if dependencies["cuda_version"] is None:
-                raise Exception(
-                    "No libcublas.so found. cuBLAS v11 or v12 is required to run MariTalk. You can manually set the version using the `cuda_version` argument."
-                )
-
-            os.makedirs(os.path.dirname(bin_path), exist_ok=True)
-            self.download(license, bin_path, dependencies)
-
-        print(f"Starting MariTalk Local API at http://localhost:{self.port}")
-        args = [bin_path, "--license", license, "--port", str(self.port)]
-        self.process = subprocess.Popen(
-            args,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-        )
-        while True:
-            try:
-                if self.process.poll() is not None:
-                    output, _ = self.process.communicate()
-                    output = output.decode('utf-8')
-                    raise Exception(
-                        f"Failed to start process.\nOutput: {output}\nTry to run it manually: `{' '.join(args)}`"
-                    )
-
-                self.status()
-                break
-            except ConnectionError as ex:
-                time.sleep(1)
-
-        def terminate():
-            print("Stopping MariTalk...")
-            self.stop_server()
-
-        atexit.register(terminate)
-
-    def stop_server(self):
-        if not self.process:
-            print("No process attached to this client!")
-            return
-        self.process.terminate()
-        self.process = None
-
-    def download(cls, license: str, bin_path: str, dependencies: Dict[str, int]):
+def download(license: str, bin_path: str, dependencies: Dict[str, int]):
         download_url = (
             "https://m64xplb35dhr3se7ipvtmbdnk40ahktr.lambda-url.us-east-1.on.aws/"
         )
@@ -175,6 +108,85 @@ class MariTalkLocal:
                     )
         except requests.exceptions.RequestException as e:
             raise Exception(f"Error downloading MariTalk binary: {e}")
+
+
+def start_server(
+    license: str,
+    bin_path: str = "~/bin/maritalk",
+    cuda_version: Optional[int] = None,
+    port: int = 9000,
+):
+    bin_path = os.path.expanduser(bin_path)
+    if not os.path.exists(bin_path):
+        if not cuda_version:
+            check_gpu()
+        detected_versions = find_libs()
+
+        dependencies = {
+            "cuda_version": cuda_version or detected_versions["cuda_version"]
+        }
+
+        if dependencies["cuda_version"] is None:
+            raise Exception(
+                "No libcublas.so found. cuBLAS v11 or v12 is required to run MariTalk. You can manually set the version using the `cuda_version` argument."
+            )
+
+        bin_folder = os.path.dirname(bin_path)
+        if bin_folder:
+            os.makedirs(bin_folder, exist_ok=True)
+        download(license, bin_path, dependencies)
+
+    args = [bin_path, "--license", license, "--port", str(port)]
+    return subprocess.Popen(
+        args,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+    )
+
+
+class MariTalkLocal:
+    def __init__(self, host: str = "localhost", port: int = 9000):
+        self.api_url = f"http://{host}:{port}"
+        """@private"""
+        self.port = port
+        """@private"""
+        self.process = None
+        """@private"""
+
+    def start_server(
+        self,
+        license: str,
+        bin_path: str = "~/bin/maritalk",
+        cuda_version: Optional[int] = None,
+    ):
+        print(f"Starting MariTalk Local API at http://localhost:{self.port}")
+        self.process = start_server(license, bin_path, cuda_version)
+        while True:
+            try:
+                if self.process.poll() is not None:
+                    output, _ = self.process.communicate()
+                    output = output.decode('utf-8')
+                    raise Exception(
+                        f"Failed to start process.\nOutput: {output}\nTry to run it manually: `{' '.join(args)}`"
+                    )
+
+                self.status()
+                break
+            except ConnectionError as ex:
+                time.sleep(1)
+
+        def terminate():
+            print("Stopping MariTalk...")
+            self.stop_server()
+
+        atexit.register(terminate)
+
+    def stop_server(self):
+        if not self.process:
+            print("No process attached to this client!")
+            return
+        self.process.terminate()
+        self.process = None
 
     def status(self):
         response = requests.get(self.api_url)

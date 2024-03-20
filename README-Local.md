@@ -63,14 +63,32 @@ print(chat_response)  # {'output': 'nani, bento e leo.', 'queue_time': 0, 'promp
 
 O retorno das chamadas contém o texto gerado e os tempos de espera, de execução do prompt e da geração do texto para fins de debug do usuário.
 
+Também existem 2 comandos para facilitar o gerenciamento do executável:
 
-## Executando o binário diretamente
+#### Download
 
-Também é possivel executar o servidor diretamente no terminal, sem o wrapper em python.
+Para fazer o download do exectuável para um determinado path, você pode executar:
+
+```console
+$ python -m maritalk.download --license <SUA LICENÇA> --path maritalk-small
+```
+
+#### Start
+
+Para fazer o download automaticamente e iniciar o servidor da MariTalk Local, você pode executar:
+
+```console
+$ python -m maritalk.start --license <SUA LICENÇA>
+```
+
+
+## Iniciando o executável diretamente
+
+Também é possivel executar o servidor diretamente no terminal, sem o wrapper em Python.
 
 #### Download
 ```bash
-wget -O maritalk <link do binário recebido no email> 
+wget -O maritalk <link do exectuável recebido no email>
 ```
 
 #### Dependências
