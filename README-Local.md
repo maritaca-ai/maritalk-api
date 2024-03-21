@@ -21,6 +21,11 @@ O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia.
 
 ## Executando em Python
 
+Primeiro, instale a biblioteca da Maritalk:
+```bash
+pip install maritalk
+```
+
 Uma vez obtida uma chave de licença, é possível fazer o download, inicializar e executar a MariTalk local utilizando a biblioteca em Python, conforme exemplo abaixo.
 
 ```python
