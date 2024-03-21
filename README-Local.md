@@ -21,7 +21,7 @@ O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia.
 
 ## Executando em Python
 
-Primeiro, instale a biblioteca da Maritalk:
+Primeiro, instale a biblioteca da MariTalk:
 ```bash
 pip install maritalk
 ```
