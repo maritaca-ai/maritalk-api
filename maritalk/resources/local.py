@@ -37,7 +37,7 @@ def check_gpu():
                 return True
 
         raise Exception(
-            f"The detected device is not supported: {gpu_name}. We currently support Nvidia Ampere GPUs with compute capability >=8.0."
+            f"The detected device is not supported: {gpu_name}. We currently support Nvidia GPUs with compute capability >= 8.0."
         )
     except subprocess.CalledProcessError as e:
         raise Exception(f"Error executing command: {e}")
