@@ -6,7 +6,7 @@ client.start_server(license=os.environ["MARITALK_LICENSE"])
 
 # Question selected from the FaQuAD dataset:
 # https://huggingface.co/datasets/eraldoluis/faquad?row=32
-result = client.generate_chat([
+result = client.generate([
     {
         "role": "user",
         "content": """Com base no texto abaixo, resposta a pergunta "Qual o objetivo do POSCOMP?"
