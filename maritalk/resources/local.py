@@ -167,7 +167,7 @@ class MariTalkLocal:
                     output, _ = self.process.communicate()
                     output = output.decode('utf-8')
                     raise Exception(
-                        f"Failed to start process.\nOutput: {output}\nTry to run it manually: `{' '.join(args)}`"
+                        f"Failed to start process.\nOutput: {output}\nTry to run it manually: `{' '.join(self.process.args)}`"
                     )
 
                 self.status()
