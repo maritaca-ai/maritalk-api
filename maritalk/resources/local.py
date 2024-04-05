@@ -2,13 +2,11 @@ import os
 import re
 import csv
 import time
-import shutil
 import atexit
 import subprocess
 from tqdm import tqdm
 from pathlib import Path
 from typing import List, Dict, Optional, Union, Optional
-from ctypes.util import find_library
 import requests
 from requests.exceptions import ConnectionError
 
@@ -25,9 +23,7 @@ def check_gpu():
             text=True,
             check=True,
         )
-
         reader = csv.reader(result.stdout.strip().split('\n'))
-
         headers = next(reader)
         rows = list(reader)
 
@@ -43,7 +39,7 @@ def check_gpu():
         raise Exception(f"Error executing command: {e}")
     except FileNotFoundError as e:
         raise Exception(
-            "Nvidia-smi is not installed. Please install the Nvidia driver and the CUDA toolkit."
+            "Nvidia-SMI is not installed. Please install the Nvidia driver and the CUDA toolkit."
         )
 
 
@@ -52,11 +48,23 @@ def find_libs():
         "cuda_version": None,
     }
 
-    cublas_lib = find_library("cublas")
-    if cublas_lib and ".11" in cublas_lib:
-        versions["cuda_version"] = 11
-    if cublas_lib and ".12" in cublas_lib:
-        versions["cuda_version"] = 12
+    try:
+        output = subprocess.run(
+            ['nvidia-smi'],
+            stdout=subprocess.PIPE,
+        ).stdout.decode('utf-8')
+        cuda_version_match = re.search(r"CUDA Version: (\d+\.\d+)", output)
+
+        if not cuda_version_match:
+            raise Exception("Could not detect CUDA version automatically. Verify CUDA toolkit installation or set the `cuda_version` parameter manually, e.g., `cuda_version=\"12.3\"`.")
+
+        versions["cuda_version"] = cuda_version_match.group(1)
+    except subprocess.CalledProcessError as e:
+        raise Exception(f"Error executing command: {e}")
+    except FileNotFoundError as e:
+        raise Exception(
+            "Nvidia-SMI is not installed. Please install the Nvidia driver and the CUDA toolkit."
+        )
 
     return versions
 
