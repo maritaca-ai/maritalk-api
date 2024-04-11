@@ -71,7 +71,7 @@ def find_libs():
 
 def download(license: str, bin_path: str, dependencies: Dict[str, int]):
     download_url = (
-        "https://m64xplb35dhr3se7ipvtmbdnk40ahktr.lambda-url.us-east-1.on.aws/"
+        "https://functions.maritaca.ai/local/download"
     )
     response = requests.post(
         download_url,
