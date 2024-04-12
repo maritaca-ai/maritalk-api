@@ -1,6 +1,8 @@
 # Executando MariTalk Local na Google Cloud Platform (GCP)
 
-Este tutorial mostra como executar a MariTalk Local Small na Google Cloud Platform (GCP). Para isso, utilizaremos uma instância com a GPU NVIDIA A100 40GB. Até o momento, o software também foi testado nas GPUs NVIDIA L4 e A10, mas é esperado que funcione com GPUs com *compute capability* >= 8.0 (`nvidia-smi --query-gpu=compute_cap --format=csv`).
+Este tutorial mostra como executar a MariTalk Local Small na Google Cloud Platform (GCP). Para isso, utilizaremos uma instância com a GPU NVIDIA A100 40GB. Até o momento, o software também foi testado nas GPUs NVIDIA L4 e A10, mas é esperado que funcione em outras GPUs com *compute capability* >= 8.0 (`nvidia-smi --query-gpu=compute_cap --format=csv`).
+
+Você pode adquirir uma licença da MariTalk Local [neste link](https://maritaca.ai/#maritalk-local).
 
 1. Crie uma instância na GCP selecionando NVIDIA A100 como GPU utilizando a imagem Debian 11 com CUDA 11.3 para obter as biblitoecas necessárias. Abaixo está o comando para criar a instância usando `gcloud`.
 
@@ -87,5 +89,3 @@ Start using MariTalk Local API:
 
 [2024-02-22 18:21:01.138028290 +00:00] Listening on http://0.0.0.0:9000
 ```
-
-Você pode adquirir uma licença da MariTalk Local [neste link](https://maritaca.ai/#maritalk-local).

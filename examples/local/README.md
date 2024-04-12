@@ -18,86 +18,95 @@ Na versão MariTalk-medium, rodando em uma máquina com 2xA100 40GB, a mesma req
 
 Disponibilizamos [esta ferramenta de benchmark](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/benchmark.py) para que você possa avaliar o desempenho no seu ambiente. Abaixo estão os resultados obtidos na versão atual em 23 de fevereiro de 2024.
 
+### Resultados
+
+| **GPU**     | **Modelo**     | **Total (token/s)** | **Geração (token/s)** |
+|-------------|----------------|---------------------|-----------------------|
+| 1xA100 40GB | Sabiá-2 Small  |               167.2 |                  42.2 |
+| 2xA100 40GB | Sabiá-2 Small  |               213.5 |                  54.0 |
+| 2xA100 40GB | Sabiá-2 Medium |                79.3 |                  18.6 |
+
+### Detalhes
 
 <details>
-<summary><b>MariTalk-small on 1xA100 40GB</b></summary>
+<summary><b>Sabiá-2 Small (GPU 1xA100 40GB)</b></summary>
 
-- Total tokens: 91.4 tokens/s
-- Generated tokens: 21.4 tokens/s
+- Total tokens: 167.2 tokens/s
+- Generated tokens: 42.2 tokens/s
 
 ```console
 $ python benchmark.py --concurrency 1,2,4,8 --n-repeats 5 --prompt-size 550 --max-tokens 150
             generated_tps             total_tps
                      mean median  std      mean median  std
 concurrency
-1                    21.4   21.4  0.2      91.9   91.4  1.0
-2                    15.0   15.2  0.5      64.3   64.5  0.5
-4                     9.7   10.1  0.9      42.0   42.5  1.0
-8                     5.8    5.9  0.6      24.8   24.9  0.6
+1                    42.2   42.2  0.3     167.1  167.2  0.7
+2                    24.2   24.2  1.0     101.4  101.4  0.9
+4                    13.0   13.2  1.0      56.5   57.1  2.5
+8                     7.1    7.2  0.6      30.8   30.9  0.6
 
 System tokens
              median   std
 concurrency
-1              91.4   1.0
-2             128.7   0.5
-4             169.4  20.5
-8             196.4  19.6
+1             167.2   0.7
+2             202.9   0.1
+4             230.4  10.3
+8             245.8  11.9
 ```
-![benchmark-small-1xa100](https://github.com/maritaca-ai/maritalk-api/assets/1206395/2bfbe758-f576-4a86-9379-be476336a4cb)
+![benchmark-small-1xa100](https://github.com/maritaca-ai/maritalk-api/assets/1206395/7acfb1c6-b2a2-40e4-b6e7-2ed08201819d)
 </details>
 
 <details>
-<summary><b>MariTalk-small on 2xA100 40GB</b></summary>
+<summary><b>Sabiá-2 Small (GPU 2xA100 40GB)</b></summary>
 
-- Total tokens: 85.7 tokens/s
-- Generated tokens: 20.1 tokens/s
+- Total tokens: 213.5 tokens/s
+- Generated tokens: 54.0 tokens/s
 
 ```console
 $ python benchmark.py --concurrency 1,2,4,8 --n-repeats 5 --prompt-size 550 --max-tokens 150
             generated_tps             total_tps
-                     mean median  std      mean median  std
+                     mean median  std      mean median   std
 concurrency
-1                    20.2   20.1  0.3      86.2   85.7  1.9
-2                    18.5   18.6  1.1      78.0   77.8  2.1
-4                    13.2   13.5  1.0      56.7   56.6  1.3
-8                     8.5    8.7  1.0      36.5   36.7  1.1
+1                    54.0   53.6  0.8     213.5  208.1  12.3
+2                    33.2   33.1  1.4     135.6  135.6   1.2
+4                    20.1   20.6  1.3      85.2   85.6   1.2
+8                    11.1   11.2  0.9      48.1   48.3   0.9
 
 System tokens
              median   std
 concurrency
-1              85.7   1.9
-2             155.5  32.5
-4             225.5  22.0
-8             291.3  13.5
+1             208.1  12.3
+2             271.3   0.3
+4             340.8   0.8
+8             384.7   1.0
 ```
 
-![benchmark-small-2xa100](https://github.com/maritaca-ai/maritalk-api/assets/1206395/a8af0778-bbf8-4923-a845-391dcca5b054)
+![benchmark-small-2xa100](https://github.com/maritaca-ai/maritalk-api/assets/1206395/524a0b74-7998-4f24-928d-61ae803b98eb)
 </details>
 
 <details>
-<summary><b>MariTalk-medium on 2xA100 40GB</b></summary>
+<summary><b>Sabiá-2 Medium (GPU 2xA100 40GB)</b></summary>
 
-- Total tokens: 43.8 tokens/s
-- Generated tokens: 10.1 tokens/s
+- Total tokens: 79.3 tokens/s
+- Generated tokens: 18.6 tokens/s
 
 ```console
 $ python benchmark.py --concurrency 1,2,4,8 --n-repeats 5 --prompt-size 550 --max-tokens 150 --tokenizer maritaca-ai/maritalk-tokenizer-large
             generated_tps             total_tps
                      mean median  std      mean median  std
 concurrency
-1                    10.1   10.1  0.2      43.9   43.8  0.1
-2                     7.2    7.2  0.2      31.5   31.5  0.2
-4                     4.6    4.6  0.2      20.0   20.1  0.2
-8                     2.7    2.7  0.2      11.6   11.7  0.2
+1                    18.6   18.6  0.3      79.3   78.9  1.0
+2                    10.4   10.5  0.4      44.9   45.0  0.6
+4                     5.8    5.8  0.2      25.5   25.5  0.2
+8                     3.1    3.1  0.2      13.6   13.7  0.2
 
 System tokens
              median  std
 concurrency
-1              43.8  0.1
-2              63.0  0.1
-4              79.8  8.6
-8              92.9  0.3
+1              78.9  1.0
+2              90.1  1.1
+4             101.9  0.1
+8             108.9  0.2
 ```
 
-![benchmark-medium-2xa100](https://github.com/maritaca-ai/maritalk-api/assets/1206395/9bb16696-7d72-459b-b46f-1e45480ee6f2)
+![benchmark-medium-2xa100](https://github.com/maritaca-ai/maritalk-api/assets/1206395/a379f94b-4472-4eeb-b166-d262bf853a1c)
 </details>
