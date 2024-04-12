@@ -56,7 +56,13 @@ def find_libs():
         cuda_version_match = re.search(r"CUDA Version: (\d+\.\d+)", output)
 
         if not cuda_version_match:
-            raise Exception("Could not detect CUDA version automatically. Verify CUDA toolkit installation or set the `cuda_version` parameter manually, e.g., `cuda_version=\"12.3\"`.")
+            raise Exception("""Could not automatically detect the CUDA version. Verify the CUDA Toolkit installation or set the `cuda_version` parameter manually. For example:
+
+```
+model.start_server("<YOUR LICENSE>", cuda_version="12.3")
+```
+
+To install the CUDA Toolkit, please refer to: https://developer.nvidia.com/cuda-downloads""")
 
         versions["cuda_version"] = cuda_version_match.group(1)
     except subprocess.CalledProcessError as e:
