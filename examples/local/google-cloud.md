@@ -1,6 +1,6 @@
 # Executando MariTalk Local na Google Cloud Platform (GCP)
 
-Este tutorial mostra como executar a MariTalk Local Small na Google Cloud Platform (GCP). Para isso, utilizaremos uma instância com a GPU NVIDIA A100 40GB. Até o momento, o software também foi testado nas GPUs NVIDIA L4 e A10, mas é esperado que funcione em outras GPUs com *compute capability* >= 8.0 (`nvidia-smi --query-gpu=compute_cap --format=csv`).
+Este tutorial mostra como executar a MariTalk Local Small na Google Cloud Platform (GCP). Para isso, utilizaremos uma instância com a GPU NVIDIA A100 40GB. Até o momento, o software também foi testado nas GPUs NVIDIA L4 e A10, mas é esperado que funcione em outras GPUs com [compute capability](https://developer.nvidia.com/cuda-gpus) >= 8.0 (`nvidia-smi --query-gpu=compute_cap --format=csv`).
 
 Você pode adquirir uma licença da MariTalk Local [neste link](https://maritaca.ai/#maritalk-local).
 
@@ -71,9 +71,9 @@ Para iniciar manualmente, primeiro faça download do executável que vai ser env
 
 ```console
 $ ./maritalk-cuda11 --license <SUA LICENÇA AQUI> --max-batch-total-tokens 32768
-Starting MariTalk Local API v1.1...
+Starting MariTalk Local API sabia-2-small-2024-03-13...
 ✓ Loaded in 11s
-[2024-02-22 18:20:56.260261670 +00:00] Warming up...
+[2024-02-22 18:20:56 +0000] Warming up...
 Start using MariTalk Local API:
 
         $ python
@@ -85,7 +85,7 @@ Start using MariTalk Local API:
                 {"role": "user", "content": "e para o meu peixe?"}
         ]
         >>> client.generate_chat(messages)
-        {'output': 'nani, bento e leo.', 'queue_time': 0, 'prompt_time': 185, 'generation_time': 127}
+        {'output': 'azul, neon e dory.', 'queue_time': 0.224, 'generation_time': 0.407}
 
-[2024-02-22 18:21:01.138028290 +00:00] Listening on http://0.0.0.0:9000
+[2024-02-22 18:21:01 +0000] Listening on http://0.0.0.0:9000
 ```

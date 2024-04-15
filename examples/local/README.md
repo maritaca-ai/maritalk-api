@@ -24,6 +24,7 @@ Disponibilizamos [esta ferramenta de benchmark](https://github.com/maritaca-ai/m
 |-------------|----------------|---------------------|-----------------------|
 | 1xA100 40GB | Sabiá-2 Small  |               167.2 |                  42.2 |
 | 2xA100 40GB | Sabiá-2 Small  |               213.5 |                  54.0 |
+| 1xA10 24GB  | Sabiá-2 Small  |                89.8 |                  21.3 |
 | 2xA100 40GB | Sabiá-2 Medium |                79.3 |                  18.6 |
 
 ### Detalhes
@@ -78,6 +79,34 @@ concurrency
 2             271.3   0.3
 4             340.8   0.8
 8             384.7   1.0
+```
+
+![benchmark-small-2xa100](https://github.com/maritaca-ai/maritalk-api/assets/1206395/524a0b74-7998-4f24-928d-61ae803b98eb)
+</details>
+
+<details>
+<summary><b>Sabiá-2 Small (GPU 1xA10 24GB)</b></summary>
+
+- Total tokens: 89.8 tokens/s
+- Generated tokens: 21.3 tokens/s
+
+```console
+$ python benchmark.py --concurrency 1,2,4,8 --n-repeats 5 --prompt-size 550 --max-tokens 150
+            generated_tps             total_tps
+                     mean median  std      mean median  std
+concurrency
+1                    21.3   21.3  0.2      89.8   88.6  2.2
+2                    11.3   11.2  0.4      47.7   48.0  0.9
+4                     5.8    5.9  0.3      24.4   24.5  0.3
+8                     2.9    2.9  0.2      12.2   12.2  0.2
+
+System tokens
+             median  std
+concurrency
+1              88.6  2.2
+2              96.4  1.9
+4              97.6  0.2
+8              97.5  0.2
 ```
 
 ![benchmark-small-2xa100](https://github.com/maritaca-ai/maritalk-api/assets/1206395/524a0b74-7998-4f24-928d-61ae803b98eb)
