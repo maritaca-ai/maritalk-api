@@ -1,27 +1,37 @@
 # Executando MariTalk Local na Google Cloud Platform (GCP)
 
-Este tutorial mostra como executar a MariTalk Local Small na Google Cloud Platform (GCP). Para isso, utilizaremos uma instância com a GPU NVIDIA L4 24GB.
+Este tutorial mostra como executar a MariTalk Local Small na Google Cloud Platform (GCP). Para isso, utilizaremos uma instância com a GPU NVIDIA A100 40GB. Até o momento, o software também foi testado nas GPUs NVIDIA L4 e A10, mas é esperado que funcione em outras GPUs com [compute capability](https://developer.nvidia.com/cuda-gpus) >= 8.0 (`nvidia-smi --query-gpu=compute_cap --format=csv`).
 
-1. Crie uma instância na GCP selecionando NVIDIA L4 como __GPU type__ em __Machine configuration__ e Ubuntu 22.04 LTS como imagem.
+Você pode adquirir uma licença da MariTalk Local [neste link](https://maritaca.ai/#maritalk-local).
 
-![](/.github/imgs/gcp-screenshot.png)
+1. Crie uma instância na GCP selecionando NVIDIA A100 como GPU utilizando a imagem Debian 11 com CUDA 11.3 para obter as biblitoecas necessárias. Abaixo está o comando para criar a instância usando `gcloud`.
 
-2. Verifique se a GPU foi detectada com sucesso.
+```console
+$ gcloud compute instances create maritalk-1 \
+  --machine-type=a2-highgpu-1g \
+  --zone=us-central1-c \
+  --boot-disk-size=500G \
+  --image=common-cu113-v20240128-debian-11 \
+  --image-project=deeplearning-platform-release \
+  --maintenance-policy=TERMINATE --restart-on-failure
+```
+
+2. Ao se conectar à máquina, você será questionado se deseja instalar as bibliotecas para preparar o ambiente. Responda com `y` e aguarde a instação. Após o processo de instalação, verifique se a GPU foi detectada com sucesso.
 
 ```
 $ nvidia-smi
 +-----------------------------------------------------------------------------+
-| NVIDIA-SMI 525.105.17   Driver Version: 525.105.17   CUDA Version: 12.0     |
+| NVIDIA-SMI 510.47.03    Driver Version: 510.47.03    CUDA Version: 11.6     |
 |-------------------------------+----------------------+----------------------+
 | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
-|   0  NVIDIA L4           On   | 00000000:00:03.0 Off |                    0 |
-| N/A   44C    P8    16W /  72W |      0MiB / 23034MiB |      0%      Default |
-|                               |                      |                  N/A |
+|   0  NVIDIA A100-SXM...  On   | 00000000:00:04.0 Off |                    0 |
+| N/A   29C    P0    45W / 400W |      0MiB / 40960MiB |      0%      Default |
+|                               |                      |             Disabled |
 +-------------------------------+----------------------+----------------------+
-                                                                               
+
 +-----------------------------------------------------------------------------+
 | Processes:                                                                  |
 |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
@@ -31,51 +41,20 @@ $ nvidia-smi
 +-----------------------------------------------------------------------------+
 ```
 
-Você pode instalar as dependências necessárias diretamente no Sistema Operacional da instância ou usar Docker. Selecione abaixo uma das duas opções:
-
-<details>
-<summary>Sistema Operacional</summary>
-
-3. Você pode instalar as dependências necessárias manualmente através do gerenciador de pacotes `apt`. O pacote necessário é o `cuda-toolkit-12`, que irá instalar as bibliotecas (*.so) necessárias para executar o binário da MariTalk Local.
-
-```
-$ sudo apt update
-$ sudo apt install cuda-toolkit-12
-```
-
-4. Instale a biblioteca Python para interagir com o servidor da MariTalk Local.
+3. Instale a biblioteca Python para interagir com o servidor da MariTalk Local.
 
 ```
 $ python3 -m pip install maritalk
 ```
-</details>
 
-<details>
-<summary>Docker</summary>
-
-3. Você pode instalar as dependências necessárias manualmente, mas nesta seção vamos usar a imagem Docker da Nvidia com CUDA v12 para iniciar a MariTalk Local. O comando abaixo vai iniciar um terminal interativo para instalarmos as ferramentas necessárias. Em caso de deploy em produção, é recomendado criar um container a partir da imagem `nvidia/cuda:12.1.1-cudnn8-runtime-ubuntu22.04` com os comandos necessários.
-
-```
-$ sudo docker run -it --gpus all nvidia/cuda:12.1.1-cudnn8-runtime-ubuntu22.04 /bin/bash
-```
-
-4. Instale as dependências.
-
-```
-$ apt update
-$ apt install python3 python3-pip
-$ python3 -m pip install maritalk
-```
-</details>
-
-5. Inicie um console Python (`$ python3`) para iniciar o servidor da MariTalk Local e comece a testar!
+4. Você pode iniciar o servidor da MariTalk Local manualmente ou utilizar o método `start_server` para fazer o download e iniciar o servidor automaticamente. Abra um console Python (`$ python3`) para iniciar o servidor e comece a testar!
 
 ```python
 >>> import maritalk
 >>> client = maritalk.MariTalkLocal()
 >>> client.start_server(license='<SUA LICENÇA AQUI>')
 Downloading MariTalk-small (path: /root/bin/maritalk)...
-/root/bin/maritalk: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 4.12G/4.12G [03:10<00:00, 21.6MB/s]
+/root/bin/maritalk: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 14.6G/14.6G [09:42<00:00, 25.1MB/s]
 Starting MariTalk Local API at http://localhost:9000
 >>> client.status()
 {'status': 'idle'}
@@ -85,11 +64,28 @@ Starting MariTalk Local API at http://localhost:9000
 ...     {"role": "user", "content": "e para o meu peixe?"},
 ... ]
 >>> client.generate(messages)
-{'output': 'azul, oceano e pepita.', 'queue_time': 0, 'prompt_time': 381, 'generation_time': 264}
+{'output': 'azul, oceano e pepita.', 'queue_time': 0.224, 'generation_time': 0.407}
 ```
 
-Para adquirir uma licença da MariTalk Local [clique aqui](https://maritaca.ai/#maritalk-local).
+Para iniciar manualmente, primeiro faça download do executável que vai ser enviado por email após a adquirir a licença. Em seguida, execute:
 
-## Observações
+```console
+$ ./maritalk-cuda11 --license <SUA LICENÇA AQUI> --max-batch-total-tokens 32768
+Starting MariTalk Local API sabia-2-small-2024-03-13...
+✓ Loaded in 11s
+[2024-02-22 18:20:56 +0000] Warming up...
+Start using MariTalk Local API:
 
-- Para cada GPU NVIDIA L4, considerando uma entrada de ~1.000 tokens e uma saída de ~500 tokens, espera-se um throughput de aproximadamente 12 tokens/s (ou 40 tokens/s processados no total).
+        $ python
+        >>> import maritalk
+        >>> client = maritalk.MariTalkLocal()
+        >>> messages = [
+                {"role": "user", "content": "sugira três nomes para a minha cachorra"}
+                {"role": "assistant", "content": "nina, bela e luna."}
+                {"role": "user", "content": "e para o meu peixe?"}
+        ]
+        >>> client.generate_chat(messages)
+        {'output': 'azul, neon e dory.', 'queue_time': 0.224, 'generation_time': 0.407}
+
+[2024-02-22 18:21:01 +0000] Listening on http://0.0.0.0:9000
+```
