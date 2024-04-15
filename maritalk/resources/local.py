@@ -2,13 +2,11 @@ import os
 import re
 import csv
 import time
-import shutil
 import atexit
 import subprocess
 from tqdm import tqdm
 from pathlib import Path
 from typing import List, Dict, Optional, Union, Optional
-from ctypes.util import find_library
 import requests
 from requests.exceptions import ConnectionError
 
@@ -25,13 +23,9 @@ def check_gpu():
             text=True,
             check=True,
         )
-
         reader = csv.reader(result.stdout.strip().split('\n'))
-
         headers = next(reader)
         rows = list(reader)
-
-        gpu_info = []
 
         for row in rows:
             gpu_name, compute_cap = row
@@ -39,31 +33,129 @@ def check_gpu():
                 return True
 
         raise Exception(
-            f"The detected device is not supported: {gpu_name}. We currently support Nvidia Ampere GPUs with compute capability >=8.0."
+            f"The detected device is not supported: {gpu_name}. We currently support Nvidia GPUs with compute capability >= 8.0."
         )
     except subprocess.CalledProcessError as e:
         raise Exception(f"Error executing command: {e}")
+    except FileNotFoundError as e:
+        raise Exception(
+            "Nvidia-SMI is not installed. Please install the Nvidia driver and the CUDA toolkit."
+        )
 
 
 def find_libs():
     versions = {
         "cuda_version": None,
-        "openssl_version": None,
     }
 
-    ssl_lib = find_library("ssl")
-    if "libssl.so.1" in ssl_lib:
-        versions["openssl_version"] = 1
-    if "libssl.so.3" in ssl_lib:
-        versions["openssl_version"] = 3
+    try:
+        output = subprocess.run(
+            ['nvidia-smi'],
+            stdout=subprocess.PIPE,
+        ).stdout.decode('utf-8')
+        cuda_version_match = re.search(r"CUDA Version: (\d+\.\d+)", output)
 
-    cublas_lib = find_library("cublas")
-    if cublas_lib and ".11" in cublas_lib:
-        versions["cuda_version"] = 11
-    if cublas_lib and ".12" in cublas_lib:
-        versions["cuda_version"] = 12
+        if not cuda_version_match:
+            raise Exception("""Could not automatically detect the CUDA version. Verify the CUDA Toolkit installation or set the `cuda_version` parameter manually. For example:
+
+```
+model.start_server("<YOUR LICENSE>", cuda_version="12.3")
+```
+
+To install the CUDA Toolkit, please refer to: https://developer.nvidia.com/cuda-downloads""")
+
+        versions["cuda_version"] = cuda_version_match.group(1)
+    except subprocess.CalledProcessError as e:
+        raise Exception(f"Error executing command: {e}")
+    except FileNotFoundError as e:
+        raise Exception(
+            "Nvidia-SMI is not installed. Please install the Nvidia driver and the CUDA toolkit."
+        )
 
     return versions
+
+
+def download(license: str, bin_path: str, dependencies: Dict[str, int]):
+    download_url = (
+        "https://functions.maritaca.ai/local/download"
+    )
+    response = requests.post(
+        download_url,
+        json={
+            "license": license,
+            "cuda_version": dependencies["cuda_version"],
+        },
+    )
+    if not response.ok:
+        raise Exception(response.text)
+
+    result = response.json()
+
+    if "presigned_url" not in result:
+        raise ValueError(f"Failed to validate license ({license}): {result}")
+
+    file_url = result["presigned_url"]
+    model_size = result["model_size"]
+
+    print(f"Downloading MariTalk-{model_size} (path: {bin_path})...")
+
+    try:
+        with requests.get(file_url, stream=True) as response:
+            response.raise_for_status()
+            file_size = int(response.headers.get("content-length", 0))
+            if file_size > 0:
+                progress_bar = tqdm(
+                    total=file_size,
+                    unit="B",
+                    unit_scale=True,
+                    desc=bin_path,
+                )
+                with open(bin_path, "wb") as out:
+                    for chunk in response.iter_content(chunk_size=16384):
+                        out.write(chunk)
+                        progress_bar.update(len(chunk))
+
+                os.chmod(bin_path, 0o744)
+            else:
+                raise Exception(
+                    f"Invalid response from the server while downloading: {response.text}"
+                )
+    except requests.exceptions.RequestException as e:
+        raise Exception(f"Error downloading MariTalk binary: {e}")
+
+
+def start_server(
+    license: str,
+    bin_path: str = "~/bin/maritalk",
+    cuda_version: Optional[int] = None,
+    port: int = 9000,
+):
+    bin_path = os.path.expanduser(bin_path)
+    if not os.path.exists(bin_path):
+        if not cuda_version:
+            check_gpu()
+        detected_versions = find_libs()
+
+        dependencies = {
+            "cuda_version": cuda_version or detected_versions["cuda_version"]
+        }
+
+        if dependencies["cuda_version"] is None:
+            raise Exception(
+                "No libcublas.so found. cuBLAS v11 or v12 is required to run MariTalk. You can manually set the version using the `cuda_version` argument."
+            )
+
+        bin_folder = os.path.dirname(bin_path)
+        if bin_folder:
+            os.makedirs(bin_folder, exist_ok=True)
+        download(license, bin_path, dependencies)
+
+    args = [bin_path, "--license", license, "--port", str(port)]
+    return subprocess.Popen(
+        args,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+    )
 
 
 class MariTalkLocal:
@@ -80,45 +172,16 @@ class MariTalkLocal:
         license: str,
         bin_path: str = "~/bin/maritalk",
         cuda_version: Optional[int] = None,
-        ssl_version: Optional[int] = None,
     ):
-        bin_path = os.path.expanduser(bin_path)
-        if not os.path.exists(bin_path):
-            if not cuda_version:
-                check_gpu()
-            detected_versions = find_libs()
-
-            dependencies = {
-                "cuda_version": cuda_version or detected_versions["cuda_version"],
-                "openssl_version": ssl_version or detected_versions["openssl_version"],
-            }
-
-            if dependencies["openssl_version"] is None:
-                raise Exception(
-                    "No libssl.so found. OpenSSL v1 or v3 is required to run MariTalk. You can manually set the version using the `ssl_version` argument."
-                )
-            if dependencies["cuda_version"] is None:
-                raise Exception(
-                    "No libcublas.so found. cuBLAS v11 or v12 is required to run MariTalk. You can manually set the version using the `cuda_version` argument."
-                )
-
-            os.makedirs(os.path.dirname(bin_path), exist_ok=True)
-            self.download(license, bin_path, dependencies)
-
         print(f"Starting MariTalk Local API at http://localhost:{self.port}")
-        args = [bin_path, "--license", license, "--port", str(self.port)]
-        self.process = subprocess.Popen(
-            args,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-        )
+        self.process = start_server(license, bin_path, cuda_version, self.port)
         while True:
             try:
                 if self.process.poll() is not None:
                     output, _ = self.process.communicate()
                     output = output.decode('utf-8')
                     raise Exception(
-                        f"Failed to start process.\nOutput: {output}\nTry to run it manually: `{' '.join(args)}`"
+                        f"Failed to start process.\nOutput: {output}\nTry to run it manually: `{' '.join(self.process.args)}`"
                     )
 
                 self.status()
@@ -138,55 +201,6 @@ class MariTalkLocal:
             return
         self.process.terminate()
         self.process = None
-
-    def download(cls, license: str, bin_path: str, dependencies: Dict[str, int]):
-        download_url = (
-            "https://m64xplb35dhr3se7ipvtmbdnk40ahktr.lambda-url.us-east-1.on.aws/"
-        )
-        response = requests.post(
-            download_url,
-            json={
-                "license": license,
-                "openssl_version": dependencies["openssl_version"],
-                "cuda_version": dependencies["cuda_version"],
-            },
-        )
-        if not response.ok:
-            raise Exception(response.text)
-
-        result = response.json()
-
-        if "presigned_url" not in result:
-            raise ValueError(f"Failed to validate license ({license}): {result}")
-
-        file_url = result["presigned_url"]
-        model_size = result["model_size"]
-
-        print(f"Downloading MariTalk-{model_size} (path: {bin_path})...")
-
-        try:
-            with requests.get(file_url, stream=True) as response:
-                response.raise_for_status()
-                file_size = int(response.headers.get("content-length", 0))
-                if file_size > 0:
-                    progress_bar = tqdm(
-                        total=file_size,
-                        unit="B",
-                        unit_scale=True,
-                        desc=bin_path,
-                    )
-                    with open(bin_path, "wb") as out:
-                        for chunk in response.iter_content(chunk_size=16384):
-                            out.write(chunk)
-                            progress_bar.update(len(chunk))
-
-                    os.chmod(bin_path, 0o744)
-                else:
-                    raise Exception(
-                        f"Invalid response from the server while downloading: {response.text}"
-                    )
-        except requests.exceptions.RequestException as e:
-            raise Exception(f"Error downloading MariTalk binary: {e}")
 
     def status(self):
         response = requests.get(self.api_url)

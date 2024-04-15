@@ -44,8 +44,8 @@ sudo apt-get install -y libnccl2 cuda-toolkit-12
 
 4. Instale a biblioteca Python para interagir com o servidor da MariTalk Local.
 
-```
-$ python3 -m pip install maritalk
+```bash
+python3 -m pip install maritalk
 ```
 
 5. Você pode iniciar o servidor da MariTalk Local manualmente ou utilizar o método `start_server` para fazer o download e iniciar o servidor automaticamente. Abra um console Python (`$ python3`) para iniciar o servidor e comece a testar!

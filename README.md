@@ -1,19 +1,17 @@
-### Conteúdo
+# MariTalk API
 
-**MariTalk API**
+## Conteúdo
+
 - [Introdução](#introdução)  
 - [Instalação](#instalação)  
 - [Exemplo de uso](#exemplo-de-uso)
 - [Exemplo de uso via requisições HTTP - Python](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_via_requisições_https.ipynb)
 - [Exemplo de uso via requisições HTTP - JavaScript](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_via_requisições_https.js)
-- [Exemplo MariTalk + RAG com LangChain](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_langchain.ipynb)
+- [Exemplo MariTalk + RAG com LangChain](https://python.langchain.com/docs/integrations/chat/maritalk)
+- [Exemplo Maritalk no LlamaIndex](https://docs.llamaindex.ai/en/latest/examples/llm/maritalk)
 - [Documentação Swagger](https://chat.maritaca.ai/docs)
 
-**MariTalk Local**
-  - [Executando localmente](#modo-local)
-  - [Exemplo Google Colab Pro](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/colab-pro.ipynb)
-  - [Em GPUs da Oracle Cloud (OCI)](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/oracle-cloud.md)
-  - [Em GPUs da Google Cloud (GCP)](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/google-cloud.md)
+[MariTalk local](https://github.com/maritaca-ai/maritalk-api/blob/main/README-Local.md)
 
 [Chat (gratuito)](#web-chat)
 
@@ -24,9 +22,9 @@ Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.
 
 Este é um serviço pago que requer a validação de um meio de pagamento, como um cartão de crédito. Para validar, acesse [chat.maritaca.ai](https://chat.maritaca.ai/) -> "Meu Plano" -> "Validar forma de pagamento".
 
-A cobrança é feita por tokens, sendo o mesmo valor cobrado por tokens de entrada (i.e., prompt) e saída (i.e., gerados pelo modelo).
+[Consulte os preço aqui.](https://maritaca.ai/#pricing)
 
-Novos assinantes recebem R$20 em créditos da API.
+Após validar uma forma de pagamento, você receberá R$20 em créditos da API.
 
 # Instalação
 
@@ -46,7 +44,7 @@ import maritalk
 
 model = maritalk.MariTalk(
     key="insira sua chave aqui. Ex: '100088...'",
-    model="maritalk"  # No momento, "maritalk" aponta para "maritalk-large-2024-01-08"
+    model="sabia-2-medium"  # No momento, suportamos os modelos sabia-2-medium e sabia-2-small
 )
 
 response = model.generate("Quanto é 25 + 27?")
@@ -55,15 +53,57 @@ answer = response["answer"]
 print(f"Resposta: {answer}")   # Deve imprimir algo como "25 + 27 é igual a 52."
 ```
 
-Atualmente apenas suportamos o modelo "maritalk-large-2024-01-08". Mais modelos serão suportados em breve.
-
 Note que o dicionário `response` contém a chave `usage`, que informa a quantidade de tokens de entrada e saída que serão cobrados.
+
+### Streaming
+Para tarefas de geração de texto longo, como a criação de um artigo extenso ou a tradução de um documento grande, pode ser vantajoso receber a resposta em partes, à medida que o texto é gerado, em vez de esperar pelo texto completo. Isso tornar a aplicação mais responsiva e eficiente, especialmente quando o texto gerado é extenso. Oferecemos duas abordagens para atender a essa necessidade: o uso de um generator e de um async_generator.
+
+#### Generator
+- Ao use `stream=True`, o código irá retornar um `generator`. Este `generator` fornecerá as partes da resposta conforme elas são geradas pelo modelo, permitindo que você imprima ou processe os tokens à medida que são produzidos.
+
+```python
+for response in model.generate(
+    messages,
+    do_sample=True,
+    max_tokens=200,
+    temperature=0.7,
+    top_p=0.95,
+    stream=True,
+    num_tokens_per_message=4
+):
+    print(response)
+```
+
+#### AsyncGenerator
+Ao utilizar `stream=True` em conjunto com `return_async_generator=True`, o código irá retornar um `AsyncGenerator`. Este tipo de gerador é projetado para ser consumido de forma assíncrona, o que significa que você pode executar o código que consome o `AsyncGenerator` de maneira concorrente com outras tarefas, melhorando a eficiência do seu processamento.
+
+```python
+import asyncio
+
+async_generator = model.generate(
+    messages,
+    do_sample=True,
+    max_tokens=200,
+    temperature=0.7,
+    top_p=0.95,
+    stream=True,
+    return_async_generator=True,
+    num_tokens_per_message=4
+)
+
+async def consume_generator():
+    async for response in async_generator:
+        print(response)
+        # Seu código aqui...
+
+asyncio.run(consume_generator)
+```
 
 ## Modo chat
 
 Você pode definir uma conversa especificando uma lista de dicionários, sendo que cada dicionário precisar ter duas chaves: `content` e `role`.
 
-Atualmente, a API da MariTalk suporta dois valores para `role`: "user" para mensagens do usuário, e "assistant" para mensagens do assistente.
+Atualmente, a API da MariTalk suporta três valores para `role`: "system" para mensagem de instrução do chatbot, "user" para mensagens do usuário, e "assistant" para mensagens do assistente.
 
 Mostramos um exemplo de conversa abaixo:
 ```bash
@@ -127,7 +167,7 @@ Para saber de antemão o quanto suas requisições irão custar, use os tokeniza
 Exemplo de uso:
 ```python
 import transformers
-tokenizer = transformers.AutoTokenizer.from_pretrained("maritaca-ai/maritalk-tokenizer-large")
+tokenizer = transformers.AutoTokenizer.from_pretrained("maritaca-ai/sabia-2-tokenizer-medium")
 
 prompt = "Com quantos paus se faz uma canoa?"
 
@@ -136,136 +176,16 @@ tokens = tokenizer.encode(prompt)
 print(f'O prompt "{prompt}" contém {len(tokens)} tokens.')
 ```
 
-Note que os tokenizadores da MariTalk Small e Large são diferentes.
-
-# Modo local
-
-Além da API da Maritaca AI, é possível executar a MariTalk localmente em duas versões, small e large.
-A tabela abaixo compara essas duas versões e apresenta algumas comparações com os modelos da OpenAI.
-
-| Modelo | GPU RAM (min)  | Max tokens | Pontuação média (14 Datasets)[^1] | Link para Download |
-|--|--|--|--|--|
-| MariTalk Local Small v1.0| 6GB | 8.000 | 65,4 | [Link](https://chat.maritaca.ai/checkout/maritalk-small) |
-| MariTalk Local Large v1.0| 24GB | 8.000 | 73,0 | Lançamento em breve |
-| GPT-3.5-turbo | - | 16k | 67,0 | - |
-| GPT-4-turbo | - | 132k | 80,6 | - |
-
-O executável roda em máquinas Linux 64-bit com uma ou mais GPUs Nvidia. Atualmente, a MariTalk local roda apenas em GPUs da arquitetura Ampere (A100, A6000 e A10).
-
-[^1]: Datasets em Português do [Poeta benchmark](https://arxiv.org/abs/2304.07880).
-
-## Executando em Python
-
-Uma vez obtida uma chave de licença usando um dos links acima, é possível fazer o download, inicializar e executar a MariTalk local utilizando a biblioteca em Python, conforme exemplo abaixo.
-
-```python
-import maritalk
-
-# Criando uma instância do cliente MariTalkLocal
-client = maritalk.MariTalkLocal()
-
-# Iniciando o servidor com uma chave de licença especificada. O executável será baixado em ~/bin/maritalk
-client.start_server(license='000000-00000-00000-00000')
-
-# Verificando o status do servidor
-status = client.status()
-print(status)  # {'status': 'idle'}
-
-# Gerando uma resposta para classificar resenhas de filmes
-response = client.generate("""Classifique a resenha de filme como "positiva" ou "negativa".
-
-Resenha: Gostei muito do filme, é o melhor do ano!
-Classe: positiva
-
-Resenha: O filme deixa muito a desejar.
-Classe: negativa
-
-Resenha: Foi fantástico, valeu o ingresso..
-Classe:""", max_tokens=2, do_sample=False)
-print(response)  # {'output': 'positiva', 'queue_time': 0, 'prompt_time': 158, 'generation_time': 9}
-
-# Preparando uma série de mensagens para uma interação de chat
-messages = [
-    {"role": "user", "content": "sugira três nomes para a minha cachorra"},
-    {"role": "assistant", "content": "nina, bela e luna."},
-    {"role": "user", "content": "e para o meu peixe?"},
-]
-
-# Gerando a resposta do chat
-chat_response = client.generate(messages)
-print(chat_response)  # {'output': 'nani, bento e leo.', 'queue_time': 0, 'prompt_time': 185, 'generation_time': 127}
-```
-
-O retorno das chamadas contém o texto gerado e os tempos de espera, de execução do prompt e da geração do texto para fins de debug do usuário.
-
-
-## Executando o binário diretamente
-
-Também é possivel executar o servidor diretamente no terminal, sem o wrapper em python.
-
-#### Download
-```bash
-wget -O maritalk <link do binário recebido no email> 
-```
-
-#### Dependências
-
-As principais dependências são as bibliotecas CUDA para comunicação com a GPU e de SSL. Para instalar as bibliotecas da Nvidia compatíveis com seu driver, é recomendado instalar o CUDA Toolkit na versão 11 ou 12. Exemplo: `apt install cuda-toolkit-12`. Atualmente suportamos as versões de CUDA 11 e 12 e Ubuntu versões 20 e 22. Caso queria sobrescrever a detecção automática das versões locais na hora do download do binário compatível, utilize o argumento `cuda_version` ou `ssl_version`, exemplo: `client.start_server('00000-00000-00000-00000', cuda_version=12)`.
-
-Também é possível executar a MariTalk em um container Docker utilizando as imagens da Nvidia com as dependências necessárias já instaladas. Por exemplo, a imagem `nvidia/cuda:11.8.0-devel-ubuntu22.04` pode ser utilizada para executar o binário compatível com Ubuntu 22 e CUDA 11.
-
-#### Execução
-
-```bash
-$ ./maritalk [OPTIONS] --license <LICENSE>
-```
-
-`--license <LICENSE>`: Sua chave de licença.
-
-`-p, --port <PORT>`: Porta HTTP para escutar. [padrão: 9000]
-
-`-h, --help`: Mostra uma mensagem de ajuda com a descrição dos argumentos disponíveis.
-
-`-V, --version`: Mostra a versão do executável.
-
-#### Modo interativo
-
-Também é possível utilizar a MariTalk Local no próprio terminal sem precisar fazer requisções à API através do modo interativo:
-
-```bash
-$ ./maritalk [OPTIONS] --license <LICENSE> --interactive
-(...)
->> olá
-MariTalk: Olá! Como posso ajudar você hoje?
->> crie uma lista de compras para uma festa de aniversário
-MariTalk: Aqui está uma lista de itens que você pode precisar para uma festa de aniversário:
-
-1. Doces: cupcakes, brownies, bolos, etc
-2. Bebidas: água, refrigerante, cerveja, suco, etc
-3. Decorações: balões, confetes, fitas, etc
-4. Lembrancinhas: chaveiros, sacolas, canetas, etc
-5. Lanternas: para decorar o ambiente
-6. Mesa: guardanapos, copos, talheres, pratos
-7. Música: CD ou MP3 player com música, alto-falante
-8. Tendas: para proteger da chuva ou do sol
-9. Mesas e cadeiras: para os convidados se sentarem
-10. Utensílios de cozinha: panelas, talheres, copos, pratos, etc
-11. Acessórios: guarda-sol, guarda-chuva, toalhas, etc
-12. Lanterna: para levar para caminhar
-
-Lembre-se de sempre incluir produtos de qualidade e que sejam suficientes para atender a todos os convidados.
-```
+Note que os tokenizadores da Sabiá-2 Small e Medium são diferentes.
 
 # Aspectos Técnicos
 
 ### Comprimento máximo de sequência
+
 Os modelos atuais têm um limite de sequência máxima de 8.000 tokens, o que corresponde a cerca de 4.000 palavras em português.
 Isso implica que a contagem total de tokens, incluindo tanto os tokens de entrada (ou seja, o prompt fornecido) quanto os tokens de saída (ou seja, os gerados pelo modelo), não deve exceder 8.000.
-Por exemplo, se o prompt contém 6.000 tokens, o valor máximo para o parâmetro `max_tokens` (isto é, a quantidade de tokens a serem gerados pelo modelo) deve ser de até 2.000 tokens.
 
-### Capacidade de Processamento
-Leva cerca de 1 a 2 segundos para gerar o primeiro token, dado uma sequência de 1000 tokens como entrada.
-Após isso, novos tokens são gerados a uma taxa de 10 a 15 tokens/seg.
+Por exemplo, se o prompt contém 6.000 tokens, o valor máximo para o parâmetro `max_tokens` (isto é, a quantidade de tokens a serem gerados pelo modelo) deve ser de até 2.000 tokens.
 
 # Web Chat
 
