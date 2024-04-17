@@ -26,7 +26,7 @@ Primeiro, instale a biblioteca da MariTalk:
 pip install maritalk
 ```
 
-Caso receba um erro `No libcublas.so found` é necessario instalar o Cuda Toolkit instalado. Se estiver usando Ubuntu e Cuda 12, use este comando:
+Caso receba um erro `No libcublas.so found` é necessario instalar o Cuda Toolkit. Se estiver usando Ubuntu e Cuda 12, use este comando:
 ```bash
 sudo apt update
 sudo apt-get install -y libnccl2 cuda-toolkit-12
