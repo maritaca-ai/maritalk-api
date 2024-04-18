@@ -11,7 +11,7 @@
 - [Exemplo Maritalk no LlamaIndex](https://docs.llamaindex.ai/en/latest/examples/llm/maritalk)
 - [Documentação Swagger](https://chat.maritaca.ai/docs)
 
-[MariTalk local](https://github.com/maritaca-ai/maritalk-api/blob/main/README-Local.md)
+[MariTalk Local](https://github.com/maritaca-ai/maritalk-api/blob/main/README-Local.md)
 
 [Chat (gratuito)](#web-chat)
 
