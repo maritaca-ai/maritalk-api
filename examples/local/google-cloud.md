@@ -2,6 +2,8 @@
 
 Este tutorial mostra como executar a MariTalk Local Small na Google Cloud Platform (GCP). Para isso, utilizaremos uma instância com a GPU NVIDIA A100 40GB. Até o momento, o software também foi testado nas GPUs NVIDIA L4 e A10, mas é esperado que funcione em outras GPUs com [compute capability](https://developer.nvidia.com/cuda-gpus) >= 8.0 (`nvidia-smi --query-gpu=compute_cap --format=csv`).
 
+Para executar a versão Small, as máquinas precisam de pelo menos 32 GB de memória de CPU e uma GPU com 24 GB de memória. Para a versão Medium, é necessário um mínimo de 130 GB de memória de CPU e pelo menos 70 GB de memória de GPU, que podem ser distribuídos em mais de um dispositivo. Por exemplo, pode-se usar 2 GPUs A100 de 40 GB, 1 GPU A100 de 80 GB ou 4 GPUs A10 de 24 GB.
+
 Você pode adquirir uma licença da MariTalk Local [neste link](https://maritaca.ai/#maritalk-local).
 
 1. Crie uma instância na GCP selecionando NVIDIA A100 como GPU utilizando a imagem Debian 11 com CUDA 11.3 para obter as biblitoecas necessárias. Abaixo está o comando para criar a instância usando `gcloud`.
