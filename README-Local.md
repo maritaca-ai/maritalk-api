@@ -18,16 +18,19 @@ Além da API da Maritaca AI, é possível executar a MariTalk localmente em duas
 [Para fazer download dos modelos e obter uma licença, consulte esta seção](https://maritaca.ai/#maritalk-local)
 
 
-O executável funciona em máquinas Linux de 64 bits com uma ou mais GPUs Nvidia. Veja as recomendações minimas abaixo e as GPUs testadas até agora:
+O executável funciona em máquinas Linux de 64 bits com uma ou mais GPUs Nvidia. Veja as recomendações mínimas abaixo e as GPUs testadas até agora:
 
-| Modelo | Min GPU RAM | Min CPU RAM (para carregar) | GPUs Testadas |
+| Modelo | Memória Mínima GPU | Memória Mínima CPU | GPUs Testadas |
 |--|--|--|--|
 | Small | 24GB | 32GB | A100, A10, A6000, L4 |
 | Medium | 70GB | 130GB | 2xA100 40GB, 2xA6000 48GB |
 
-A memória de GPU pode ser distribuída em mais de um dispositivo. Por exemplo, para o modelo Medium, que precisa de pelo menos 70GB, pode-se usar uma A100 de 80 GB, duas GPUs A100 de 40 GB, ou quatro A10 de 24 GB.
+A memória de GPU pode ser distribuída em vários dispositivos. Por exemplo, para o modelo Medium, que requer pelo menos 70GB, pode-se utilizar uma A100 de 80 GB, duas GPUs A100 de 40 GB ou quatro A10 de 24 GB.
 
-As GPUs suportadas são as com [compute capability](https://developer.nvidia.com/cuda-gpus) >= 8.0 (`nvidia-smi --query-gpu=compute_cap --format=csv`).
+As GPUs compatíveis são aquelas com capacidade de computação >= 8.0 (`nvidia-smi --query-gpu=compute_cap --format=csv`).
+
+
+A memória de CPU necessária (por exemplo, 130GB para o Medium) é apenas para o carregamento do modelo na memória da GPU. Após o carregamento, essa memória é liberada. Estamos planejando otimizar este processo de carregamento para utilizar menos memória.
 
 ## Executando em Python
 
