@@ -28,6 +28,7 @@ O executável funciona em máquinas Linux de 64 bits com uma ou mais GPUs Nvidia
 A memória de GPU pode ser distribuída em vários dispositivos. Por exemplo, para o modelo Medium, que requer pelo menos 70GB, pode-se utilizar uma A100 de 80 GB, duas GPUs A100 de 40 GB ou quatro A10 de 24 GB.
 
 As GPUs compatíveis são aquelas com capacidade de computação >= 8.0 (`nvidia-smi --query-gpu=compute_cap --format=csv`).
+
 O número de CPU cores pode ser baixo (por exemplo, 4), pois são pouco utilizados durante a inferência.
 
 A memória de CPU necessária (por exemplo, 130GB para o Medium) é apenas para o carregamento do modelo na memória da GPU. Após o carregamento, essa memória é liberada. Estamos planejando otimizar este processo de carregamento para utilizar menos memória.
