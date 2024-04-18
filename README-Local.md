@@ -29,7 +29,6 @@ A memória de GPU pode ser distribuída em vários dispositivos. Por exemplo, pa
 
 As GPUs compatíveis são aquelas com capacidade de computação >= 8.0 (`nvidia-smi --query-gpu=compute_cap --format=csv`).
 
-O número de CPU cores pode ser baixo (por exemplo, 4), pois são pouco utilizados durante a inferência.
 
 A memória de CPU necessária (por exemplo, 130GB para o Medium) é apenas para o carregamento do modelo na memória da GPU. Após o carregamento, essa memória é liberada. Estamos planejando otimizar este processo de carregamento para utilizar menos memória.
 
