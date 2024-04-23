@@ -154,7 +154,7 @@ def start_server(
     return subprocess.Popen(
         args,
         stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
+        stderr=subprocess.PIPE,
     )
 
 
@@ -174,7 +174,9 @@ class MariTalkLocal:
         cuda_version: Optional[int] = None,
         verbose: bool = True,
     ):
-        print(f"Starting MariTalk Local API at http://localhost:{self.port}")
+        if not verbose:
+            print(f"Starting MariTalk Local API at http://localhost:{self.port}")
+
         self.process = start_server(license, bin_path, cuda_version, self.port)
         while True:
             try:
