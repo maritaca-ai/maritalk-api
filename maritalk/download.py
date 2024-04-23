@@ -36,7 +36,7 @@ if __name__ == "__main__":
             "No libcublas.so found. cuBLAS v11 or v12 is required to run MariTalk. You can manually set the version using the `cuda_version` argument."
         )
 
-    bin_folder = os.path.dirname(args.path)
+    bin_folder = os.path.dirname(os.path.expanduser(args.path))
     if bin_folder:
         os.makedirs(bin_folder, exist_ok=True)
     download(args.license, args.path, dependencies)

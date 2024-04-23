@@ -128,7 +128,7 @@ def start_server(
     license: str,
     bin_path: str = "~/bin/maritalk",
     cuda_version: Optional[int] = None,
-    port: int = 9000,
+    port: int = 9000
 ):
     bin_path = os.path.expanduser(bin_path)
     if not os.path.exists(bin_path):
@@ -172,11 +172,17 @@ class MariTalkLocal:
         license: str,
         bin_path: str = "~/bin/maritalk",
         cuda_version: Optional[int] = None,
+        verbose: bool = True,
     ):
         print(f"Starting MariTalk Local API at http://localhost:{self.port}")
         self.process = start_server(license, bin_path, cuda_version, self.port)
         while True:
             try:
+                line = self.process.stdout.readline().decode('utf-8')
+
+                if verbose and line:
+                    print(line, end='')
+
                 if self.process.poll() is not None:
                     output, _ = self.process.communicate()
                     output = output.decode('utf-8')
