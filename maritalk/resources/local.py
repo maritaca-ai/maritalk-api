@@ -124,6 +124,15 @@ def download(license: str, bin_path: str, dependencies: Dict[str, int]):
         raise Exception(f"Error downloading MariTalk binary: {e}")
 
 
+def _stream_output(stream, callback):
+    """
+    Read from a stream line by line until it's empty.
+    """
+    for line in iter(stream.readline, b''):
+        callback(line.decode('utf-8'))
+    stream.close()
+
+
 def start_server(
     license: str,
     bin_path: str = "~/bin/maritalk",
@@ -178,12 +187,19 @@ class MariTalkLocal:
             print(f"Starting MariTalk Local API at http://localhost:{self.port}")
 
         self.process = start_server(license, bin_path, cuda_version, self.port)
+
+        if verbose:
+            print_callback = lambda msg: print(msg, end='')
+            for stream in [self.process.stdout, self.process.stderr]:
+                print_thread = threading.Thread(target=stream_output, args=(stream, print_callback))
+                print_thread.start()
+
         while True:
             try:
-                line = self.process.stdout.readline().decode('utf-8')
+                # line = self.process.stdout.readline().decode('utf-8')
 
-                if verbose and line:
-                    print(line, end='')
+                # if verbose and line:
+                #     print(line, end='')
 
                 if self.process.poll() is not None:
                     output, _ = self.process.communicate()
