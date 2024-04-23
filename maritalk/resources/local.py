@@ -127,24 +127,6 @@ def download(license: str, bin_path: str, dependencies: Dict[str, int]):
         raise Exception(f"Error downloading MariTalk binary: {e}")
 
 
-def _stream_output(sel):
-    while True:
-        for key, _ in sel.select():
-            data = key.fileobj.read(1)
-            if not data:
-                sel.unregister(key.fileobj)
-                key.fileobj.close()
-                if len(sel.get_map()) == 0:
-                    return
-            if data == '\r':
-                sys.stdout.write('\r')
-                sys.stdout.flush()
-            else:
-                sys.stdout.write(data)
-                if data == '\n':
-                    sys.stdout.flush()
-
-
 def start_server(
     license: str,
     bin_path: str = "~/bin/maritalk",
@@ -176,8 +158,6 @@ def start_server(
         args,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
-        bufsize=1,
-        universal_newlines=True,
     )
 
 
@@ -195,33 +175,28 @@ class MariTalkLocal:
         license: str,
         bin_path: str = "~/bin/maritalk",
         cuda_version: Optional[int] = None,
-        verbose: bool = True,
     ):
-        if not verbose:
-            print(f"Starting MariTalk Local API at http://localhost:{self.port}")
-
+        print(f"Starting MariTalk Local API at http://localhost:{self.port}/")
+        print("This process can take up a few minutes (up to 10min for the small version, depending on the hardware).")
         self.process = start_server(license, bin_path, cuda_version, self.port)
 
-        if verbose:
-            sel = selectors.DefaultSelector()
-            sel.register(self.process.stdout, selectors.EVENT_READ)
-            sel.register(self.process.stderr, selectors.EVENT_READ)
-            output_thread = threading.Thread(target=_stream_output, args=(sel,))
-            output_thread.start()
+        with tqdm(total=total_seconds, desc="Loading...", unit="sec", leave=True) as pbar:
+            while True:
+                try:
+                    if self.process.poll() is not None:
+                        output, _ = self.process.communicate()
+                        output = output.decode('utf-8')
+                        raise Exception(
+                            f"Failed to start process.\nOutput: {output}\nTry to run it manually: `{' '.join(self.process.args)}`"
+                        )
 
-        while True:
-            try:
-                if self.process.poll() is not None:
-                    output, _ = self.process.communicate()
-                    output = output.decode('utf-8')
-                    raise Exception(
-                        f"Failed to start process.\nOutput: {output}\nTry to run it manually: `{' '.join(self.process.args)}`"
-                    )
-
-                self.status()
-                break
-            except ConnectionError as ex:
-                time.sleep(1)
+                    self.status()
+                    break
+                except ConnectionError as ex:
+                    time.sleep(1)
+                    pbar.update(1)
+                    minutes, seconds = divmod(pbar.n, 60)
+                    pbar.set_description(f"Loading ({minutes}min:{seconds}s)...")
 
         def terminate():
             print("Stopping MariTalk...")
