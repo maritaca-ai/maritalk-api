@@ -3,6 +3,8 @@ import re
 import csv
 import time
 import atexit
+import threading
+import selectors
 import subprocess
 from tqdm import tqdm
 from pathlib import Path
@@ -124,13 +126,17 @@ def download(license: str, bin_path: str, dependencies: Dict[str, int]):
         raise Exception(f"Error downloading MariTalk binary: {e}")
 
 
-def _stream_output(stream, callback):
-    """
-    Read from a stream line by line until it's empty.
-    """
-    for line in iter(stream.readline, b''):
-        callback(line.decode('utf-8'))
-    stream.close()
+def _stream_output(sel):
+    while True:
+        for key, _ in sel.select():
+            data = key.fileobj.readline()
+            if not data:
+                sel.unregister(key.fileobj)
+                key.fileobj.close()
+                if len(sel.get_map()) == 0:
+                    break
+            sys.stdout.write(data)
+            sys.stdout.flush()
 
 
 def start_server(
@@ -164,6 +170,8 @@ def start_server(
         args,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
+        bufsize=1,
+        universal_newlines=True,
     )
 
 
@@ -189,10 +197,11 @@ class MariTalkLocal:
         self.process = start_server(license, bin_path, cuda_version, self.port)
 
         if verbose:
-            print_callback = lambda msg: print(msg, end='')
-            for stream in [self.process.stdout, self.process.stderr]:
-                print_thread = threading.Thread(target=stream_output, args=(stream, print_callback))
-                print_thread.start()
+            sel = selectors.DefaultSelector()
+            sel.register(self.process.stdout, selectors.EVENT_READ)
+            sel.register(self.process.stderr, selectors.EVENT_READ)
+            output_thread = threading.Thread(target=_stream_output, args=(sel))
+            output_thread.start()
 
         while True:
             try:
