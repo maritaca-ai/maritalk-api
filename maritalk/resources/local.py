@@ -5,7 +5,6 @@ import sys
 import time
 import atexit
 import threading
-import selectors
 import subprocess
 from tqdm import tqdm
 from pathlib import Path
@@ -127,6 +126,40 @@ def download(license: str, bin_path: str, dependencies: Dict[str, int]):
         raise Exception(f"Error downloading MariTalk binary: {e}")
 
 
+def _get_total_mem():
+    try:
+        output = subprocess.check_output(['free', '-h'], text=True)
+        for line in output.splitlines():
+            if line.startswith('Mem:'):
+                mem_info = line.split()[1]
+                return _convert_to_gb(mem_info)
+        return None
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return None
+
+
+def _convert_to_gb(mem_str):
+    """
+    Convert memory string from `free -h` (like 251Gi) to gigabytes as a float.
+    """
+    match = re.match(r"([0-9.]+)([KMGTPE]i)", mem_str)
+    if match:
+        value, unit = match.groups()
+        unit_factor = {'Mi': 1/1024, 'Gi': 1, 'Ti': 1024}
+        return float(value) * unit_factor[unit]
+    return None
+
+
+def _get_file_size(file_path):
+    try:
+        file_size_bytes = os.path.getsize(file_path)
+        return file_size_bytes / (1024 ** 3)
+    except FileNotFoundError:
+        return None
+    except Exception as e:
+        return None
+
+
 def start_server(
     license: str,
     bin_path: str = "~/bin/maritalk",
@@ -153,6 +186,14 @@ def start_server(
             os.makedirs(bin_folder, exist_ok=True)
         download(license, bin_path, dependencies)
 
+    bin_size = _get_file_size(bin_path)
+
+    if bin_size:
+        min_memory = 30 if bin_size < 20 else 130
+        memory_available = _get_total_mem()
+        if memory_available and memory_available < min_memory:
+            print("WARNING: Verify that there is enough memory to load the model (at least 30 GB for the small version and 130 GB for the medium version).")
+
     args = [bin_path, "--license", license, "--port", str(port)]
     return subprocess.Popen(
         args,
@@ -169,40 +210,74 @@ class MariTalkLocal:
         """@private"""
         self.process = None
         """@private"""
+        self.loading = False
+        """@private"""
+        self.loaded = False
+        """@private"""
 
     def start_server(
         self,
         license: str,
         bin_path: str = "~/bin/maritalk",
         cuda_version: Optional[int] = None,
+        verbose: str = True,
     ):
-        print(f"Starting MariTalk Local API at http://localhost:{self.port}/")
-        print("This process can take up a few minutes (up to 10min for the small version, depending on the hardware).")
+        if self.loaded:
+            return
+
+        self.loading = True
+        if verbose:
+            print(f"Starting MariTalk Local API at http://localhost:{self.port}/")
+            print("This process can take a few minutes (up to 10 minutes for the small version, depending on the hardware).")
+            loading_thread = threading.Thread(target=self._show_loading)
+            loading_thread.start()
         self.process = start_server(license, bin_path, cuda_version, self.port)
 
-        with tqdm(total=total_seconds, desc="Loading...", unit="sec", leave=True) as pbar:
-            while True:
-                try:
-                    if self.process.poll() is not None:
-                        output, _ = self.process.communicate()
-                        output = output.decode('utf-8')
-                        raise Exception(
-                            f"Failed to start process.\nOutput: {output}\nTry to run it manually: `{' '.join(self.process.args)}`"
-                        )
+        while True:
+            try:
+                if self.process.poll() is not None:
+                    output, _ = self.process.communicate()
+                    output = output.decode('utf-8')
+                    raise Exception(
+                        f"Failed to start process.\nOutput: {output}\nTry to run it manually: `{' '.join(self.process.args)}`"
+                    )
 
-                    self.status()
-                    break
-                except ConnectionError as ex:
-                    time.sleep(1)
-                    pbar.update(1)
-                    minutes, seconds = divmod(pbar.n, 60)
-                    pbar.set_description(f"Loading ({minutes}min:{seconds}s)...")
+                self.status()
+                break
+            except ConnectionError as ex:
+                time.sleep(1)
+
+        if verbose:
+            self.loading = False
+            loading_thread.join()
+            print()
+
+        self.loaded = True
 
         def terminate():
             print("Stopping MariTalk...")
             self.stop_server()
 
         atexit.register(terminate)
+
+    def _show_loading(self):
+        spinner = ['⠋', '⠙', '⠚', '⠞', '⠖', '⠦', '⠴', '⠲', '⠳', '⠓']
+        spinner_index = 0
+        start_time = time.time()
+
+        try:
+            while self.loading:
+                current_time = time.time()
+                elapsed_time = int(current_time - start_time)
+                minutes, seconds = divmod(elapsed_time, 60)
+
+                output = f'\rLoading... {spinner[spinner_index]} ({minutes}min:{seconds}s)'
+                sys.stdout.write(output)
+                sys.stdout.flush()
+                spinner_index = (spinner_index + 1) % len(spinner)  # Move to the next frame
+                time.sleep(0.1)
+        except KeyboardInterrupt:
+            sys.stdout.flush()
 
     def stop_server(self):
         if not self.process:
