@@ -1,6 +1,7 @@
 import os
 import re
 import csv
+import sys
 import time
 import atexit
 import threading
@@ -129,14 +130,19 @@ def download(license: str, bin_path: str, dependencies: Dict[str, int]):
 def _stream_output(sel):
     while True:
         for key, _ in sel.select():
-            data = key.fileobj.readline()
+            data = key.fileobj.read(1)
             if not data:
                 sel.unregister(key.fileobj)
                 key.fileobj.close()
                 if len(sel.get_map()) == 0:
-                    break
-            sys.stdout.write(data)
-            sys.stdout.flush()
+                    return
+            if data == '\r':
+                sys.stdout.write('\r')
+                sys.stdout.flush()
+            else:
+                sys.stdout.write(data)
+                if data == '\n':
+                    sys.stdout.flush()
 
 
 def start_server(
@@ -200,16 +206,11 @@ class MariTalkLocal:
             sel = selectors.DefaultSelector()
             sel.register(self.process.stdout, selectors.EVENT_READ)
             sel.register(self.process.stderr, selectors.EVENT_READ)
-            output_thread = threading.Thread(target=_stream_output, args=(sel))
+            output_thread = threading.Thread(target=_stream_output, args=(sel,))
             output_thread.start()
 
         while True:
             try:
-                # line = self.process.stdout.readline().decode('utf-8')
-
-                # if verbose and line:
-                #     print(line, end='')
-
                 if self.process.poll() is not None:
                     output, _ = self.process.communicate()
                     output = output.decode('utf-8')
