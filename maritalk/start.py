@@ -31,4 +31,4 @@ if __name__ == "__main__":
         if process.poll() is not None and output == b"":
             break
         if output:
-            print(output.decode().strip())
+            print(output.decode().strip(), end='')
