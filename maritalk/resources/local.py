@@ -250,10 +250,10 @@ class MariTalkLocal:
                 time.sleep(1)
 
         if verbose:
-            self.loading = False
             loading_thread.join()
             print()
 
+        self.loading = False
         self.loaded = True
 
         def terminate():
@@ -291,6 +291,7 @@ class MariTalkLocal:
             return
         self.process.terminate()
         self.process = None
+        self.loaded = False
 
     def status(self):
         response = requests.get(self.api_url)
