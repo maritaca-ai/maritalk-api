@@ -193,15 +193,3 @@ Teste a MariTalk Large via interface web em:
 [chat.maritaca.ai](https://chat.maritaca.ai/)
 
 <img src="https://raw.githubusercontent.com/maritaca-ai/maritalk-api/main/.github/imgs/web-interface.png" width="600">
-
-# Citação
-
-Para referenciar os modelos da família [Sabiá-2](https://www.maritaca.ai/sabia-2), por favor, cite nosso [relatório técnico](https://arxiv.org/abs/2403.09887).
-
-```bibtext
-@article{maritaca2024sabia2,
-  title={Sabi{\'a}-2: A New Generation of Portuguese Large Language Models},
-  author={Sales Almeida, Thales and Abonizio, Hugo and Nogueira, Rodrigo and Pires, Ramon},
-  year={2024}
-}
-```
