@@ -9,6 +9,7 @@
   - [Exemplo Google Colab Pro](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/colab-pro.ipynb)
   - [Em GPUs da Oracle Cloud (OCI)](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/oracle-cloud.md)
   - [Em GPUs da Google Cloud (GCP)](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/google-cloud.md)
+  - [Benchmark de velocidade](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/README.md#desempenho)
 
 
 ## Introdução
