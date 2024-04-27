@@ -12,9 +12,9 @@ $ python question_answering.py
 
 ## Desempenho
 
-Para a versão MariTalk-small rodando em uma máquina com 1xA100 40GB, é esperado um throughput de ~118 tokens/s, considerando uma entrada de 500 tokens e saída de 100 tokens. Ou seja, uma requisição com esse tamanho de entrada e saída demora cerca de 5 segundos para finalizar. Em um cenário com um prompt de 1.000 tokens e 500 tokens de saída, este tempo é cerca de 27 segundos. Conforme o número de requisições simultâneas aumenta, é esperado ver um aumento no throughput total do sistema e um aumento no tempo de resposta do ponto de vista de cada requisição isoladamente.
+Para a versão Sabiá-2-small rodando em uma máquina com 1xA100 40GB, é esperado um throughput de ~118 tokens/s, considerando uma entrada de 500 tokens e saída de 100 tokens. Ou seja, uma requisição com esse tamanho de entrada e saída demora cerca de 5 segundos para finalizar. Em um cenário com um prompt de 1.000 tokens e 500 tokens de saída, este tempo é cerca de 27 segundos. Conforme o número de requisições simultâneas aumenta, é esperado ver um aumento no throughput total do sistema e um aumento no tempo de resposta do ponto de vista de cada requisição isoladamente.
 
-Na versão MariTalk-medium, rodando em uma máquina com 2xA100 40GB, a mesma requisição com 500 tokens de entrada e 100 tokens de saída demoraria cerca de 10 segundos.
+Na versão Sabiá-2-medium, rodando em uma máquina com 2xA100 40GB, a mesma requisição com 500 tokens de entrada e 100 tokens de saída demoraria cerca de 10 segundos.
 
 Disponibilizamos [esta ferramenta de benchmark](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/local/benchmark.py) para que você possa avaliar o desempenho no seu ambiente. Abaixo estão os resultados obtidos na versão atual em 23 de fevereiro de 2024.
 
