@@ -81,7 +81,7 @@ print(chat_response)  # {'output': 'nani, bento e leo.', 'queue_time': 0, 'promp
 
 O retorno das chamadas contém o texto gerado e os tempos de espera, de execução do prompt e da geração do texto para fins de debug do usuário.
 
-Caso receba um erro `No libcublas.so found` é necessario instalar o Cuda Toolkit. Se estiver usando Ubuntu e Cuda 12, use este comando:
+Caso receba um erro `No libcublas.so found` é necessário instalar o Cuda Toolkit. Se estiver usando Ubuntu e Cuda 12, use este comando:
 ```bash
 sudo apt update
 sudo apt-get install -y libnccl2 cuda-toolkit-12
