@@ -194,11 +194,14 @@ def start_server(
                 "WARNING: Verify that there is enough memory to load the model (at least 30 GB for the small version and 130 GB for the medium version)."
             )
 
+    env = os.environ.copy()
+    env["DISABLE_LOADING"] = "1"
     args = [bin_path, "--license", license, "--port", str(port)]
     return subprocess.Popen(
         args,
         stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        env=env,
     )
 
 
@@ -244,7 +247,9 @@ class MariTalkLocal:
                         f"Failed to start process.\nOutput: {output}\nTry to run it manually: `{' '.join(self.process.args)}`"
                     )
 
-                self.status()
+                response = self.status()
+                if response and response["status"] == "loading":
+                    continue
                 break
             except ConnectionError as ex:
                 time.sleep(1)
@@ -274,7 +279,7 @@ class MariTalkLocal:
                 minutes, seconds = divmod(elapsed_time, 60)
 
                 output = (
-                    f"\rLoading... {spinner[spinner_index]} ({minutes}min:{seconds}s)"
+                    f"\rLoading... {spinner[spinner_index]} ({minutes}min:{seconds:02d}s)"
                 )
                 sys.stdout.write(output)
                 sys.stdout.flush()
