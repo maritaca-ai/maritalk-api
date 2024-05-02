@@ -187,11 +187,11 @@ def start_server(
     bin_size = _get_file_size(bin_path)
 
     if bin_size:
-        min_memory = 30 if bin_size < 20 else 130
+        min_memory = 20 if bin_size < 20 else 70
         memory_available = _get_total_mem()
         if memory_available and memory_available < min_memory:
             print(
-                "WARNING: Verify that there is enough memory to load the model (at least 30 GB for the small version and 130 GB for the medium version)."
+                "WARNING: Verify that there is enough memory to load the model (at least 20GB for the small version and 70GB for the medium version)."
             )
 
     env = os.environ.copy()
@@ -254,12 +254,12 @@ class MariTalkLocal:
             except ConnectionError as ex:
                 time.sleep(1)
 
+        self.loading = False
+        self.loaded = True
+
         if verbose:
             loading_thread.join()
             print()
-
-        self.loading = False
-        self.loaded = True
 
         def terminate():
             print("Stopping MariTalk...")
