@@ -20,12 +20,12 @@ Disponibilizamos [esta ferramenta de benchmark](https://github.com/maritaca-ai/m
 
 ### Resultados
 
-| **GPU**     | **Modelo**     | **Total (token/s)** | **Geração (token/s)** |
-|-------------|----------------|---------------------|-----------------------|
-| 1xA100 40GB | Sabiá-2 Small  |               167.2 |                  42.2 |
-| 2xA100 40GB | Sabiá-2 Small  |               213.5 |                  54.0 |
-| 1xA10 24GB  | Sabiá-2 Small  |                89.8 |                  21.3 |
-| 2xA100 40GB | Sabiá-2 Medium |                79.3 |                  18.6 |
+| **GPU**     | **Modelo**     | **Memória necessária** | **Total (token/s)** | **Geração (token/s)** |
+|-------------|----------------|------------------------|---------------------|-----------------------|
+| 1xA100 40GB | Sabiá-2 Small  | 20GB                   | 167.2               | 42.2                  |
+| 2xA100 40GB | Sabiá-2 Small  | 20GB                   | 213.5               | 54.0                  |
+| 1xA10 24GB  | Sabiá-2 Small  | 20GB                   | 89.8                | 21.3                  |
+| 2xA100 40GB | Sabiá-2 Medium | 70GB                   | 79.3                | 18.6                  |
 
 ### Detalhes
 
