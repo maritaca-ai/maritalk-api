@@ -187,18 +187,21 @@ def start_server(
     bin_size = _get_file_size(bin_path)
 
     if bin_size:
-        min_memory = 30 if bin_size < 20 else 130
+        min_memory = 20 if bin_size < 20 else 70
         memory_available = _get_total_mem()
         if memory_available and memory_available < min_memory:
             print(
-                "WARNING: Verify that there is enough memory to load the model (at least 30 GB for the small version and 130 GB for the medium version)."
+                "WARNING: Verify that there is enough memory to load the model (at least 20GB for the small version and 70GB for the medium version)."
             )
 
+    env = os.environ.copy()
+    env["DISABLE_LOADING"] = "1"
     args = [bin_path, "--license", license, "--port", str(port)]
     return subprocess.Popen(
         args,
         stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        env=env,
     )
 
 
@@ -244,17 +247,19 @@ class MariTalkLocal:
                         f"Failed to start process.\nOutput: {output}\nTry to run it manually: `{' '.join(self.process.args)}`"
                     )
 
-                self.status()
+                response = self.status()
+                if response and response["status"] == "loading":
+                    continue
                 break
             except ConnectionError as ex:
                 time.sleep(1)
 
+        self.loading = False
+        self.loaded = True
+
         if verbose:
             loading_thread.join()
             print()
-
-        self.loading = False
-        self.loaded = True
 
         def terminate():
             print("Stopping MariTalk...")
@@ -274,7 +279,7 @@ class MariTalkLocal:
                 minutes, seconds = divmod(elapsed_time, 60)
 
                 output = (
-                    f"\rLoading... {spinner[spinner_index]} ({minutes}min:{seconds}s)"
+                    f"\rLoading... {spinner[spinner_index]} ({minutes}min:{seconds:02d}s)"
                 )
                 sys.stdout.write(output)
                 sys.stdout.flush()

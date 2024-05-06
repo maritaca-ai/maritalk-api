@@ -1,6 +1,6 @@
 # Executando MariTalk Local no Docker
 
-Este tutorial mostra como executar a MariTalk Local em um container Docker. Para isso, é necessária uma máquina com pelo menos uma GPU Nvidia com *compute capability* >= 8.0 (`nvidia-smi --query-gpu=compute_cap --format=csv`). Alguns exemplos de GPUs testadas e suportadas são: A100, A10 e L4.
+Este tutorial mostra como executar a MariTalk Local em um container Docker. Para isso, é necessária uma máquina com pelo menos uma GPU Nvidia com *compute capability* 8.0+ (`nvidia-smi --query-gpu=compute_cap --format=csv`). Alguns exemplos de GPUs testadas e suportadas são: A100, A10 e L4.
 
 Além da instalação dos drivers da GPU, também é necessário instalar o [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) para ter acesso às GPUs a partir do container Docker.
 

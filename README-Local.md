@@ -23,15 +23,14 @@ O executável funciona em máquinas Linux de 64 bits com uma ou mais GPUs Nvidia
 
 | Modelo | Memória Mínima GPU | Memória Mínima CPU | GPUs Testadas |
 |--|--|--|--|
-| Sabiá-2 Small | 24GB | 32GB | A100, A10, A6000, L4 |
-| Sabiá-2 Medium | 70GB | 130GB | 2xA100 40GB, 2xA6000 48GB |
+| Sabiá-2 Small | 24GB | 20GB | A100, A10, A6000, L4 |
+| Sabiá-2 Medium | 70GB | 70GB | 2xA100 40GB, 2xA6000 48GB |
 
 A memória de GPU pode ser distribuída em vários dispositivos. Por exemplo, para o modelo Medium, que requer pelo menos 70GB, pode-se utilizar uma A100 de 80 GB, duas GPUs A100 de 40 GB ou quatro A10 de 24 GB.
 
-As GPUs compatíveis são aquelas com capacidade de computação >= 8.0 (`nvidia-smi --query-gpu=compute_cap --format=csv`).
+As GPUs compatíveis são aquelas com capacidade de computação 8.0+ (`nvidia-smi --query-gpu=compute_cap --format=csv`).
 
-
-A memória de CPU necessária (por exemplo, 130GB para o Medium) é apenas para o carregamento do modelo na memória da GPU. Após o carregamento, essa memória é liberada. Estamos planejando otimizar este processo de carregamento para utilizar menos memória.
+A memória de CPU é necessária (por exemplo, 70GB para o Medium) para o processamento do modelo em CPU antes de ser transferido para a GPU. Após o carregamento, essa memória é liberada.
 
 ## Executando em Python
 

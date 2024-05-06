@@ -1,6 +1,6 @@
-import atexit
+import time
 import argparse
-from .resources.local import start_server
+from .resources.local import MariTalkLocal
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Start MariTalk Local server.")
@@ -23,12 +23,16 @@ if __name__ == "__main__":
     parser.add_argument("--port", type=int, default=9000, help="The HTTP port to bind.")
     args = parser.parse_args()
 
-    process = start_server(args.license, args.path, args.cuda, args.port)
-    atexit.register(lambda: process.terminate())
+    client = MariTalkLocal(port=args.port)
+    client.start_server(
+        license=args.license,
+        bin_path=args.path,
+        cuda_version=args.cuda,
+    )
 
     while True:
-        output = process.stdout.readline()
-        if process.poll() is not None and output == b"":
+        output = client.process.stdout.readline()
+        if client.process.poll() is not None and output == b"":
             break
         if output:
-            print(output.decode().strip(), end='')
+            print(output.decode(), end='', flush=True)
