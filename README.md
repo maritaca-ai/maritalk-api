@@ -178,15 +178,6 @@ print(f'O prompt "{prompt}" contém {len(tokens)} tokens.')
 
 Note que os tokenizadores da Sabiá-2 Small e Medium são diferentes.
 
-# Aspectos Técnicos
-
-### Comprimento máximo de sequência
-
-Os modelos atuais têm um limite de sequência máxima de 8.000 tokens, o que corresponde a cerca de 4.000 palavras em português.
-Isso implica que a contagem total de tokens, incluindo tanto os tokens de entrada (ou seja, o prompt fornecido) quanto os tokens de saída (ou seja, os gerados pelo modelo), não deve exceder 8.000.
-
-Por exemplo, se o prompt contém 6.000 tokens, o valor máximo para o parâmetro `max_tokens` (isto é, a quantidade de tokens a serem gerados pelo modelo) deve ser de até 2.000 tokens.
-
 # Web Chat
 
 Teste a MariTalk Large via interface web em:
