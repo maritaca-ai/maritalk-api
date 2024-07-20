@@ -22,7 +22,7 @@ Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.
 
 Este é um serviço pago que requer a validação de um meio de pagamento, como um cartão de crédito. Para validar, acesse [chat.maritaca.ai](https://chat.maritaca.ai/) -> "Meu Plano" -> "Validar forma de pagamento".
 
-[Consulte os preço aqui.](https://maritaca.ai/#pricing)
+[Consulte os preços aqui.](https://maritaca.ai/#pricing)
 
 Após validar uma forma de pagamento, você receberá R$20 em créditos da API.
 
