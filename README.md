@@ -20,11 +20,16 @@ Este repositório contém o código e a documentação explicando como usar a AP
 A MariTalk é uma assistente baseada em um modelo de linguagem que foi especialmente treinado para entender bem o português.
 Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.
 
-Este é um serviço pago que requer a validação de um meio de pagamento, como um cartão de crédito. Para validar, acesse [chat.maritaca.ai](https://chat.maritaca.ai/) -> "Meu Plano" -> "Validar forma de pagamento".
+Este é um serviço pré-pago que requer a adição de créditos via cartão ou boleto bancário.
+
+Para tanto, acesse [plataforma.maritaca.ai](https://plataforma.maritaca.ai/) -> "Recarga" -> "Adicionar Créditos"
+
+Novos usuários recebem R$20 em créditos da API ao cadastrarem um cartão de crédito _ou_ fazerem a primeira recarga (cujo valor mínimo é R$5).
+
+_O sistema de pagamento pós-pago será descontinuado em 31 de setembro de 2024._
 
 [Consulte os preços aqui.](https://maritaca.ai/#pricing)
 
-Após validar uma forma de pagamento, você receberá R$20 em créditos da API.
 
 # Instalação
 
@@ -37,7 +42,7 @@ pip install maritalk
 
 Mostramos abaixo um exemplo simples de uso em Python. Na [pasta exemplos](https://github.com/maritaca-ai/maritalk-api/tree/main/examples/api) existem mais códigos mostrando como chamar a API.
 
-Primeiramente, você precisa de uma chave da API, que pode ser obtida em [chat.maritaca.ai](https://chat.maritaca.ai/) -> "Chaves da API" -> "Crie uma chave".
+Primeiramente, você precisa de uma chave da API, que pode ser obtida em [plataforma.maritaca.ai](https://plataforma.maritaca.ai/chaves-de-api) -> "Criar nova chave".
 
 ```python
 import maritalk
