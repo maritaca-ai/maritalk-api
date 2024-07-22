@@ -42,7 +42,7 @@ pip install maritalk
 
 Mostramos abaixo um exemplo simples de uso em Python. Na [pasta exemplos](https://github.com/maritaca-ai/maritalk-api/tree/main/examples/api) existem mais códigos mostrando como chamar a API.
 
-Primeiramente, você precisa de uma chave da API, que pode ser obtida em [plataforma.maritaca.ai](https://plataforma.maritaca.ai/) -> "Chaves da API" -> "Criar nova chave".
+Primeiramente, você precisa de uma chave da API, que pode ser obtida em [plataforma.maritaca.ai](https://plataforma.maritaca.ai/chaves-de-api) -> "Criar nova chave".
 
 ```python
 import maritalk
