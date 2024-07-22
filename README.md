@@ -22,7 +22,7 @@ Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.
 
 Este é um serviço pré-pago que requer a adição de créditos via cartão ou boleto bancário.
 
-Para tanto, acesse [plataforma.maritaca.ai](https://plataforma.maritaca.ai/) -> "Créditos" -> "Adicionar Créditos"
+Para tanto, acesse [plataforma.maritaca.ai](https://plataforma.maritaca.ai/) -> "Recarga" -> "Adicionar Créditos"
 
 Novos usuários recebem R$20 em créditos da API ao cadastrarem um cartão de crédito _ou_ fazerem a primeira recarga (cujo valor mínimo é R$5).
 
