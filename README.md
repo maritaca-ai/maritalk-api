@@ -24,7 +24,7 @@ Este é um serviço pré-pago que requer a adição de créditos via cartão ou 
 
 Para tanto, acesse [plataforma.maritaca.ai](https://plataforma.maritaca.ai/) -> "Meus Gastos" -> "Adicionar Créditos"
 
-Novos usuários recebem R$20 em créditos da API.
+Novos usuários recebem R$20 em créditos da API ao cadastrarem um cartão de crédito _ou_ fazerem a primeira recarga (cujo valor mínimo é R$5).
 
 _O sistema de pagamento pós-pago será descontinuado em 31 de setembro de 2024._
 
