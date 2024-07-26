@@ -18,7 +18,6 @@
 # Introdução
 Este repositório contém o código e a documentação explicando como usar a API da MariTalk e a versão local para deploy on-premises.
 A MariTalk é uma assistente baseada em um modelo de linguagem que foi especialmente treinado para entender bem o português.
-Ela é capaz de seguir instruções de maneira zero-shot, assim como o ChatGPT.
 
 Este é um serviço pré-pago que requer a adição de créditos via cartão ou boleto bancário.
 
