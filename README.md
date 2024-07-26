@@ -21,7 +21,7 @@ A MariTalk é uma assistente baseada em um modelo de linguagem que foi especialm
 
 Este é um serviço pré-pago que requer a adição de créditos via cartão ou boleto bancário.
 
-Para tanto, acesse [plataforma.maritaca.ai](https://plataforma.maritaca.ai/) -> "Recarga" -> "Adicionar Créditos"
+Para tanto, acesse [plataforma.maritaca.ai/recarga](https://plataforma.maritaca.ai/recarga)
 
 Novos usuários recebem R$20 em créditos da API ao cadastrarem um cartão de crédito _ou_ fazerem a primeira recarga (cujo valor mínimo é R$5).
 
