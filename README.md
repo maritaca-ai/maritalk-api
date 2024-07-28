@@ -1,8 +1,11 @@
+
+
 # MariTalk API
 
 ## Conteúdo
 
-- [Introdução](#introdução)  
+- [Introdução](#introdução)
+- [Compatibilidade com API da Open AI]((29/07/2024)-a-api-da-mariTalk-agora-é-compatível-com-a-api-da-open-ai)
 - [Instalação](#instalação)  
 - [Exemplo de uso](#exemplo-de-uso)
 - [Exemplo de uso via requisições HTTP - Python](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_via_requisições_https.ipynb)
@@ -14,6 +17,7 @@
 [MariTalk Local](https://github.com/maritaca-ai/maritalk-api/blob/main/README-Local.md)
 
 [Chat (gratuito)](#web-chat)
+
 
 # Introdução
 Este repositório contém o código e a documentação explicando como usar a API da MariTalk e a versão local para deploy on-premises.
@@ -29,6 +33,44 @@ _O sistema de pagamento pós-pago será descontinuado em 31 de setembro de 2024.
 
 [Consulte os preços aqui.](https://maritaca.ai/#pricing)
 
+
+
+# (29/07/2024) A API da MariTalk agora é compatível com a API da Open AI
+
+Isso significa que os modelos Sabiá podem ser utilizados em qualquer programa que use as bibliotecas da OpenAI.
+
+Para tanto, basta apontar o endpoint para `https://chat.maritaca.ai/api` e usar um dos modelos Sabiá.
+
+Veja o exemplo em Python a seguir:
+
+
+```bash
+# Primeiro instale a biblioteca da openai, digitando este comando no terminal:
+pip install openai  
+```
+
+```python
+import openai
+
+client = openai.OpenAI(
+  api_key="insira sua chave aqui. Ex: '100088...'",
+  base_url="https://chat.maritaca.ai/api",   # ** Esta linha de código que foi trocada **
+)
+
+messages = [
+    {"role": "user", "content": "Quanto é 25 + 27?"},
+]
+
+response = client.chat.completions.create(
+    model="sabia-3",   # ** Esta linha de código que foi trocada **
+    messages=messages,
+)
+answer = response.choices[0].message.content
+
+print(answer)  # Deve imprimir algo como "25 + 27 é 52"
+```
+
+# API legada da MariTalk (suporte até 31/12/2024)
 
 # Instalação
 
