@@ -37,7 +37,7 @@ _O sistema de pagamento pós-pago será descontinuado em 31 de setembro de 2024.
 
 # (29/07/2024) A API da MariTalk agora é compatível com a API da Open AI
 
-Isso significa que os modelos Sabiá podem ser utilizados em qualquer programa que use as bibliotecas da OpenAI.
+Isso significa que os modelos Sabiá podem ser utilizados em qualquer programa que use as bibliotecas da Open AI.
 
 Para tanto, basta apontar o endpoint para `https://chat.maritaca.ai/api` e usar um dos modelos Sabiá.
 
