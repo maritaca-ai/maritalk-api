@@ -5,7 +5,7 @@
 ## Conteúdo
 
 - [Introdução](#introdução)
-- [Compatibilidade com API da Open AI](#compatibilidade-com-api-da-open-ai)
+- [Compatibilidade com API da Open AI](#29072024-a-api-da-maritalk-agora-é-compatível-com-a-api-da-open-ai)
 - [Instalação](#instalação)  
 - [Exemplo de uso](#exemplo-de-uso)
 - [Exemplo de uso via requisições HTTP - Python](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_via_requisições_https.ipynb)
