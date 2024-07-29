@@ -4,9 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "maritalk"
-version = "0.2.5"
+version = "0.2.6"
 authors = [
-  { name="Maritaca AI", email="info@maritaca.ai" },
+  { name="Maritaca AI", email="suporte@maritaca.ai" },
 ]
 description = "Client library for the MariTalk API"
 readme = "README.md"
@@ -21,6 +21,7 @@ dependencies = [
     "requests",
     "tqdm",
     "httpx",
+    "tiktoken",
 ]
 
 [tool.setuptools.packages]
