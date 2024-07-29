@@ -63,6 +63,8 @@ messages = [
 response = client.chat.completions.create(
     model="sabia-3",   # ** Esta linha de código que foi trocada **
     messages=messages,
+    temperature=0.7,
+    max_tokens=512,
 )
 answer = response.choices[0].message.content
 
