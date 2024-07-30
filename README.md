@@ -209,18 +209,17 @@ Para tarefas com apenas uma resposta correta, como no exemplo acima, é recomend
 Para tarefas de geração de textos diversos ou longos, é recomendado usar `do_sample=True` e `temperature=0.7`. Quanto maior a temperatura, mais diversos serão os textos gerados, mas há maior chance de o modelo "alucinar" e gerar textos sem sentido. Quanto menor a temperatura, a resposta é mais conservadora, mas corre o risco de gerar textos repetidos.
 
 ## Como saber o número de tokens que serão cobrados?
-Para saber de antemão o quanto suas requisições irão custar, use os tokenizadores dos modelos MariTalk, disponíveis na HuggingFace, para saber o número de tokens em um dado prompt.
+Para saber de antemão o quanto suas requisições irão custar, use a função `count_tokens` para saber o número de tokens em um dado prompt.
 
 Exemplo de uso:
 ```python
-import transformers
-tokenizer = transformers.AutoTokenizer.from_pretrained("maritaca-ai/sabia-2-tokenizer-medium")
+from maritalk import count_tokens
 
 prompt = "Com quantos paus se faz uma canoa?"
 
-tokens = tokenizer.encode(prompt)
+total_tokens = count_tokens(prompt, model="sabia-3")
 
-print(f'O prompt "{prompt}" contém {len(tokens)} tokens.')
+print(f'O prompt "{prompt}" contém {total_tokens} tokens.')
 ```
 
 Note que os tokenizadores da Sabiá-2 Small e Medium são diferentes.
