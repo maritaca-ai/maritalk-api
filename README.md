@@ -222,7 +222,6 @@ total_tokens = count_tokens(prompt, model="sabia-3")
 print(f'O prompt "{prompt}" contém {total_tokens} tokens.')
 ```
 
-Note que os tokenizadores da Sabiá-2 Small e Medium são diferentes.
 
 # Web Chat
 
