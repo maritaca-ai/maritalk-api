@@ -5,10 +5,11 @@ from transformers import AutoTokenizer, PreTrainedTokenizerFast
 from .tokenizer_model import data as tokenizer_data
 
 _encoder = None
-_tokenizer = None
+_tokenizer_small = None
+_tokenizer_medium = None
 
 
-def get_encoder() -> tiktoken.Encoding:
+def _get_encoder() -> tiktoken.Encoding:
     global _encoder
     if _encoder is None:
         mergeable_ranks = {
@@ -26,13 +27,22 @@ def get_encoder() -> tiktoken.Encoding:
     return _encoder
 
 
-def get_tokenizer(version: str = "medium") -> PreTrainedTokenizerFast:
-    global _tokenizer
-    if _tokenizer is None:
-        _tokenizer = AutoTokenizer.from_pretrained(
-            f"maritaca-ai/sabia-2-tokenizer-{version}"
-        )
-    return _tokenizer
+def _get_tokenizer(version: str = "medium") -> PreTrainedTokenizerFast:
+    global _tokenizer_small, _tokenizer_medium
+    if version == "small":
+        if _tokenizer_small is None:
+            _tokenizer_small = AutoTokenizer.from_pretrained(
+                "maritaca-ai/sabia-2-tokenizer-small"
+            )
+        return _tokenizer_small
+    elif version == "medium":
+        if _tokenizer_medium is None:
+            _tokenizer_medium = AutoTokenizer.from_pretrained(
+                "maritaca-ai/sabia-2-tokenizer-medium"
+            )
+        return _tokenizer_medium
+    else:
+        raise ValueError("Version must be 'small' or 'medium'")
 
 
 def count_tokens(
@@ -61,15 +71,15 @@ def count_tokens(
     """
 
     if model.startswith("sabia-3"):
-        encoder = get_encoder()
+        encoder = _get_encoder()
         encode = encoder.encode
         encode_batch = encoder.encode_batch
     elif model.startswith("sabia-2-small"):
-        tokenizer = get_tokenizer("small")
+        tokenizer = _get_tokenizer("small")
         encode = tokenizer.encode
         encode_batch = lambda texts: tokenizer(texts)["input_ids"]
     elif model.startswith("sabia-2-medium"):
-        tokenizer = get_tokenizer("medium")
+        tokenizer = _get_tokenizer("medium")
         encode = tokenizer.encode
         encode_batch = lambda texts: tokenizer(texts)["input_ids"]
     else:
