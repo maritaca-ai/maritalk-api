@@ -21,7 +21,8 @@ dependencies = [
     "requests",
     "tqdm",
     "httpx",
-    "tiktoken",
+    "tiktoken>=0.7,<0.8",
+    "transformers"
 ]
 
 [tool.setuptools.packages]
