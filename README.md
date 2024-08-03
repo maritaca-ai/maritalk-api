@@ -10,6 +10,7 @@
 - [Exemplo de uso](#exemplo-de-uso)
 - [Exemplo de uso via requisições HTTP - Python](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_via_requisições_https.ipynb)
 - [Exemplo de uso via requisições HTTP - JavaScript](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/maritalk_via_requisições_https.js)
+- [Exemplo de uso via requisições HTTP - C#](https://github.com/maritaca-ai/maritalk-api/blob/main/examples/api/marital_via_requisi%C3%A7%C3%B5es_http.cs)
 - [Exemplo MariTalk + RAG com LangChain](https://python.langchain.com/docs/integrations/chat/maritalk)
 - [Exemplo Maritalk no LlamaIndex](https://docs.llamaindex.ai/en/latest/examples/llm/maritalk)
 - [Documentação da API](https://chat.maritaca.ai/docs)
