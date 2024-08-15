@@ -33,7 +33,7 @@ class MaritalkHTTPError(HTTPError):
 class MariTalk:
     def __init__(self, key: str, api_url: str = "https://chat.maritaca.ai/api", model: Optional[str] = None):
         if model is None:
-            raise ValueError("You must set one of the available models: sabia-3, sabia-2-medium, sabia-2-small, sabia-2-medium-2024-03-13, sabia-2-small-2024-03-13 and maritalk-2024-01-08 (deprecated)")
+            raise ValueError("You must set one of the available models: sabia-3, sabia-2-medium, sabia-2-small, sabia-2-medium-2024-03-13, sabia-2-small-2024-03-13")
         self.key = key
         """@private"""
         self.api_url = api_url
