@@ -13,7 +13,7 @@ Você pode adquirir uma licença da MariTalk Local [neste link](https://maritaca
 
 1. Crie uma instância na OCI selecionando `NVIDIA GPU Cloud Machine Image` como imagem e `VM.GPU.A10.1` como shape.
 
-<img src="/maritalk-api/img/oracle-screenshot.png" alt="oracle"/>
+<img src="/img/oracle-screenshot.png" alt="oracle"/>
 
 2. Verifique se a GPU foi detectada com sucesso.
 

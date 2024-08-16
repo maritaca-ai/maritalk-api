@@ -8,7 +8,7 @@ import styles from './styles-maritalk-api.module.css';
 # Começo Rápido
 <!-- TODO: Adicionar link para a API Reference quando estiver pronta 
 <div className={styles['callout-box']}>
-  <img src="/maritalk-api/img/code-icon.png" alt="Code Icon" />
+  <img src="/img/code-icon.png" alt="Code Icon" />
   <div>
     <strong>Quer ir direto para o código?</strong><br />
     <span>Pule o começo rápido e navegue para <a href="/docs/api-reference">API reference</a>.</span>
@@ -28,7 +28,7 @@ Se você é um desenvolvedor experiente, pode ir diretamente para a [referência
 ## Passo 1: Configuração da Conta
 
 Primeiro, crie uma conta na Maritaca ou faça login. Em seguida, navegue até a [página de chave da API](https://plataforma.maritaca.ai/chaves-de-api) e clique em "Criar nova chave", nomeando a chave opcionalmente. Certifique-se de salvar isso em um local seguro e não compartilhar com ninguém.
-<img src="/maritalk-api/img/chave.png" alt="Configuracao" style={{ width: '1000px', height: 'auto',marginRight: '15px'}} />
+<img src="/img/chave.png" alt="Configuracao" style={{ width: '1000px', height: 'auto',marginRight: '15px'}} />
 
 <br/>
 <br/>
