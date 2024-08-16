@@ -11,7 +11,7 @@ import { faDocker } from '@fortawesome/free-brands-svg-icons';
 
 
 # Maritalk Local
-Além de usar nossos modelos via API, você pode também hospedá-los localmente. Seus dados nunca saem da sua máquina local; apenas informações sobre o tempo de uso do modelo são enviados para nossos servidores para efeitos de cobrança. A política de licenciamento da \"Maritalk Local\" permite a execução de multiplas instâncias simultaneamente por licença, com valor cobrado proporcional ao número de instâncias ativas. Os usuários não ficam limitados ao hardware, ou seja,  podem trocar quantas vezes desejarem, sem restrições.
+Além de usar nossos modelos via API, você pode também hospedá-los localmente. Seus dados nunca saem da sua máquina local; apenas informações sobre o tempo de uso do modelo são enviados para nossos servidores para efeitos de cobrança. A política de licenciamento da \"Maritalk Local\" permite a execução de multiplas instâncias simultaneamente por licença, com valor cobrado proporcional ao número de instâncias ativas. Os usuários não ficam limitados ao hardware, ou seja, podem trocar quantas vezes desejarem, sem restrições.
 
 
 ## Exemplos

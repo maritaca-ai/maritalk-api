@@ -75,7 +75,7 @@ Starting MariTalk Local API at http://localhost:9000
 {'output': 'nadador, marinho e azul.', 'queue_time': 0, 'prompt_time': 270, 'generation_time': 143}
 ```
 
-Para iniciar manualmente, primeiro faça download do executável que vai ser enviado por email após a adquirir a licença. Em seguida, execute:
+Para iniciar manualmente, primeiro faça download do executável que vai ser enviado por email após adquirir a licença. Em seguida, execute:
 
 ```console
 $ ./maritalk-cuda120 --license <SUA LICENÇA AQUI> --max-batch-total-tokens 32768

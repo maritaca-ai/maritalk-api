@@ -17,7 +17,7 @@ A família de modelos Sabiá, desenvolvida pela Maritaca AI, é capaz de simular
 - 🎓 **Ensino e Tutoria:** Pode ajudar a explicar conceitos complexos e auxiliar no aprendizado de diversas matérias, fornecendo explicações detalhadas sobre uma variedade de tópicos.
 - ✍️ **Geração de texto criativo:** Pode criar textos, histórias, poemas, diálogos e outros conteúdos criativos em português.
 - 💼 **Suporte ao Cliente:** É capaz de ajudar com questões frequentes e oferecer assistência básica ao cliente.
-- 📊 **Análise de Dados** Pode ajudar a interpretar e analisar dados fornecidos que não exijam atualizações após a data de corte.
+- 📊 **Análise de Dados:** Pode ajudar a interpretar e analisar dados fornecidos que não exijam atualizações após a data de corte.
 
 É importante lembrar que, embora os modelos sejam uma ferramenta poderosa para tarefas de linguagem, eles não possuem consciência ou entendimento real e suas respostas são baseadas em padrões de linguagem aprendidos durante o treinamento.
 
