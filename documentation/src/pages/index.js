@@ -15,7 +15,7 @@ const Home = () => {
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         />
       </Head>
-      <Redirect to={'/maritalk-api/pt/visao-geral'} />
+      <Redirect to={'/pt/visao-geral'} />
     </>
   );
 };
