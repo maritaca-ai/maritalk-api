@@ -12,7 +12,7 @@ Descrição do modelo
  Modelo intermediário
 | 🦜 **MODELO**             |  **DESCRIÇÃO**                                                                                       |
 |:------------------------:|:----------------------------------------------------------------------------------------------------:|
-|  **Sabiá-3**           |  Nosso modelo mais avançado, ideal para tarefas complexas que exigem alto desempenho.            |
+|  **Sabiá-3**           |  Nosso modelo mais avançado, ideal para tarefas complexas que exigem maior assertividade.            |
 | **Sabiá-2 Medium**        |  Modelo intermediário, oferecendo uma combinação equilibrada de desempenho e custo.              |
 |  **Sabiá-2 Small**         |  Nosso modelo mais econômico, projetado para tarefas mais simples. Ideal para aplicações onde a velocidade e o preço são prioridades. |
 
