@@ -1,6 +1,6 @@
 ---
 id: maritalk-local-introducao
-title: Introducao
+title: Introdução
 ---
 import React from 'react';
 import Link from '@docusaurus/Link';
