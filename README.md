@@ -1,6 +1,6 @@
 ⚠️ **Aviso: Esta documentação está deprecada** ⚠️
 
-✨ **Acesse https://docs.maritaca.ai/pt/visao-geral para a nova documentação** ✨
+✨ **Acesse https://docs.maritaca.ai para a nova documentação** ✨
 
 
 # MariTalk API
