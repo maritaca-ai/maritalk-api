@@ -1,13 +1,12 @@
 ---
 id: openai-compatibilidade
-title: OpenAI compatibilidade
+title: Compatibilidade com a OpenAI
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# OpenAI compatibilidade
-
+# Compatibilidade com a OpenAI 
 
 A Maritaca API é compatível com as bibliotecas de clientes da OpenAI, tornando fácil experimentar nossos modelos de código aberto em aplicações existentes.
 
