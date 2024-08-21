@@ -34,6 +34,7 @@ module.exports = {
       label: 'Recursos',
       items: [
         'pt/glossario',
+        'pt/status',
       ],
     },
 ],
