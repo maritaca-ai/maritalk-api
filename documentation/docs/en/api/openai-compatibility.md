@@ -1,3 +1,4 @@
+```markdown
 ---
 id: openai-compatibility
 title: Compatibility with OpenAI
@@ -45,8 +46,8 @@ You can perform a chat request to the sabia-3 model by passing a list of message
 response = client.chat.completions.create(
   model="sabia-3",
   messages=[
-    {"role": "system", "content": "Você é um agente de viagem. Seja descritivo e gentil."},
-    {"role": "user", "content": "Me fale sobre o Cristo Redentor"},
+    {"role": "system", "content": "You are a travel agent. Be descriptive and friendly."},
+    {"role": "user", "content": "Tell me about Rio de Janeiro"},
   ],
   max_tokens=50
 )
@@ -61,8 +62,8 @@ curl https://chat.maritaca.ai/api/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
     "model": "sabia-3",
-    "messages": [{"role": "system", "content": "Você é um agente de viagem. Seja descritivo e gentil."},
-                 {"role": "user", "content": "Me fale sobre o Cristo Redentor"}],
+    "messages": [{"role": "system", "content": "You are a travel agent. Be descriptive and friendly."},
+                 {"role": "user", "content": "Tell me about Rio de Janeiro"}],
     "max_tokens": 50
   }'
 ```
@@ -77,9 +78,9 @@ In addition to chats, you can also use the model to complete input, as in the ex
 ```python
 response = client.completions.create(
   model="sabia-3",
-  prompt="""def menu_principal():
-  print("Bem-vindo ao Receitas Brasileiras!")
-  print("Escolha uma das opções abaixo para ver a receita:")
+  prompt="""def main_menu():
+  print("Welcome to Brazilian Recipes!")
+  print("Choose one of the options below to see the recipe:")
   print("1. Feijoada") """,
   max_tokens=175
 )
@@ -93,7 +94,7 @@ curl https://chat.maritaca.ai/api/completions \
   -H "Content-Type: application/json" \
   -d '{
     "model": "sabia-3",
-    "prompt": "def menu_principal():\n  print(\"Bem-vindo ao Receitas Brasileiras!\")\n  print(\"Escolha uma das opções abaixo para ver a receita:\")\n  print(\"1. Feijoada\")",
+    "prompt": "def main_menu():\\n  print(\"Welcome to Brazilian Recipes!\")\\n  print(\"Choose one of the options below to see the recipe:\")\\n  print(\"1. Feijoada\")",
     "max_tokens": 175
   }'
 ```
@@ -113,8 +114,8 @@ import openai
 stream = client.chat.completions.create(
   model="sabia-3",
   messages=[
-    {"role": "system", "content": "Você é um agente de viagem. Seja descritivo e gentil."},
-    {"role": "user", "content": "Me fale sobre o Cristo Redentor"},
+    {"role": "system", "content": "You are a travel agent. Be descriptive and friendly."},
+    {"role": "user", "content": "Tell me about Rio de Janeiro"},
   ],
   stream=True,
   max_tokens=50
@@ -124,16 +125,18 @@ for chunk in stream:
 ```
 </TabItem>
 <TabItem value="curl" label="cURL">
+The cURL example for streaming does not change since it's a request for a streaming response, which is handled on the server side.
 ```bash
 curl https://chat.maritaca.ai/api/chat/completions \
   -H "Authorization: Bearer minha_chave" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "sabia-3",
-    "messages": [{"role": "system", "content": "Você é um agente de viagem. Seja descritivo e gentil."},
-                 {"role": "user", "content": "Me fale sobre o Cristo Redentor"}],
+    "messages": [{"role": "system", "content": "You are a travel agent. Be descriptive and friendly."},
+                 {"role": "user", "content": "Tell me about Rio de Janeiro"}],
     "max_tokens": 50
   }'
 ```
 </TabItem>
 </Tabs>
+```
