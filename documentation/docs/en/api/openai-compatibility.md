@@ -1,4 +1,3 @@
-```markdown
 ---
 id: openai-compatibility
 title: Compatibility with OpenAI
@@ -139,4 +138,3 @@ curl https://chat.maritaca.ai/api/chat/completions \
 ```
 </TabItem>
 </Tabs>
-```
