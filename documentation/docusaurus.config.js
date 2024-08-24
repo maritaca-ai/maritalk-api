@@ -12,12 +12,17 @@ const config = {
 
   i18n: {
     defaultLocale: 'pt',
-    locales: ['pt'],
+    locales: ['pt', 'en'],
     localeConfigs: {
       pt: {
         label: 'Português',
         direction: 'ltr',
         path: 'pt',
+      },
+      en: {
+        label: 'English',
+        direction: 'ltr',
+        path: 'en',
       },
     },
   },
