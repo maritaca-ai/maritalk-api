@@ -73,7 +73,7 @@ O **Tempo para o Primeiro Token (TTFT)** mede a rapidez com que um modelo de lin
 
 ## **Rate Limit**
 
-O **rate limit** é uma prática comum em serviços de API para evitar o uso excessivo e garantir a estabilidade e a distribuição equitativa dos recursos do servidor. Ele estabelece um limite para o número de solicitações que um usuário ou sistema pode fazer dentro de um determinado período de tempo.
+O **rate limit** é uma prática comum em serviços de API para evitar o uso excessivo e garantir a estabilidade e a distribuição equitativa dos recursos do servidor entre os usuários. Ele estabelece um limite para o número de solicitações que um usuário ou sistema pode fazer dentro de um determinado período de tempo.
 
 ### Por que o rate limit é importante?
 
@@ -85,13 +85,20 @@ O **rate limit** é uma prática comum em serviços de API para evitar o uso exc
 ### Como o rate limit afeta o uso da API?
 
 Uma vez atingido o limite de solicitações, as chamadas subsequentes podem ser rejeitadas ou resultar em mensagens de erro. Assim, os desenvolvedores precisam monitorar e gerenciar suas chamadas de API para evitar exceder o limite.
- No caso API, existem 3 tipos de rate limit:
-- Requisições por minuto 
-- Número de tokens de entrada (prompt), enviados por minuto
-- Número de tokens de saída (geração), enviados por minuto
+
+Na API da Maritaca, existem três tipos de rate limit:
+- Número máximo de tokens de entrada (prompt), enviados por minuto
+- Número máximo de tokens de gerados por minuto
+- Número máximo de requisições por minuto, independente do tamanho do prompt ou tokens gerados. 
+
+
+### Onde consulto os rate limits?
+
+Os rate limits de cada modelo estão disponíveis em https://plataforma.maritaca.ai/modelos
 
 ### O que fazer se atingir o rate limit?
 
 - **Ajustar a Frequência de Solicitações**: Espaçar as chamadas de API para ficar dentro do limite permitido.
-- **Aumentar o Limite**: Em alguns casos, é possível solicitar um aumento do limite de rate, mas isso pode estar sujeito a custos adicionais ou análise da equipe de suporte.
+- **Aumentar o Limite**: Se precisa de rate limits maiores, por favor, nos envie uma mensagem para suporte@maritaca.ai
+
 
