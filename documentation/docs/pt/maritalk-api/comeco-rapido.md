@@ -27,7 +27,7 @@ Se você é um desenvolvedor experiente, pode ir diretamente para a [referência
 
 ## Passo 1: Configuração da Conta
 
-Primeiro, crie uma conta ou faça login na plataforma da Maritaca](https://plataforma.maritaca.ai/). Em seguida, navegue até a [página de chave da API](https://plataforma.maritaca.ai/chaves-de-api) e clique em "Criar nova chave", nomeando a chave opcionalmente. Certifique-se de salvar a chave em um local seguro e não compartilhar com ninguém.
+Primeiro, crie uma conta ou faça login na [plataforma da Maritaca](https://plataforma.maritaca.ai/). Em seguida, navegue até a [página de chave da API](https://plataforma.maritaca.ai/chaves-de-api) e clique em "Criar nova chave", nomeando a chave opcionalmente. Certifique-se de salvar a chave em um local seguro e não compartilhar com ninguém.
 <img src="/img/chave.png" alt="Configuracao" style={{ width: '1000px', height: 'auto',marginRight: '15px'}} />
 
 <br/>
