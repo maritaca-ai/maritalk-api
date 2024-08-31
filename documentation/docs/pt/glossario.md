@@ -70,6 +70,7 @@ O **Tempo para o Primeiro Token (TTFT)** mede a rapidez com que um modelo de lin
 - **Condições de rede**: Internet lenta aumenta o TTFT.
 - **Comprimento do prompt**: Prompts mais longos aumentam o TTFT.
 
+---
 
 ## **Rate Limit**
 
