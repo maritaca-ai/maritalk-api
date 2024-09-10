@@ -26,14 +26,16 @@ A família de modelos Sabiá, desenvolvida pela Maritaca AI, é capaz de simular
 
 Graças ao nosso treinamento especializado, nossos modelos oferecem qualidade superior a um custo menor em comparação com a concorrência. Confira abaixo a comparação da qualidade do Sabiá-3 (nosso modelo mais avançado), medida pelo desempenho em 64 Exames Brasileiros (como ENEM, Enade, Revalida, OAB, UNICAMP, USP, entre outros), em relação ao preço:
 
-<div id="graph-container" style={{ width: '100%', margin: '0 auto', overflow: 'hidden' }}>
+<div id="graph-container" style={{ width: '100%', maxWidth: '100%', overflow: 'hidden', position: 'relative' }}>
   <iframe 
     src="/img/price_vs_performance_ptbr.html" 
     style={{
       width: '2384px',  /* Dimensões originais multiplicadas por 2 */
       height: '1164px', /* Dimensões originais multiplicadas por 2 */
       border: 'none',
-      transformOrigin: '0 0'
+      transformOrigin: '0 0',
+      position: 'absolute',
+      backgroundColor: 'white'
     }} 
     frameBorder="0"
     scrolling="no"
@@ -43,18 +45,27 @@ Graças ao nosso treinamento especializado, nossos modelos oferecem qualidade su
 <style>
   {`
     @media (min-width: 1024px) {
+      #graph-container {
+        height: 465.6px; /* 1164px * 0.4 */
+      }
       #graph-container iframe {
         transform: scale(0.4);
       }
     }
     @media (min-width: 768px) and (max-width: 1023px) {
+      #graph-container {
+        height: 349.2px; /* 1164px * 0.3 */
+      }
       #graph-container iframe {
         transform: scale(0.3);
       }
     }
     @media (max-width: 767px) {
+      #graph-container {
+        height: 186.24px; /* 1164px * 0.16 */
+      }
       #graph-container iframe {
-        transform: scale(0.16)
+        transform: scale(0.16);
       }
     }
   `}
