@@ -30,8 +30,8 @@ Graças ao nosso treinamento especializado, nossos modelos oferecem qualidade su
   <iframe 
     src="/img/price_vs_performance_ptbr.html" 
     style={{
-      width: '2384px',
-      height: '1164px',
+      width: '2384px',  /* Dimensões originais multiplicadas por 2 */
+      height: '1164px', /* Dimensões originais multiplicadas por 2 */
       border: 'none',
       transformOrigin: '0 0'
     }} 
