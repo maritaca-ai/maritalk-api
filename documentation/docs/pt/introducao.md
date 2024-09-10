@@ -54,7 +54,7 @@ Graças ao nosso treinamento especializado, nossos modelos oferecem qualidade su
     }
     @media (max-width: 767px) {
       #graph-container iframe {
-        transform: scale(0.2);
+        transform: scale(0.16)
       }
     }
   `}
