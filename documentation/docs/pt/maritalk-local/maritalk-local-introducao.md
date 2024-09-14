@@ -14,6 +14,13 @@ import { faDocker } from '@fortawesome/free-brands-svg-icons';
 Além de usar nossos modelos via API, você pode também hospedá-los localmente. Seus dados nunca saem da sua máquina local; apenas informações sobre o tempo de uso do modelo são enviados para nossos servidores para efeitos de cobrança. A política de licenciamento da \"Maritalk Local\" permite a execução de multiplas instâncias simultaneamente por licença, com valor cobrado proporcional ao número de instâncias ativas. Os usuários não ficam limitados ao hardware, ou seja, podem trocar quantas vezes desejarem, sem restrições.
 
 
+## Obtendo uma licença
+
+O primeiro passo para usar a Maritalk Local é obter uma licença [aqui](https://www.maritaca.ai/#maritalk-local).
+
+O número da licença será enviado via email. Após, siga um dos exemplos abaixo para fazer download e começar a usar o modelo adquirido.
+
+
 ## Exemplos
 
 <div className={styles.grid}>
