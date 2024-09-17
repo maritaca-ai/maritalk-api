@@ -1,8 +1,8 @@
 # Introdução ao Sabiá
 
-Os modelos especializados em língua portuguesa da Maritaca AI, conhecidos como Sabiá, estão disponíveis de duas maneiras: por meio da Maritaca API e localmente com a MariTalk Local. Na Maritaca API, você pode acessar os modelos Sabiá-2 Medium, Sabiá-2 Small e Sabiá-3. Com a MariTalk Local, é possível utilizar os modelos Sabiá-2 Medium e Sabiá-2 Small diretamente em sua própria infraestrutura.
+Os modelos especializados em língua portuguesa da Maritaca AI, conhecidos como Sabiá, estão disponíveis por meio de uma API.
 
-A cobrança pelo uso dos modelos via Maritaca API é baseada no volume de tokens, considerando tanto os dados de entrada quanto os de saída. O treinamento especializado dos modelos Sabiá garante um desempenho superior a um custo mais acessível em comparação com outras soluções do mercado. Com a flexibilidade de escolher entre a implementação local ou via API, o Sabiá se adapta às necessidades específicas do seu projeto.
+A cobrança pelo uso dos modelos é baseada no volume de tokens, considerando tanto os dados de entrada quanto os de saída. O treinamento especializado dos modelos Sabiá garante um desempenho superior a um custo mais acessível em comparação com outras soluções do mercado.
 
 
 ## O que você pode fazer com o Sabiá
