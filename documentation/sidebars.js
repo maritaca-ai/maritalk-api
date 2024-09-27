@@ -26,7 +26,6 @@ module.exports = {
             'pt/maritalk-local/docker',
           ],
         },
-        
       ],
     },
     {
@@ -37,5 +36,43 @@ module.exports = {
         'pt/status',
       ],
     },
-],
+  ],
+  sidebarEn: [
+    {
+      type: 'category',
+      label: 'Home',
+      items: [
+        'en/overview',
+        'en/introduction',
+        'en/models',
+        {
+          type: 'category',
+          label: 'Maritalk API',
+          items: [
+            'en/api/quick-start',
+            'en/api/openai-compatibility',
+            'en/use-cases',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Maritalk Local',
+          items: [
+            'en/maritalk-local/maritalk-local-introduction',
+            'en/maritalk-local/google-cloud',
+            'en/maritalk-local/oracle-cloud',
+            'en/maritalk-local/docker',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Resources',
+      items: [
+        'en/glossary',
+        'en/status',
+      ],
+    },
+  ],
 };

@@ -1,11 +1,11 @@
 const config = {
   title: 'Maritaca API Documentation',
   tagline: 'API Documentation',
-  url: 'https://maritaca-ai.github.io', 
-  baseUrl: '/', 
+  url: 'https://maritaca-ai.github.io',
+  baseUrl: '/',
   favicon: '/img/maritaca.png',
-  organizationName: 'maritaca-ai', 
-  projectName: 'maritalk', 
+  organizationName: 'maritaca-ai',
+  projectName: 'maritalk',
   trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -33,7 +33,7 @@ const config = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          routeBasePath: '/', 
+          routeBasePath: '/',
         },
         blog: {
           showReadingTime: true,
@@ -53,17 +53,16 @@ const config = {
       },
       items: [
         {
-          type: 'localeDropdown',
-          position: 'right',
-        },
-        {
           href: 'https://github.com/maritaca-ai/maritalk-api',
           label: 'GitHub',
           position: 'right',
         },
+        {
+          type: 'custom-navbarItem', 
+          position: 'right',
+        },
       ],
     },
-   
   },
 
   headTags: [
