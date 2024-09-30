@@ -19,9 +19,9 @@ import styles from './styles-maritalk-api.module.css';
 Maritalk API allows developers to integrate Maritaca's state-of-the-art models into their applications. This document demonstrates how to use our API through HTTP requests. This guide is designed to help you set up your local development environment and send your first API request. If you encounter any difficulty or have any additional questions, please visit the <a href="https://plataforma.maritaca.ai/" className={styles.customLink}>
   Platform
 </a> and fill out a support request available through the Help button.
-<!-- TODO: Add link to API Reference when it is ready -->
+<!-- TODO: Add link to API Reference when it is ready 
 If you are an experienced developer, you can go directly to the [API reference](/docs/api-reference").
-
+-->
 ## Step 1: Account Setup
 
 First, create an account or log in to the [Maritaca platform](https://plataforma.maritaca.ai/). Then, navigate to the [API key page](https://plataforma.maritaca.ai/chaves-de-api) and click on "Create new key," optionally naming the key. Make sure to save the key in a secure location and do not share it with anyone.
