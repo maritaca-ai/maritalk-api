@@ -23,7 +23,7 @@ Thanks to our specialized training, our models offer superior quality at a lower
 
 <div id="graph-container" style={{ width: '100%', maxWidth: '100%', overflow: 'hidden', position: 'relative' }}>
   <iframe 
-    src="/img/price_vs_performance_ptbr.html" 
+    src="/img/price_vs_performance_en.html" 
     style={{
       width: '2384px',  /* Original dimensions multiplied by 2 */
       height: '1164px', /* Original dimensions multiplied by 2 */
