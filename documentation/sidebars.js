@@ -39,8 +39,8 @@ module.exports = {
           type: 'category',
           label: 'Maritalk API',
           items: [
-            'en/api/quick-start',
-            'en/api/openai-compatibility',
+            'en/maritalk-api/quick-start',
+            'en/maritalk-api/openai-compatibility',
             'en/use-cases',
           ],
         },

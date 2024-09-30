@@ -77,12 +77,10 @@ Além de chats, você também pode utilizar o modelo para completar a entrada, c
 ```python
 response = client.completions.create(
   model="sabia-3",
-  prompt="""def menu_principal():
-  print("Bem-vindo ao Receitas Brasileiras!")
-  print("Escolha uma das opções abaixo para ver a receita:")
-  print("1. Feijoada") """,
+  prompt="Era uma vez, em um reino distante, um jovem aventureiro que sonhava em explorar terras desconhecidas. Um dia, ele encontrou um mapa misterioso que mostrava o caminho para um tesouro perdido",
   max_tokens=175
 )
+
 print(response.choices[0].text)
 ```
 </TabItem>
