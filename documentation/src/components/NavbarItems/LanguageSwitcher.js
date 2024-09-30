@@ -12,6 +12,7 @@ const pathMap = {
   '/pt/casos-de-uso': '/en/use-cases',
   '/pt/glossario': '/en/glossary',
   '/pt/status': '/en/status',
+  '/pt/chamada-funcao': '/en/function-call',
 };
 
 const pathReverseMap = Object.fromEntries(
