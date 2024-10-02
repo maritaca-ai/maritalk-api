@@ -3,6 +3,8 @@ id: chamada-funcao
 title: Chamada de funções
 ---
 
+import BrowserOnly from '@docusaurus/BrowserOnly';
+
 # Chamada de funções
 A chamada de função permite a conexão de modelos como o sabiá-3 a ferramentas e sistemas externos do lado do cliente. Com essa funcionalidade, é possível criar agentes que executam tarefas autônomas, interagindo com APIs e sistemas externos para realizar ações específicas, como consultar dados, automatizar processos ou tomar decisões. 
 
@@ -242,36 +244,42 @@ print(final_response.choices[0].message)
 
 ```
 <br/>
-<div className="custom-box" style={{
-  display: 'flex', 
-  alignItems: 'center', 
-  backgroundColor: '#B0E0E6', 
-  padding: '10px', 
-  border: '1px solid #B0E0E6', 
-  borderRadius: '5px', 
-  margin: '10px 0',
-  color: (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'white' : 'black'
-}}>
-  <span style={{ fontSize: '1.5em', marginRight: '10px', color: '#B0E0E6' }}>💡</span>
-  <div>
-    <strong style={{ display: 'block', fontSize: '1em', marginBottom: '5px' }}>O modelo possui capacidade de executar funções de forma independente?</strong>
-    <p style={{ fontSize: '0.9em' }}>Não, o modelo apenas propõe chamadas de função e cria argumentos. O seu aplicativo é quem deve gerenciar a execução dessas funções com base nessas propostas (e informar ao modelo os resultados dessa execução).</p>
-  </div>
-</div>
-<br/>
-<div className="custom-box" style={{
-  display: 'flex', 
-  alignItems: 'center', 
-  backgroundColor: '#FFFFE0', 
-  padding: '10px', 
-  border: '1px solid #dfe9e9', 
-  borderRadius: '5px', 
-  margin: '10px 0',
-  color: (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'white' : 'black'
-}}>
-  <span style={{ fontSize: '1.5em', marginRight: '10px', color: '#FFFFE0' }}>🎯</span>
-  <div>
-    <strong style={{ display: 'block', fontSize: '1em', marginBottom: '5px' }}>O modelo tem acesso a ferramentas internas?</strong>
-    <p style={{ fontSize: '0.9em' }}>Não, o modelo não tem acesso a nenhuma ferramenta interna do lado do servidor. Todas as ferramentas devem ser explicitamente fornecidas por você, o usuário, em cada solicitação de API. Isso lhe dá controle total e flexibilidade sobre as ferramentas que o modelo pode usar.</p>
-  </div>
-</div>
+<BrowserOnly>
+  {() => (
+    <>
+        <div className="custom-box" style={{
+        display: 'flex', 
+        alignItems: 'center', 
+        backgroundColor: '#B0E0E6', 
+        padding: '10px', 
+        border: '1px solid #B0E0E6', 
+        borderRadius: '5px', 
+        margin: '10px 0',
+        color: (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'white' : 'black'
+        }}>
+        <span style={{ fontSize: '1.5em', marginRight: '10px', color: '#B0E0E6' }}>💡</span>
+        <div>
+            <strong style={{ display: 'block', fontSize: '1em', marginBottom: '5px' }}>O modelo possui capacidade de executar funções de forma independente?</strong>
+            <p style={{ fontSize: '0.9em' }}>Não, o modelo apenas propõe chamadas de função e cria argumentos. O seu aplicativo é quem deve gerenciar a execução dessas funções com base nessas propostas (e informar ao modelo os resultados dessa execução).</p>
+        </div>
+        </div>
+        <br/>
+        <div className="custom-box" style={{
+        display: 'flex', 
+        alignItems: 'center', 
+        backgroundColor: '#FFFFE0', 
+        padding: '10px', 
+        border: '1px solid #dfe9e9', 
+        borderRadius: '5px', 
+        margin: '10px 0',
+        color: (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'white' : 'black'
+        }}>
+        <span style={{ fontSize: '1.5em', marginRight: '10px', color: '#FFFFE0' }}>🎯</span>
+        <div>
+            <strong style={{ display: 'block', fontSize: '1em', marginBottom: '5px' }}>O modelo tem acesso a ferramentas internas?</strong>
+            <p style={{ fontSize: '0.9em' }}>Não, o modelo não tem acesso a nenhuma ferramenta interna do lado do servidor. Todas as ferramentas devem ser explicitamente fornecidas por você, o usuário, em cada solicitação de API. Isso lhe dá controle total e flexibilidade sobre as ferramentas que o modelo pode usar.</p>
+        </div>
+        </div>
+ </>
+  )}
+</BrowserOnly>

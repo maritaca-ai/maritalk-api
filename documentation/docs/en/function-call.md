@@ -3,6 +3,9 @@ id: function-call
 title: Function Calls
 ---
 
+import BrowserOnly from '@docusaurus/BrowserOnly';
+
+
 # Function Calls
 Function calls enable the connection of models like sabiá-3 to external tools and systems on the client side. With this functionality, it's possible to create agents that perform autonomous tasks, interacting with APIs and external systems to carry out specific actions such as querying data, automating processes, or making decisions.
 
@@ -238,36 +241,50 @@ print(final_response.choices[0].message)
 
 ```
 <br/>
-<div className="custom-box" style={{
-  display: 'flex', 
-  alignItems: 'center', 
-  backgroundColor: '#B0E0E6', 
-  padding: '10px', 
-  border: '1px solid #B0E0E6', 
-  borderRadius: '5px', 
-  margin: '10px 0',
-  color: (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'white' : 'black'
-}}>
-  <span style={{ fontSize: '1.5em', marginRight: '10px', color: '#B0E0E6' }}>💡</span>
-  <div>
-    <strong style={{ display: 'block', fontSize: '1em', marginBottom: '5px' }}>Does the model have the capability to execute functions independently?</strong>
-    <p style={{ fontSize: '0.9em' }}>No, the model only proposes function calls and creates arguments. Your application is responsible for managing the execution of these functions based on these proposals (and informing the model of the results of this execution).</p>
-  </div>
-</div>
-<br/>
-<div className="custom-box" style={{
-  display: 'flex', 
-  alignItems: 'center', 
-  backgroundColor: '#FFFFE0', 
-  padding: '10px', 
-  border: '1px solid #dfe9e9', 
-  borderRadius: '5px', 
-  margin: '10px 0',
-  color: (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'white' : 'black'
-}}>
-  <span style={{ fontSize: '1.5em', marginRight: '10px', color: '#FFFFE0' }}>🎯</span>
-  <div>
-    <strong style={{ display: 'block', fontSize: '1em', marginBottom: '5px' }}>Does the model have access to internal tools?</strong>
-    <p style={{ fontSize: '0.9em' }}>No, the model does not have access to any internal tools on the server side. All tools must be explicitly provided by you, the user, in each API request. This gives you full control and flexibility over the tools that the model can use.</p>
-  </div>
-</div>
+<BrowserOnly>
+  {() => (
+    <>
+      <div className="custom-box" style={{
+        display: 'flex', 
+        alignItems: 'center', 
+        backgroundColor: '#B0E0E6', 
+        padding: '10px', 
+        border: '1px solid #B0E0E6', 
+        borderRadius: '5px', 
+        margin: '10px 0',
+        color: (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'white' : 'black'
+      }}>
+        <span style={{ fontSize: '1.5em', marginRight: '10px', color: '#B0E0E6' }}>💡</span>
+        <div>
+          <strong style={{ display: 'block', fontSize: '1em', marginBottom: '5px' }}>
+            Does the model have the capability to execute functions independently?
+          </strong>
+          <p style={{ fontSize: '0.9em' }}>
+            No, the model only proposes function calls and creates arguments. Your application is responsible for managing the execution of these functions based on these proposals (and informing the model of the results of this execution).
+          </p>
+        </div>
+      </div>
+      <br/>
+      <div className="custom-box" style={{
+        display: 'flex', 
+        alignItems: 'center', 
+        backgroundColor: '#FFFFE0', 
+        padding: '10px', 
+        border: '1px solid #dfe9e9', 
+        borderRadius: '5px', 
+        margin: '10px 0',
+        color: (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'white' : 'black'
+      }}>
+        <span style={{ fontSize: '1.5em', marginRight: '10px', color: '#FFFFE0' }}>🎯</span>
+        <div>
+          <strong style={{ display: 'block', fontSize: '1em', marginBottom: '5px' }}>
+            Does the model have access to internal tools?
+          </strong>
+          <p style={{ fontSize: '0.9em' }}>
+            No, the model does not have access to any internal tools on the server side. All tools must be explicitly provided by you, the user, in each API request. This gives you full control and flexibility over the tools that the model can use.
+          </p>
+        </div>
+      </div>
+    </>
+  )}
+</BrowserOnly>
