@@ -8,7 +8,8 @@ As we release safer and more advanced models, we regularly discontinue older mod
 Here are the models that have been discontinued:
 
 
-| Models       | Recommended Replacement |
-|-------------------------|--------------------------|
-| sabia-2-medium          | sabia-3                 |
-| sabia-3-2024-07-15       |sabia-3             |
+
+| Shutdown date | Models       | Recommended Replacement |
+|-------------------------|-------------------------|--------------------------|
+| 2024-10-01         | sabia-2-medium          | sabia-3                 |
+| 2024-10-01          | sabia-3-2024-07-15       |sabia-3             |
