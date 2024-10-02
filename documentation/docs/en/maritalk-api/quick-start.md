@@ -34,7 +34,7 @@ Copy the created key into my_key.
 ```python
 model = maritalk.MariTalk(
     key=f"{my_key}", #Paste the key here Ex: '100088...'
-    model="sabia-3"  # Currently, we support the models sabia-3, sabia-2-medium, and sabia-2-small
+    model="sabia-3"  # Currently, we support the models sabia-3 and sabia-2-small
 )
 ```
 <details>
@@ -115,7 +115,7 @@ model = maritalk.MariTalk(
 
   model = maritalk.MariTalk(
       key="my_key",
-      model="sabia-3"  # Currently, we support the models sabia-3, sabia-2-medium, and sabia-2-small
+      model="sabia-3"  # Currently, we support the models sabia-3 and sabia-2-small
   )
 
   ```
@@ -205,7 +205,7 @@ import maritalk
 
 model = maritalk.MariTalk(
     key="insert your key here. Ex: '100088...'",
-    model="sabia-3"  # Currently, we support the models sabia-3, sabia-2-medium, and sabia-2-small
+    model="sabia-3"  # Currently, we support the models sabia-3 and sabia-2-small
 )
 
 response = model.generate("What is 25 + 27?", max_tokens=200)
