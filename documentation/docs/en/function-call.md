@@ -3,7 +3,6 @@ id: function-call
 title: Function Calls
 ---
 
-
 # Function Calls
 Function calls enable the connection of models like sabiá-3 to external tools and systems on the client side. With this functionality, it's possible to create agents that perform autonomous tasks, interacting with APIs and external systems to carry out specific actions such as querying data, automating processes, or making decisions.
 
