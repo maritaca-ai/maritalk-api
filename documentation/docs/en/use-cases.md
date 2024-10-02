@@ -133,7 +133,7 @@ async function sendChatRequest(message) {
             max_tokens: 50,
             temperature: 0.4,
             top_p: 0.95,
-            model: "sabia-2-medium",
+            model: "sabia-3",
         };
 
         const response = await fetch(CHAT_API_URL, {
