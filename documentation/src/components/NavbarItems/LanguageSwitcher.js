@@ -13,6 +13,7 @@ const pathMap = {
   '/pt/glossario': '/en/glossary',
   '/pt/status': '/en/status',
   '/pt/descontinuado': '/en/deprecated',
+  '/pt/chamada-funcao': '/en/function-call',
 };
 
 const pathReverseMap = Object.fromEntries(
