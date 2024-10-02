@@ -12,6 +12,7 @@ pathMap = {
     'casos-de-uso': 'use-cases',
     'glossario': 'glossary',
     'status': 'status',
+    'chamada-funcoes': 'function-calling',
 }
 
 def translate_text(text):
