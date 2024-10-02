@@ -95,7 +95,7 @@ import maritalk
 
 model = maritalk.MariTalk(
     key="insira sua chave aqui. Ex: '100088...'",
-    model="sabia-3"  # No momento, suportamos os modelos sabia-3, sabia-2-medium e sabia-2-small
+    model="sabia-3"  # No momento, suportamos os modelos sabia-3 e sabia-2-small
 )
 
 response = model.generate("Quanto é 25 + 27?")
