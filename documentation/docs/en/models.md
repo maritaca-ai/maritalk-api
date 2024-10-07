@@ -15,4 +15,4 @@ TPM = Tokens per minute.
 
 RPM = Requests per minute.
 
-This table excludes all of our [deprecated models](/en/deprecated).
+This table excludes all of our deprecated models.
