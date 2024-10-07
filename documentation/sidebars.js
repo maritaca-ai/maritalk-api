@@ -7,6 +7,7 @@ module.exports = {
         'pt/visao-geral',
         'pt/introducao',
         'pt/modelos',
+        'pt/descontinuado',
         {
           type: 'category',
           label: 'API',
@@ -36,6 +37,7 @@ module.exports = {
         'en/overview',
         'en/introduction',
         'en/models',
+        'en/deprecated',
         {
           type: 'category',
           label: 'Maritalk API',
