@@ -16,4 +16,4 @@ TPM = Tokens por minuto.
 
 RPM = Requisições por minuto.
 
-Essa tabela exclui todos os nossos [modelos descontinuados](/pt/descontinuado).
+Essa tabela exclui todos os nossos modelos descontinuados.
