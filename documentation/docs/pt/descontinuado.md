@@ -8,7 +8,7 @@ Conforme lançamos modelos mais seguros e avançados, descontinuamos regularment
 Aqui estão os modelos que foram descontinuados:
 
 
-| Data de encerramento | Modelo | Substituição Recomendada |
+| Modelo | Data de encerramento | Substituição Recomendada |
 |-------|--------|-------|
 | sabia-2-medium | 2024-10-01 | sabia-3 |
 | sabia-3-2024-07-15 | 2024-10-01 |sabia-3 |
