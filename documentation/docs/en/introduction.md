@@ -55,13 +55,13 @@ Thanks to our specialized training, our models offer superior quality at a lower
     }
     @media (min-width: 768px) and (max-width: 1023px) {  /* Landscape - @media (orientation: landscape) {*/
       #graph-container {
-        height: 410.04px; /* 1164px * 0.35 */
+        height: 349.2px; /* 1164px * 0.3 */
       }
       #graph-container iframe {
-        transform: scale(0.36);
+        transform: scale(0.3);
       }
     }
-    @media (orientation: portrait) {  /* Portrait - @media (max-width: 767px) {*/
+    @media (max-width: 767px) { /* Portrait - @media (orientation: portrait) {*/
       #graph-container {
         height: 186.24px; /* 1164px * 0.16 */
       }
