@@ -21,12 +21,12 @@ It is important to remember that, although the models are a powerful tool for la
 
 Thanks to our specialized training, our models offer superior quality at a lower cost compared to the competition. Check below the comparison of the quality of Sabiá-3 (our most advanced model), measured by performance in 52 Brazilian Exams (such as ENEM, Enade, Revalida, OAB, ENAM, CPNU, UNICAMP, USP, among others), in relation to the price:
 
-<div id="graph-container" style={{ width: '100%', maxWidth: '100%', overflow: 'hidden', position: 'relative' }}>
+<div id="graph-container">
   <iframe 
     src="/img/price_vs_performance_en.html" 
     style={{
-      width: '2384px',  /* Original dimensions multiplied by 2 */
-      height: '1164px', /* Original dimensions multiplied by 2 */
+      width: '2384px',  /* Dimensões originais multiplicadas por 2 */
+      height: '1164px', /* Dimensões originais multiplicadas por 2 */
       border: 'none',
       transformOrigin: '0 0',
       position: 'absolute',
@@ -39,6 +39,12 @@ Thanks to our specialized training, our models offer superior quality at a lower
 
 <style>
   {`
+    #graph-container {
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
     @media (min-width: 1024px) {
       #graph-container {
         height: 465.6px; /* 1164px * 0.4 */
@@ -47,15 +53,15 @@ Thanks to our specialized training, our models offer superior quality at a lower
         transform: scale(0.4);
       }
     }
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) and (max-width: 1023px) {  /* Landscape - @media (orientation: landscape) {*/
       #graph-container {
-        height: 349.2px; /* 1164px * 0.3 */
+        height: 410.04px; /* 1164px * 0.35 */
       }
       #graph-container iframe {
-        transform: scale(0.3);
+        transform: scale(0.36);
       }
     }
-    @media (max-width: 767px) {
+    @media (orientation: portrait) {  /* Portrait - @media (max-width: 767px) {*/
       #graph-container {
         height: 186.24px; /* 1164px * 0.16 */
       }
