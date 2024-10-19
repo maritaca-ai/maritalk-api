@@ -16,6 +16,6 @@ TPM = Tokens por minuto.
 
 RPM = Requisições por minuto.
 
-* Data de corte dos dados utilizados no treinamento do modelo, ou seja, até que momento o modelo possui conhecimento.
+\* Data de corte dos dados utilizados no treinamento do modelo, ou seja, até que momento o modelo possui conhecimento.
 
 Essa tabela exclui todos os nossos modelos descontinuados.
