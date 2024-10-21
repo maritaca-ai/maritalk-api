@@ -94,7 +94,7 @@ class MariTalk:
         chat_mode: bool = True,
         temperature: float = 0.7,
         top_p: float = 0.95,
-        max_tokens: int = 7800,
+        max_tokens: int = None,
         do_sample: bool = True,
         stopping_tokens: List = [],
         stream: bool = False,
