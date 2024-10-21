@@ -208,7 +208,7 @@ model = maritalk.MariTalk(
     model="sabia-3"  # Currently, we support the models sabia-3 and sabia-2-small
 )
 
-response = model.generate("What is 25 + 27?", max_tokens=200)
+response = model.generate("What is 25 + 27?", max_tokens=8000)
 answer = response["answer"]
 
 print(f"Answer: {answer}")   # Should print something like "25 + 27 is equal to 52."
