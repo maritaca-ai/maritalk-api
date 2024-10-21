@@ -47,7 +47,7 @@ response = client.chat.completions.create(
     {"role": "system", "content": "You are a travel agent. Be descriptive and kind."},
     {"role": "user", "content": "Tell me about the Christ the Redeemer."},
   ],
-  max_tokens=50
+  max_tokens=8000
 )
 
 print(response.choices[0].message.content)
@@ -62,7 +62,7 @@ curl https://chat.maritaca.ai/api/chat/completions \
     "model": "sabia-3",
     "messages": [{"role": "system", "content": "You are a travel agent. Be descriptive and kind."},
                  {"role": "user", "content": "Tell me about the Christ the Redeemer."}],
-    "max_tokens": 50
+    "max_tokens": 8000
   }'
 ```
 </TabItem>
@@ -114,7 +114,7 @@ stream = client.chat.completions.create(
     {"role": "user", "content": "Tell me about the Christ the Redeemer."},
   ],
   stream=True,
-  max_tokens=50
+  max_tokens=8000
 )
 for chunk in stream:
   print(chunk.choices[0].delta.content or "", end="", flush=True)
@@ -129,7 +129,7 @@ curl https://chat.maritaca.ai/api/chat/completions \
     "model": "sabia-3",
     "messages": [{"role": "system", "content": "You are a travel agent. Be descriptive and kind."},
                  {"role": "user", "content": "Tell me about the Christ the Redeemer."}],
-    "max_tokens": 50
+    "max_tokens": 8000
   }'
 ```
 </TabItem>
