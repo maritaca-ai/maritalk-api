@@ -40,7 +40,7 @@ module.exports = {
         'en/deprecated',
         {
           type: 'category',
-          label: 'Maritalk API',
+          label: 'API',
           items: [
             'en/maritalk-api/quick-start',
             'en/maritalk-api/openai-compatibility',
