@@ -16,7 +16,7 @@ import styles from './styles-maritalk-api.module.css';
 </div>
  -->
 <br />
-Maritalk API allows developers to integrate Maritaca's state-of-the-art models into their applications. This document demonstrates how to use our API through HTTP requests. This guide is designed to help you set up your local development environment and send your first API request. If you encounter any difficulty or have any additional questions, please visit the <a href="https://plataforma.maritaca.ai/" className={styles.customLink}>
+Our API allows developers to integrate Maritaca's state-of-the-art models into their applications. This document demonstrates how to use our API through HTTP requests. This guide is designed to help you set up your local development environment and send your first API request. If you encounter any difficulty or have any additional questions, please visit the <a href="https://plataforma.maritaca.ai/" className={styles.customLink}>
   Platform
 </a> and fill out a support request available through the Help button.
 <!-- TODO: Add link to API Reference when it is ready 

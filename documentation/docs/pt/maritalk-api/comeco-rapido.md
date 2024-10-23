@@ -17,7 +17,7 @@ import styles from './styles-maritalk-api.module.css';
 
 <br />
 -->
-A Maritaca API possibilita que desenvolvedores integrem os modelos de última geração da Maritaca às suas aplicações. Esse documento demonstra como usar a nossa API através de requisições HTTP. Este guia foi criado para ajudar a configurar seu ambiente de desenvolvimento local e enviar sua primeira solicitação de API. Se você encontrar qualquer dificuldade ou tiver qualquer pergunta adicional, por favor, acesse a <a href="https://plataforma.maritaca.ai/" className={styles.customLink}>
+Nossa API possibilita que desenvolvedores integrem os modelos de última geração da Maritaca às suas aplicações. Esse documento demonstra como usar a nossa API através de requisições HTTP. Este guia foi criado para ajudar a configurar seu ambiente de desenvolvimento local e enviar sua primeira solicitação de API. Se você encontrar qualquer dificuldade ou tiver qualquer pergunta adicional, por favor, acesse a <a href="https://plataforma.maritaca.ai/" className={styles.customLink}>
   Plataforma
 </a> e preencha uma solicitação de suporte disponível através do botão de Ajuda.
 <!-- TODO: Adicionar link para a API Reference quando estiver pronta 
