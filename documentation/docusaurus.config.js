@@ -45,6 +45,19 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'api',
+        path: 'api',
+        routeBasePath: 'api',
+        sidebarPath: require.resolve('./sidebarsApi.js'),
+        
+      },
+    ],
+  ],
+
   themeConfig: {
     navbar: {
       title: 'Docs',
@@ -53,12 +66,18 @@ const config = {
       },
       items: [
         {
+          to: 'api/pt/completion',
+          label: 'API Reference',
+          position: 'left',
+          className: 'bold-text',
+        },
+        {
           href: 'https://github.com/maritaca-ai/maritalk-api',
           label: 'GitHub',
           position: 'right',
         },
         {
-          type: 'custom-navbarItem', 
+          type: 'custom-navbarItem',
           position: 'right',
         },
       ],

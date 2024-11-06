@@ -7,17 +7,26 @@ import styles from './styles.module.css';
 # Welcome to Maritaca API
 
 Maritaca API makes it easy to integrate the latest Maritaca models into your projects. With access to the entire Sabiá family of models, explore the possibilities and enhance your solutions with our technology.
-<!-- TODO: Add link to the paper when ready 
-<a href="https://www.maritaca.ai/sabia-2" style={{ border: '1px solid #FCFBEF', borderRadius: '8px', backgroundColor: '#FCFBEF', padding: '20px', marginBottom: '20px', display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit', justifyContent: 'center' }}>
+
+<a href="https://arxiv.org/pdf/2410.12049" style={{ 
+  border: '1px solid #FFFFFF', 
+  borderRadius: '8px',
+  backgroundColor: 'var(--background-color-box2-maritaca)',
+  padding: '20px',
+  display: 'flex',
+  alignItems: 'center',
+  textDecoration: 'none',
+  color: 'inherit',
+  justifyContent: 'center' }}>
   <img src="/img/sabia.png" alt="Sabia" style={{ width: '50px', height: 'auto', marginRight: '15px' }} />
   <p style={{ margin: 0 }}>
-    <strong>Introducing Sabiá 3</strong>, our most advanced model yet. Read more in our blog post.
+    <strong>Introducing Sabiá 3</strong>, our most advanced model yet. Read more in our technical report.
   </p>
 </a>
--->
 
+<br/>
 <a href="https://chat.maritaca.ai/" style={{
-  border: '1px solid #6BE7C1',
+  border: '1px solid #FFFFFF',
   borderRadius: '8px',
   backgroundColor: 'var(--background-color-box-maritaca)',
   padding: '20px',

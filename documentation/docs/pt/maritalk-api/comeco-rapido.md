@@ -6,23 +6,22 @@ import React from 'react';
 import styles from './styles-maritalk-api.module.css';
 
 # Começo Rápido
-<!-- TODO: Adicionar link para a API Reference quando estiver pronta 
-<div className={styles['callout-box']}>
-  <img src="/img/code-icon.png" alt="Code Icon" />
+<a href="/api/pt/completion" className={styles['callout-box']} style={{ display: 'flex', alignItems: 'center', backgroundColor: '#f5f5f5', color: 'black', border: '1px solid #ddd', padding: '10px', borderRadius: '8px', textDecoration: 'none' }}>
+  <img src="/img/code-icon.png" alt="Code Icon" style={{ width: '50px', marginRight: '15px' }} />
   <div>
     <strong>Quer ir direto para o código?</strong><br />
-    <span>Pule o começo rápido e navegue para <a href="/docs/api-reference">API reference</a>.</span>
+    <span>Pule o começo rápido e navegue para API reference.</span>
   </div>
-</div>
+</a>
+
 
 <br />
--->
+
 Nossa API possibilita que desenvolvedores integrem os modelos de última geração da Maritaca às suas aplicações. Esse documento demonstra como usar a nossa API através de requisições HTTP. Este guia foi criado para ajudar a configurar seu ambiente de desenvolvimento local e enviar sua primeira solicitação de API. Se você encontrar qualquer dificuldade ou tiver qualquer pergunta adicional, por favor, acesse a <a href="https://plataforma.maritaca.ai/" className={styles.customLink}>
   Plataforma
 </a> e preencha uma solicitação de suporte disponível através do botão de Ajuda.
-<!-- TODO: Adicionar link para a API Reference quando estiver pronta 
-Se você é um desenvolvedor experiente, pode ir diretamente para a [referência da API](/docs/api-reference"). 
--->
+ 
+Se você é um desenvolvedor experiente, pode ir diretamente para a [referência da API](/api/pt/completion). 
 
 
 ## Passo 1: Configuração da Conta
@@ -114,11 +113,11 @@ model = maritalk.MariTalk(
   A chave API pode ser importada executando o código abaixo:
 
   ```python
-  import maritalk
+  import openai
 
-  model = maritalk.MariTalk(
-      key="minha_chave",
-      model="sabia-3"  # No momento, suportamos os modelos sabia-3 e sabia-2-small
+  model = openai.OpenAI(
+    api_key="minha_chave",,
+    base_url="https://chat.maritaca.ai/api",
   )
 
   ```
@@ -179,11 +178,11 @@ pip install --upgrade pip
 ```
 </details>
 
-## Passo 3: Instalar a biblioteca Python da Maritalk
-Depois de instalar o Python e opcionalmente com o ambiente virtual ativado e o pip atualizado, você pode instalar a biblioteca maritalk. No terminal/linha de comando, execute:
+## Passo 3: Instalar a biblioteca
+Nossa API pode ser usada de duas formas: Através da nossa biblioteca maritalk, ou através da compatibilidade com a OpenAI. Nesse tutorial, ensinaremos como enviar a primeira requisição usando a compatibilidade com a OpenAI. Depois de instalar o Python e opcionalmente com o ambiente virtual ativado e o pip atualizado, você pode instalar a biblioteca openai. No terminal/linha de comando, execute:
 
 ```bash
-pip install maritalk
+pip install openai
 ```
 
 Com o ambiente virtual ativado, você pode listar todas as bibliotecas Python instaladas nesse ambiente com o comando pip list. Abra o terminal ou prompt de comando e digite:
@@ -193,28 +192,33 @@ pip list
 ```
 Se a instalação foi bem-sucedida, você verá algo parecido com isto:
 ```bash
-maritalk X.X.X
+openai X.XX.X
 ```
-onde X.X.X é o número da versão da biblioteca maritalk que você instalou.
+onde X.XX.X é o número da versão da biblioteca openai que você instalou.
 
 
 ## Passo 4: Enviando sua primeira solicitação de API
 
-Depois de configurar o Python e configurar uma chave API, o passo final é enviar uma solicitação à API da Maritalk usando a biblioteca Python. Para fazer isso, crie um arquivo chamado maritalk.py usando o terminal ou um IDE.
+Depois de configurar o Python e configurar uma chave API, o passo final é enviar uma solicitação à API da OpenAI usando a biblioteca Python. Para fazer isso, crie um arquivo chamado maritalk.py usando o terminal ou um IDE.
 Dentro do arquivo, copie e cole um dos exemplos abaixo:
 
 ```python
-import maritalk
+import openai
 
-model = maritalk.MariTalk(
-    key="insira sua chave aqui. Ex: '100088...'",
-    model="sabia-3"  # No momento, suportamos os modelos sabia-3 e sabia-2-small
+client = openai.OpenAI(
+    api_key="insira sua chave aqui. Ex: '100088...'",
+    base_url="https://chat.maritaca.ai/api",
 )
 
-response = model.generate("Quanto é 25 + 27?", max_tokens=8000)
-answer = response["answer"]
+response = client.chat.completions.create(
+  model="sabia-3",
+  messages=[
+    {"role": "user", "content": "Quanto é 25 + 27?"},
+  ],
+  max_tokens=8000
+)
+answer = response.choices[0].message.content
 
 print(f"Resposta: {answer}")   # Deve imprimir algo como "25 + 27 é igual a 52."
 ```
-Note que o dicionário response contém a chave usage, que informa a quantidade de tokens de entrada e saída que serão cobrados.
 Para executar o código, digite python maritalk.py no terminal/linha de comando.

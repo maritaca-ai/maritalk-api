@@ -1,0 +1,64 @@
+.swagger-ui .topbar {
+    display: none;
+  }
+  
+.swagger-ui .scheme-container,
+.swagger-ui .opblock,
+.swagger-ui .responses-inner,
+.swagger-ui .opblock-summary,
+.swagger-ui .parameters-container,
+.swagger-ui .response-col_description,
+.swagger-ui .response {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+  
+.swagger-ui .response .highlight-code,
+.swagger-ui .example,
+.swagger-ui .example-value,
+.swagger-ui .highlight-code {
+  background-color: transparent !important;
+  color: #333; 
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+  
+.swagger-ui .try-out__btn,
+.swagger-ui .execute-wrapper .btn,
+.swagger-ui .cancel {
+  background-color: transparent !important;
+  color: #333; 
+  border: 1px solid #ddd !important;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+  
+.swagger-ui input[type="text"],
+.swagger-ui select,
+.swagger-ui textarea {
+  background-color: transparent !important;
+  border: 1px solid #ddd !important;
+  color: #333;
+}
+  
+.swagger-ui table {
+  border: none !important;
+}
+  
+.swagger-ui .response-col_description__empty {
+  display: none;
+}
+
+.swagger-ui .opblock-summary-method {
+  color: #333;
+  font-weight: bold;
+}
+
+.swagger-ui .opblock-summary-path,
+.swagger-ui .response-col_description,
+.swagger-ui .parameter__name,
+.swagger-ui .parameter__description {
+  color: #333 !important;
+}
