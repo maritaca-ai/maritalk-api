@@ -27,13 +27,9 @@ Padrão é `sabia-3`. Modelo que irá gerar a resposta.
 
 ---
 ### messages `array` <sup class="sup-obrigatorio">Obrigatório</sup>
-Mensagens enviadas ao modelo.
-
-- **Quando chat_mode=True**: espera-se uma lista de mensagens, cada uma com "role" (papel: system, user, assistant ou tool) e "content" (conteúdo da mensagem). Exemplo:
+Mensagens enviadas ao modelo. Espera-se uma lista de mensagens, cada uma com "role" (papel: system, user, assistant ou tool) e "content" (conteúdo da mensagem). Exemplo:
    - user: "Olá, qual é o resultado de 25 + 27?"
    - assistant: "O resultado é 52."
-
-- **Quando chat_mode=False**: messages deve ser apenas uma string com o prompt desejado.
 
 <details>
 <summary>System message (object)</summary>
@@ -71,10 +67,6 @@ Mensagens enviadas ao modelo.
 
 ### frequency_penalty `float ou null` <sup class="sup-opcional">Opcional</sup>
 Padrão é `0`. Intervalo entre -2.0 e 2.0. Valores positivos penalizam tokens com base na frequência na conversa, reduzindo a probabilidade de repetição.
-
----
-### logit_bias `object{str: float}` <sup class="sup-opcional">Opcional</sup>
-Dicionário de tokens e seus respectivos logit_bias. Este campo é usado para influenciar a geração do modelo, aumentando ou diminuindo a probabilidade de certos tokens serem gerados.
 
 ---
 ### max_tokens `int ou null` <sup class="sup-opcional">Opcional</sup>

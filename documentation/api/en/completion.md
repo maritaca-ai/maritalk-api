@@ -28,13 +28,9 @@ Default is `sabia-3`. The model that will generate the response.
 
 ---
 ### messages `array` <sup class="sup-obrigatorio">Required</sup>
-Messages sent to the model.
-
-- **When chat_mode=True**: a list of messages is expected, each with "role" (role: system, user, assistant, or tool) and "content" (content of the message). Example:
+Messages sent to the model. A list of messages is expected, each with "role" (role: system, user, assistant, or tool) and "content" (content of the message). Example:
    - user: "Hello, what is the result of 25 + 27?"
    - assistant: "The result is 52."
-
-- **When chat_mode=False**: messages should be a single string with the desired prompt.
 
 <details>
 <summary>System message (object)</summary>
@@ -72,10 +68,6 @@ Messages sent to the model.
 
 ### frequency_penalty `float or null` <sup class="sup-opcional">Optional</sup>
 Default is `0`. Range is from -2.0 to 2.0. Positive values penalize tokens based on frequency in the conversation, reducing repetition probability.
-
----
-### logit_bias `object{str: float}` <sup class="sup-opcional">Optional</sup>
-Dictionary of tokens and their respective logit_bias values. This field is used to influence the model generation by increasing or decreasing the likelihood of specific tokens.
 
 ---
 ### max_tokens `int or null` <sup class="sup-opcional">Optional</sup>

@@ -2,7 +2,7 @@ import SwaggerUI from 'swagger-ui-react'
 import 'swagger-ui-react/swagger-ui.css'
 import './swagger-custom.css' 
 
-# Maritaca API
+# Teste de Endpoints da API Maritaca 
 
 <SwaggerUI spec={{
   "openapi": "3.0.2",
