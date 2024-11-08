@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmaritaca=self.webpackChunkmaritaca||[]).push([[600],{7146:a=>{a.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"api"}')}}]);
