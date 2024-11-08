@@ -14,7 +14,14 @@ module.exports = {
           items: [
             'pt/maritalk-api/comeco-rapido',
             'pt/maritalk-api/openai-compatibilidade',
-            'pt/casos-de-uso',
+            {
+              type: 'category',
+              label: 'Biblioteca',
+              items: [
+                'pt/biblioteca',
+                'pt/casos-de-uso',
+              ],
+            },
             'pt/chamada-funcao',
           ],
         },
@@ -44,7 +51,14 @@ module.exports = {
           items: [
             'en/maritalk-api/quick-start',
             'en/maritalk-api/openai-compatibility',
-            'en/use-cases',
+            {
+              type: 'category',
+              label: 'Library',
+              items: [
+                'en/library',
+                'en/use-cases',
+              ],
+            },
             'en/function-call',
           ],
         },

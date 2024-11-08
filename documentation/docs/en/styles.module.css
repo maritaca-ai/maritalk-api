@@ -21,9 +21,9 @@
 }
 
 :root {
-  --background-color-box-maritaca: #95d1bc; /* Verde claro para o tema claro */
+  --background-color-box-maritaca: #95d1bc;
 }
 
 [data-theme='dark'] {
-  --background-color-box-maritaca: #145E50; /* Verde escuro para o tema escuro */
+  --background-color-box-maritaca: #145E50; 
 }

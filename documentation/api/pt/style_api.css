@@ -1,0 +1,89 @@
+pre {
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 1rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+  font-size: 1.1rem;
+}
+code {
+  font-family: 'Courier New', monospace;
+  color: #77c44d;
+  font-size: 0.95rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid transparent;
+  padding: 0.5rem;
+  text-align: left;
+}
+th {
+  background-color: #007bff;
+  color: transparent;
+}
+
+.theme-doc-markdown .admonition {
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.admonition-note { background-color: #d1ecf1; color: #0c5460; }
+.admonition-warning { background-color: #fff3cd; color: #856404; }
+
+.request, .response {
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: transparent;
+  border-radius: 4px;
+}
+.request { background-color: #007bff; }
+.response { background-color: #28a745; }
+
+@media (max-width: 768px) {
+  .navbar__inner, .navbar__items {
+    position: static;
+    width: 100%;
+  }
+  .code-title { font-size: 0.9rem; }
+}
+
+details, details summary {
+  border-radius: 8px;
+  padding: 0.5rem;
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+}
+details[open] { background-color: transparent; }
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.container > div {
+  flex: 1 1 50%;
+  min-width: 300px;
+  padding: 10px;
+}
+@media (max-width: 768px) {
+  .container > div { flex: 1 1 100%; }
+}
+
+.navbar { width: 100%; box-sizing: border-box; }
+
+.sup-obrigatorio { color: red; font-weight: bold; font-size: smaller; }
+.sup-opcional { font-size: smaller; }
+.bold-text { font-weight: bold; }

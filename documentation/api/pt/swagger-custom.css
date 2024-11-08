@@ -1,0 +1,110 @@
+.swagger-ui .topbar {
+  display: none;
+}
+
+.swagger-ui .scheme-container,
+.swagger-ui .opblock,
+.swagger-ui .opblock-summary,
+.swagger-ui .parameters-container,
+.swagger-ui .opblock-tag,
+.swagger-ui .opblock-description-wrapper,
+.swagger-ui .responses-inner,
+.swagger-ui .response,
+.swagger-ui .highlight-code,
+.swagger-ui .example,
+.swagger-ui .example-value {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.swagger-ui .try-out__btn,
+.swagger-ui .execute-wrapper .btn,
+.swagger-ui .cancel,
+.swagger-ui input[type="text"],
+.swagger-ui select,
+.swagger-ui textarea {
+  background-color: transparent !important;
+  color: #333; 
+  border: 1px solid #ddd !important;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.swagger-ui .response-col_links {
+  display: none !important;
+}
+
+.swagger-ui table,
+.swagger-ui th,
+.swagger-ui td {
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.swagger-ui .opblock-summary-method,
+.swagger-ui .opblock-summary-path,
+.swagger-ui .parameter__name,
+.swagger-ui .parameter__description,
+.swagger-ui .response-col_description,
+.swagger-ui .highlight-code,
+.swagger-ui .example,
+.swagger-ui .example-value,
+.swagger-ui .opblock-tag,
+.swagger-ui .opblock-summary-description,
+.swagger-ui .tab li,
+.swagger-ui .markdown,
+.swagger-ui .opblock-tag-description,
+.swagger-ui .parameters-col_description,
+.swagger-ui .request-body__description,
+.swagger-ui .responses-inner h4,
+.swagger-ui .opblock-section-header h4,
+.swagger-ui .response .highlight-code,
+.swagger-ui .response-col_description {
+  color: #333 !important; 
+}
+
+[data-theme='dark'] .swagger-ui .scheme-container,
+[data-theme='dark'] .swagger-ui .opblock,
+[data-theme='dark'] .swagger-ui .opblock-summary,
+[data-theme='dark'] .swagger-ui .parameters-container,
+[data-theme='dark'] .swagger-ui .opblock-tag,
+[data-theme='dark'] .swagger-ui .opblock-description-wrapper,
+[data-theme='dark'] .swagger-ui .responses-inner,
+[data-theme='dark'] .swagger-ui .response,
+[data-theme='dark'] .swagger-ui .highlight-code,
+[data-theme='dark'] .swagger-ui .example,
+[data-theme='dark'] .swagger-ui .example-value,
+[data-theme='dark'] .swagger-ui .try-out__btn,
+[data-theme='dark'] .swagger-ui .execute-wrapper .btn,
+[data-theme='dark'] .swagger-ui .cancel,
+[data-theme='dark'] .swagger-ui input[type="text"],
+[data-theme='dark'] .swagger-ui select,
+[data-theme='dark'] .swagger-ui textarea {
+  background-color: transparent !important;
+  color: #ffffff !important; 
+  border: 1px solid #ffffff !important;
+}
+
+[data-theme='dark'] .swagger-ui .opblock-summary-method,
+[data-theme='dark'] .swagger-ui .opblock-summary-path,
+[data-theme='dark'] .swagger-ui .parameter__name,
+[data-theme='dark'] .swagger-ui .parameter__description,
+[data-theme='dark'] .swagger-ui .response-col_description,
+[data-theme='dark'] .swagger-ui .highlight-code,
+[data-theme='dark'] .swagger-ui .example,
+[data-theme='dark'] .swagger-ui .example-value,
+[data-theme='dark'] .swagger-ui .opblock-tag,
+[data-theme='dark'] .swagger-ui .opblock-summary-description,
+[data-theme='dark'] .swagger-ui .tab li,
+[data-theme='dark'] .swagger-ui .markdown,
+[data-theme='dark'] .swagger-ui .opblock-tag-description,
+[data-theme='dark'] .swagger-ui .parameters-col_description,
+[data-theme='dark'] .swagger-ui .request-body__description,
+[data-theme='dark'] .swagger-ui  h4,
+[data-theme='dark'] .swagger-ui  p,
+[data-theme='dark'] .swagger-ui  td,
+[data-theme='dark'] .swagger-ui  tr,
+[data-theme='dark'] .swagger-ui .opblock-section-header h4 {
+  color: #ffffff !important;
+}
