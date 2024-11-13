@@ -23,3 +23,6 @@ TPM = Tokens per minute.
 RPM = Requests per minute.
 
 This table excludes all of our deprecated models.
+
+<span style="color:red">The sabia-2-small model will be deprecated on 2025-01-15. We recommend changing to sabiazinho-3.</span>
+
