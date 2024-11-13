@@ -12,3 +12,5 @@ Aqui estão os modelos que foram descontinuados:
 |-------|--------|-------|
 | sabia-2-medium | 2024-10-01 | sabia-3 |
 | sabia-3-2024-07-15 | 2024-10-01 |sabia-3 |
+
+* O modelo sabia-2-small será descontinuado em 2025-01-15, recomendamos a mudança para o sabiazinho-3.

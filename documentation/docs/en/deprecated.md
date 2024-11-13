@@ -13,3 +13,6 @@ Here are the models that have been discontinued:
 |-------|--------|-------|
 | sabia-2-medium | 2024-10-01 | sabia-3 |
 | sabia-3-2024-07-15 | 2024-10-01 |sabia-3 |
+
+
+* The model sabia-2-small will be deprecated on 2025-01-15, we recommended the change to sabiazinho-3.
