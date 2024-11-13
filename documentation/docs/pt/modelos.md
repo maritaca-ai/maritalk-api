@@ -26,3 +26,5 @@ TPM = Tokens por minuto.
 RPM = Requisições por minuto.
 
 Essa tabela exclui todos os nossos modelos descontinuados.
+
+<span style="color:red">O modelo sabia-2-small será descontinuado em 2025-01-15. Recomendamos a mudança para o sabiazinho-3.</span>
