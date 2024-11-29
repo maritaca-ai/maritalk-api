@@ -19,7 +19,7 @@ It is important to remember that, although the models are a powerful tool for la
 ---
 ## Performance
 
-Thanks to our specialized training, our models offer superior quality at a lower cost compared to the competition. Check below the comparison of the quality of Sabiá-3 (our most advanced model), measured by performance in 52 Brazilian Exams (such as ENEM, Enade, Revalida, OAB, ENAM, CPNU, UNICAMP, USP, among others), in relation to the price:
+Thanks to our specialized training, our models offer superior quality at a lower cost compared to the competition. Check below the comparison of the quality of Sabiá-3 (our most advanced model), measured by performance in 70 Brazilian Exams (such as ENEM, Enade, Revalida, OAB, ENAM, CPNU, UNICAMP, USP, among others), in relation to the price:
 
 <div id="graph-container">
   <iframe 
