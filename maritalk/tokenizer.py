@@ -70,7 +70,7 @@ def count_tokens(
     [6, 7]
     """
 
-    if model.startswith("sabia-3"):
+    if model.startswith("sabia-3") or model.startswith("sabiazinho-3"):
         encoder = _get_encoder()
         encode = encoder.encode
         encode_batch = encoder.encode_batch
@@ -84,7 +84,7 @@ def count_tokens(
         encode_batch = lambda texts: tokenizer(texts)["input_ids"]
     else:
         raise ValueError(
-            "Model must be one of the following: sabia-3, sabia-2-medium, sabia-2-small"
+            "Model must be one of the following: sabia-3, sabiazinho-3, sabia-2-medium, sabia-2-small"
         )
 
     if isinstance(text, str):
