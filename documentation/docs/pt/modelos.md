@@ -28,3 +28,17 @@ RPM = Requisições por minuto.
 Essa tabela exclui todos os nossos modelos descontinuados.
 
 **O modelo sabia-2-small será descontinuado em 2025-01-15. Recomendamos a mudança para o sabiazinho-3.**
+
+
+### Como saber quantos tokens serei cobrado?
+Para saber de antemão o quanto suas requisições irão custar, use a função count_tokens para saber o número de tokens em um dado prompt.
+```python
+from maritalk import count_tokens
+
+prompt = "Com quantos paus se faz uma canoa?"
+
+total_tokens = count_tokens(prompt, model="sabia-3")
+
+print(f'O prompt "{prompt}" contém {total_tokens} tokens.')
+```
+
