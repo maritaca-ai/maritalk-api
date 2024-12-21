@@ -26,3 +26,15 @@ This table excludes all of our deprecated models.
 
 **sabia-2-small will be deprecated on 2025-01-15. We recommend changing to sabiazinho-3.**
 
+
+### How do I know how many tokens I will be charged?
+To know in advance how much your requests will cost, use the function count_tokens to find out the number of tokens in a given prompt.
+```python
+from maritalk import count_tokens
+
+prompt = "How many sticks does it take to make a canoe?"
+
+total_tokens = count_tokens(prompt, model="sabia-3")
+
+print(f'The prompt "{prompt}" contains {total_tokens} tokens.')
+```
