@@ -15,19 +15,6 @@ For example, the word **"tokenization"** can be divided into **"token"** and **"
 - **Processing Limitation**: The amount of text a model can process is limited by the number of tokens it can handle at once, known as the **'context window'**.
 - **Cost Calculation**: Costs are calculated based on the number of tokens processed and are charged per million tokens.
 
-
-### How do I know how many tokens I will be charged?
-To know in advance how much your requests will cost, use the function count_tokens to find out the number of tokens in a given prompt.
-```python
-from maritalk import count_tokens
-
-prompt = "How many sticks does it take to make a canoe?"
-
-total_tokens = count_tokens(prompt, model="sabia-3")
-
-print(f'The prompt "{prompt}" contains {total_tokens} tokens.')
-```
-
 ---
 
 ## **Context (Context Window)**
