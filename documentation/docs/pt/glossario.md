@@ -15,19 +15,6 @@ Por exemplo, a palavra "**tokenização**" pode ser dividida em "**token**" e "*
 - **Limitação de Processamento**: O tamanho do texto que um modelo pode processar é limitado pelo número de tokens que ele pode manipular de uma vez, conhecido como **'janela de contexto'**.
 - **Cálculo de Custos**: Os custos são calculados com base no número de tokens processados, sendo cobrados por milhão de tokens.
 
-
-### Como saber quantos tokens serei cobrado?
-Para saber de antemão o quanto suas requisições irão custar, use a função count_tokens para saber o número de tokens em um dado prompt.
-```python
-from maritalk import count_tokens
-
-prompt = "Com quantos paus se faz uma canoa?"
-
-total_tokens = count_tokens(prompt, model="sabia-3")
-
-print(f'O prompt "{prompt}" contém {total_tokens} tokens.')
-```
-
 ---
 
 ## **Contexto (Janela de contexto)**
