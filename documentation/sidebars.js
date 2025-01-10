@@ -23,8 +23,7 @@ module.exports = {
               ],
             },
             'pt/chamada-funcao',
-            'pt/Sabia-3+RAG',
-            'pt/embeddings'
+            'pt/embeddings+Sabia-3+RAG',
           ],
         },
       ],
@@ -62,8 +61,7 @@ module.exports = {
               ],
             },
             'en/function-call',
-            'en/Sabia-3+RAG',
-            'en/embeddings'
+            'en/embeddings+Sabia-3+RAG',
           ],
         },
       ],

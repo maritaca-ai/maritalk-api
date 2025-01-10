@@ -29,6 +29,7 @@ Essa tabela exclui todos os nossos modelos descontinuados.
 
 **O modelo sabia-2-small será descontinuado em 2025-01-15. Recomendamos a mudança para o sabiazinho-3.**
 
+**O modelo sabia-3-2024-09-09 será descontinuado em 2025-02-15. Recomendamos a mudança para o sabia-3.**
 
 ### Como saber quantos tokens serei cobrado?
 Para saber de antemão o quanto suas requisições irão custar, use a função count_tokens para saber o número de tokens em um dado prompt.

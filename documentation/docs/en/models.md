@@ -24,8 +24,9 @@ RPM = Requests per minute.
 
 This table excludes all of our deprecated models.
 
-**sabia-2-small will be deprecated on 2025-01-15. We recommend changing to sabiazinho-3.**
+**The sabia-2-small model will be deprecated on 2025-01-15. We recommend changing to sabiazinho-3.**
 
+**The sabia-3-2024-09-09 model will be deprecated on 2025-02-15. We recommended changing to sabia-3.**
 
 ### How do I know how many tokens I will be charged?
 To know in advance how much your requests will cost, use the function count_tokens to find out the number of tokens in a given prompt.
