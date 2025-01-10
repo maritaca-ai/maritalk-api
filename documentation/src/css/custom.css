@@ -128,3 +128,20 @@ i {
   color: var(--navbar-hover-link-color-dark);
 }
 
+@media (max-width: 768px) {
+  .navbar__items {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: flex-start; 
+    align-items: center; 
+    gap: 10px; 
+  }
+
+  .navbar__items > *:not(:first-child) {
+    display: none;
+  }
+
+  .navbar__items--right {
+    display: none !important;
+  }
+}
