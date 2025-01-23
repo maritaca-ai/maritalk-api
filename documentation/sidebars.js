@@ -7,13 +7,15 @@ module.exports = {
         'pt/visao-geral',
         'pt/introducao',
         'pt/modelos',
-        'pt/descontinuado',
         {
           type: 'category',
           label: 'API',
           items: [
             'pt/maritalk-api/comeco-rapido',
             'pt/maritalk-api/openai-compatibilidade',
+            'pt/chamada-funcao',
+            'pt/structured-outputs',
+            'pt/embeddings+Sabia-3+RAG',
             {
               type: 'category',
               label: 'Biblioteca',
@@ -22,8 +24,6 @@ module.exports = {
                 'pt/casos-de-uso',
               ],
             },
-            'pt/chamada-funcao',
-            'pt/embeddings+Sabia-3+RAG',
           ],
         },
       ],
@@ -45,13 +45,15 @@ module.exports = {
         'en/overview',
         'en/introduction',
         'en/models',
-        'en/deprecated',
         {
           type: 'category',
           label: 'API',
           items: [
             'en/maritalk-api/quick-start',
             'en/maritalk-api/openai-compatibility',
+            'en/function-call',
+            'en/structured-outputs',
+            'en/embeddings+Sabia-3+RAG',
             {
               type: 'category',
               label: 'Library',
@@ -60,8 +62,6 @@ module.exports = {
                 'en/use-cases',
               ],
             },
-            'en/function-call',
-            'en/embeddings+Sabia-3+RAG',
           ],
         },
       ],
