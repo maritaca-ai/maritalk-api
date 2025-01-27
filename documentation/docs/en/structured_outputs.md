@@ -18,7 +18,7 @@ from pydantic import BaseModel
 import openai
 
 client = openai.OpenAI(
-    api_key="" #Your API_KEY
+    api_key="", #Your API_KEY
     base_url="https://chat.maritaca.ai/api",
 )
 
@@ -50,7 +50,7 @@ Identify sentiments in texts:
 import openai
 
 client = openai.OpenAI(
-    api_key="" #Sua API_KEY,
+    api_key="", #Your API_KEY
     base_url="https://chat.maritaca.ai/api",
 )
 
@@ -89,7 +89,7 @@ import openai
 import json
 
 client = openai.OpenAI(
-    api_key="",  # Your API_KEY
+    api_key="",  #Your API_KEY
     base_url="https://chat.maritaca.ai/api",
 )
 
@@ -165,7 +165,7 @@ class TypicalDishesModel(BaseModel):
     dishes: List[str]
 
 client = openai.OpenAI(
-    api_key="",   # Your API_KEY
+    api_key="",  #Your API_KEY
     base_url="https://chat.maritaca.ai/api",
 )
 
@@ -235,7 +235,7 @@ response_format={"type": "json_object"}
     }}>
     <span style={{ fontSize: '1.5em', marginRight: '10px', color: '#B0E0E6' }}>💡</span>
     <div>
-        <strong style={{ display: 'block', fontSize: '1em', marginBottom: '5px' }}> MODO JSON </strong>
+        <strong style={{ display: 'block', fontSize: '1em', marginBottom: '5px' }}> JSON MODE </strong>
         <p style={{ fontSize: '0.9em' }}> The JSON mode only ensures that the model's output is valid JSON. Structured Outputs, on the other hand, reliably match the model's output to the schema you specify. We recommend using Structured Outputs if it is supported for your use case. When using JSON mode, if the instruction to produce a JSON object is not explicitly passed to the model, it may generate an endless stream of whitespace, and the request could run continuously until it reaches the token limit.</p>
     </div>
 </div>

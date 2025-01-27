@@ -18,7 +18,7 @@ from pydantic import BaseModel
 import openai
 
 client = openai.OpenAI(
-    api_key="" #Sua API_KEY
+    api_key="", #Sua API_KEY
     base_url="https://chat.maritaca.ai/api",
 )
 
@@ -50,7 +50,7 @@ Identifique sentimentos em textos:
 import openai
 
 client = openai.OpenAI(
-    api_key="" #Sua API_KEY,
+    api_key="", #Sua API_KEY
     base_url="https://chat.maritaca.ai/api",
 )
 
@@ -88,7 +88,7 @@ import openai
 import json
 
 client = openai.OpenAI(
-    api_key="",  #Sua API_KEY
+    api_key="", #Sua API_KEY
     base_url="https://chat.maritaca.ai/api",
 )
 
@@ -109,27 +109,27 @@ class PlanoLeitura(BaseModel):
     livros: List[Livro]
 
 
-schema={
-          "type": "object",
-          "properties": {
-              "nome_plano": {"type": "string"},
-              "livros": {
-                  "type": "array",
-                  "items": {
-                      "type": "object",
-                      "properties": {
-                          "tipo": {"type": "string", "enum": ["clássico", "contemporâneo"]},
-                          "titulo": {"type": "string"},
-                          "autor": {"type": "string"},
-                          "descricao": {"type": "string"},
-                          "subitens": {"type": ["array", "null"]}
-                      },
-                      "required": ["tipo", "titulo", "autor", "descricao"]
-                  }
-              }
-          },
-          "required": ["nome_plano", "livros"]
+schema = {
+    "type": "object",
+    "properties": {
+        "nome_plano": {"type": "string"},
+        "livros": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "tipo": {"type": "string", "enum": ["clássico", "contemporâneo"]},
+                    "titulo": {"type": "string"},
+                    "autor": {"type": "string"},
+                    "descricao": {"type": "string"},
+                    "subitens": {"type": ["array", "null"]}
+                },
+                "required": ["tipo", "titulo", "autor", "descricao"]
+            }
         }
+    },
+    "required": ["nome_plano", "livros"]
+}
 
 completion = client.beta.chat.completions.parse(
     model="sabia-3",
@@ -149,8 +149,7 @@ for livro in plano_leitura.livros:
 
 ```
 
-
-### 4. Uso com stream
+## 4. Uso com stream
 
 No caso de uso com stream, as saídas estruturadas podem ser processadas em tempo real, conforme são geradas, proporcionando uma experiência mais interativa. Esse método é particularmente vantajoso para lidar com tarefas que envolvem a geração de grandes volumes de dados ou respostas extensas. A seguir, apresentamos um exemplo:
 
@@ -163,7 +162,7 @@ class PratosTipicosModel(BaseModel):
     pratos: List[str]
 
 client = openai.OpenAI(
-    api_key="",   #Sua API_KEY
+    api_key="", #Sua API_KEY
     base_url="https://chat.maritaca.ai/api",
 )
 
