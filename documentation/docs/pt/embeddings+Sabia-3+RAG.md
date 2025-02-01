@@ -112,7 +112,7 @@ RAG (Retrieval-Augmented Generation) é uma abordagem que combina busca de infor
 * O prompt baseado no formato de conversa, fornecendo contexto e a pergunta do usuário.
 
 
-### Passo 1: Instalar as Dependências
+### Passo 1: Instalação das Dependências
 Primeiro, instale as bibliotecas necessárias para o projeto.
 ```bash
 !pip install unstructured rank_bm25 pdf2image pdfminer-six pikepdf pypdf unstructured_inference "pillow<10.1.0" pillow_heif -q
@@ -120,12 +120,12 @@ Primeiro, instale as bibliotecas necessárias para o projeto.
 !pip install deepinfra faiss-cpu
 ```
 
-### Passo 2: Baixe o PDF
+### Passo 2: Download do PDF
 No exemplo, utilizamos um edital da Unicamp. Para baixá-lo localmente:
 ```bash
 !wget https://www.comvest.unicamp.br/wp-content/uploads/2023/10/31-2023-Dispoe-sobre-o-Vestibular-Unicamp-2024_com-retificacao.pdf -O edital_unicamp_2024.pdf
 ```
-### Passo 3: Carregar e processar o documento
+### Passo 3: Carregamento e processamento do documento
 Utilizaremos o PyPDFLoader do LangChain para extrair o texto, e depois faremos o split do texto em chunks menores usando RecursiveCharacterTextSplitter.
 ```python
 from langchain.document_loaders import PyPDFLoader
@@ -158,7 +158,7 @@ retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
 ```
 **Observação:** Antes de executar o código, é necessário realizar o export da chave de acesso da DeepInfra para autenticação. Certifique-se de ter configurado corretamente a variável de ambiente correspondente, seguindo a documentação oficial do DeepInfra.
 
-### Passo 4: Configurar o Sabiá-3
+### Passo 4: Configuração do Sabiá-3
 Aqui, utilizamos a compatibilidade com a OpenAI através do ChatOpenAI para acessar o modelo Sabiá-3. É necessário fornecer a base_url e a api_key.
 ```python
 from langchain.chat_models import ChatOpenAI
@@ -171,7 +171,7 @@ llm = ChatOpenAI(
 )
 
 ```
-### Passo 5: Definir o prompt
+### Passo 5: Definição do prompt
 Vamos criar um prompt simples que fornecerá o contexto (documentos recuperados) e a pergunta do usuário.
 ```python
 from langchain.prompts import PromptTemplate
@@ -186,7 +186,7 @@ prompt = PromptTemplate(
 )
 ```
 
-### Passo 6: Criar cadeia de Pergunta Resposta
+### Passo 6: Criação de question_answering chain
 Agora criamos a cadeia de QA utilizando o load_qa_chain do LangChain.
 
 ```python
@@ -194,7 +194,7 @@ from langchain.chains.question_answering import load_qa_chain
 
 chain = load_qa_chain(llm, chain_type="stuff", prompt=prompt, verbose=True)
 ```
-### Passo 7: Executar a consulta
+### Passo 7: Execução da consulta
 Finalmente, vamos fazer uma pergunta ao sistema. Primeiro, recuperamos os documentos relevantes com o retriever, depois passamos tudo para a cadeia.
 ```python
 query = "Qual o tempo máximo para realização da prova?"
