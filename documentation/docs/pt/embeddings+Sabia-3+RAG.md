@@ -3,7 +3,7 @@ id: embeddings+Sabia-3+RAG
 title: Embeddings+Sabia-3+RAG
 ---
 
-# Embeddings + Sabia-3 + RAG
+# Embeddings + Sabiá-3 + RAG
 
 ## Embeddings
 
