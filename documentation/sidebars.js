@@ -16,7 +16,7 @@ module.exports = {
             'pt/chamada-funcao',
             'pt/structured-outputs',
             'pt/embeddings+Sabia-3+RAG',
-            'pt/limites-de-taxa',
+            'pt/rate-limits',
             {
               type: 'category',
               label: 'Biblioteca',

@@ -1,5 +1,5 @@
 ---
-id: limites-de-taxa
+id: rate-limits
 title: Rate Limits
 ---
 
