@@ -27,12 +27,14 @@ O limite é atingido quando qualquer uma dessas métricas (RPM ou TPM) chega ao 
 
 Observação:
 
-*   Rate limits variam por modelo usado.
+* Rate limits variam por modelo usado.
+* Para demandas ainda maiores, por favor nos contate em suporte@maritaca.ai
 
 
 ## Níveis de uso
 
 Conforme o uso e o gasto na API aumentam, você é automaticamente promovido para o próximo nível. Cada nível oferece limites de taxa mais altos para os modelos.
+**Observação:** Créditos iniciais e cupons não contam para subir de tier, apenas os gastos na API.
 
 |Tier|Gasto requerido|
 |---|---|
@@ -40,8 +42,8 @@ Conforme o uso e o gasto na API aumentam, você é automaticamente promovido par
 |Tier 1|Qualquer gasto com a API|
 |Tier 2|R$100 |
 |Tier 3|R$500|
-|Tier 4|R$2000|
-|Tier 5|R$5000|
+|Tier 4|R$2.000|
+|Tier 5|R$5.000|
 
 Selecione um nível abaixo para conferir o resumo geral dos limites de taxa por modelo:
 
@@ -49,46 +51,46 @@ Selecione um nível abaixo para conferir o resumo geral dos limites de taxa por 
 
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
-|sabia-3|60|128000|10000|
-|sabiazinho-3|60|128000|10000|
+|sabia-3|60|128.000|10.000|
+|sabiazinho-3|60|128.000|10.000|
 
 
 ### Tier 1 rate limits
 
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
-|sabia-3|1000|2000000|200000|
-|sabiazinho-3|1000|2000000|200000|
+|sabia-3|1.000|2M|200.000|
+|sabiazinho-3|1.000|2M|200.000|
 
 
 ### Tier 2 rate limits
 
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
-|sabia-3|1500|4000000|350000|
-|sabiazinho-3|2000|4000000|400000|
+|sabia-3|1.500|4M|350.000|
+|sabiazinho-3|2.000|4M|400.000|
 
 
 ### Tier 3 rate limits
 
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
-|sabia-3|2000|6000000|500000|
-|sabiazinho-3|5000|20000000|800000|
+|sabia-3|2000|6M|500.000|
+|sabiazinho-3|5000|20M|800.000|
 
 
 ### Tier 4 rate limits
 
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
-|sabia-3|5000|10000000|1000000|
-|sabiazinho-3|10000|50000000|2000000|
+|sabia-3|5.000|10M|1M|
+|sabiazinho-3|10.000|50M|2M|
 
 
 ### Tier 5 rate limits
 
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
-|sabia-3|10000|20000000|2000000|
-|sabiazinho-3|30000|100000000|10000000|
+|sabia-3|10.000|20M|2M|
+|sabiazinho-3|30.000|100M|10M|
 
