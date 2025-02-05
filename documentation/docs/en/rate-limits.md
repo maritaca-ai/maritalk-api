@@ -27,12 +27,14 @@ The limit is reached when either of these metrics (RPM or TPM) hits its maximum 
 
 Note:
 
-*   Rate limits vary depending on the model used.
+* Rate limits vary depending on the model used.
+* For even larger demands, please contact us at suporte@maritaca.ai
 
 
 ## Usage Levels
 
 As your API usage and spending increase, you are automatically promoted to the next tier. Each tier provides higher rate limits for the models.
+**Note:** Initial credits and coupons do not count towards tier upgrades; only API spending does.
 
 |Tier|Required Spending|
 |---|---|
@@ -40,8 +42,8 @@ As your API usage and spending increase, you are automatically promoted to the n
 |Tier 1|Any API Spending|
 |Tier 2|R$100 |
 |Tier 3|R$500|
-|Tier 4|R$2000|
-|Tier 5|R$5000|
+|Tier 4|R$2.000|
+|Tier 5|R$5.000|
 
 Select a tier below to view a general summary of rate limits per model:
 
@@ -49,43 +51,43 @@ Select a tier below to view a general summary of rate limits per model:
 
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
-|sabia-3|60|128000|10000|
-|sabiazinho-3|60|128000|10000|
+|sabia-3|60|128.000|10.000|
+|sabiazinho-3|60|128.000|10.000|
 
 ### Tier 1 rate limits
 
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
-|sabia-3|1000|2000000|200000|
-|sabiazinho-3|1000|2000000|200000|
+|sabia-3|1.000|2M|200.000|
+|sabiazinho-3|1.000|2M|200.000|
 
 ### Tier 2 rate limits
 
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
-|sabia-3|2000|4000000|400000|
-|sabiazinho-3|2000|4000000|350000|
+|sabia-3|1.500|4M|350.000|
+|sabiazinho-3|2.000|4M|400.000|
 
 
 ### Tier 3 rate limits
 
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
-|sabia-3|2000|6000000|500000|
-|sabiazinho-3|5000|20000000|800000|
+|sabia-3|2000|6M|500.000|
+|sabiazinho-3|5000|20M|800.000|
 
 ### Tier 4 rate limits
 
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
-|sabia-3|5000|10000000|1000000|
-|sabiazinho-3|10000|50000000|2000000|
+|sabia-3|5.000|10M|1M|
+|sabiazinho-3|10.000|50M|2M|
 
 
 ### Tier 5 rate limits
 
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
-|sabia-3|10000|20000000|2000000|
-|sabiazinho-3|30000|100000000|10000000|
+|sabia-3|10.000|20M|2M|
+|sabiazinho-3|30.000|100M|10M|
 
