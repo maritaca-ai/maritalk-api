@@ -74,7 +74,7 @@ completion = client.beta.chat.completions.parse(
     response_format={"type": "json_schema", "json_schema": sentiment_schema}
 )
 
-resultado = completion.choices[0].message.content
+result = completion.choices[0].message.content
 print(result)
 
 ```
