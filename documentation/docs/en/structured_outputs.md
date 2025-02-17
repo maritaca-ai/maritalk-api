@@ -56,23 +56,25 @@ client = openai.OpenAI(
 
 sentiment_schema = {
     "type": "object",
-    "properties": {
-        "text": {"type": "string"},
-        "sentiment": {"type": "string", "enum": ["positive", "negative", "neutral"]},
-    },
-    "required": ["text", "sentiment"],
+    "schema": {
+        "properties": {
+            "text": {"type": "string"},
+            "sentiment": {"type": "string", "enum": ["positive", "negative", "neutral"]},
+        },
+        "required": ["text", "sentiment"],
+    }
 }
 
-completion = client.beta.chat.completions.create(
+completion = client.beta.chat.completions.parse(
     model="sabia-3",
     messages=[
         {"role": "system", "content": "Classify the sentiment of the text as positive, negative, or neutral."},
-        {"role": "user", "content": "I am very happy with the service provided!"},
+        {"role": "user", "content": "I hated the job offered!"},
     ],
     response_format={"type": "json_schema", "json_schema": sentiment_schema}
 )
 
-result = completion.choices[0].message["content"]
+result = completion.choices[0].message.content
 print(result)
 
 ```
@@ -112,24 +114,26 @@ class ReadingPlan(BaseModel):
 
 schema = {
     "type": "object",
-    "properties": {
-        "plan_name": {"type": "string"},
-        "books": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "type": {"type": "string", "enum": ["classic", "contemporary"]},
-                    "title": {"type": "string"},
-                    "author": {"type": "string"},
-                    "description": {"type": "string"},
-                    "subitems": {"type": ["array", "null"]}
-                },
-                "required": ["type", "title", "author", "description"]
+    "schema": {
+        "properties": {
+            "plan_name": {"type": "string"},
+            "books": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "type": {"type": "string", "enum": ["classic", "contemporary"]},
+                        "title": {"type": "string"},
+                        "author": {"type": "string"},
+                        "description": {"type": "string"},
+                        "subitems": {"type": ["array", "null"]}
+                    },
+                    "required": ["type", "title", "author", "description"]
+                }
             }
-        }
-    },
-    "required": ["plan_name", "books"]
+        },
+        "required": ["plan_name", "books"]
+    }
 }
 
 completion = client.beta.chat.completions.parse(
