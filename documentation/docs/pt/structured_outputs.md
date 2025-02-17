@@ -56,23 +56,26 @@ client = openai.OpenAI(
 
 sentimento_schema = {
     "type": "object",
-    "properties": {
-        "texto": {"type": "string"},
-        "sentimento": {"type": "string", "enum": ["positivo", "negativo", "neutro"]},
-    },
-    "required": ["texto", "sentimento"],
+    "schema":{
+        "properties": {
+            "texto": {"type": "string"},
+            "sentimento": {"type": "string", "enum": ["positivo", "negativo", "neutro"]},
+        },
+        "required": ["texto", "sentimento"],
+    }
 }
 
-completion = client.beta.chat.completions.create(
+completion = client.beta.chat.completions.parse(
     model="sabia-3",
     messages=[
         {"role": "system", "content": "Classifique o sentimento do texto em positivo, negativo ou neutro."},
-        {"role": "user", "content": "Estou muito feliz com o serviço oferecido!"},
+        {"role": "user", "content": "Odiei o trabalho oferecido!"},
     ],
     response_format={"type": "json_schema", "json_schema": sentimento_schema}
 )
 
-resultado = completion.choices[0].message["content"]
+resultado = completion.choices[0].message.content
+
 print(resultado)
 ```
 
@@ -111,24 +114,26 @@ class PlanoLeitura(BaseModel):
 
 schema = {
     "type": "object",
-    "properties": {
-        "nome_plano": {"type": "string"},
-        "livros": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "tipo": {"type": "string", "enum": ["clássico", "contemporâneo"]},
-                    "titulo": {"type": "string"},
-                    "autor": {"type": "string"},
-                    "descricao": {"type": "string"},
-                    "subitens": {"type": ["array", "null"]}
-                },
-                "required": ["tipo", "titulo", "autor", "descricao"]
+    "schema": {
+        "properties": {
+            "nome_plano": {"type": "string"},
+            "livros": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "tipo": {"type": "string", "enum": ["clássico", "contemporâneo"]},
+                        "titulo": {"type": "string"},
+                        "autor": {"type": "string"},
+                        "descricao": {"type": "string"},
+                        "subitens": {"type": ["array", "null"]}
+                    },
+                    "required": ["tipo", "titulo", "autor", "descricao"]
+                }
             }
-        }
-    },
-    "required": ["nome_plano", "livros"]
+        },
+        "required": ["nome_plano", "livros"]
+    }
 }
 
 completion = client.beta.chat.completions.parse(
