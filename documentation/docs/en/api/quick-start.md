@@ -3,7 +3,7 @@ id: quick-start
 title: Quick Start
 ---
 import React from 'react';
-import styles from './styles-maritalk-api.module.css';
+import styles from './styles-api.module.css';
 
 # Quick Start
 <a href="/api/en/completion" className={styles['callout-box']} style={{ display: 'flex', alignItems: 'center', backgroundColor: '#f5f5f5', color: 'black', border: '1px solid #ddd', padding: '10px', borderRadius: '8px', textDecoration: 'none' }}>
@@ -178,7 +178,7 @@ pip install --upgrade pip
 </details>
 
 ## Step 3: Install the Library
-Our API can be used in two ways: through our maritalk library or through OpenAI compatibility. In this tutorial, we will teach you how to send your first request using OpenAI compatibility. After installing Python and optionally activating the virtual environment and upgrading pip, you can install the openai library. In the terminal/command line, run:
+Our API can be used in two ways: through our library or through OpenAI compatibility. In this tutorial, we will teach you how to send your first request using OpenAI compatibility. After installing Python and optionally activating the virtual environment and upgrading pip, you can install the openai library. In the terminal/command line, run:
 
 ```bash
 pip install openai
@@ -197,7 +197,7 @@ where X.XX.X is the version number of the openai library you installed.
 
 ## Step 4: Sending your first API request
 
-After setting up Python and configuring an API key, the final step is to send a request to the OpenAI API using the Python library. To do this, create a file named maritalk.py using the terminal or an IDE.
+After setting up Python and configuring an API key, the final step is to send a request to the OpenAI API using the Python library. To do this, create a file named maritaca.py using the terminal or an IDE.
 Inside the file, copy and paste one of the examples below:
 
 ```python
@@ -219,4 +219,4 @@ answer = response.choices[0].message.content
 
 print(f"Answer: {answer}")   # Should print something like "25 + 27 equals 52."
 ```
-To run the code, type python maritalk.py in the terminal/command line.
+To run the code, type python maritaca.py in the terminal/command line.

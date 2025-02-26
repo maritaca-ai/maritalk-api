@@ -15,8 +15,8 @@ const process = require('node:process');
 
 const CHAT_API_URL = "https://chat.maritaca.ai/api/chat/inference";
 
-if (!process.env.MARITALK_API_KEY) {
-    console.error("Environment variable MARITALK_API_KEY not found!");
+if (!process.env.MARITACA_API_KEY) {
+    console.error("Environment variable MARITACA_API_KEY not found!");
     process.exit(1);
 }
 
@@ -33,7 +33,7 @@ async function sendChatRequest(message) {
 
         const response = await fetch(CHAT_API_URL, {
             headers: {
-                "Authorization": `Key ${process.env.MARITALK_API_KEY}`,
+                "Authorization": `Key ${process.env.MARITACA_API_KEY}`,
                 "Content-Type": "application/json",
             },
             method: "POST",
@@ -69,7 +69,7 @@ using OpenAI;
 using OpenAI.Chat;
 using System.ClientModel;
 
-namespace ChatMariTalk
+namespace ChatMaritaca
 {
     class Program
     {
@@ -207,11 +207,11 @@ namespace ChatMariTalk
   <a href="https://docs.llamaindex.ai/en/latest/examples/llm/maritalk/" className="icon-box" style={{ flex: '1 1 200px', margin: '10px', textAlign: 'center' }}>
     <i className="fas fa-file-alt" style={{ fontSize: '2em', marginBottom: '10px' }}></i> 
     <h3>LlamaIndex</h3>
-    <p>Maritalk no LlamaIndex.</p>
+    <p>Maritaca no LlamaIndex.</p>
   </a>
   <a href="https://python.langchain.com/v0.2/docs/integrations/chat/maritalk/" className="icon-box" style={{ flex: '1 1 200px', margin: '10px', textAlign: 'center' }}>
     <i className="fas fa-link" style={{ fontSize: '2em', marginBottom: '10px' }}></i> 
     <h3>LangChain</h3>
-    <p>MariTalk + RAG com LangChain.</p>
+    <p>Maritaca + RAG com LangChain.</p>
   </a>
 </div>

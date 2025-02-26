@@ -53,7 +53,7 @@ Se você é novo na Maritaca API, comece aqui para aprender o essencial e fazer 
     <h3>Introdução</h3>
     <p>Conheça os modelos Sabiá e suas capacidades.</p>
   </a>
-  <a href="/pt/maritalk-api/comeco-rapido" className="icon-box" style={{ flex: '1 1 200px', margin: '10px', textAlign: 'center' }}>
+  <a href="/pt/api/comeco-rapido" className="icon-box" style={{ flex: '1 1 200px', margin: '10px', textAlign: 'center' }}>
     <i className="fas fa-rocket" style={{ fontSize: '2em', marginBottom: '10px' }}></i>
     <h3>Começo rápido</h3>
     <p>Aprenda a fazer sua primeira chamada API em minutos.</p>

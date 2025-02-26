@@ -11,8 +11,8 @@ module.exports = {
           type: 'category',
           label: 'API',
           items: [
-            'pt/maritalk-api/comeco-rapido',
-            'pt/maritalk-api/openai-compatibilidade',
+            'pt/api/comeco-rapido',
+            'pt/api/openai-compatibilidade',
             'pt/chamada-funcao',
             'pt/structured-outputs',
             'pt/embeddings+Sabia-3+RAG',
@@ -50,8 +50,8 @@ module.exports = {
           type: 'category',
           label: 'API',
           items: [
-            'en/maritalk-api/quick-start',
-            'en/maritalk-api/openai-compatibility',
+            'en/api/quick-start',
+            'en/api/openai-compatibility',
             'en/function-call',
             'en/structured-outputs',
             'en/embeddings+Sabia-3+RAG',

@@ -238,3 +238,9 @@ response_format={"type": "json_object"}
     </div>
 </div>
 <br/>
+
+## Schemas suportados
+
+O Structured Outputs é compatível com um subconjunto do JSON Schema, permitindo que você utilize os seguintes tipos: String, Number, Boolean, Integer, Object, Array, Enum, anyOf e oneOf. Para manter a estabilidade e o bom funcionamento do recurso, algumas funcionalidades de JSON Schema não são suportadas — por exemplo, minLength, maxLength, pattern, format, minimum, maximum, multipleOf, minItems, maxItems, uniqueItems, minProperties, maxProperties, allOf, patternProperties, unevaluatedProperties, propertyNames, unevaluatedItems e contains.
+
+Ao trabalhar com objetos, você pode utilizar até 100 propriedades, com um máximo de 5 níveis de aninhamento. Para otimizar a estrutura do seu esquema, a soma dos comprimentos de todos os nomes de propriedade, definições (definitions), valores de enum e valores de const deve permanecer abaixo de 15.000 caracteres. Nos campos de tipo enum, é possível incluir até 500 valores no total. Caso um único enum ultrapasse 250 valores (todos do tipo string), a soma dos comprimentos desses valores deve ficar abaixo de 7.500 caracteres. Se qualquer limite for excedido ou se for encontrada alguma funcionalidade não suportada, ocorre um erro.

@@ -54,7 +54,7 @@ If you're new to Maritaca API, start here to learn the essentials and make your 
     <h3>Introduction</h3>
     <p>Get to know the Sabiá models and their capabilities.</p>
   </a>
-  <a href="/en/maritalk-api/quick-start" className="icon-box" style={{ flex: '1 1 200px', margin: '10px', textAlign: 'center' }}>
+  <a href="/en/api/quick-start" className="icon-box" style={{ flex: '1 1 200px', margin: '10px', textAlign: 'center' }}>
     <i className="fas fa-rocket" style={{ fontSize: '2em', marginBottom: '10px' }}></i>
     <h3>Quick Start</h3>
     <p>Learn how to make your first API call in minutes.</p>
