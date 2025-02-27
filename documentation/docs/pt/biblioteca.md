@@ -4,11 +4,11 @@ title: Biblioteca
 ---
 
 # Biblioteca
-Oferecemos a biblioteca Python da Maritalk para facilitar a integração com a nossa API. Recomendamos o uso da versão compatível com a OpenAI (detalhada em Compatibilidade com a OpenAI), ideal para quem já utiliza as bibliotecas da OpenAI ou busca manter compatibilidade com essa plataforma.
+Oferecemos a biblioteca Python da Maritaca para facilitar a integração com a nossa API. Recomendamos o uso da versão compatível com a OpenAI (detalhada em Compatibilidade com a OpenAI), ideal para quem já utiliza as bibliotecas da OpenAI ou busca manter compatibilidade com essa plataforma.
 Para usuários que já utilizavam a versão própria da nossa biblioteca, mantemos essa alternativa disponível para garantir a continuidade dos projetos existentes. Ambas as versões compartilham as mesmas funcionalidades principais, e você pode optar pela que melhor atende ao seu fluxo de trabalho.
 
-## Instalar a biblioteca Python da Maritalk
-Com o Python instalado e opcionalmente com o ambiente virtual ativado e o pip atualizado, você pode instalar a biblioteca maritalk. No terminal/linha de comando, execute:
+## Instalar a biblioteca Python da Maritaca
+Com o Python instalado e opcionalmente com o ambiente virtual ativado e o pip atualizado, você pode instalar a biblioteca Maritaca. No terminal/linha de comando, execute:
 
 ```bash
 pip install maritalk
@@ -23,12 +23,12 @@ Se a instalação foi bem-sucedida, você verá algo parecido com isto:
 ```bash
 maritalk X.X.X
 ```
-onde X.X.X é o número da versão da biblioteca maritalk que você instalou.
+onde X.X.X é o número da versão da biblioteca Maritaca que você instalou.
 
 
 ## Enviando uma solicitação para a API
 
-Depois de configurar o Python e configurar uma chave API, você pode enviar uma solicitação à API da Maritalk usando a biblioteca Python. Para fazer isso, crie um arquivo chamado maritalk.py usando o terminal ou um IDE.
+Depois de configurar o Python e configurar uma chave API, você pode enviar uma solicitação à API da Maritaca usando a biblioteca Python. Para fazer isso, crie um arquivo chamado maritaca.py usando o terminal ou um IDE.
 Dentro do arquivo, copie e cole um dos exemplos abaixo:
 
 ```python
@@ -45,7 +45,7 @@ answer = response["answer"]
 print(f"Resposta: {answer}")   # Deve imprimir algo como "25 + 27 é igual a 52."
 ```
 Note que o dicionário response contém a chave usage, que informa a quantidade de tokens de entrada e saída que serão cobrados.
-Para executar o código, digite python maritalk.py no terminal/linha de comando.
+Para executar o código, digite python maritaca.py no terminal/linha de comando.
 
 ### Streaming
 Para tarefas de geração de texto longo, como a criação de um artigo extenso ou a tradução de um documento grande, pode ser vantajoso receber a resposta em partes, à medida que o texto é gerado, em vez de esperar pelo texto completo. Isso torna a aplicação mais responsiva e eficiente, especialmente quando o texto gerado é extenso. Oferecemos duas abordagens para atender a essa necessidade: o uso de um generator e de um async_generator.

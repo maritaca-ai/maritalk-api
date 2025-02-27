@@ -3,7 +3,7 @@ id: comeco-rapido
 title: Começo Rápido
 ---
 import React from 'react';
-import styles from './styles-maritalk-api.module.css';
+import styles from './styles-api.module.css';
 
 # Começo Rápido
 <a href="/api/pt/completion" className={styles['callout-box']} style={{ display: 'flex', alignItems: 'center', backgroundColor: '#f5f5f5', color: 'black', border: '1px solid #ddd', padding: '10px', borderRadius: '8px', textDecoration: 'none' }}>
@@ -179,7 +179,7 @@ pip install --upgrade pip
 </details>
 
 ## Passo 3: Instalar a biblioteca
-Nossa API pode ser usada de duas formas: Através da nossa biblioteca maritalk, ou através da compatibilidade com a OpenAI. Nesse tutorial, ensinaremos como enviar a primeira requisição usando a compatibilidade com a OpenAI. Depois de instalar o Python e opcionalmente com o ambiente virtual ativado e o pip atualizado, você pode instalar a biblioteca openai. No terminal/linha de comando, execute:
+Nossa API pode ser usada de duas formas: Através da nossa biblioteca, ou através da compatibilidade com a OpenAI. Nesse tutorial, ensinaremos como enviar a primeira requisição usando a compatibilidade com a OpenAI. Depois de instalar o Python e opcionalmente com o ambiente virtual ativado e o pip atualizado, você pode instalar a biblioteca openai. No terminal/linha de comando, execute:
 
 ```bash
 pip install openai
@@ -199,7 +199,7 @@ onde X.XX.X é o número da versão da biblioteca openai que você instalou.
 
 ## Passo 4: Enviando sua primeira solicitação de API
 
-Depois de configurar o Python e configurar uma chave API, o passo final é enviar uma solicitação à API da OpenAI usando a biblioteca Python. Para fazer isso, crie um arquivo chamado maritalk.py usando o terminal ou um IDE.
+Depois de configurar o Python e configurar uma chave API, o passo final é enviar uma solicitação à API da OpenAI usando a biblioteca Python. Para fazer isso, crie um arquivo chamado maritaca.py usando o terminal ou um IDE.
 Dentro do arquivo, copie e cole um dos exemplos abaixo:
 
 ```python
@@ -221,4 +221,4 @@ answer = response.choices[0].message.content
 
 print(f"Resposta: {answer}")   # Deve imprimir algo como "25 + 27 é igual a 52."
 ```
-Para executar o código, digite python maritalk.py no terminal/linha de comando.
+Para executar o código, digite python maritaca.py no terminal/linha de comando.
