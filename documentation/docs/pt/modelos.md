@@ -28,10 +28,7 @@ RPM = Requisições por minuto.
 
 ## Modelos descontinuados
 
-Conforme lançamos modelos mais seguros e avançados, descontinuamos regularmente os modelos antigos. Nossa documentação é continuamente atualizada com essas informações. Nesta página, você encontrará uma lista completa de modelos desativados, além das recomendações de substituição.
-
-Aqui estão os modelos que foram descontinuados:
-
+Conforme lançamos modelos mais seguros e avançados, descontinuamos regularmente os modelos antigos. Na tabela abaixo, você encontrará uma lista completa de modelos descontinuados, além das recomendações de substituição.
 
 | Modelo | Data de encerramento | Substituição Recomendada |
 |-------|--------|-------|
