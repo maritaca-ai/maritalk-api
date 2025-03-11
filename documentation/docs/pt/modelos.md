@@ -11,8 +11,8 @@ A Maritaca AI oferece uma gama de modelos na família Sabiá, projetados para at
 | **Descrição**| Nosso modelo mais avançado, ideal para tarefas complexas que exigem maior assertividade. | Nosso modelo mais econômico, projetado para tarefas mais simples. Ideal para aplicações  que priorizam velocidade e custo. | 
 | **Exemplos de uso**  | Escrever artigos de pesquisa complexos, criar documentos técnicos detalhados, chatbots, gerar código |  Tradução de textos, gerar descrições de produtos, resumos de artigos, criação de respostas para FAQs, ideias de conteúdo para blogs  | 
 | **Contexto Máximo (Tokens)**  | 128000 | 32000 | 
-| **Custo por Milhão de Tokens (Entrada)** | R$ 5 | R$ 1|
-| **Custo por Milhão de Tokens (Saída)**   | R$ 10| R$ 3 | 
+| **Preço por Milhão de Tokens (Entrada)** | R$ 5 | R$ 1|
+| **Preço por Milhão de Tokens (Saída)**   | R$ 10| R$ 3 | 
 | **TPM (Entrada)** | 2 milhões| 2 milhões  | 
 | **TPM (Saída)** | 200 mil| 200 mil|
 | **RPM**        | 1000  | 1000 | 
@@ -36,10 +36,10 @@ Aqui estão os modelos que foram descontinuados:
 | Modelo | Data de encerramento | Substituição Recomendada |
 |-------|--------|-------|
 | sabia-2-medium | 2024-10-01 | sabia-3 |
+| sabia-2-small | 2025-01-15 | sabiazinho-3 |
 | sabia-3-2024-07-15 | 2024-10-01 |sabia-3 |
-|sabia-2-small | 2025-01-15 | sabiazinho-3 |
-
-* O modelo sabia-3-2024-09-09 será descontinuado em 2025-02-15, recomendamos a mudança para o sabia-3
+| sabia-3-2024-09-09 | 2025-02-17 | sabia-3 |
+| sabiazinho-3-2024-11-13	| 2025-03-06 | sabiazinho-3 | 
 
 ## Como saber quantos tokens serei cobrado?
 Para saber de antemão o quanto suas requisições irão custar, use a função count_tokens para saber o número de tokens em um dado prompt.
