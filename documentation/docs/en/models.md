@@ -26,13 +26,11 @@ This table excludes all of our deprecated models.
 
 **The sabia-3-2024-09-09 model will be deprecated on 2025-02-15. We recommended changing to sabia-3.**
 
-## Discontinued Models
+## Deprecated Models
 
-As we release more advanced and secure models, we regularly discontinue older models. Our documentation is continuously updated with this information. On this page, you will find a complete list of discontinued models, along with recommended replacements.
+As we release more advanced and secure models, we regularly discontinue older models. In the table below, you will find a complete list of deprecated models, along with recommended replacements.
 
-Here are the models that have been discontinued:
-
-| Model | Discontinuation Date | Recommended Replacement |
+| Model | Deprecation Date | Recommended Replacement |
 |-------|--------|-------|
 | sabia-2-medium | 2024-10-01 | sabia-3 |
 | sabia-2-small | 2025-01-15 | sabiazinho-3 |
