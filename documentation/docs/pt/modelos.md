@@ -14,7 +14,7 @@ A Maritaca AI oferece uma gama de modelos na família Sabiá, projetados para at
 | **Preço por Milhão de Tokens de Entrada** | R$ 5,00 | R$ 1,00|
 | **Preço por Milhão de Tokens de Saída**   | R$ 10,00| R$ 3,00 | 
 | **Preço Fora de pico (22:00 - 06:00 BRT) por Milhão de Tokens de Entrada**  | R$ 3,50                                                                                               | R$ 0,70                                                                                                      | 
-| **Preço Fora de pico (22:00 - 06:00 BRT)<br>por Milhão de Tokens de Saída** | R$ 7,00                                                                                              | R$ 2,10|
+| **Preço Fora de pico (22:00 - 06:00 BRT) por Milhão de Tokens de Saída** | R$ 7,00                                                                                              | R$ 2,10|
 | **Dados de Treinamento** | Até meados de 2023 | Até meados de 2023 | 
 
 
