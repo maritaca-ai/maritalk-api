@@ -25,7 +25,6 @@ TPM = Tokens por minuto.
 RPM = Requisições por minuto.
 
 
-
 ## Modelos descontinuados
 
 Conforme lançamos modelos mais seguros e avançados, descontinuamos regularmente os modelos antigos. Na tabela abaixo, você encontrará uma lista completa de modelos descontinuados, além das recomendações de substituição.
