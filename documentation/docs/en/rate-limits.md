@@ -38,16 +38,14 @@ As your API usage and spending increase, you are automatically promoted to the n
 
 |Tier|Required Spending|
 |---|---|
-|Free| 0 | 
+|Tier 0| 0 | 
 |Tier 1|Any API Spending|
 |Tier 2|R$100 |
 |Tier 3|R$500|
 |Tier 4|R$2,000|
 |Tier 5|R$5,000|
 
-Select a tier below to view a general summary of rate limits per model:
-
-### Free tier rate limits
+### Tier 0 rate limits
 
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|

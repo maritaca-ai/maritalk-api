@@ -24,8 +24,6 @@ RPM = Requests per minute.
 
 This table excludes all of our deprecated models.
 
-**The sabia-3-2024-09-09 model will be deprecated on 2025-02-15. We recommended changing to sabia-3.**
-
 ## Deprecated Models
 
 As we release more advanced and secure models, we regularly discontinue older models. In the table below, you will find a complete list of deprecated models, along with recommended replacements.
