@@ -18,7 +18,7 @@ Os **Rate Limits** são mecanismos que controlam quantas requisições ou opera�
 ## Como funciona o Rate Limit?
 
 **Limite por usuário (user-level rate limit)**  
-Estabelece quantas requisições cada usuário ou api_key pode fazer dentro de um período específico. Os limites de taxa são medidos de duas maneiras:
+Estabelece quantas requisições cada usuário ou api_key pode fazer dentro de um período específico. Os rate limits são medidos de duas maneiras:
 
 * RPM (Requisições por minuto)
 * TPM (Tokens por minuto)
@@ -33,21 +33,19 @@ Observação:
 
 ## Níveis de uso
 
-Conforme o uso e o gasto na API aumentam, você é automaticamente promovido para o próximo nível. Cada nível oferece limites de taxa mais altos para os modelos.
+Conforme o uso e o gasto na API aumentam, você é automaticamente promovido para o próximo nível. Cada nível oferece rate limits mais altos para os modelos.
 **Observação:** Créditos iniciais e cupons não contam para subir de tier, apenas os gastos na API.
 
 |Tier|Gasto requerido|
 |---|---|
-|Free| 0 | 
+|Tier 0| 0 | 
 |Tier 1|Qualquer gasto com a API|
 |Tier 2|R$100 |
 |Tier 3|R$500|
 |Tier 4|R$2.000|
 |Tier 5|R$5.000|
 
-Selecione um nível abaixo para conferir o resumo geral dos limites de taxa por modelo:
-
-### Free tier rate limits
+### Tier 0 rate limits
 
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
