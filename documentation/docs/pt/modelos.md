@@ -11,18 +11,11 @@ A Maritaca AI oferece uma gama de modelos na família Sabiá, projetados para at
 | **Descrição**| Nosso modelo mais avançado, ideal para tarefas complexas que exigem maior assertividade. | Nosso modelo mais econômico, projetado para tarefas mais simples. Ideal para aplicações  que priorizam velocidade e custo. | 
 | **Exemplos de uso**  | Escrever artigos de pesquisa complexos, criar documentos técnicos detalhados, chatbots, gerar código |  Tradução de textos, gerar descrições de produtos, resumos de artigos, criação de respostas para FAQs, ideias de conteúdo para blogs  | 
 | **Contexto Máximo (Tokens)**  | 128000 | 32000 | 
-| **Preço por Milhão de Tokens (Entrada)** | R$ 5 | R$ 1|
-| **Preço por Milhão de Tokens (Saída)**   | R$ 10| R$ 3 | 
-| **TPM (Entrada)** | 2 milhões| 2 milhões  | 
-| **TPM (Saída)** | 200 mil| 200 mil|
-| **RPM**        | 1000  | 1000 | 
+| **Preço por Milhão de Tokens de Entrada** | R$ 5,00 | R$ 1,00|
+| **Preço por Milhão de Tokens de Saída**   | R$ 10,00| R$ 3,00 | 
+| **Preço Fora de pico (22:00 - 06:00 BRT)</br>por Milhão de Tokens de Entrada**  | R$ 3,50                                                                                               | R$ 0,70                                                                                                      | 
+| **Preço Fora de pico (22:00 - 06:00 BRT)</br>por Milhão de Tokens de Saída** | R$ 7,00                                                                                              | R$ 2,10|
 | **Dados de Treinamento** | Até meados de 2023 | Até meados de 2023 | 
-
-
-
-TPM = Tokens por minuto.
-
-RPM = Requisições por minuto.
 
 
 ## Modelos descontinuados
