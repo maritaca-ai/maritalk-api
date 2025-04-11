@@ -12,8 +12,8 @@ Maritaca AI offers a range of models in the Sabiá family, designed to meet vari
 | **Maximum Context Tokens**         | 128000                                                                                              | 32000                                                              |
 | **Price per Million Input Tokens**  | R$ 5.00                                                                                               | R$ 1.00                                                                                                      | 
 | **Price per Million Output Tokens** | R$ 10.00                                                                                              | R$ 3.00|
-| **Off-peak price (22:00 - 06:00 BRT)</br> per Million Input Tokens**  | R$ 3.50                                                                                               | R$ 0.70                                                                                                      | 
-| **Off-peak price (22:00 - 06:00 BRT)</br> per Million Output Tokens** | R$ 7.00                                                                                              | R$ 2.10|
+| **Off-peak price (22:00 - 06:00 BRT)<br> per Million Input Tokens**  | R$ 3.50                                                                                               | R$ 0.70                                                                                                      | 
+| **Off-peak price (22:00 - 06:00 BRT)<br> per Million Output Tokens** | R$ 7.00                                                                                              | R$ 2.10|
 | **Training Data**                    | Up to mid 2023                                                                                     | Up to mid 2023                                                                                            | Up to mid 2023                                                                                     |
 
 ## Deprecated Models
