@@ -17,6 +17,7 @@ module.exports = {
             'pt/structured-outputs',
             'pt/embeddings+Sabia-3+RAG',
             'pt/rate-limits',
+            'pt/batch-api',
             {
               type: 'category',
               label: 'Biblioteca',
@@ -56,6 +57,7 @@ module.exports = {
             'en/structured-outputs',
             'en/embeddings+Sabia-3+RAG',
             'en/rate-limits',
+            'en/batch-api',
             {
               type: 'category',
               label: 'Library',
