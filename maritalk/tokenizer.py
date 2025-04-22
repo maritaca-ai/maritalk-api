@@ -1,5 +1,6 @@
 import base64
 import tiktoken
+import unicodedata
 from typing import Union, List
 from transformers import AutoTokenizer, PreTrainedTokenizerFast
 from .tokenizer_model import data as tokenizer_data
@@ -72,8 +73,9 @@ def count_tokens(
 
     if model.startswith("sabia-3") or model.startswith("sabiazinho-3"):
         encoder = _get_encoder()
-        encode = encoder.encode
-        encode_batch = encoder.encode_batch
+        _norm = lambda text: unicodedata.normalize("NFC", text)
+        encode = lambda text: encoder.encode(_norm(text))
+        encode_batch = lambda texts: encoder.encode_batch([_norm(t) for t in texts])
     elif model.startswith("sabia-2-small"):
         tokenizer = _get_tokenizer("small")
         encode = tokenizer.encode
