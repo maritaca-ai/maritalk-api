@@ -5,16 +5,18 @@ title: Models
 
 # Models
 Maritaca AI offers a range of models in the Sabiá family, designed to meet various needs and usage scenarios. Each model is adjusted to provide an optimal balance between intelligence, speed, and cost, allowing you to choose the option that best aligns with the requirements of your project.
-| **Field**                            | **Sabiá 3** 🥇                                                                                       | **Sabiazinho 3** ⚡                                                                                      | 
-|--------------------------------------|-----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| **Description**                      | Our most advanced model, ideal for complex tasks that require higher accuracy.                      | Our more economical model, designed for simpler tasks. Ideal for applications where speed and cost are priorities. | 
-| **Examples of Use**                  | Writing complex research articles, creating detailed technical documents, chatbots, code generation | Translating texts, generating product descriptions, article summaries, creating responses for FAQs, content ideas for blogs | 
-| **Maximum Context Tokens**         | 128000                                                                                              | 32000                                                              |
-| **Price per Million Input Tokens**  | R$ 5.00                                                                                               | R$ 1.00                                                                                                      | 
-| **Price per Million Output Tokens** | R$ 10.00                                                                                              | R$ 3.00|
-| **Off-peak price (22:00 - 06:00 BRT) per Million Input Tokens**  | R$ 3.50                                                                                               | R$ 0.70                                                                                                      | 
-| **Off-peak price (22:00 - 06:00 BRT) per Million Output Tokens** | R$ 7.00                                                                                              | R$ 2.10|
-| **Training Data**                    | Up to mid 2023                                                                                     | Up to mid 2023                                                                                            | Up to mid 2023                                                                                     |
+
+| **Field**| **Sabiá 3.1** 🥇 |  **Sabiá 3** ⚖️ | **Sabiazinho 3** ⚡ |
+| -------- | --------------- | ---------- | --------------------- |
+| **Description**   | Our most advanced and up-to-date model (trained with data through August 2024). Delivers superior performance in mathematical reasoning, code generation/refactoring, and any task that relies on the latest knowledge. | A strong all-round model, well-suited to most workloads and ideal for complex tasks that demand high accuracy. | Our most economical model, designed for straightforward tasks. Perfect for applications where speed and cost are top priorities. |
+| **Example use cases**      | Refactoring and optimizing legacy code in multiple languages, synthesizing clinical-research reports and AI legal assistant for complex contract reviews | Writing complex research articles, producing detailed technical documents, building chatbots, and generating code  | Translating text, creating product descriptions, summarizing articles, drafting FAQ answers, and brainstorming blog-content ideas    |
+| **Maximum context (tokens)**  | 128000  | 128000 | 32000|
+| **Price per million input tokens** | R$ 5.00 | R$ 5.00 | R$ 1.00|
+| **Price per million output tokens** | R$ 10.00 | R$ 10.00 | R$ 3.00 |
+| **Off-peak price (10 p.m.– 6 a.m. BRT) per million input tokens**  | R$ 3.50| R$ 3.50| R$ 0.70|
+| **Off-peak price (10 p.m.– 6 a.m. BRT) per million output tokens** | R$ 7.00| R$ 7.00 | R$ 2.10 |
+| **Training data cutoff**                                          | Up to Aug 2024 | Up to mid-2023 | Up to mid-2023 |
+
 
 ## Deprecated Models
 
