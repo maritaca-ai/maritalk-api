@@ -50,6 +50,7 @@ As your API usage and spending increase, you are automatically promoted to the n
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
 |sabia-3|60|128,000|10,000|
+|sabia-3.1|60|128,000|10,000|
 |sabiazinho-3|60|128,000|10,000|
 
 ### Tier 1 rate limits
@@ -57,6 +58,7 @@ As your API usage and spending increase, you are automatically promoted to the n
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
 |sabia-3|1,000|2M|200,000|
+|sabia-3.1|1,000|2M|200,000|
 |sabiazinho-3|1,000|2M|200,000|
 
 ### Tier 2 rate limits
@@ -64,6 +66,7 @@ As your API usage and spending increase, you are automatically promoted to the n
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
 |sabia-3|1,500|4M|350,000|
+|sabia-3.1|1,500|4M|350,000|
 |sabiazinho-3|2,000|4M|400,000|
 
 
@@ -72,6 +75,7 @@ As your API usage and spending increase, you are automatically promoted to the n
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
 |sabia-3|2000|6M|500,000|
+|sabia-3.1|2000|6M|500,000|
 |sabiazinho-3|5000|20M|800,000|
 
 ### Tier 4 rate limits
@@ -79,6 +83,7 @@ As your API usage and spending increase, you are automatically promoted to the n
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
 |sabia-3|5,000|10M|1M|
+|sabia-3.1|5,000|10M|1M|
 |sabiazinho-3|10,000|50M|2M|
 
 
@@ -87,5 +92,6 @@ As your API usage and spending increase, you are automatically promoted to the n
 |Model|RPM|TPM Input|TPM Output|
 |---|---|---|---|
 |sabia-3|10,000|20M|2M|
+|sabia-3.1|10,000|20M|2M|
 |sabiazinho-3|30,000|100M|10M|
 
