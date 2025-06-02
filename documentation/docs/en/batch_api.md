@@ -133,7 +133,7 @@ Each Batch object can have one of the following status:
 |finalizing | 	The batch has finished running, and its results are now being prepared. |
 |completed | The batch has finished running, and the results are ready. |
 |expired | The batch did not complete within the 24-hour window and has expired. |
-|canceling | A request has been made to cancel the batch, this can take up to 10 minutes to finalize. |
+|cancelling | A request has been made to cancel the batch, this can take up to 10 minutes to finalize. |
 |cancelled | The batch was canceled and will not continue processing.|
 
 ### 5. Obtaining the Batch Results

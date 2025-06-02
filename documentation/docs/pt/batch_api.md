@@ -144,7 +144,7 @@ Cada objeto Batch pode ter um dos seguintes status:
 |finalizing | O lote foi concluído e os resultados estão sendo preparados. |
 |completed | O lote foi concluído e os resultados estão prontos. |
 |expired | O lote não foi concluído dentro da janela de 24 horas e expirou. |
-|canceling | O lote está sendo cancelado, podendo levar até 10 minutos para finalizar. |
+|cancelling | O lote está sendo cancelado, podendo levar até 10 minutos para finalizar. |
 |cancelled | O lote foi cancelado e não continuará sendo processado. |
 
 ### 5. Obtendo os resultados do lote
