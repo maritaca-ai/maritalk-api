@@ -11,10 +11,12 @@ Maritaca AI offers a range of models in the Sabiá family, designed to meet vari
 | **Description**   | Our most advanced and up-to-date model (trained with data through August 2024). Delivers superior performance in mathematical reasoning, code generation/refactoring, and any task that relies on the latest knowledge. | A strong all-round model, well-suited to most workloads and ideal for complex tasks that demand high accuracy. | Our most economical model, designed for straightforward tasks. Perfect for applications where speed and cost are top priorities. |
 | **Example use cases**      | Refactoring and optimizing legacy code in multiple languages, synthesizing clinical-research reports and AI legal assistant for complex contract reviews | Writing complex research articles, producing detailed technical documents, building chatbots, and generating code  | Translating text, creating product descriptions, summarizing articles, drafting FAQ answers, and brainstorming blog-content ideas    |
 | **Maximum context (tokens)**  | 128000  | 128000 | 32000|
-| **Price per million input tokens** | R$ 5.00 | R$ 5.00 | R$ 1.00|
-| **Price per million output tokens** | R$ 10.00 | R$ 10.00 | R$ 3.00 |
-| **Off-peak price (10 p.m.– 6 a.m. BRT) per million input tokens**  | R$ 3.50| R$ 3.50| R$ 0.70|
-| **Off-peak price (10 p.m.– 6 a.m. BRT) per million output tokens** | R$ 7.00| R$ 7.00 | R$ 2.10 |
+| **Price per million input tokens** | R$5.00 | R$5.00 | R$1.00|
+| **Price per million output tokens** | R$10.00 | R$10.00 | R$3.00 |
+| **Off-peak price (10 p.m.– 6 a.m. BRT) per million input tokens**  | R$3.50| R$3.50| R$0.70|
+| **Off-peak price (10 p.m.– 6 a.m. BRT) per million output tokens** | R$7.00| R$7.00 | R$2.10 |
+| **Batch API price per million input tokens**  | R$2.50| R$2.50| R$0.50|
+| **Batch API price per million output tokens** | R$5.00| R$5.00 | R$1.50 |
 | **Training data cutoff**                                          | Up to Aug 2024 | Up to mid-2023 | Up to mid-2023 |
 
 
