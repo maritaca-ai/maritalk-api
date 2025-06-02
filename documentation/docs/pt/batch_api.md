@@ -4,7 +4,9 @@ title: Batch API
 ---
 
 # O que é?
-A Batch API é uma opção eficiente para enviar grupos de solicitações assíncronas, oferecendo redução de custos de até 50%. Nessa modalidade, os limites de taxa são consideravelmente maiores, pois são calculados com base em tokens por dia e apenas os tokens de entrada são contabilizados. Além disso, há um prazo de até 24 horas para a conclusão das requisições, o que torna o serviço especialmente indicado para processos que não exigem respostas imediatas e para reduzir os custos operacionais.
+A Batch API é uma opção eficiente para enviar grupos de solicitações assíncronas, oferecendo redução de custos de até 50%. Nessa modalidade, os limites de taxa são calculados com base em caracteres por dia, embora a cobrança continue sendo feita por tokens. Para os tiers 1, 2, 3, 4 e 5, o limite diário é de 1,2 bilhões de caracteres (aproximadamente 300M de tokens), enquanto para o tier 0 o limite é de 4 milhões de caracteres (aproximadamente 1M de tokens) por dia. Apenas os tokens de entrada são contabilizados para fins de rate limit.
+
+Além disso, há um prazo de até 24 horas para a conclusão das requisições, o que torna o serviço especialmente indicado para processos que não exigem respostas imediatas e para reduzir os custos operacionais. Como as requisições podem levar até 24 horas para serem processadas e os lotes expiram se não forem concluídos dentro desse prazo, a Batch API não é indicada para cenários críticos, nos quais há risco de falha na execução devido à expiração.
 
 O processamento em lote costuma ser útil em casos como:
 
@@ -38,7 +40,7 @@ Para cada lote use um único arquivo .jsonl: cada linha corresponde a uma solici
 *Observação*: cada arquivo só pode conter solicitações para um único modelo.
 ```json
 {"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "sabia-3", "messages": [{"role": "system", "content": "Você é um assistente útil"},{"role": "user", "content": "Olá mundo!"}],"max_tokens": 100}}
-{"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions","body": {"model": "sabia-3", "messages": [{"role": "system", "content": "You are a helpful assis"},{"role": "user", "content": "Olá mundo!"}],"max_tokens": 100}}
+{"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions","body": {"model": "sabia-3", "messages": [{"role": "system", "content": "Você é um assistente útil"},{"role": "user", "content": "Olá mundo!"}],"max_tokens": 100}}
 ```
 
 ### 2. Enviando o arquivo de entrada para o lote

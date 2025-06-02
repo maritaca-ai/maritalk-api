@@ -4,7 +4,9 @@ title: Batch API
 ---
 
 # What is it?
-The Batch API is an efficient option for sending groups of asynchronous requests, offering up to 50% cost savings. In this mode, rate limits are significantly higher because they are calculated based on daily tokens, and only the input tokens are counted. In addition, there is a period of up to 24 hours for requests to be completed, making this service especially suited for processes that do not require immediate responses and for reducing operational costs.
+The Batch API is an efficient option for sending batches of asynchronous requests, offering cost reductions of up to 50%. In this mode, rate limits are calculated by characters per day, even though billing still occurs per token. For tiers 1 through 5, the daily limit is 1.2 billion characters (roughly 300 million tokens), while for Tier 0 the limit is 4 million characters (about 1 million tokens) per day. Only input tokens count toward the rate limit.
+
+Additionally, requests may take up to 24 hours to complete, making the service particularly suitable for workloads that do not require immediate responses and that aim to reduce operational costs. Because requests can take up to 24 hours to process and batches expire if they are not finished within that window, the Batch API is not recommended for critical scenarios where execution failure due to expiration would be unacceptable.
 
 Batch processing is often useful in cases such as:
 
@@ -39,7 +41,7 @@ For each batch, use a single `.jsonl` file: each line corresponds to one API req
 
 ```json
 {"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "sabia-3", "messages": [{"role": "system", "content": "Você é um assistente útil"},{"role": "user", "content": "Olá mundo!"}],"max_tokens": 100}}
-{"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions","body": {"model": "sabia-3", "messages": [{"role": "system", "content": "You are a helpful assis"},{"role": "user", "content": "Olá mundo!"}],"max_tokens": 100}}
+{"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions","body": {"model": "sabia-3", "messages": [{"role": "system", "content": "Você é um assistente útil"},{"role": "user", "content": "Olá mundo!"}],"max_tokens": 100}}
 ```
 
 ### 2. Uploading the Batch Input File
