@@ -19,7 +19,19 @@ A Batch API é composta por um conjunto de endpoints que permitem:
 2. Consultar status do lote (GET /batches/\{id\}/status): Retorna o andamento do processamento, informando se ainda está em execução ou se já foi finalizado.
 3. Recuperar resultados (GET /batches/\{id\}/results): Fornece as respostas de cada solicitação do lote assim que o processamento é concluído.
 
-## Passo a passo
+# Como usar
+Você pode trabalhar com a Batch API de duas maneiras: pela interface visual ou programaticamente, via código.
+
+## Interface visual
+1. Na interface web, o fluxo para enviar seu arquivo .jsonl começa pelo menu lateral: selecione a opção Arquivos; em seguida, no canto superior-direito da tela, clique no botão + Upload. Será exibida uma janela modal onde você deve arrastar ou escolher o arquivo a partir do seu computador — basta soltar o .jsonl na área tracejada que aparece no centro do diálogo. Depois de selecionar o arquivo, pressione Upload para iniciar o envio. Quando o upload terminar, o documento aparecerá na lista de arquivos com o status processed e receberá um file_id; é esse identificador que você utilizará para criar o batch na etapa seguinte.
+<img src="/img/Batch0.png" alt="Sabia" style={{ width: '100rem', height: 'auto', marginRight: '15px' }} />
+
+2. Para criar o lote na interface web, abra o menu lateral e selecione Batch API; a listagem de lotes é exibida no painel principal. No canto superior-direito clique em + Criar para abrir o diálogo Criar Batch. Nesse modal basta colar o File ID gerado na etapa anterior (o arquivo deve ter até 200 MB ou 50 mil requisições) e, em seguida, pressionar Criar Batch. O sistema passa a validar o arquivo e, assim que a execução se inicia, o novo lote aparece na lista com o respectivo identificador e o progresso em tempo real.
+<img src="/img/Batch1.png" alt="Sabia" style={{ width: '100rem', height: 'auto', marginRight: '15px' }} />
+
+
+## Uso via código
+
 ### 1. Preparando seu arquivo de lote
 
 Para cada lote use um único arquivo .jsonl: cada linha corresponde a uma solicitação da API (mesmos parâmetros do endpoint). Inclua em cada requisição um custom_id exclusivo para localizar o resultado depois. Exemplo (duas solicitações):
@@ -185,7 +197,7 @@ client = openai.OpenAI(
 client.batches.list(limit=10)
 ```
 
-### Entendendo a expiração de lotes
+#### Entendendo a expiração de lotes
 
 Se um lote não for concluído dentro do tempo previsto, ele passará para o estado expired. Quaisquer requisições incompletas serão canceladas, enquanto as requisições concluídas continuam disponíveis por meio do arquivo de saída do lote. Você ainda será cobrado pelos tokens consumidos nas requisições que foram concluídas com sucesso.
 
