@@ -24,7 +24,7 @@ The Batch API consists of a set of endpoints that allow you to:
 You can work with the Batch API in two ways: through the visual interface or programmatically (code).
 
 ## Visual interface
-1. In the web interface, the process for uploading your .jsonl file starts in the side-menu: select Files and, in the upper-right corner of the page, click + Upload. A modal window opens where you can drag-and-drop or browse for the file on your computer—just drop the .jsonl into the dashed area in the centre of the dialog. After selecting the file, press Upload to start the transfer. When the upload finishes, the document appears in the file list with the status processed and receives a file_id; you’ll use this identifier to create the batch in the next step.
+1. In the web interface, the process for uploading your .jsonl file starts in the side-menu: select Files and, in the upper-right corner of the page, click + Upload. A modal window opens where you can drag-and-drop or browse for the file on your computer—just drop the .jsonl into the dashed area in the centre of the dialog. After selecting the file, press Upload to start the transfer. When the upload finishes, the document appears in the file list with the status processed and receives a file_id; you’ll use this identifier to create the batch in the next step. Each file can be at most 200 MB and contain up to 50,000 requests.
 <img src="/img/Batch0.png" alt="Sabia" style={{ width: '100rem', height: 'auto', marginRight: '15px' }} />
 
 2. To create the batch in the web interface, open the side-menu and select Batch API; the batch list is shown in the main panel. In the upper-right corner, click + Create to open the Create Batch dialog. Simply paste the File ID generated in the previous step (the file must be under 200 MB or 50,000 requests) and then press Create Batch. The system validates the file and, once execution begins, the new batch appears in the list with its identifier and real-time progress.
@@ -35,7 +35,7 @@ You can work with the Batch API in two ways: through the visual interface or pro
 
 ### 1. Setting Up Your Batch File
 
-For each batch, use a single `.jsonl` file: each line corresponds to one API request (the same parameters as the endpoint). Include a unique `custom_id` in each request to locate the result later. Example (two requests):
+For each batch, use a single `.jsonl` file: each line corresponds to one API request (the same parameters as the endpoint). Include a unique `custom_id` in each request to locate the result later. Each file can be at most 200 MB and contain up to 50,000 requests. Example (two requests):
 
 *Note:* Each file can only contain requests for a single model.
 
