@@ -15,6 +15,8 @@ Maritaca AI offers a range of models in the Sabiá family, designed to meet vari
 | **Price per million output tokens** | R$ 10.00 | R$ 10.00 | R$ 3.00 |
 | **Off-peak price (10 p.m.– 6 a.m. BRT) per million input tokens**  | R$ 3.50| R$ 3.50| R$ 0.70|
 | **Off-peak price (10 p.m.– 6 a.m. BRT) per million output tokens** | R$ 7.00| R$ 7.00 | R$ 2.10 |
+| **Batch API price per million input tokens**  | R$ 2.50| R$ 2.50| R$ 0.50|
+| **Batch API price per million output tokens** | R$ 5.00| R$ 5.00 | R$ 1.50 |
 | **Training data cutoff**                                          | Up to Aug 2024 | Up to mid-2023 | Up to mid-2023 |
 
 
