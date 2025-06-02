@@ -25,7 +25,7 @@ A Batch API é composta por um conjunto de endpoints que permitem:
 Você pode trabalhar com a Batch API de duas maneiras: pela interface visual ou programaticamente, via código.
 
 ## Interface visual
-1. Na interface web, o fluxo para enviar seu arquivo .jsonl começa pelo menu lateral: selecione a opção Arquivos; em seguida, no canto superior-direito da tela, clique no botão + Upload. Será exibida uma janela modal onde você deve arrastar ou escolher o arquivo a partir do seu computador — basta soltar o .jsonl na área tracejada que aparece no centro do diálogo. Depois de selecionar o arquivo, pressione Upload para iniciar o envio. Quando o upload terminar, o documento aparecerá na lista de arquivos com o status processed e receberá um file_id; é esse identificador que você utilizará para criar o batch na etapa seguinte. Cada arquivo pode ter no maximo 200MB e até 50k requests.
+1. Na interface web, o fluxo para enviar seu arquivo .jsonl começa pelo menu lateral: selecione a opção Arquivos; em seguida, no canto superior-direito da tela, clique no botão + Upload. Será exibida uma janela modal onde você deve arrastar ou escolher o arquivo a partir do seu computador — basta soltar o .jsonl na área tracejada que aparece no centro do diálogo. Depois de selecionar o arquivo, pressione Upload para iniciar o envio. Quando o upload terminar, o documento aparecerá na lista de arquivos com o status processed e receberá um file_id; é esse identificador que você utilizará para criar o batch na etapa seguinte. Cada arquivo pode ter no máximo 200MB e até 50k requisições.
 
 <img src="/img/Batch0.png" alt="Sabia" style={{ width: '100rem', height: 'auto', marginRight: '15px' }} />
 
@@ -37,7 +37,7 @@ Você pode trabalhar com a Batch API de duas maneiras: pela interface visual ou 
 
 ### 1. Preparando seu arquivo de lote
 
-Para cada lote use um único arquivo .jsonl: cada linha corresponde a uma solicitação da API (mesmos parâmetros do endpoint). Inclua em cada requisição um custom_id exclusivo para localizar o resultado depois. Cada arquivo pode ter no maximo 200MB e até 50k requests. Exemplo (duas solicitações):
+Para cada lote use um único arquivo .jsonl: cada linha corresponde a uma solicitação da API (mesmos parâmetros do endpoint). Inclua em cada requisição um custom_id exclusivo para localizar o resultado depois. Cada arquivo pode ter no máximo 200MB e até 50k requisições. Exemplo (duas solicitações):
 *Observação*: cada arquivo só pode conter solicitações para um único modelo.
 ```json
 {"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "sabia-3", "messages": [{"role": "system", "content": "Você é um assistente útil"},{"role": "user", "content": "Olá mundo!"}],"max_tokens": 100}}
