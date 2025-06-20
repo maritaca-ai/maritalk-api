@@ -20,6 +20,14 @@ module.exports = {
                       'pt/list-models-response',
                     ],
                 },
+                {
+                    type: 'category',
+                    label: 'Endpoints Batch API',
+                    items: [
+                        'pt/batch-api',
+                        'pt/batch-api-response',
+                    ],
+                },
             ],
         },
     ],
@@ -42,6 +50,14 @@ module.exports = {
                     items: [
                       'en/list-models',
                       'en/list-models-response',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Endpoints Batch API',
+                    items: [
+                        'en/batch-api',
+                        'en/batch-api-response',
                     ],
                 },
             ],
