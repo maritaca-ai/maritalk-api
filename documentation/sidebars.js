@@ -36,6 +36,7 @@ module.exports = {
       items: [
         'pt/glossario',
         'pt/status',
+        'pt/system',
       ],
     },
   ],
@@ -76,6 +77,7 @@ module.exports = {
       items: [
         'en/glossary',
         'en/status',
+        'en/system',
       ],
     },
   ],
