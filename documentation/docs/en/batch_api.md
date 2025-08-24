@@ -40,8 +40,8 @@ For each batch, use a single `.jsonl` file: each line corresponds to one API req
 *Note:* Each file can only contain requests for a single model.
 
 ```json
-{"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "sabia-3", "messages": [{"role": "system", "content": "Você é um assistente útil"},{"role": "user", "content": "Olá mundo!"}],"max_tokens": 100}}
-{"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions","body": {"model": "sabia-3", "messages": [{"role": "system", "content": "Você é um assistente útil"},{"role": "user", "content": "Olá mundo!"}],"max_tokens": 100}}
+{"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "sabia-3.1", "messages": [{"role": "system", "content": "Você é um assistente útil"},{"role": "user", "content": "Escreva um lindo poema sobre a Serra do Mar"}],"max_tokens": 1000}}
+{"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions","body": {"model": "sabia-3.1", "messages": [{"role": "system", "content": "Você é um assistente útil"},{"role": "user", "content": "O Brasil tem vulcão?"}],"max_tokens": 200}}
 ```
 
 ### 2. Uploading the Batch Input File
