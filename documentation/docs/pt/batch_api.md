@@ -38,10 +38,10 @@ Você pode trabalhar com a Batch API de duas maneiras: pela interface visual ou 
 ### 1. Preparando seu arquivo de lote
 
 Para cada lote use um único arquivo .jsonl: cada linha corresponde a uma solicitação da API (mesmos parâmetros do endpoint). Inclua em cada requisição um custom_id exclusivo para localizar o resultado depois. Cada arquivo pode ter no máximo 200MB e até 50k requisições. Exemplo (duas solicitações):
-*Observação*: cada arquivo só pode conter solicitações para um único modelo.
+*Observação*: cada arquivo só pode conter solicitações para um único modelo. Por exemplo, não é possivel ter solicitações para o sabia-3.1 e sabiazinho-3 em um mesmo arquivo.
 ```json
-{"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "sabia-3", "messages": [{"role": "system", "content": "Você é um assistente útil"},{"role": "user", "content": "Olá mundo!"}],"max_tokens": 100}}
-{"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions","body": {"model": "sabia-3", "messages": [{"role": "system", "content": "Você é um assistente útil"},{"role": "user", "content": "Olá mundo!"}],"max_tokens": 100}}
+{"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "sabia-3.1", "messages": [{"role": "system", "content": "Você é um assistente útil"},{"role": "user", "content": "Escreva um lindo poema sobre a Serra do Mar"}],"max_tokens": 1000}}
+{"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions","body": {"model": "sabia-3.1", "messages": [{"role": "system", "content": "Você é um assistente útil"},{"role": "user", "content": "O Brasil tem vulcão?"}],"max_tokens": 200}}
 ```
 
 ### 2. Enviando o arquivo de entrada para o lote
