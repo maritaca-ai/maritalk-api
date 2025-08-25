@@ -18,7 +18,7 @@ A Maritaca AI oferece uma gama de modelos na família Sabiá, projetados para at
 | **Preço Batch API por Milhão de Tokens de Entrada**  |R$2,50| R$2,50  | R$0,50 | 
 | **Preço Batch API por Milhão de Tokens de Saída** | R$5,00 | R$5,00 | R$1,50|
 | **Dados de Treinamento** | Até agosto de 2024 |Até meados de 2023 | Até meados de 2023 | 
-| **Nomes aceitos** | sabia-3.1</br>sabiá-3.1</br>sabia-3.1-2025-05-08</br>sabiá-3.1-2025-05-08 | sabia-3</br>sabiá-3</br>sabia-3-2024-12-11</br>sabiá-3-2024-12-11 | sabiazinho-3</br>sabiazinho-3-2025-02-06</br>sabia-3-small</br>sabiazim-3 |
+| **Nomes aceitos (Alias)** | sabia-3.1</br>sabiá-3.1</br>sabia-3.1-2025-05-08</br>sabiá-3.1-2025-05-08 | sabia-3</br>sabiá-3</br>sabia-3-2024-12-11</br>sabiá-3-2024-12-11 | sabiazinho-3</br>sabiazinho-3-2025-02-06</br>sabia-3-small</br>sabiazim-3 |
 
 
 ## Modelos descontinuados
