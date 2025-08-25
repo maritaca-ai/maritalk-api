@@ -37,11 +37,11 @@ You can work with the Batch API in two ways: through the visual interface or pro
 
 For each batch, use a single `.jsonl` file: each line corresponds to one API request (the same parameters as the endpoint). Include a unique `custom_id` in each request to locate the result later. Each file can be at most 200 MB and contain up to 50,000 requests. Example (two requests):
 
-*Note:* Each file can only contain requests for a single model.
+*Note:* Each file can only contain requests for a single model.  For example, it is not possible to have requests for sabia-3.1 and sabiazinho-3 in the same file.
 
 ```json
-{"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "sabia-3", "messages": [{"role": "system", "content": "Você é um assistente útil"},{"role": "user", "content": "Olá mundo!"}],"max_tokens": 100}}
-{"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions","body": {"model": "sabia-3", "messages": [{"role": "system", "content": "Você é um assistente útil"},{"role": "user", "content": "Olá mundo!"}],"max_tokens": 100}}
+{"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "sabia-3.1", "messages": [{"role": "user", "content": "Escreva um lindo poema sobre a Serra do Mar"}],"max_tokens": 1000}}
+{"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions","body": {"model": "sabia-3.1", "messages": [{"role": "user", "content": "O Brasil tem vulcão?"}],"max_tokens": 200}}
 ```
 
 ### 2. Uploading the Batch Input File
