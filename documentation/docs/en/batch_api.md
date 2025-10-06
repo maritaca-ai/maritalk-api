@@ -3,6 +3,17 @@ id: batch-api
 title: Batch API
 ---
 
+# Explainer video
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/_olpSI9ZGK8"
+  title="Explicação de como usar a Batch API"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
+
 # What is it?
 The Batch API is an efficient option for sending batches of asynchronous requests, offering cost reductions of up to 50%. In this mode, rate limits are calculated by characters per day, even though billing still occurs per token. For tiers 1 through 5, the daily limit is 1.2 billion characters (roughly 300 million tokens), while for Tier 0 the limit is 4 million characters (about 1 million tokens) per day. Only input tokens count toward the rate limit.
 

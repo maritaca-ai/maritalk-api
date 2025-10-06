@@ -3,6 +3,17 @@ id: batch-api
 title: Batch API
 ---
 
+# Vídeo explicativo
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/_olpSI9ZGK8"
+  title="Explicação de como usar a Batch API"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
+
 # O que é?
 A Batch API é uma opção eficiente para enviar grupos de solicitações assíncronas, oferecendo redução de custos de até 50%. Nessa modalidade, os limites de taxa são calculados com base em caracteres por dia, embora a cobrança continue sendo feita por tokens. Para os tiers 1, 2, 3, 4 e 5, o limite diário é de 1,2 bilhões de caracteres (aproximadamente 300M de tokens), enquanto para o tier 0 o limite é de 4 milhões de caracteres (aproximadamente 1M de tokens) por dia. Apenas os tokens de entrada são contabilizados para fins de rate limit.
 
@@ -210,5 +221,8 @@ As requisições que expirarem serão adicionadas ao seu arquivo de erro com uma
 {"id": "batch_req_1", "custom_id": "request-1", "response": null, "error": {"code": "batch_expired", "message": "This request could not be executed before the completion window expired."}}
 {"id": "batch_req_1", "custom_id": "request-2", "response": null, "error": {"code": "batch_expired", "message": "This request could not be executed before the completion window expired."}}
 ```
+
+
+
 
 

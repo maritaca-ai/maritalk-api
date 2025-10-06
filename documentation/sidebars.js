@@ -20,6 +20,16 @@ module.exports = {
             'pt/batch-api',
             {
               type: 'category',
+              label: 'Exemplos',
+              items: [
+                'pt/examples/langchain',
+                'pt/examples/langgraph',
+                'pt/examples/llama-index',
+                'pt/examples/csharp-js',
+              ],
+            },
+            {
+              type: 'category',
               label: 'Biblioteca',
               items: [
                 'pt/biblioteca',
@@ -60,6 +70,16 @@ module.exports = {
             'en/embeddings+Sabia-3+RAG',
             'en/rate-limits',
             'en/batch-api',
+            {
+              type: 'category',
+              label: 'Examples',
+              items: [
+                'en/examples/langchain',
+                'en/examples/langgraph',
+                'en/examples/llama-index',
+                'en/examples/csharp-js',
+              ],
+            },
             {
               type: 'category',
               label: 'Library',
