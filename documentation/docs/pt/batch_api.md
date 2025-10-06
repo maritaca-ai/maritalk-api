@@ -8,7 +8,7 @@ title: Batch API
   width="560"
   height="315"
   src="https://www.youtube.com/embed/_olpSI9ZGK8"
-  title="Explicação de como usar a batch"
+  title="Explicação de como usar a Batch API"
   frameBorder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowFullScreen
