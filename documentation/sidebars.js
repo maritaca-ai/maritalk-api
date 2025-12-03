@@ -18,6 +18,7 @@ module.exports = {
             'pt/embeddings+Sabia-3+RAG',
             'pt/rate-limits',
             'pt/batch-api',
+            'pt/files',
             {
               type: 'category',
               label: 'Exemplos',
@@ -70,6 +71,7 @@ module.exports = {
             'en/embeddings+Sabia-3+RAG',
             'en/rate-limits',
             'en/batch-api',
+            'en/files',
             {
               type: 'category',
               label: 'Examples',
