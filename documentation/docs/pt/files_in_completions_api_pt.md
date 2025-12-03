@@ -65,6 +65,7 @@ Atualmente, suportamos os seguintes tipos de arquivo:
 * **CSV**
 * **XML**
 * **XLSX**
+* **MD**
 
 ---
 
