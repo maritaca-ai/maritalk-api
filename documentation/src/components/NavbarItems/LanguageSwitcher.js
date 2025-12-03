@@ -17,6 +17,7 @@ const pathMap = {
   '/pt/casos-de-uso': '/en/use-cases',
   '/pt/glossario': '/en/glossary',
   '/pt/status': '/en/status',
+  '/pt/files': '/en/files',
   '/pt/deletar-conta': '/en/delete-account',
   '/api/pt/completion': '/api/en/completion',
   '/api/pt/completion-response': '/api/en/completion-response',
