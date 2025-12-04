@@ -109,8 +109,8 @@ print(usage)
 #     prompt_tokens=45,
 #     total_tokens=212,
 #     extraction_details={
-#         "medium_pdf_pages_extracted": 1,
-#         "advanced_pdf_pages_extracted": 0,
+#         "medium_effort_pages_extracted": 1,
+#         "advanced_effort_pages_extracted": 0,
 #     },
 # )
 ```
