@@ -80,7 +80,6 @@ If not specified, the default extraction level is **`medium`**.
 
 | Level      | Description                                                            | Cost per page of PDF   |
 | ---------- | ---------------------------------------------------------------------- | ---------------------- |
-| `basic`    | Lowest-effort extraction. Limited handling of images/tables.           | Free                   |
 | `medium`   | Balanced extraction. Works best for most PDFs.                         | R$ 0,02                |
 | `advanced` | Highest-quality extraction for complex layouts, formulas, or diagrams. | R$ 0,045               |
 
@@ -93,7 +92,7 @@ response = client.chat.completions.create(
     model="sabia-3.1",
     messages=messages,
     extra_body={
-        "extraction_effort": "basic"
+        "extraction_effort": "medium"
     },
 )
 ```
@@ -197,7 +196,7 @@ r = client.chat.completions.create(
     messages=messages,
     max_tokens=30,
     extra_body={
-        "extraction_effort": "basic",
+        "extraction_effort": "medium",
     },
 )
 
