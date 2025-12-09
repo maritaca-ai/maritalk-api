@@ -80,7 +80,6 @@ Se não for especificado, o nível padrão é **`medium`**.
 
 | Nível      | Descrição                                                     | Custo por página do PDF  |
 | ---------- | ------------------------------------------------------------- | ------------------------ |
-| `basic`    | Extração simples; não lida bem com imagens e tabelas.         | Gratuito                 |
 | `medium`   | Extração intermediária; ideal para a maioria dos PDFs.        | R$ 0,02                  |
 | `advanced` | Extração avançada; melhor para PDFs complexos e com fórmulas. | R$ 0,045                 |
 
@@ -93,7 +92,7 @@ response = client.chat.completions.create(
     model="sabia-3.1",
     messages=messages,
     extra_body={
-        "extraction_effort": "basic"
+        "extraction_effort": "medium"
     },
 )
 ```
@@ -196,7 +195,7 @@ r = client.chat.completions.create(
     messages=messages,
     max_tokens=30,
     extra_body={
-        "extraction_effort": "basic",
+        "extraction_effort": "medium",
     },
 )
 
