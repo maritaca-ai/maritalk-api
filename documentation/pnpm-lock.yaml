@@ -13,7 +13,7 @@ importers:
         version: 3.5.1(@docusaurus/types@3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
       '@docusaurus/preset-classic':
         specifier: 3.5.1
-        version: 3.5.1(@algolia/client-search@4.24.0)(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.2)(typescript@5.6.2)
+        version: 3.5.1(@algolia/client-search@4.24.0)(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.2)(typescript@5.6.2)
       '@fortawesome/fontawesome-svg-core':
         specifier: ^6.6.0
         version: 6.6.0
@@ -31,16 +31,19 @@ importers:
         version: 3.0.1
       '@mdx-js/react':
         specifier: ^3.0.1
-        version: 3.0.1(@types/react@18.3.10)(react@18.3.1)
+        version: 3.0.1(@types/react@19.2.7)(react@18.3.1)
       '@redocly/redoc':
         specifier: ^0.108.0
-        version: 0.108.0(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@types/node@22.7.4)(@types/react@18.3.10)(codemirror@6.0.1(@lezer/common@1.2.3))(core-js@3.38.1)(highlight-words-core@1.2.2)(lodash.throttle@4.1.1)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-system@5.1.5)(typescript@5.6.2)
+        version: 0.108.0(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@types/node@22.7.4)(@types/react@19.2.7)(codemirror@6.0.1)(core-js@3.38.1)(highlight-words-core@1.2.2)(lodash.throttle@4.1.1)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-system@5.1.5)(typescript@5.6.2)
       clsx:
         specifier: ^2.0.0
         version: 2.1.1
       prism-react-renderer:
         specifier: ^2.3.1
         version: 2.4.0(react@18.3.1)
+      prismjs:
+        specifier: ^1.29.0
+        version: 1.30.0
       react:
         specifier: ^18.0.0
         version: 18.3.1
@@ -52,10 +55,10 @@ importers:
         version: 6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       swagger-ui:
         specifier: ^5.17.14
-        version: 5.17.14(@types/react@18.3.10)
+        version: 5.17.14(@types/react@19.2.7)
       swagger-ui-react:
         specifier: ^5.17.14
-        version: 5.17.14(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 5.17.14(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       webpack-dev-server:
         specifier: ^5.0.4
         version: 5.1.0(webpack@5.95.0)
@@ -804,6 +807,12 @@ packages:
       '@codemirror/view': ^6.0.0
       '@lezer/common': ^1.0.0
 
+  '@codemirror/autocomplete@6.20.0':
+    resolution: {integrity: sha512-bOwvTOIJcG5FVo5gUUupiwYh8MioPLQ4UcqbcRf7UQ98X90tCa9E1kZ3Z7tqwpZxYyOvh1YTYbmZE9RTfTp5hg==}
+
+  '@codemirror/commands@6.10.0':
+    resolution: {integrity: sha512-2xUIc5mHXQzT16JnyOFkh8PvfeXuIut3pslWGfsGOhxP/lpgRm9HOl/mpzLErgt5mXDovqA0d11P21gofRLb9w==}
+
   '@codemirror/commands@6.7.1':
     resolution: {integrity: sha512-llTrboQYw5H4THfhN4U3qCnSZ1SOJ60ohhz+SzU0ADGtwlc533DtklQP0vSFaQuCPDn3BPpOd1GbbnUtwNjsrw==}
 
@@ -828,17 +837,26 @@ packages:
   '@codemirror/lint@6.8.2':
     resolution: {integrity: sha512-PDFG5DjHxSEjOXk9TQYYVjZDqlZTFaDBfhQixHnQOEVDDNHUbEh/hstAjcQJaA6FQdZTD1hquXTK0rVBLADR1g==}
 
+  '@codemirror/lint@6.9.2':
+    resolution: {integrity: sha512-sv3DylBiIyi+xKwRCJAAsBZZZWo82shJ/RTMymLabAdtbkV5cSKwWDeCgtUq3v8flTaXS2y1kKkICuRYtUswyQ==}
+
   '@codemirror/search@6.5.6':
     resolution: {integrity: sha512-rpMgcsh7o0GuCDUXKPvww+muLA1pDJaFrpq/CCHtpQJYz8xopu4D1hPcKRoDD0YlF8gZaqTNIRa4VRBWyhyy7Q==}
 
   '@codemirror/state@6.4.1':
     resolution: {integrity: sha512-QkEyUiLhsJoZkbumGZlswmAhA7CBU02Wrz7zvH4SrcifbsqwlXShVXg65f3v/ts57W3dqyamEriMhij1Z3Zz4A==}
 
+  '@codemirror/state@6.5.2':
+    resolution: {integrity: sha512-FVqsPqtPWKVVL3dPSxy8wEF/ymIEuVzF1PK3VbUgrxXpJUSHQWWZz4JMToquRxnkw+36LTamCZG2iua2Ptq0fA==}
+
   '@codemirror/theme-one-dark@6.1.2':
     resolution: {integrity: sha512-F+sH0X16j/qFLMAfbciKTxVOwkdAS336b7AXTKOZhy8BR3eH/RelsnLgLFINrpST63mmN2OuwUt0W2ndUgYwUA==}
 
   '@codemirror/view@6.34.1':
     resolution: {integrity: sha512-t1zK/l9UiRqwUNPm+pdIT0qzJlzuVckbTEMVNFhfWkGiBQClstzg+78vedCvLSX0xJEZ6lwZbPpnljL7L6iwMQ==}
+
+  '@codemirror/view@6.39.3':
+    resolution: {integrity: sha512-ZR32LYnPMpf7XZcrYJpSrHJUHNZPTj73/amTtZLhAwzYhSKiDI2OZmCiXbTRvxL1T8X7QTHnCG+KfnRJvH/QsA==}
 
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -1313,11 +1331,17 @@ packages:
   '@lezer/common@1.2.3':
     resolution: {integrity: sha512-w7ojc8ejBqr2REPsWxJjrMFsA/ysDCFICn8zEOR9mrqzOu2amhITYuLD8ag6XZf0CFXDrhKqw7+tW8cX66NaDA==}
 
+  '@lezer/common@1.4.0':
+    resolution: {integrity: sha512-DVeMRoGrgn/k45oQNu189BoW4SZwgZFzJ1+1TV5j2NJ/KFC83oa/enRqZSGshyeMk5cPWMhsKs9nx+8o0unwGg==}
+
   '@lezer/css@1.1.9':
     resolution: {integrity: sha512-TYwgljcDv+YrV0MZFFvYFQHCfGgbPMR6nuqLabBdmZoFH3EP1gvw8t0vae326Ne3PszQkbXfVBjCnf3ZVCr0bA==}
 
   '@lezer/highlight@1.2.1':
     resolution: {integrity: sha512-Z5duk4RN/3zuVO7Jq0pGLJ3qynpxUVsh7IbUbGj88+uV2ApSAn6kWg2au3iJb+0Zi7kKtqffIESgNcRXWZWmSA==}
+
+  '@lezer/highlight@1.2.3':
+    resolution: {integrity: sha512-qXdH7UqTvGfdVBINrgKhDsVTJTxactNNxLk7+UMwZhU13lMHaOBlJe9Vqp907ya56Y3+ed2tlqzys7jDkTmW0g==}
 
   '@lezer/html@1.3.10':
     resolution: {integrity: sha512-dqpT8nISx/p9Do3AchvYGV3qYc4/rKr3IBZxlHmpIKam56P47RSHkSF5f13Vu9hebS1jM0HmtJIwLbWz1VIY6w==}
@@ -1333,6 +1357,9 @@ packages:
 
   '@lezer/xml@1.0.5':
     resolution: {integrity: sha512-VFouqOzmUWfIg+tfmpcdV33ewtK+NSwd4ngSe1aG7HFb4BN0ExyY1b8msp+ndFrnlG4V4iC8yXacjFtrwERnaw==}
+
+  '@marijn/find-cluster-break@1.0.2':
+    resolution: {integrity: sha512-l0h88YhZFyKdXIFNfSWpyjStDjGHwZ/U7iobcK1cQQD8sejsONdQtTVU+1wVN1PBw40PiiHB1vA5S7VTfQiP9g==}
 
   '@markdoc/markdoc@0.4.0':
     resolution: {integrity: sha512-fSh4P3Y4E7oaKYc2oNzSIJVPDto7SMzAuQN1Iyx53UxzleA6QzRdNWRxmiPqtVDaDi5dELd2yICoG91csrGrAw==}
@@ -2044,6 +2071,9 @@ packages:
   '@types/react@18.3.10':
     resolution: {integrity: sha512-02sAAlBnP39JgXwkAq3PeU9DVaaGpZyF3MGcC0MKgQVkZor5IiiDAipVaxQHtDJAmO4GIy/rVBy/LzVj76Cyqg==}
 
+  '@types/react@19.2.7':
+    resolution: {integrity: sha512-MWtvHrGZLFttgeEj28VXHxpmwYbor/ATPYbBfSFZEIRK0ecCFLl2Qo55z52Hss+UV9CRN7trSeq1zbgx7YDWWg==}
+
   '@types/retry@0.12.0':
     resolution: {integrity: sha512-wWKOClTTiizcZhXnPY4wikVAwmdYHp8q6DmC+EJUzAMsycb7HB32Kh9RN4+0gExjmPmZSAQjgURXIGATPegAvA==}
 
@@ -2490,8 +2520,8 @@ packages:
   caniuse-api@3.0.0:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
 
-  caniuse-lite@1.0.30001664:
-    resolution: {integrity: sha512-AmE7k4dXiNKQipgn7a2xg558IRqPN3jMQY/rOsbxDhrd0tyChwbITBfiwtnqz8bi2M5mIWbxAYBvk7W7QBUS2g==}
+  caniuse-lite@1.0.30001760:
+    resolution: {integrity: sha512-7AAMPcueWELt1p3mi13HR/LHH0TJLT11cnwDJEs3xA4+CK/PLKeO9Kl1oru24htkyUKtkGCvAx4ohB0Ttry8Dw==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -2876,6 +2906,9 @@ packages:
 
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
+
+  csstype@3.2.3:
+    resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
 
   data-uri-to-buffer@4.0.1:
     resolution: {integrity: sha512-0R9ikRb668HB7QDxT1vkpuUBtqc53YyAwMwGeUFKRojY/NWKvdZ+9UYtRfGmhqNbRkTSVpMbmyhXipFFv2cb/A==}
@@ -5077,6 +5110,10 @@ packages:
     resolution: {integrity: sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==}
     engines: {node: '>=6'}
 
+  prismjs@1.30.0:
+    resolution: {integrity: sha512-DEvV2ZF2r2/63V+tK8hQvrR2ZGn10srHbXviTlcv7Kpzw8jWiNTqbVgjO3IY8RxrrOUF8VPMQQFysYYYv0YZxw==}
+    engines: {node: '>=6'}
+
   process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
 
@@ -5933,6 +5970,9 @@ packages:
 
   style-mod@4.1.2:
     resolution: {integrity: sha512-wnD1HyVqpJUI2+eKZ+eo1UwghftP6yuFheBqqe+bWCotBjC2K1YnteJILRMs3SM4V/0dLEW1SC27MWP5y+mwmw==}
+
+  style-mod@4.1.3:
+    resolution: {integrity: sha512-i/n8VsZydrugj3Iuzll8+x/00GH2vnYsk1eomD8QiRrSAeW6ItbCQDtfXCeJHd0iwiNagqjQkvpvREEPtW3IoQ==}
 
   style-to-object@0.4.4:
     resolution: {integrity: sha512-HYNoHZa2GorYNyqiCaBgsxvcJIn7OHq6inEga+E6Ke3m5JkoqpQbnFssk4jwe+K7AhGa2fcha4wSOf1Kn01dMg==}
@@ -7583,6 +7623,20 @@ snapshots:
       '@codemirror/view': 6.34.1
       '@lezer/common': 1.2.3
 
+  '@codemirror/autocomplete@6.20.0':
+    dependencies:
+      '@codemirror/language': 6.10.3
+      '@codemirror/state': 6.5.2
+      '@codemirror/view': 6.39.3
+      '@lezer/common': 1.2.3
+
+  '@codemirror/commands@6.10.0':
+    dependencies:
+      '@codemirror/language': 6.10.3
+      '@codemirror/state': 6.5.2
+      '@codemirror/view': 6.39.3
+      '@lezer/common': 1.2.3
+
   '@codemirror/commands@6.7.1':
     dependencies:
       '@codemirror/language': 6.10.3
@@ -7651,25 +7705,42 @@ snapshots:
       '@codemirror/view': 6.34.1
       crelt: 1.0.6
 
+  '@codemirror/lint@6.9.2':
+    dependencies:
+      '@codemirror/state': 6.5.2
+      '@codemirror/view': 6.39.3
+      crelt: 1.0.6
+
   '@codemirror/search@6.5.6':
     dependencies:
-      '@codemirror/state': 6.4.1
-      '@codemirror/view': 6.34.1
+      '@codemirror/state': 6.5.2
+      '@codemirror/view': 6.39.3
       crelt: 1.0.6
 
   '@codemirror/state@6.4.1': {}
 
+  '@codemirror/state@6.5.2':
+    dependencies:
+      '@marijn/find-cluster-break': 1.0.2
+
   '@codemirror/theme-one-dark@6.1.2':
     dependencies:
       '@codemirror/language': 6.10.3
-      '@codemirror/state': 6.4.1
-      '@codemirror/view': 6.34.1
-      '@lezer/highlight': 1.2.1
+      '@codemirror/state': 6.5.2
+      '@codemirror/view': 6.39.3
+      '@lezer/highlight': 1.2.3
 
   '@codemirror/view@6.34.1':
     dependencies:
       '@codemirror/state': 6.4.1
       style-mod: 4.1.2
+      w3c-keyname: 2.2.8
+
+  '@codemirror/view@6.39.3':
+    dependencies:
+      '@codemirror/state': 6.5.2
+      crelt: 1.0.6
+      style-mod: 4.1.3
       w3c-keyname: 2.2.8
 
   '@colors/colors@1.5.0':
@@ -7683,14 +7754,14 @@ snapshots:
 
   '@docsearch/css@3.6.2': {}
 
-  '@docsearch/react@3.6.2(@algolia/client-search@4.24.0)(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.2)':
+  '@docsearch/react@3.6.2(@algolia/client-search@4.24.0)(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.2)':
     dependencies:
       '@algolia/autocomplete-core': 1.9.3(@algolia/client-search@4.24.0)(algoliasearch@4.24.0)(search-insights@2.17.2)
       '@algolia/autocomplete-preset-algolia': 1.9.3(@algolia/client-search@4.24.0)(algoliasearch@4.24.0)
       '@docsearch/css': 3.6.2
       algoliasearch: 4.24.0
     optionalDependencies:
-      '@types/react': 18.3.10
+      '@types/react': 19.2.7
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       search-insights: 2.17.2
@@ -8103,7 +8174,7 @@ snapshots:
       - vue-template-compiler
       - webpack-cli
 
-  '@docusaurus/preset-classic@3.5.1(@algolia/client-search@4.24.0)(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.2)(typescript@5.6.2)':
+  '@docusaurus/preset-classic@3.5.1(@algolia/client-search@4.24.0)(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.2)(typescript@5.6.2)':
     dependencies:
       '@docusaurus/core': 3.5.1(@docusaurus/types@3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
       '@docusaurus/plugin-content-blog': 3.5.1(@docusaurus/plugin-content-docs@3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
@@ -8114,9 +8185,9 @@ snapshots:
       '@docusaurus/plugin-google-gtag': 3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
       '@docusaurus/plugin-google-tag-manager': 3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
       '@docusaurus/plugin-sitemap': 3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
-      '@docusaurus/theme-classic': 3.5.1(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
+      '@docusaurus/theme-classic': 3.5.1(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
       '@docusaurus/theme-common': 3.5.1(@docusaurus/plugin-content-docs@3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2))(@docusaurus/types@3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
-      '@docusaurus/theme-search-algolia': 3.5.1(@algolia/client-search@4.24.0)(@docusaurus/types@3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.2)(typescript@5.6.2)
+      '@docusaurus/theme-search-algolia': 3.5.1(@algolia/client-search@4.24.0)(@docusaurus/types@3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.2)(typescript@5.6.2)
       '@docusaurus/types': 3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -8146,7 +8217,7 @@ snapshots:
       '@types/react': 18.3.10
       react: 18.3.1
 
-  '@docusaurus/theme-classic@3.5.1(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)':
+  '@docusaurus/theme-classic@3.5.1(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)':
     dependencies:
       '@docusaurus/core': 3.5.1(@docusaurus/types@3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
       '@docusaurus/mdx-loader': 3.5.1(@docusaurus/types@3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
@@ -8160,7 +8231,7 @@ snapshots:
       '@docusaurus/utils': 3.5.1(@docusaurus/types@3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.6.2)
       '@docusaurus/utils-common': 3.5.1(@docusaurus/types@3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@docusaurus/utils-validation': 3.5.1(@docusaurus/types@3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.6.2)
-      '@mdx-js/react': 3.0.1(@types/react@18.3.10)(react@18.3.1)
+      '@mdx-js/react': 3.0.1(@types/react@19.2.7)(react@18.3.1)
       clsx: 2.1.1
       copy-text-to-clipboard: 3.2.0
       infima: 0.2.0-alpha.44
@@ -8168,7 +8239,7 @@ snapshots:
       nprogress: 0.2.0
       postcss: 8.4.47
       prism-react-renderer: 2.4.0(react@18.3.1)
-      prismjs: 1.29.0
+      prismjs: 1.30.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-router-dom: 5.3.4(react@18.3.1)
@@ -8202,7 +8273,7 @@ snapshots:
       '@docusaurus/utils': 3.5.1(@docusaurus/types@3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.6.2)
       '@docusaurus/utils-common': 3.5.1(@docusaurus/types@3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@types/history': 4.7.11
-      '@types/react': 18.3.10
+      '@types/react': 19.2.7
       '@types/react-router-config': 5.0.11
       clsx: 2.1.1
       parse-numeric-range: 1.3.0
@@ -8220,9 +8291,9 @@ snapshots:
       - uglify-js
       - webpack-cli
 
-  '@docusaurus/theme-search-algolia@3.5.1(@algolia/client-search@4.24.0)(@docusaurus/types@3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.2)(typescript@5.6.2)':
+  '@docusaurus/theme-search-algolia@3.5.1(@algolia/client-search@4.24.0)(@docusaurus/types@3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.2)(typescript@5.6.2)':
     dependencies:
-      '@docsearch/react': 3.6.2(@algolia/client-search@4.24.0)(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.2)
+      '@docsearch/react': 3.6.2(@algolia/client-search@4.24.0)(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.2)
       '@docusaurus/core': 3.5.1(@docusaurus/types@3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
       '@docusaurus/logger': 3.5.1
       '@docusaurus/plugin-content-docs': 3.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
@@ -8376,7 +8447,7 @@ snapshots:
 
   '@emotion/memoize@0.9.0': {}
 
-  '@emotion/react@11.13.3(@types/react@18.3.10)(react@18.3.1)':
+  '@emotion/react@11.13.3(@types/react@19.2.7)(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.25.6
       '@emotion/babel-plugin': 11.12.0
@@ -8388,7 +8459,7 @@ snapshots:
       hoist-non-react-statics: 3.3.2
       react: 18.3.1
     optionalDependencies:
-      '@types/react': 18.3.10
+      '@types/react': 19.2.7
     transitivePeerDependencies:
       - supports-color
 
@@ -8593,6 +8664,8 @@ snapshots:
 
   '@lezer/common@1.2.3': {}
 
+  '@lezer/common@1.4.0': {}
+
   '@lezer/css@1.1.9':
     dependencies:
       '@lezer/common': 1.2.3
@@ -8602,6 +8675,10 @@ snapshots:
   '@lezer/highlight@1.2.1':
     dependencies:
       '@lezer/common': 1.2.3
+
+  '@lezer/highlight@1.2.3':
+    dependencies:
+      '@lezer/common': 1.4.0
 
   '@lezer/html@1.3.10':
     dependencies:
@@ -8631,10 +8708,12 @@ snapshots:
       '@lezer/highlight': 1.2.1
       '@lezer/lr': 1.4.2
 
-  '@markdoc/markdoc@0.4.0(@types/react@18.3.10)(react@18.3.1)':
+  '@marijn/find-cluster-break@1.0.2': {}
+
+  '@markdoc/markdoc@0.4.0(@types/react@19.2.7)(react@18.3.1)':
     optionalDependencies:
       '@types/markdown-it': 12.2.3
-      '@types/react': 18.3.10
+      '@types/react': 19.2.7
       react: 18.3.1
 
   '@mdx-js/mdx@3.0.1':
@@ -8665,10 +8744,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@mdx-js/react@3.0.1(@types/react@18.3.10)(react@18.3.1)':
+  '@mdx-js/react@3.0.1(@types/react@19.2.7)(react@18.3.1)':
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 18.3.10
+      '@types/react': 19.2.7
       react: 18.3.1
 
   '@nodelib/fs.scandir@2.1.5':
@@ -8902,10 +8981,10 @@ snapshots:
 
   '@redocly/config@0.16.0': {}
 
-  '@redocly/graphql-docs@0.7.3(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(graphql@16.9.0)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))':
+  '@redocly/graphql-docs@0.7.3(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@19.2.7)(react@18.3.1))(@types/react@19.2.7)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(graphql@16.9.0)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))':
     dependencies:
       '@redocly/config': 0.16.0
-      '@redocly/theme': 0.45.0(@markdoc/markdoc@0.4.0(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5)
+      '@redocly/theme': 0.45.0(@markdoc/markdoc@0.4.0(@types/react@19.2.7)(react@18.3.1))(@types/react@19.2.7)(lodash.throttle@4.1.1)(prismjs@1.30.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5)
       deepmerge: 4.3.1
       graphql: 16.9.0
       marked: 4.3.0
@@ -8952,18 +9031,18 @@ snapshots:
       - encoding
       - supports-color
 
-  '@redocly/openapi-docs@3.4.10(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(@types/react@18.3.10)(codemirror@6.0.1(@lezer/common@1.2.3))(core-js@3.38.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))':
+  '@redocly/openapi-docs@3.4.10(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@19.2.7)(react@18.3.1))(@types/react@19.2.7)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(@types/react@19.2.7)(codemirror@6.0.1)(core-js@3.38.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))':
     dependencies:
-      '@markdoc/markdoc': 0.4.0(@types/react@18.3.10)(react@18.3.1)
+      '@markdoc/markdoc': 0.4.0(@types/react@19.2.7)(react@18.3.1)
       '@redocly/config': 0.16.0
       '@redocly/openapi-core': 1.25.5
-      '@redocly/replay': 0.7.7(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(@types/react@18.3.10)(codemirror@6.0.1(@lezer/common@1.2.3))(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))
-      '@redocly/theme': 0.45.0(@markdoc/markdoc@0.4.0(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5)
+      '@redocly/replay': 0.7.7(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@19.2.7)(react@18.3.1))(@types/react@19.2.7)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(@types/react@19.2.7)(codemirror@6.0.1)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))
+      '@redocly/theme': 0.45.0(@markdoc/markdoc@0.4.0(@types/react@19.2.7)(react@18.3.1))(@types/react@19.2.7)(lodash.throttle@4.1.1)(prismjs@1.30.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5)
       core-js: 3.38.1
       deepmerge: 4.3.1
       dompurify: 2.5.4
       fast-deep-equal: 3.1.3
-      jotai: 2.10.1(@types/react@18.3.10)(react@18.3.1)
+      jotai: 2.10.1(@types/react@19.2.7)(react@18.3.1)
       json-pointer: 0.6.2
       jstoxml: 5.0.2
       lunr: 2.3.9
@@ -9001,12 +9080,12 @@ snapshots:
       styled-components: 5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)
       styled-system: 5.1.5
 
-  '@redocly/portal-plugin-mock-server@0.3.41(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(@types/node@22.7.4)(@types/react@18.3.10)(codemirror@6.0.1(@lezer/common@1.2.3))(core-js@3.38.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(typescript@5.6.2)':
+  '@redocly/portal-plugin-mock-server@0.3.41(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@19.2.7)(react@18.3.1))(@types/react@19.2.7)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(@types/node@22.7.4)(@types/react@19.2.7)(codemirror@6.0.1)(core-js@3.38.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(typescript@5.6.2)':
     dependencies:
       '@redocly/config': 0.16.0
       '@redocly/mock-server': 0.1.4(@types/node@22.7.4)(typescript@5.6.2)
       '@redocly/openapi-core': 1.25.5
-      '@redocly/openapi-docs': 3.4.10(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(@types/react@18.3.10)(codemirror@6.0.1(@lezer/common@1.2.3))(core-js@3.38.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))
+      '@redocly/openapi-docs': 3.4.10(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@19.2.7)(react@18.3.1))(@types/react@19.2.7)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(@types/react@19.2.7)(codemirror@6.0.1)(core-js@3.38.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))
     transitivePeerDependencies:
       - '@babel/runtime'
       - '@codemirror/language'
@@ -9027,11 +9106,11 @@ snapshots:
       - supports-color
       - typescript
 
-  '@redocly/redoc@0.108.0(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@types/node@22.7.4)(@types/react@18.3.10)(codemirror@6.0.1(@lezer/common@1.2.3))(core-js@3.38.1)(highlight-words-core@1.2.2)(lodash.throttle@4.1.1)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-system@5.1.5)(typescript@5.6.2)':
+  '@redocly/redoc@0.108.0(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@types/node@22.7.4)(@types/react@19.2.7)(codemirror@6.0.1)(core-js@3.38.1)(highlight-words-core@1.2.2)(lodash.throttle@4.1.1)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-system@5.1.5)(typescript@5.6.2)':
     dependencies:
       '@babel/core': 7.23.5
       '@cocalc/ansi-to-react': 7.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@markdoc/markdoc': 0.4.0(@types/react@18.3.10)(react@18.3.1)
+      '@markdoc/markdoc': 0.4.0(@types/react@19.2.7)(react@18.3.1)
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/context-zone': 1.27.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/core': 1.27.0(@opentelemetry/api@1.9.0)
@@ -9045,15 +9124,15 @@ snapshots:
       '@opentelemetry/semantic-conventions': 1.27.0
       '@redocly/ajv': 8.11.2
       '@redocly/config': 0.16.0
-      '@redocly/graphql-docs': 0.7.3(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(graphql@16.9.0)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))
+      '@redocly/graphql-docs': 0.7.3(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@19.2.7)(react@18.3.1))(@types/react@19.2.7)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(graphql@16.9.0)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))
       '@redocly/openapi-core': 1.25.5
-      '@redocly/openapi-docs': 3.4.10(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(@types/react@18.3.10)(codemirror@6.0.1(@lezer/common@1.2.3))(core-js@3.38.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))
+      '@redocly/openapi-docs': 3.4.10(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@19.2.7)(react@18.3.1))(@types/react@19.2.7)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(@types/react@19.2.7)(codemirror@6.0.1)(core-js@3.38.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))
       '@redocly/portal-legacy-ui': 0.1.1(highlight-words-core@1.2.2)(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5)
-      '@redocly/portal-plugin-mock-server': 0.3.41(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(@types/node@22.7.4)(@types/react@18.3.10)(codemirror@6.0.1(@lezer/common@1.2.3))(core-js@3.38.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(typescript@5.6.2)
-      '@redocly/theme': 0.45.0(@markdoc/markdoc@0.4.0(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5)
+      '@redocly/portal-plugin-mock-server': 0.3.41(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@19.2.7)(react@18.3.1))(@types/react@19.2.7)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(@types/node@22.7.4)(@types/react@19.2.7)(codemirror@6.0.1)(core-js@3.38.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(typescript@5.6.2)
+      '@redocly/theme': 0.45.0(@markdoc/markdoc@0.4.0(@types/react@19.2.7)(react@18.3.1))(@types/react@19.2.7)(lodash.throttle@4.1.1)(prismjs@1.30.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5)
       '@redocly/xml-crypto': 3.0.1
       '@tanstack/react-query': 4.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@wojtekmaj/react-datetimerange-picker': 5.0.2(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@wojtekmaj/react-datetimerange-picker': 5.0.2(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@xmldom/xmldom': 0.8.10
       babel-plugin-styled-components: 2.1.4(@babel/core@7.23.5)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(supports-color@5.5.0)
       chokidar: 3.6.0
@@ -9084,11 +9163,11 @@ snapshots:
       prismjs: 1.29.0
       react: 18.3.1
       react-calendar: 4.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-date-picker: 10.0.3(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-date-picker: 10.0.3(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dom: 18.3.1(react@18.3.1)
       react-helmet: 6.1.0(react@18.3.1)
       react-router-dom: 6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-select: 5.8.1(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-select: 5.8.1(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-table: 7.8.0(react@18.3.1)
       reactjs-popup: 2.0.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       semver: 7.6.0
@@ -9127,7 +9206,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@redocly/replay@0.7.7(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(@types/react@18.3.10)(codemirror@6.0.1(@lezer/common@1.2.3))(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))':
+  '@redocly/replay@0.7.7(@babel/runtime@7.25.6)(@codemirror/language@6.10.3)(@codemirror/search@6.5.6)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@19.2.7)(react@18.3.1))(@types/react@19.2.7)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5))(@types/react@19.2.7)(codemirror@6.0.1)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))':
     dependencies:
       '@codemirror/autocomplete': 6.18.1(@codemirror/language@6.10.3)(@codemirror/state@6.4.1)(@codemirror/view@6.34.1)(@lezer/common@1.2.3)
       '@codemirror/lang-html': 6.4.9
@@ -9138,12 +9217,12 @@ snapshots:
       '@codemirror/view': 6.34.1
       '@hookstate/core': 4.0.1(react@18.3.1)
       '@lezer/highlight': 1.2.1
-      '@redocly/theme': 0.45.0(@markdoc/markdoc@0.4.0(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5)
+      '@redocly/theme': 0.45.0(@markdoc/markdoc@0.4.0(@types/react@19.2.7)(react@18.3.1))(@types/react@19.2.7)(lodash.throttle@4.1.1)(prismjs@1.30.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5)
       '@redocly/vscode-json-languageservice': 3.4.9
       '@tauri-apps/plugin-dialog': 2.0.0-beta.7
       '@tauri-apps/plugin-fs': 2.0.1
       '@uiw/codemirror-theme-material': 4.23.6(@codemirror/language@6.10.3)(@codemirror/state@6.4.1)(@codemirror/view@6.34.1)
-      '@uiw/react-codemirror': 4.23.6(@babel/runtime@7.25.6)(@codemirror/autocomplete@6.18.1(@codemirror/language@6.10.3)(@codemirror/state@6.4.1)(@codemirror/view@6.34.1)(@lezer/common@1.2.3))(@codemirror/language@6.10.3)(@codemirror/lint@6.8.2)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.34.1)(codemirror@6.0.1(@lezer/common@1.2.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@uiw/react-codemirror': 4.23.6(@babel/runtime@7.25.6)(@codemirror/autocomplete@6.18.1(@codemirror/language@6.10.3)(@codemirror/state@6.4.1)(@codemirror/view@6.34.1)(@lezer/common@1.2.3))(@codemirror/language@6.10.3)(@codemirror/lint@6.8.2)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.34.1)(codemirror@6.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       crypto-js: 4.2.0
       dayjs: 1.11.13
       js-yaml: 4.1.0
@@ -9153,7 +9232,7 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       react-resizable-panels: 1.0.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-router-dom: 6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-select: 5.8.1(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-select: 5.8.1(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       styled-components: 5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)
     transitivePeerDependencies:
       - '@babel/runtime'
@@ -9165,9 +9244,9 @@ snapshots:
       - codemirror
       - supports-color
 
-  '@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(lodash.throttle@4.1.1)(prismjs@1.29.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5)':
+  '@redocly/theme@0.45.0(@markdoc/markdoc@0.4.0(@types/react@19.2.7)(react@18.3.1))(@types/react@19.2.7)(lodash.throttle@4.1.1)(prismjs@1.30.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(styled-system@5.1.5)':
     dependencies:
-      '@markdoc/markdoc': 0.4.0(@types/react@18.3.10)(react@18.3.1)
+      '@markdoc/markdoc': 0.4.0(@types/react@19.2.7)(react@18.3.1)
       '@redocly/config': 0.16.0
       copy-to-clipboard: 3.3.3
       highlight-words-core: 1.2.2
@@ -9175,10 +9254,10 @@ snapshots:
       i18next: 22.4.15
       lodash.throttle: 4.1.1
       nprogress: 0.2.0
-      prismjs: 1.29.0
+      prismjs: 1.30.0
       react: 18.3.1
       react-calendar: 4.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-date-picker: 10.0.3(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-date-picker: 10.0.3(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dom: 18.3.1(react@18.3.1)
       react-router-dom: 6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       styled-components: 5.3.11(@babel/core@7.23.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)
@@ -9887,12 +9966,16 @@ snapshots:
 
   '@types/react-transition-group@4.4.11':
     dependencies:
-      '@types/react': 18.3.10
+      '@types/react': 19.2.7
 
   '@types/react@18.3.10':
     dependencies:
       '@types/prop-types': 15.7.13
       csstype: 3.1.3
+
+  '@types/react@19.2.7':
+    dependencies:
+      csstype: 3.2.3
 
   '@types/retry@0.12.0': {}
 
@@ -9963,7 +10046,7 @@ snapshots:
       '@codemirror/state': 6.4.1
       '@codemirror/view': 6.34.1
 
-  '@uiw/react-codemirror@4.23.6(@babel/runtime@7.25.6)(@codemirror/autocomplete@6.18.1(@codemirror/language@6.10.3)(@codemirror/state@6.4.1)(@codemirror/view@6.34.1)(@lezer/common@1.2.3))(@codemirror/language@6.10.3)(@codemirror/lint@6.8.2)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.34.1)(codemirror@6.0.1(@lezer/common@1.2.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@uiw/react-codemirror@4.23.6(@babel/runtime@7.25.6)(@codemirror/autocomplete@6.18.1(@codemirror/language@6.10.3)(@codemirror/state@6.4.1)(@codemirror/view@6.34.1)(@lezer/common@1.2.3))(@codemirror/language@6.10.3)(@codemirror/lint@6.8.2)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.34.1)(codemirror@6.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.25.6
       '@codemirror/commands': 6.7.1
@@ -9971,7 +10054,7 @@ snapshots:
       '@codemirror/theme-one-dark': 6.1.2
       '@codemirror/view': 6.34.1
       '@uiw/codemirror-extensions-basic-setup': 4.23.6(@codemirror/autocomplete@6.18.1(@codemirror/language@6.10.3)(@codemirror/state@6.4.1)(@codemirror/view@6.34.1)(@lezer/common@1.2.3))(@codemirror/commands@6.7.1)(@codemirror/language@6.10.3)(@codemirror/lint@6.8.2)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/view@6.34.1)
-      codemirror: 6.0.1(@lezer/common@1.2.3)
+      codemirror: 6.0.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     transitivePeerDependencies:
@@ -10060,17 +10143,17 @@ snapshots:
 
   '@wojtekmaj/date-utils@1.5.1': {}
 
-  '@wojtekmaj/react-datetimerange-picker@5.0.2(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@wojtekmaj/react-datetimerange-picker@5.0.2(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       clsx: 1.2.1
       make-event-props: 1.6.2
       prop-types: 15.8.1
       react: 18.3.1
       react-calendar: 4.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-clock: 4.6.0(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-datetime-picker: 5.6.0(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-clock: 4.6.0(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-datetime-picker: 5.6.0(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dom: 18.3.1(react@18.3.1)
-      react-fit: 1.7.1(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-fit: 1.7.1(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'
@@ -10232,7 +10315,7 @@ snapshots:
   autoprefixer@10.4.20(postcss@8.4.47):
     dependencies:
       browserslist: 4.24.0
-      caniuse-lite: 1.0.30001664
+      caniuse-lite: 1.0.30001760
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.0
@@ -10384,7 +10467,7 @@ snapshots:
 
   browserslist@4.24.0:
     dependencies:
-      caniuse-lite: 1.0.30001664
+      caniuse-lite: 1.0.30001760
       electron-to-chromium: 1.5.29
       node-releases: 2.0.18
       update-browserslist-db: 1.1.1(browserslist@4.24.0)
@@ -10445,11 +10528,11 @@ snapshots:
   caniuse-api@3.0.0:
     dependencies:
       browserslist: 4.24.0
-      caniuse-lite: 1.0.30001664
+      caniuse-lite: 1.0.30001760
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
 
-  caniuse-lite@1.0.30001664: {}
+  caniuse-lite@1.0.30001760: {}
 
   ccount@2.0.1: {}
 
@@ -10554,17 +10637,15 @@ snapshots:
 
   clsx@2.1.1: {}
 
-  codemirror@6.0.1(@lezer/common@1.2.3):
+  codemirror@6.0.1:
     dependencies:
-      '@codemirror/autocomplete': 6.18.1(@codemirror/language@6.10.3)(@codemirror/state@6.4.1)(@codemirror/view@6.34.1)(@lezer/common@1.2.3)
-      '@codemirror/commands': 6.7.1
+      '@codemirror/autocomplete': 6.20.0
+      '@codemirror/commands': 6.10.0
       '@codemirror/language': 6.10.3
-      '@codemirror/lint': 6.8.2
+      '@codemirror/lint': 6.9.2
       '@codemirror/search': 6.5.6
-      '@codemirror/state': 6.4.1
-      '@codemirror/view': 6.34.1
-    transitivePeerDependencies:
-      - '@lezer/common'
+      '@codemirror/state': 6.5.2
+      '@codemirror/view': 6.39.3
 
   collapse-white-space@2.1.0: {}
 
@@ -10857,6 +10938,8 @@ snapshots:
       css-tree: 2.2.1
 
   csstype@3.1.3: {}
+
+  csstype@3.2.3: {}
 
   data-uri-to-buffer@4.0.1: {}
 
@@ -12024,9 +12107,9 @@ snapshots:
       '@sideway/formula': 3.0.1
       '@sideway/pinpoint': 2.0.0
 
-  jotai@2.10.1(@types/react@18.3.10)(react@18.3.1):
+  jotai@2.10.1(@types/react@19.2.7)(react@18.3.1):
     optionalDependencies:
-      '@types/react': 18.3.10
+      '@types/react': 19.2.7
       react: 18.3.1
 
   js-file-download@0.4.12: {}
@@ -13342,6 +13425,8 @@ snapshots:
 
   prismjs@1.29.0: {}
 
+  prismjs@1.30.0: {}
+
   process-nextick-args@2.0.1: {}
 
   process@0.11.10: {}
@@ -13484,7 +13569,7 @@ snapshots:
 
   react-calendar@4.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@types/react': 18.3.10
+      '@types/react': 19.2.7
       '@wojtekmaj/date-utils': 1.5.1
       clsx: 1.2.1
       get-user-locale: 2.3.2
@@ -13492,7 +13577,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  react-calendar@4.8.0(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-calendar@4.8.0(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@wojtekmaj/date-utils': 1.5.1
       clsx: 2.1.1
@@ -13502,9 +13587,9 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       warning: 4.0.3
     optionalDependencies:
-      '@types/react': 18.3.10
+      '@types/react': 19.2.7
 
-  react-clock@4.6.0(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-clock@4.6.0(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@wojtekmaj/date-utils': 1.5.1
       clsx: 2.1.1
@@ -13513,7 +13598,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     optionalDependencies:
-      '@types/react': 18.3.10
+      '@types/react': 19.2.7
 
   react-copy-to-clipboard@5.1.0(react@18.3.1):
     dependencies:
@@ -13521,7 +13606,7 @@ snapshots:
       prop-types: 15.8.1
       react: 18.3.1
 
-  react-date-picker@10.0.3(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-date-picker@10.0.3(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@wojtekmaj/date-utils': 1.5.1
       clsx: 1.2.1
@@ -13531,13 +13616,13 @@ snapshots:
       react: 18.3.1
       react-calendar: 4.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dom: 18.3.1(react@18.3.1)
-      react-fit: 1.7.1(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-fit: 1.7.1(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       update-input-width: 1.4.2
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'
 
-  react-date-picker@10.6.0(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-date-picker@10.6.0(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@wojtekmaj/date-utils': 1.5.1
       clsx: 2.1.1
@@ -13545,16 +13630,16 @@ snapshots:
       make-event-props: 1.6.2
       prop-types: 15.8.1
       react: 18.3.1
-      react-calendar: 4.8.0(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-calendar: 4.8.0(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dom: 18.3.1(react@18.3.1)
-      react-fit: 1.7.1(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-fit: 1.7.1(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       update-input-width: 1.4.2
     optionalDependencies:
-      '@types/react': 18.3.10
+      '@types/react': 19.2.7
     transitivePeerDependencies:
       - '@types/react-dom'
 
-  react-datetime-picker@5.6.0(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-datetime-picker@5.6.0(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@wojtekmaj/date-utils': 1.5.1
       clsx: 2.1.1
@@ -13562,14 +13647,14 @@ snapshots:
       make-event-props: 1.6.2
       prop-types: 15.8.1
       react: 18.3.1
-      react-calendar: 4.8.0(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-clock: 4.6.0(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-date-picker: 10.6.0(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-calendar: 4.8.0(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-clock: 4.6.0(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-date-picker: 10.6.0(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dom: 18.3.1(react@18.3.1)
-      react-fit: 1.7.1(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-time-picker: 6.6.0(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-fit: 1.7.1(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-time-picker: 6.6.0(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     optionalDependencies:
-      '@types/react': 18.3.10
+      '@types/react': 19.2.7
     transitivePeerDependencies:
       - '@types/react-dom'
 
@@ -13623,7 +13708,7 @@ snapshots:
 
   react-fast-compare@3.2.2: {}
 
-  react-fit@1.7.1(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-fit@1.7.1(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       detect-element-overflow: 1.4.2
       prop-types: 15.8.1
@@ -13631,7 +13716,7 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       tiny-warning: 1.0.3
     optionalDependencies:
-      '@types/react': 18.3.10
+      '@types/react': 19.2.7
 
   react-helmet-async@1.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
@@ -13687,13 +13772,13 @@ snapshots:
       react-loadable: '@docusaurus/react-loadable@6.0.0(react@18.3.1)'
       webpack: 5.95.0
 
-  react-redux@9.1.2(@types/react@18.3.10)(react@18.3.1)(redux@5.0.1):
+  react-redux@9.1.2(@types/react@19.2.7)(react@18.3.1)(redux@5.0.1):
     dependencies:
       '@types/use-sync-external-store': 0.0.3
       react: 18.3.1
       use-sync-external-store: 1.2.2(react@18.3.1)
     optionalDependencies:
-      '@types/react': 18.3.10
+      '@types/react': 19.2.7
       redux: 5.0.1
 
   react-resizable-panels@1.0.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
@@ -13743,11 +13828,11 @@ snapshots:
       '@remix-run/router': 1.19.2
       react: 18.3.1
 
-  react-select@5.8.1(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-select@5.8.1(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.25.6
       '@emotion/cache': 11.13.1
-      '@emotion/react': 11.13.3(@types/react@18.3.10)(react@18.3.1)
+      '@emotion/react': 11.13.3(@types/react@19.2.7)(react@18.3.1)
       '@floating-ui/dom': 1.6.11
       '@types/react-transition-group': 4.4.11
       memoize-one: 6.0.0
@@ -13755,7 +13840,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-transition-group: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      use-isomorphic-layout-effect: 1.1.2(@types/react@18.3.10)(react@18.3.1)
+      use-isomorphic-layout-effect: 1.1.2(@types/react@19.2.7)(react@18.3.1)
     transitivePeerDependencies:
       - '@types/react'
       - supports-color
@@ -13770,7 +13855,7 @@ snapshots:
       highlight.js: 10.7.3
       highlightjs-vue: 1.0.0
       lowlight: 1.20.0
-      prismjs: 1.29.0
+      prismjs: 1.30.0
       react: 18.3.1
       refractor: 3.6.0
 
@@ -13778,7 +13863,7 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  react-time-picker@6.6.0(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-time-picker@6.6.0(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@wojtekmaj/date-utils': 1.5.1
       clsx: 2.1.1
@@ -13786,12 +13871,12 @@ snapshots:
       make-event-props: 1.6.2
       prop-types: 15.8.1
       react: 18.3.1
-      react-clock: 4.6.0(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-clock: 4.6.0(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dom: 18.3.1(react@18.3.1)
-      react-fit: 1.7.1(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-fit: 1.7.1(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       update-input-width: 1.4.2
     optionalDependencies:
-      '@types/react': 18.3.10
+      '@types/react': 19.2.7
     transitivePeerDependencies:
       - '@types/react-dom'
 
@@ -14402,6 +14487,8 @@ snapshots:
 
   style-mod@4.1.2: {}
 
+  style-mod@4.1.3: {}
+
   style-to-object@0.4.4:
     dependencies:
       inline-style-parser: 0.1.1
@@ -14500,7 +14587,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  swagger-ui-react@5.17.14(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  swagger-ui-react@5.17.14(@types/react@19.2.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime-corejs3': 7.25.6
       '@braintree/sanitize-url': 7.0.2
@@ -14524,7 +14611,7 @@ snapshots:
       react-immutable-proptypes: 2.2.0(immutable@3.8.2)
       react-immutable-pure-component: 2.2.2(immutable@3.8.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-inspector: 6.0.2(react@18.3.1)
-      react-redux: 9.1.2(@types/react@18.3.10)(react@18.3.1)(redux@5.0.1)
+      react-redux: 9.1.2(@types/react@19.2.7)(react@18.3.1)(redux@5.0.1)
       react-syntax-highlighter: 15.6.1(react@18.3.1)
       redux: 5.0.1
       redux-immutable: 4.0.0(immutable@3.8.2)
@@ -14541,7 +14628,7 @@ snapshots:
       - '@types/react'
       - debug
 
-  swagger-ui@5.17.14(@types/react@18.3.10):
+  swagger-ui@5.17.14(@types/react@19.2.7):
     dependencies:
       '@babel/runtime-corejs3': 7.25.6
       '@braintree/sanitize-url': 7.0.2
@@ -14565,7 +14652,7 @@ snapshots:
       react-immutable-proptypes: 2.2.0(immutable@3.8.2)
       react-immutable-pure-component: 2.2.2(immutable@3.8.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-inspector: 6.0.2(react@18.3.1)
-      react-redux: 9.1.2(@types/react@18.3.10)(react@18.3.1)(redux@5.0.1)
+      react-redux: 9.1.2(@types/react@19.2.7)(react@18.3.1)(redux@5.0.1)
       react-syntax-highlighter: 15.6.1(react@18.3.1)
       redux: 5.0.1
       redux-immutable: 4.0.0(immutable@3.8.2)
@@ -14863,11 +14950,11 @@ snapshots:
       punycode: 1.4.1
       qs: 6.13.0
 
-  use-isomorphic-layout-effect@1.1.2(@types/react@18.3.10)(react@18.3.1):
+  use-isomorphic-layout-effect@1.1.2(@types/react@19.2.7)(react@18.3.1):
     dependencies:
       react: 18.3.1
     optionalDependencies:
-      '@types/react': 18.3.10
+      '@types/react': 19.2.7
 
   use-sync-external-store@1.2.2(react@18.3.1):
     dependencies:

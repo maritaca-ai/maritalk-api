@@ -33,68 +33,144 @@ Observação:
 
 ## Níveis de uso
 
-Conforme o uso e o gasto na API aumentam, você é automaticamente promovido para o próximo nível. Cada nível oferece rate limits mais altos para os modelos.
-**Observação:** Créditos iniciais e cupons não contam para subir de tier, apenas os gastos na API.
+Conforme o uso e o gasto na API aumentam, você é automaticamente promovido para o próximo nível. Cada nível oferece rate limits mais altos para os modelos.  
+**Observação:** créditos iniciais e cupons não contam para subir de tier, apenas os gastos na API.
 
-|Tier|Gasto requerido|
-|---|---|
-|Tier 0| 0 | 
-|Tier 1|Qualquer gasto com a API|
-|Tier 2|R$100 |
-|Tier 3|R$500|
-|Tier 4|R$2.000|
-|Tier 5|R$5.000|
+<div className="tier-grid">
+  <div className="tier-card">
+    <div className="tier-chip">Tier 0</div>
+    <p className="tier-meta">Gasto requerido: R$ 0</p>
+    <p className="tier-note">Para começar a testar</p>
+  </div>
+  <div className="tier-card">
+    <div className="tier-chip">Tier 1</div>
+    <p className="tier-meta">Gasto requerido: qualquer valor</p>
+    <p className="tier-note">Assim que tiver uso pago</p>
+  </div>
+  <div className="tier-card">
+    <div className="tier-chip">Tier 2</div>
+    <p className="tier-meta">Gasto requerido: R$ 100</p>
+    <p className="tier-note">Mais fôlego para protótipos</p>
+  </div>
+  <div className="tier-card">
+    <div className="tier-chip">Tier 3</div>
+    <p className="tier-meta">Gasto requerido: R$ 500</p>
+    <p className="tier-note">Para workloads consistentes</p>
+  </div>
+  <div className="tier-card">
+    <div className="tier-chip">Tier 4</div>
+    <p className="tier-meta">Gasto requerido: R$ 2.000</p>
+    <p className="tier-note">Operação em produção</p>
+  </div>
+  <div className="tier-card">
+    <div className="tier-chip">Tier 5</div>
+    <p className="tier-meta">Gasto requerido: R$ 5.000</p>
+    <p className="tier-note">Altos volumes e squads</p>
+  </div>
+</div>
 
-### Tier 0 rate limits
+## Limites por tier
 
-|Model|RPM|TPM Input|TPM Output|
-|---|---|---|---|
-|sabia-3|60|128.000|10.000|
-|sabia-3.1|60|128.000|10.000|
-|sabiazinho-3|60|128.000|10.000|
+<div className="tier-grid tier-grid--wide">
+  <div className="tier-card tier-card--table">
+    <div className="tier-chip">Tier 0</div>
+    <p className="tier-meta">Entrada moderada para testes</p>
+    <table className="tier-table">
+      <thead>
+        <tr>
+          <th>Modelo</th><th>RPM</th><th>TPM In</th><th>TPM Out</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>sabia-3</td><td>60</td><td>128k</td><td>10k</td></tr>
+        <tr><td>sabia-3.1</td><td>60</td><td>128k</td><td>10k</td></tr>
+        <tr><td>sabiazinho-3</td><td>60</td><td>128k</td><td>10k</td></tr>
+      </tbody>
+    </table>
+  </div>
 
+  <div className="tier-card tier-card--table">
+    <div className="tier-chip">Tier 1</div>
+    <p className="tier-meta">Para MVPs e primeiros clientes</p>
+    <table className="tier-table">
+      <thead>
+        <tr>
+          <th>Modelo</th><th>RPM</th><th>TPM In</th><th>TPM Out</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>sabia-3</td><td>1.000</td><td>2M</td><td>200k</td></tr>
+        <tr><td>sabia-3.1</td><td>1.000</td><td>2M</td><td>200k</td></tr>
+        <tr><td>sabiazinho-3</td><td>1.000</td><td>2M</td><td>200k</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-### Tier 1 rate limits
+  <div className="tier-card tier-card--table">
+    <div className="tier-chip">Tier 2</div>
+    <p className="tier-meta">Escalando com segurança</p>
+    <table className="tier-table">
+      <thead>
+        <tr>
+          <th>Modelo</th><th>RPM</th><th>TPM In</th><th>TPM Out</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>sabia-3</td><td>1.500</td><td>4M</td><td>350k</td></tr>
+        <tr><td>sabia-3.1</td><td>1.500</td><td>4M</td><td>350k</td></tr>
+        <tr><td>sabiazinho-3</td><td>2.000</td><td>4M</td><td>400k</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-|Model|RPM|TPM Input|TPM Output|
-|---|---|---|---|
-|sabia-3|1.000|2M|200.000|
-|sabia-3.1|1.000|2M|200.000|
-|sabiazinho-3|1.000|2M|200.000|
+  <div className="tier-card tier-card--table">
+    <div className="tier-chip">Tier 3</div>
+    <p className="tier-meta">Fluxos intensos</p>
+    <table className="tier-table">
+      <thead>
+        <tr>
+          <th>Modelo</th><th>RPM</th><th>TPM In</th><th>TPM Out</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>sabia-3</td><td>2.000</td><td>6M</td><td>500k</td></tr>
+        <tr><td>sabia-3.1</td><td>2.000</td><td>6M</td><td>500k</td></tr>
+        <tr><td>sabiazinho-3</td><td>5.000</td><td>20M</td><td>800k</td></tr>
+      </tbody>
+    </table>
+  </div>
 
+  <div className="tier-card tier-card--table">
+    <div className="tier-chip">Tier 4</div>
+    <p className="tier-meta">Produção em larga escala</p>
+    <table className="tier-table">
+      <thead>
+        <tr>
+          <th>Modelo</th><th>RPM</th><th>TPM In</th><th>TPM Out</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>sabia-3</td><td>5.000</td><td>10M</td><td>1M</td></tr>
+        <tr><td>sabia-3.1</td><td>5.000</td><td>10M</td><td>1M</td></tr>
+        <tr><td>sabiazinho-3</td><td>10.000</td><td>50M</td><td>2M</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-### Tier 2 rate limits
-
-|Model|RPM|TPM Input|TPM Output|
-|---|---|---|---|
-|sabia-3|1.500|4M|350.000|
-|sabia-3.1|1.500|4M|350.000|
-|sabiazinho-3|2.000|4M|400.000|
-
-
-### Tier 3 rate limits
-
-|Model|RPM|TPM Input|TPM Output|
-|---|---|---|---|
-|sabia-3|2000|6M|500.000|
-|sabia-3.1|2000|6M|500.000|
-|sabiazinho-3|5000|20M|800.000|
-
-
-### Tier 4 rate limits
-
-|Model|RPM|TPM Input|TPM Output|
-|---|---|---|---|
-|sabia-3|5.000|10M|1M|
-|sabia-3.1|5.000|10M|1M|
-|sabiazinho-3|10.000|50M|2M|
-
-
-### Tier 5 rate limits
-
-|Model|RPM|TPM Input|TPM Output|
-|---|---|---|---|
-|sabia-3|10.000|20M|2M|
-|sabia-3.1|10.000|20M|2M|
-|sabiazinho-3|30.000|100M|10M|
-
+  <div className="tier-card tier-card--table">
+    <div className="tier-chip">Tier 5</div>
+    <p className="tier-meta">Grandes operações</p>
+    <table className="tier-table">
+      <thead>
+        <tr>
+          <th>Modelo</th><th>RPM</th><th>TPM In</th><th>TPM Out</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>sabia-3</td><td>10.000</td><td>20M</td><td>2M</td></tr>
+        <tr><td>sabia-3.1</td><td>10.000</td><td>20M</td><td>2M</td></tr>
+        <tr><td>sabiazinho-3</td><td>30.000</td><td>100M</td><td>10M</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>

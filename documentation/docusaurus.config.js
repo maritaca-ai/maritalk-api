@@ -3,7 +3,7 @@ const config = {
   tagline: 'API Documentation',
   url: 'https://maritaca-ai.github.io',
   baseUrl: '/',
-  favicon: '/img/maritaca.png',
+  favicon: '/img/nova_identidade/Digital/logo/logo.png',
   organizationName: 'maritaca-ai',
   projectName: 'maritalk',
   trailingSlash: false,
@@ -62,7 +62,7 @@ const config = {
     navbar: {
       title: 'Docs',
       logo: {
-        src: '/img/maritaca.png',
+        src: 'img/nova_identidade/Digital/logo/logo.png',
       },
       items: [
         {
@@ -81,6 +81,15 @@ const config = {
           position: 'right',
         },
       ],
+    },
+    docs: {
+      sidebar: {
+        hideable: false,
+        autoCollapseCategories: false,
+      },
+    },
+    prism: {
+      additionalLanguages: ['csharp'],
     },
   },
 

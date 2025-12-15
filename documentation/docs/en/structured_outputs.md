@@ -230,14 +230,14 @@ response_format={"type": "json_object"}
 <div className="custom-box" style={{
     display: 'flex', 
     alignItems: 'center', 
-    backgroundColor: '#B0E0E6', 
-    padding: '10px', 
-    border: '1px solid #B0E0E6', 
-    borderRadius: '5px', 
-    margin: '10px 0',
-    color: 'black'
+    backgroundColor: 'var(--ifm-table-stripe-background)', 
+    padding: '12px', 
+    border: '1px solid var(--navbar-border)', 
+    borderRadius: '8px', 
+    margin: '12px 0',
+    color: 'var(--ifm-font-color-base)'
     }}>
-    <span style={{ fontSize: '1.5em', marginRight: '10px', color: '#B0E0E6' }}>💡</span>
+    <span style={{ fontSize: '1.5em', marginRight: '10px', color: 'var(--color-tangerine)' }}>💡</span>
     <div>
         <strong style={{ display: 'block', fontSize: '1em', marginBottom: '5px' }}> JSON MODE </strong>
         <p style={{ fontSize: '0.9em' }}> The JSON mode only ensures that the model's output is valid JSON. Structured Outputs, on the other hand, reliably match the model's output to the schema you specify. We recommend using Structured Outputs if it is supported for your use case. When using JSON mode, if the instruction to produce a JSON object is not explicitly passed to the model, it may generate an endless stream of whitespace, and the request could run continuously until it reaches the token limit.</p>

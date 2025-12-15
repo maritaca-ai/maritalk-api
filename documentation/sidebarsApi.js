@@ -3,10 +3,14 @@ module.exports = {
         {
             type: 'category',
             label: 'Referência da API',
+            collapsible: false,
+            collapsed: false,
             items: [
                 {
                     type: 'category',
                     label: 'Endpoint Chat Completion',
+                    collapsible: false,
+                    collapsed: false,
                     items: [
                       'pt/completion',
                       'pt/completion-response',
@@ -15,6 +19,8 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Endpoint Models List',
+                    collapsible: false,
+                    collapsed: false,
                     items: [
                       'pt/list-models',
                       'pt/list-models-response',
@@ -23,6 +29,8 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Endpoints Batch API',
+                    collapsible: false,
+                    collapsed: false,
                     items: [
                         'pt/batch-api',
                         'pt/batch-api-response',
@@ -35,10 +43,14 @@ module.exports = {
         {
             type: 'category',
             label: 'API Reference',
+            collapsible: false,
+            collapsed: false,
             items: [
                 {
                     type: 'category',
                     label: 'Endpoint Chat Completion',
+                    collapsible: false,
+                    collapsed: false,
                     items: [
                       'en/completion',
                       'en/completion-response',
@@ -47,6 +59,8 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Endpoint Models List',
+                    collapsible: false,
+                    collapsed: false,
                     items: [
                       'en/list-models',
                       'en/list-models-response',
@@ -55,6 +69,8 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Endpoints Batch API',
+                    collapsible: false,
+                    collapsed: false,
                     items: [
                         'en/batch-api',
                         'en/batch-api-response',

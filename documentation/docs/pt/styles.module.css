@@ -1,10 +1,11 @@
 .callout-box {
   display: flex;
   align-items: center;
-  border: 1px solid #eaeaea;
+  border: 1px solid var(--callout-border, #eaeaea);
   border-radius: 8px;
-  padding: 10px;
-  background-color: #f9f9f9;
+  padding: 12px 16px;
+  background-color: var(--callout-bg, #f9f9f9);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .callout-box img {
@@ -17,19 +18,66 @@
 }
 
 .callout-box span {
-  color: #666;
+  color: inherit;
 }
 
 :root {
-  --background-color-box-maritaca: #95d1bc;
-  --background-color-box2-maritaca: #d1c695;
+  --background-color-box-maritaca: #e9edea;
+  --background-color-box2-maritaca: #ebe6da;
+  --cta-chat-bg: #f7f1d0;
+  --cta-chat-border: #e2d7a2;
+  --cta-report-bg: #ecddc6;
+  --cta-report-border: #d3c5ae;
+  --callout-bg: var(--ifm-background-surface-color);
+  --callout-border: var(--color-mist);
 }
 
 [data-theme='dark'] {
-  --background-color-box-maritaca: #145E50; 
-  --background-color-box2-maritaca: #8a7c3d;
-
+  --background-color-box-maritaca: rgba(255, 255, 255, 0.05); 
+  --background-color-box2-maritaca: rgba(255, 255, 255, 0.06);
+  --cta-chat-bg: rgba(255, 215, 140, 0.14);
+  --cta-chat-border: rgba(255, 215, 140, 0.35);
+  --cta-report-bg: rgba(255, 220, 180, 0.16);
+  --cta-report-border: rgba(255, 220, 180, 0.32);
+  --callout-bg: rgba(255, 255, 255, 0.05);
+  --callout-border: rgba(255, 255, 255, 0.2);
 }
+
+.ctaChat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid var(--cta-chat-border);
+  border-radius: 8px;
+  background-color: var(--cta-chat-bg);
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.ctaReport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid var(--cta-report-border);
+  border-radius: 8px;
+  background-color: var(--cta-report-bg);
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.ctaChat:hover,
+.ctaReport:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-color: var(--table-border-color);
+  transform: translateY(-1px);
+}
+
 
 .swagger-ui .topbar {
   display: none;

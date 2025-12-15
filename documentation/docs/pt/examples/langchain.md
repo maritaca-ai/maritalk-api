@@ -7,7 +7,7 @@ Este tutorial completo sobre MariTalk + LangChain cobre um exemplo simples, LLM+
 
 <div style={{ display: 'flex', justifyContent: 'space-around', margin: '20px 0', flexWrap: 'wrap' }}>
   <a href="https://python.langchain.com/docs/integrations/chat/maritalk/" className="icon-box" style={{ flex: '1 1 200px', margin: '10px', textAlign: 'center' }}>
-    <i className="fas fa-link" style={{ fontSize: '2em', marginBottom: '10px' }}></i> 
+    <span className="geo-icon geo-icon-chain" aria-hidden="true"></span>
     <h3>LangChain</h3>
     <p>Maritaca + RAG com LangChain.</p>
   </a>

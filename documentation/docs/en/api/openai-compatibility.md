@@ -22,7 +22,7 @@ First, install the openai library by typing this command in the terminal:
 pip install openai
 ```
 
-### 🛠️ Setting Up the Client
+### <span className="inline-heading"><span className="geo-icon geo-icon-chain geo-icon-small" aria-hidden="true"></span><span>Setting Up the Client</span></span>
 Setting up the OpenAI client is the first step to using the API. Make sure to provide your API key and the custom base URL. That is, to use Maritaca API, simply point the endpoint to `https://chat.maritaca.ai/api`, fill in the API key with a key obtained from the platform (as described in quick start), and use one of the Sabiá models.
 ```python
 import os
@@ -34,7 +34,7 @@ client = openai.OpenAI(
 )
 ```
 
-### 🗨️ Making a Chat Request
+### <span className="inline-heading"><span className="geo-icon geo-icon-chat geo-icon-small" aria-hidden="true"></span><span>Making a Chat Request</span></span>
 
 You can make a chat request to the sabia-3 model by passing a list of messages.
 
@@ -68,7 +68,7 @@ curl https://chat.maritaca.ai/api/chat/completions \
 </TabItem>
 </Tabs>
 
-### 💻 Making a Request to Complete Input
+### <span className="inline-heading"><span className="geo-icon geo-icon-creative geo-icon-small" aria-hidden="true"></span><span>Making a Request to Complete Input</span></span>
 In addition to chats, you can also use the model to complete input, as in the example below:
 
 <Tabs>
@@ -97,7 +97,7 @@ curl https://chat.maritaca.ai/api/completions \
 </TabItem>
 </Tabs>
 
-### 🔄 Streaming Chat Request
+### <span className="inline-heading"><span className="geo-icon geo-icon-stream geo-icon-small" aria-hidden="true"></span><span>Streaming Chat Request</span></span>
 
 To receive responses in real time (streaming), you can use the parameter stream=True.
 

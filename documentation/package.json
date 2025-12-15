@@ -24,6 +24,7 @@
     "@mdx-js/react": "^3.0.1",
     "@redocly/redoc": "^0.108.0",
     "clsx": "^2.0.0",
+    "prismjs": "^1.29.0",
     "prism-react-renderer": "^2.3.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
