@@ -241,14 +241,14 @@ print(final_response.choices[0].message)
 <div className="custom-box" style={{
     display: 'flex', 
     alignItems: 'center', 
-    backgroundColor: '#B0E0E6', 
-    padding: '10px', 
-    border: '1px solid #B0E0E6', 
-    borderRadius: '5px', 
-    margin: '10px 0',
-    color: 'black'
+    backgroundColor: 'var(--ifm-table-stripe-background)', 
+    padding: '12px', 
+    border: '1px solid var(--navbar-border)', 
+    borderRadius: '8px', 
+    margin: '12px 0',
+    color: 'var(--ifm-font-color-base)'
     }}>
-    <span style={{ fontSize: '1.5em', marginRight: '10px', color: '#B0E0E6' }}>💡</span>
+    <span style={{ fontSize: '1.5em', marginRight: '10px', color: 'var(--color-tangerine)' }}>💡</span>
     <div>
         <strong style={{ display: 'block', fontSize: '1em', marginBottom: '5px' }}>
         Does the model have the capability to execute functions independently?
@@ -259,17 +259,17 @@ print(final_response.choices[0].message)
     </div>
 </div>
 <br/>
-    <div className="custom-box" style={{
+<div className="custom-box" style={{
         display: 'flex', 
         alignItems: 'center', 
-        backgroundColor: '#FFFFE0', 
-        padding: '10px', 
-        border: '1px solid #dfe9e9', 
-        borderRadius: '5px', 
-        margin: '10px 0',
-        color: 'black'
+        backgroundColor: 'var(--cta-chat-bg)', 
+        padding: '12px', 
+        border: '1px solid var(--cta-chat-border)', 
+        borderRadius: '8px', 
+        margin: '12px 0',
+        color: 'var(--ifm-font-color-base)'
         }}>
-        <span style={{ fontSize: '1.5em', marginRight: '10px', color: '#FFFFE0' }}>🎯</span>
+        <span style={{ fontSize: '1.5em', marginRight: '10px', color: 'var(--color-forest)' }}>🎯</span>
         <div>
             <strong style={{ display: 'block', fontSize: '1em', marginBottom: '5px' }}>
             Does the model have access to internal tools?

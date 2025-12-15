@@ -14,7 +14,7 @@ Isso significa que os modelos Sabiá podem ser utilizados em qualquer programa q
 
 ### **Configurando a OpenAI para usar a Maritaca API**
 
-#### Intalação da biblioteca
+#### Instalação da biblioteca
 
 Primeiro instale a biblioteca da openai digitando este comando no terminal: 
 
@@ -22,7 +22,7 @@ Primeiro instale a biblioteca da openai digitando este comando no terminal:
 pip install openai
 ```
 
-### 🛠️ Configurando o Cliente
+### <span className="inline-heading"><span className="geo-icon geo-icon-chain geo-icon-small" aria-hidden="true"></span><span>Configurando o Cliente</span></span>
 A configuração do cliente OpenAI é o primeiro passo para utilizar a API. Certifique-se de fornecer sua chave de API e a URL base personalizada. Ou seja, para utilizar a Maritaca API, basta apontar o endpoint para `https://chat.maritaca.ai/api`, preencher a chave de API com uma chave obtida na plataforma (como descrito em início rápido) e usar um dos modelos Sabiá.
 ```python
 import os
@@ -35,7 +35,7 @@ client = openai.OpenAI(
 ```
 
 
-### 🗨️ Realizando uma Requisição de Chat
+### <span className="inline-heading"><span className="geo-icon geo-icon-chat geo-icon-small" aria-hidden="true"></span><span>Realizando uma Requisição de Chat</span></span>
 
 Você pode fazer uma requisição de chat para o modelo sabia-3 passando uma lista de mensagens.
 
@@ -69,7 +69,7 @@ curl https://chat.maritaca.ai/api/chat/completions \
 </TabItem>
 </Tabs>
 
-### 💻 Realizando uma requisição para completar entrada
+### <span className="inline-heading"><span className="geo-icon geo-icon-creative geo-icon-small" aria-hidden="true"></span><span>Realizando uma requisição para completar entrada</span></span>
 Além de chats, você também pode utilizar o modelo para completar a entrada, como no exemplo abaixo:
 
 <Tabs>
@@ -98,7 +98,7 @@ curl https://chat.maritaca.ai/api/completions \
 </TabItem>
 </Tabs>
 
-### 🔄 Requisição de Chat com Streaming
+### <span className="inline-heading"><span className="geo-icon geo-icon-stream geo-icon-small" aria-hidden="true"></span><span>Requisição de Chat com Streaming</span></span>
 
 Para receber as respostas em tempo real (streaming), você pode utilizar o parâmetro stream=True.
 

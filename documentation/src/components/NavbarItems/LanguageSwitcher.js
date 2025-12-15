@@ -61,18 +61,19 @@ const LanguageSwitcher = () => {
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '5px' }}>
-      <FontAwesomeIcon icon={faGlobe} style={{ fontSize: '1.2em', color: '#007bff' }} />
+      <FontAwesomeIcon icon={faGlobe} style={{ fontSize: '1.2em', color: 'var(--ifm-color-primary)' }} />
       <select
         onChange={handleLanguageChange}
         value={selectedLang}
         style={{
-          background: 'transparent',
-          border: '1px solid #ccc',
+          background: 'var(--ifm-background-surface-color)',
+          border: '1px solid var(--color-mist)',
           padding: '5px 15px',
-          borderRadius: '5px',
-          color: 'inherit',
+          borderRadius: '6px',
+          color: 'var(--ifm-font-color-base)',
           font: 'inherit',
           cursor: 'pointer',
+          transition: 'border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease',
         }}
       >
         <option value="en">{languageLabels[selectedLang]['en']} <FontAwesomeIcon icon={faFlagUsa} /></option>

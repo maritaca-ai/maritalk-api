@@ -3,6 +3,8 @@ module.exports = {
     {
       type: 'category',
       label: 'Início',
+      collapsible: false,
+      collapsed: false,
       items: [
         'pt/visao-geral',
         'pt/introducao',
@@ -10,6 +12,8 @@ module.exports = {
         {
           type: 'category',
           label: 'API',
+          collapsible: false,
+          collapsed: false,
           items: [
             'pt/api/comeco-rapido',
             'pt/api/openai-compatibilidade',
@@ -22,6 +26,8 @@ module.exports = {
             {
               type: 'category',
               label: 'Exemplos',
+              collapsible: false,
+              collapsed: false,
               items: [
                 'pt/examples/langchain',
                 'pt/examples/langgraph',
@@ -29,14 +35,8 @@ module.exports = {
                 'pt/examples/csharp-js',
               ],
             },
-            {
-              type: 'category',
-              label: 'Biblioteca',
-              items: [
-                'pt/biblioteca',
-                'pt/casos-de-uso',
-              ],
-            },
+            'pt/biblioteca',
+            'pt/casos-de-uso-carrossel',
           ],
         },
       ],
@@ -44,6 +44,8 @@ module.exports = {
     {
       type: 'category',
       label: 'Recursos',
+      collapsible: false,
+      collapsed: false,
       items: [
         'pt/glossario',
         'pt/status',
@@ -56,6 +58,8 @@ module.exports = {
     {
       type: 'category',
       label: 'Home',
+      collapsible: false,
+      collapsed: false,
       items: [
         'en/overview',
         'en/introduction',
@@ -63,6 +67,8 @@ module.exports = {
         {
           type: 'category',
           label: 'API',
+          collapsible: false,
+          collapsed: false,
           items: [
             'en/api/quick-start',
             'en/api/openai-compatibility',
@@ -75,6 +81,8 @@ module.exports = {
             {
               type: 'category',
               label: 'Examples',
+              collapsible: false,
+              collapsed: false,
               items: [
                 'en/examples/langchain',
                 'en/examples/langgraph',
@@ -82,14 +90,7 @@ module.exports = {
                 'en/examples/csharp-js',
               ],
             },
-            {
-              type: 'category',
-              label: 'Library',
-              items: [
-                'en/library',
-                'en/use-cases',
-              ],
-            },
+            'en/library',
           ],
         },
       ],
@@ -97,6 +98,8 @@ module.exports = {
     {
       type: 'category',
       label: 'Resources',
+      collapsible: false,
+      collapsed: false,
       items: [
         'en/glossary',
         'en/status',

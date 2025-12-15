@@ -6,7 +6,7 @@ import React from 'react';
 import styles from './styles-api.module.css';
 
 # Quick Start
-<a href="/api/en/completion" className={styles['callout-box']} style={{ display: 'flex', alignItems: 'center', backgroundColor: '#f5f5f5', color: 'black', border: '1px solid #ddd', padding: '10px', borderRadius: '8px', textDecoration: 'none' }}>
+<a href="/api/en/completion" className={styles['callout-box']}>
   <img src="/img/code-icon.png" alt="Code Icon" style={{ width: '50px', marginRight: '15px' }} />
   <div>
     <strong>Want to go straight to the code?</strong><br />
