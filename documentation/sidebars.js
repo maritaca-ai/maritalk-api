@@ -36,7 +36,6 @@ module.exports = {
               ],
             },
             'pt/biblioteca',
-            'pt/casos-de-uso-carrossel',
           ],
         },
       ],
