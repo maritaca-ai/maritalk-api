@@ -50,7 +50,7 @@ When you submit files, the API extracts the text content and feeds it to the mod
 All extracted content is returned in the response and can be accessed like this:
 
 ```python
-extracted_docs = response.extracted_content
+extracted_docs = response.extracted_files
 
 for doc in extracted_docs:
     print(doc["filename"])  # File name

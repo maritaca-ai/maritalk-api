@@ -50,7 +50,7 @@ Quando arquivos são enviados, a API extrai o conteúdo textual e o repassa ao m
 Todo o conteúdo extraído é retornado na resposta e pode ser acessado assim:
 
 ```python
-extracted_docs = response.extracted_content
+extracted_docs = response.extracted_files
 
 for doc in extracted_docs:
     print(doc["filename"])  # Nome do arquivo
