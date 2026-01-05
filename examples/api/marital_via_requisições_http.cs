@@ -10,7 +10,7 @@ namespace ChatMariTalk
         {
             //variables
             string key = "";
-            string model = "sabia-3";
+            string model = "sabiazinho-4";
             string url = "https://chat.maritaca.ai/api";
             string nameProject = "ExemploUsandoMaritaca";
 

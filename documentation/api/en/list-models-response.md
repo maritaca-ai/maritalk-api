@@ -10,11 +10,23 @@ import styles from './style_api.css';
 
 # The Response Object
 
-Represents a chat response returned by the model, based on the provided input.
+Represents the response from the model listing endpoint.
 
 <div style={{ display: 'flex' }}>
 
 <div style={{ flex: 1, paddingRight: '20px' }}>
+
+### object  `string`
+
+The type of the returned object. For this route, it is always "list".
+
+---
+
+### data  `array`
+
+List of available `model` objects.
+
+---
 
 ### id  `string`
 
@@ -27,15 +39,21 @@ The Unix timestamp (in seconds) of when the model was created.
 
 ---
 
-### object  `string`
-
-The type of object, which is always "model".
-
----
-
 ### owned_by  `string`
 
 The organization that owns the model.
+
+---
+
+### context_length  `integer`
+
+The model’s context window in tokens.
+
+---
+
+### top_provider  `object`
+
+Information about the primary provider, including `context_length` and `max_completion_tokens`.
 
 ---
 </div>
@@ -43,19 +61,43 @@ The organization that owns the model.
 <div class="container-right" style={{  maxWidth: '40rem', overflowY: 'auto',   padding: '10px', borderRadius: '5px', whiteSpace: 'nowrap', position: 'sticky', top: '0' }}>
 
 ```json
-[
-  {
-    "id": "sabia-3", 
-    "object": "model",
-    "created": 1725840000,
-    "owned_by": "maritacaai"
-  }, 
-  {
-    "id": "sabia-2-small", 
-    "object": "model", 
-    "created": 1710201600, 
-    "owned_by": "maritacaai"
-  }
-]
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "sabia-3.1",
+      "created": 1746662400,
+      "object": "model",
+      "owned_by": "maritacaai",
+      "context_length": 128000,
+      "top_provider": {
+        "context_length": 128000,
+        "max_completion_tokens": 12000
+      }
+    },
+    {
+      "id": "sabia-3",
+      "created": 1733875200,
+      "object": "model",
+      "owned_by": "maritacaai",
+      "context_length": 128000,
+      "top_provider": {
+        "context_length": 128000,
+        "max_completion_tokens": 12000
+      }
+    },
+    {
+      "id": "sabiazinho-3",
+      "created": 1738800000,
+      "object": "model",
+      "owned_by": "maritacaai",
+      "context_length": 32000,
+      "top_provider": {
+        "context_length": 32000,
+        "max_completion_tokens": 12000
+      }
+    }
+  ]
+}
 ```
 </div></div> 
