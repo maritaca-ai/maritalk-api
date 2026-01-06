@@ -52,9 +52,9 @@ A cobrança pelo uso dos modelos é baseada no volume de tokens, considerando ta
 ---
 ## Desempenho
 
-Graças ao nosso treinamento especializado em português e em contextos brasileiros, nossos modelos apresentam excelente desempenho em benchmarks nacionais, com custos significativamente menores do que alternativas comparáveis. A tabela abaixo compara Sabiázinho 4, Sabiázinho 3 e modelos concorrentes em uma série de avaliações brasileiras — incluindo exames jurídicos, provas educacionais, conhecimento legislativo, capacidade agentiva e habilidades conversacionais (considerando qualidade e custo de execução via API).
+Graças ao nosso treinamento especializado em português e em contextos brasileiros, nossos modelos apresentam excelente desempenho em benchmarks nacionais, com custos significativamente menores do que alternativas comparáveis. A tabela abaixo compara Sabiazinho 4, Sabiazinho 3 e modelos concorrentes em uma série de avaliações brasileiras — incluindo exames jurídicos, provas educacionais, conhecimento legislativo, capacidade agêntica e habilidades conversacionais (considerando qualidade e custo de execução via API).
 
-Os resultados mostram que o Sabiázinho 4 lidera a maior parte dos benchmarks focados no Brasil, como redação jurídica (OAB e Magis), conhecimento da legislação brasileira e conversação em português, mantendo um custo de execução muito inferior aos modelos comparativos. 
+Os resultados mostram que o Sabiazinho 4 lidera a maior parte dos benchmarks focados no Brasil, como redação jurídica (OAB e Magis), conhecimento da legislação brasileira e conversação em português, mantendo um custo de execução muito inferior aos modelos comparativos. 
 
 Essa comparação evidencia que nossos modelos oferecem uma combinação competitiva de alto desempenho em tarefas brasileiras reais e eficiência de custo, sendo especialmente adequados para aplicações jurídicas, educacionais e institucionais no Brasil.
 
@@ -67,8 +67,8 @@ Essa comparação evidencia que nossos modelos oferecem uma combinação competi
         <th>Benchmark</th>
         <th>Descrição</th>
         <th>Métrica</th>
-        <th>Sabiázinho 4</th>
-        <th>Sabiázinho 3</th>
+        <th>Sabiazinho 4</th>
+        <th>Sabiazinho 3</th>
         <th>gpt-oss 120b</th>
         <th>GPT-4.1 mini</th>
         <th>GPT-5.1 mini</th>
@@ -116,7 +116,7 @@ Essa comparação evidencia que nossos modelos oferecem uma combinação competi
         <td>68,2%</td>
       </tr>
       <tr>
-        <td>Capacidades Agenticas</td>
+        <td>Capacidades Agênticas</td>
         <td>Uso de ferramentas e ambientes em português</td>
         <td>Pass³ e success@1</td>
         <td>55,2%</td>
@@ -212,7 +212,6 @@ Essa comparação evidencia que nossos modelos oferecem uma combinação competi
     .benchmark-table td:nth-child(4) {
       background: #e8f9f1;
       color: #0f172a;
-      font-weight: 800;
     }
     .benchmark-table td strong {
       color: #0f172a;

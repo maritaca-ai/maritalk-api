@@ -52,9 +52,9 @@ It is important to remember that, although the models are a powerful tool for la
 ---
 ## Performance
 
-Thanks to our specialized training in Portuguese and Brazilian-specific contexts, our models achieve strong performance on national benchmarks at significantly lower cost than comparable alternatives. The table below compares Sabiázinho 4, Sabiázinho 3, and competing models across a range of Brazilian evaluations—including legal exams, educational assessments, legislative knowledge, agentic capabilities, and conversational skills—taking into account both quality and API execution cost.
+Thanks to our specialized training in Portuguese and Brazilian-specific contexts, our models achieve strong performance on national benchmarks at significantly lower cost than comparable alternatives. The table below compares Sabiazinho 4, Sabiazinho 3, and competing models across a range of Brazilian evaluations—including legal exams, educational assessments, legislative knowledge, agentic capabilities, and conversational skills—taking into account both quality and API execution cost.
 
-The results show that Sabiázinho 4 leads most Brazil-focused benchmarks, such as legal writing (OAB and Magis), knowledge of Brazilian legislation, and Portuguese conversational ability, while maintaining a substantially lower execution cost than comparable models.
+The results show that Sabiazinho 4 leads most Brazil-focused benchmarks, such as legal writing (OAB and Magis), knowledge of Brazilian legislation, and Portuguese conversational ability, while maintaining a substantially lower execution cost than comparable models.
 
 This comparison highlights that our models offer a competitive combination of high performance on real Brazilian tasks and cost efficiency, making them particularly well suited for legal, educational, and institutional applications in Brazil.
 
@@ -66,8 +66,8 @@ This comparison highlights that our models offer a competitive combination of hi
         <th>Benchmark</th>
         <th>Description</th>
         <th>Metric</th>
-        <th>Sabiázinho 4</th>
-        <th>Sabiázinho 3</th>
+        <th>Sabiazinho 4</th>
+        <th>Sabiazinho 3</th>
         <th>gpt-oss 120b</th>
         <th>GPT-4.1 mini</th>
         <th>GPT-5.1 mini</th>
@@ -211,7 +211,6 @@ This comparison highlights that our models offer a competitive combination of hi
     .benchmark-table td:nth-child(4) {
       background: #e8f9f1;
       color: #0f172a;
-      font-weight: 800;
     }
     .benchmark-table td strong {
       color: #0f172a;
