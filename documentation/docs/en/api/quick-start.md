@@ -24,7 +24,7 @@ If you are an experienced developer, you can go directly to the [API reference](
 
 First, create an account or log in to the [Maritaca platform](https://plataforma.maritaca.ai/). Then, navigate to the [API key page](https://plataforma.maritaca.ai/chaves-de-api) and click "Create new key," optionally naming the key. Be sure to save the key in a secure place and do not share it with anyone.
 
-<img src="/img/key.png" alt="Setup" style={{ width: '1000px', height: 'auto', marginRight: '15px' }} />
+<img src="/img/Chave_novo.png" alt="Setup" style={{ width: '1000px', height: 'auto', marginRight: '15px' }} />
 
 <br/>
 <br/>
@@ -35,7 +35,7 @@ Paste the created key into my_key.
 ```python
 model = maritalk.MariTalk(
     key=f"{my_key}", #Paste the key here Ex: '100088...'
-    model="sabia-3"  # Currently, we support the models sabia-3 and sabia-2-small
+    model="sabiazinho-4" # The list of supported models is available at https://docs.maritaca.ai/en/models
 )
 ```
 <details>

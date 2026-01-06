@@ -27,7 +27,7 @@ Se você é um desenvolvedor experiente, pode ir diretamente para a [referência
 ## Passo 1: Configuração da Conta
 
 Primeiro, crie uma conta ou faça login na [plataforma da Maritaca](https://plataforma.maritaca.ai/). Em seguida, navegue até a [página de chave da API](https://plataforma.maritaca.ai/chaves-de-api) e clique em "Criar nova chave", nomeando a chave opcionalmente. Certifique-se de salvar a chave em um local seguro e não compartilhar com ninguém.
-<img src="/img/chave.png" alt="Configuracao" style={{ width: '1000px', height: 'auto',marginRight: '15px'}} />
+<img src="/img/Chave_novo.png" alt="Configuracao" style={{ width: '1000px', height: 'auto',marginRight: '15px'}} />
 
 <br/>
 <br/>
@@ -35,8 +35,8 @@ Primeiro, crie uma conta ou faça login na [plataforma da Maritaca](https://plat
 Cole a chave criada em minha_chave.
 ```python
 model = maritalk.MariTalk(
-    key=f"{minha_chave}", #Cole a chave aqui Ex: '100088...'
-    model="sabia-3"  # No momento, suportamos os modelos sabia-3 e sabia-2-small
+    key=f"{minha_chave}", # Cole a chave aqui Ex: '100088...'
+    model="sabiazinho-4"  # A lista completa de modelos está disponível em https://docs.maritaca.ai/pt/modelos
 )
 ```
 <details>

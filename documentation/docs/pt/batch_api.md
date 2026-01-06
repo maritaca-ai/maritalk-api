@@ -38,10 +38,10 @@ Você pode trabalhar com a Batch API de duas maneiras: pela interface visual ou 
 ## Interface visual
 1. Na interface web, o fluxo para enviar seu arquivo .jsonl começa pelo menu lateral: selecione a opção Arquivos; em seguida, no canto superior-direito da tela, clique no botão + Upload. Será exibida uma janela modal onde você deve arrastar ou escolher o arquivo a partir do seu computador — basta soltar o .jsonl na área tracejada que aparece no centro do diálogo. Depois de selecionar o arquivo, pressione Upload para iniciar o envio. Quando o upload terminar, o documento aparecerá na lista de arquivos com o status processed e receberá um file_id; é esse identificador que você utilizará para criar o batch na etapa seguinte. Cada arquivo pode ter no máximo 200MB e até 50k requisições.
 
-<img src="/img/Batch0.png" alt="Sabia" style={{ width: '100rem', height: 'auto', marginRight: '15px' }} />
+<img src="/img/Batch0_novo.png" alt="Sabia" style={{ width: '100rem', height: 'auto', marginRight: '15px' }} />
 
 2. Para criar o lote na interface web, abra o menu lateral e selecione Batch API; a listagem de lotes é exibida no painel principal. No canto superior-direito clique em + Criar para abrir o diálogo Criar Batch. Nesse modal basta colar o File ID gerado na etapa anterior (o arquivo deve ter até 200 MB ou 50 mil requisições) e, em seguida, pressionar Criar Batch. O sistema passa a validar o arquivo e, assim que a execução se inicia, o novo lote aparece na lista com o respectivo identificador e o progresso em tempo real.
-<img src="/img/Batch1.png" alt="Sabia" style={{ width: '100rem', height: 'auto', marginRight: '15px' }} />
+<img src="/img/Batch1_novo.png" alt="Sabia" style={{ width: '100rem', height: 'auto', marginRight: '15px' }} />
 
 
 ## Uso via código

@@ -17,4 +17,4 @@ Passo a passo:
 
 Surgirá uma tela de confirmação: clique em “Apagar conta” para excluir sua conta permanentemente.
 
-<img src="/img/excluir.png" alt="excluir" style={{ width: '100rem', height: 'auto', marginRight: '15px' }} />
+<img src="/img/Excluir_novo.png" alt="excluir" style={{ width: '100rem', height: 'auto', marginRight: '15px' }} />

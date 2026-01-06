@@ -11,7 +11,7 @@ Maritaca API makes it easy to integrate the latest Maritaca models into your pro
 <a href="https://arxiv.org/pdf/2410.12049" className={styles.ctaReport}>
   <img src="/img/sabia.png" alt="Sabia" style={{ width: '50px', height: 'auto', marginRight: '15px' }} />
   <p style={{ margin: 0 }}>
-    <strong>Introducing Sabiá 3</strong>, our most advanced model yet. Read more in our technical report.
+    <strong>Introducing Sabiazinho 4</strong>, our most advanced model to date. Read on our website the technical reports of the main scientific research produced by Maritaca.
   </p>
 </a>
 

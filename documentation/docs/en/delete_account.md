@@ -18,4 +18,4 @@ Step-by-step guide:
 
 A confirmation screen will appear: click “Delete account” to permanently remove your account.
 
-<img src="/img/excluir.png" alt="excluir" style={{ width: '100rem', height: 'auto', marginRight: '15px' }} />
+<img src="/img/Excluir_novo.png" alt="excluir" style={{ width: '100rem', height: 'auto', marginRight: '15px' }} />
