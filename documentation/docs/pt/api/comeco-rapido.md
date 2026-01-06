@@ -35,8 +35,8 @@ Primeiro, crie uma conta ou faça login na [plataforma da Maritaca](https://plat
 Cole a chave criada em minha_chave.
 ```python
 model = maritalk.MariTalk(
-    key=f"{minha_chave}", #Cole a chave aqui Ex: '100088...'
-    model="sabiazinho-4"  # No momento, suportamos os modelos sabia-3 e sabia-2-small
+    key=f"{minha_chave}", # Cole a chave aqui Ex: '100088...'
+    model="sabiazinho-4"  # A lista completa de modelos está disponível em https://docs.maritaca.ai/pt/modelos
 )
 ```
 <details>

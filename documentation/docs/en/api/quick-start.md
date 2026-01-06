@@ -35,7 +35,7 @@ Paste the created key into my_key.
 ```python
 model = maritalk.MariTalk(
     key=f"{my_key}", #Paste the key here Ex: '100088...'
-    model="sabiazinho-4"  # Currently, we support the models sabia-3 and sabia-2-small
+    model="sabiazinho-4" # The list of supported models is available at https://docs.maritaca.ai/en/models
 )
 ```
 <details>

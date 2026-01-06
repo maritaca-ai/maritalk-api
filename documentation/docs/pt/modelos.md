@@ -45,4 +45,4 @@ total_tokens = count_tokens(prompt, model="sabia-3")
 print(f'O prompt "{prompt}" contém {total_tokens} tokens.')
 ```
 
-É necessário instalar a biblioteca da Maritaca (`pip install maritalk`) para rodar do trecho de código acima.
+É necessário instalar a biblioteca da Maritaca (`pip install maritalk`) para rodar o trecho de código acima.

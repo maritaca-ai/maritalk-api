@@ -35,7 +35,7 @@ import maritalk
 
 model = maritalk.MariTalk(
     key="insert your key here. Ex: '100088...'",
-    model="sabiazinho-4"  # Currently, we support the sabia-3 and sabia-2-small models
+    model="sabiazinho-4"  # The list of supported models is available at https://docs.maritaca.ai/en/models
 )
 
 response = model.generate("What is 25 + 27?", max_tokens=8000)
