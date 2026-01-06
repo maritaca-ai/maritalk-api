@@ -52,8 +52,11 @@ It is important to remember that, although the models are a powerful tool for la
 ---
 ## Performance
 
-Thanks to our specialized training, our models deliver superior quality at a lower cost compared to the competition. Below is a comparison of the quality of Sabiá-3 (our most advanced model), measured by performance on 93 Brazilian exams (such as ENEM, Enade, Revalida, OAB, ENAM, CPNU, UNICAMP, USP, among others), relative to price:
+Thanks to our specialized training in Portuguese and Brazilian-specific contexts, our models achieve strong performance on national benchmarks at significantly lower cost than comparable alternatives. The table below compares Sabiázinho 4, Sabiázinho 3, and competing models across a range of Brazilian evaluations—including legal exams, educational assessments, legislative knowledge, agentic capabilities, and conversational skills—taking into account both quality and API execution cost.
 
+The results show that Sabiázinho 4 leads most Brazil-focused benchmarks, such as legal writing (OAB and Magis), knowledge of Brazilian legislation, and Portuguese conversational ability, while maintaining a substantially lower execution cost than comparable models.
+
+This comparison highlights that our models offer a competitive combination of high performance on real Brazilian tasks and cost efficiency, making them particularly well suited for legal, educational, and institutional applications in Brazil.
 
 <div className="benchmark-table">
   <table>

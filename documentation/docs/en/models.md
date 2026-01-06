@@ -18,7 +18,7 @@ Maritaca AI offers a range of models in the Sabiá family, designed to meet vari
 | **Batch API price per million input tokens** | R$0.50 | R$2.50 | R$2.50 | R$0.50 |
 | **Batch API price per million output tokens** | R$2.00 | R$5.00 | R$5.00 | R$1.50 |
 | **Training data cutoff** | Through August 2024 | Through August 2024 | Through mid-2023 | Through mid-2023 |
-| **Model Names/Aliases** | sabiazinho-4<br />sabiazinho-4-2025-11-05<br />sabia-4-small<br />sabiazim-4 | sabia-3.1<br />sabiá-3.1<br />sabia-3.1-2025-05-08<br />sabiá-3.1-2025-05-08 | sabia-3<br />sabiá-3<br />sabia-3-2024-12-11<br />sabiá-3-2024-12-11 | sabiazinho-3<br />sabiazinho-3-2025-02-06<br />sabia-3-small<br />sabiazim-3 |
+| **Model Names/Aliases** | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabia-3.1<br />sabiá-3.1<br />sabia-3.1-2025-05-08<br />sabiá-3.1-2025-05-08 | sabia-3<br />sabiá-3<br />sabia-3-2024-12-11<br />sabiá-3-2024-12-11 | sabiazinho-3<br />sabiazinho-3-2025-02-06<br />sabia-3-small<br />sabiazim-3 |
 
 ## Deprecated Models
 
