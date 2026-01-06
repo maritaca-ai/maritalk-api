@@ -1,10 +1,14 @@
 # Introduction to Sabiá
 
-The Portuguese language specialized models by Maritaca AI, known as Sabiá, are available through an API.
+Maritaca AI's Portuguese-specialized models, known as Sabiá, are available through an API.
 
-The charge for the use of the models is based on the volume of tokens, considering both input and output data. The specialized training of the Sabiá models ensures superior performance at a more accessible cost compared to other market solutions.
+Billing for model usage is based on the volume of tokens, considering both input and output data. The specialized training of the Sabiá models guarantees superior performance at a more accessible cost compared to other solutions on the market.
 
----
+
+## What you can do with Sabiá
+
+The Sabiá family of models, developed by Maritaca AI, can simulate human interactions in Portuguese with high fidelity. In addition to generating texts that cover a wide range of topics and communication styles, from everyday dialogues to complex analyses, it is a useful and accessible tool for anyone seeking meaningful interaction in Portuguese.
+
 <div className="intro-features">
   <div className="intro-feature-card">
     <span className="geo-icon geo-icon-chat" aria-hidden="true"></span>
@@ -23,7 +27,7 @@ The charge for the use of the models is based on the volume of tokens, consideri
   </div>
   <div className="intro-feature-card">
     <span className="geo-icon geo-icon-education" aria-hidden="true"></span>
-    <h3>Teaching and Tutoring</h3>
+    <h3>Teaching and tutoring</h3>
     <p>It can help explain complex concepts and assist in learning various subjects, providing detailed explanations about a variety of topics.</p>
   </div>
   <div className="intro-feature-card">
@@ -48,54 +52,210 @@ It is important to remember that, although the models are a powerful tool for la
 ---
 ## Performance
 
-Thanks to our specialized training, our models offer superior quality at a lower cost compared to the competition. Check below the comparison of the quality of Sabiá-3 (our most advanced model), measured by performance in 93 Brazilian Exams (such as ENEM, Enade, Revalida, OAB, ENAM, CPNU, UNICAMP, USP, among others), in relation to the price:
+Thanks to our specialized training, our models deliver superior quality at a lower cost compared to the competition. Below is a comparison of the quality of Sabiá-3 (our most advanced model), measured by performance on 93 Brazilian exams (such as ENEM, Enade, Revalida, OAB, ENAM, CPNU, UNICAMP, USP, among others), relative to price:
 
-<div id="graph-container">
-  <iframe 
-    src="/img/price_vs_performance_en.html" 
-    style={{
-      width: '2384px',  /* Dimensões originais multiplicadas por 2 */
-      height: '1164px', /* Dimensões originais multiplicadas por 2 */
-      border: 'none',
-      transformOrigin: '0 0',
-      position: 'absolute',
-      backgroundColor: 'var(--ifm-background-color)'
-    }} 
-    frameBorder="0"
-    scrolling="no"
-  />
+
+<div className="benchmark-table">
+  <table>
+    <caption>Comparison of performance and cost on Brazilian benchmarks</caption>
+    <thead>
+      <tr>
+        <th>Benchmark</th>
+        <th>Description</th>
+        <th>Metric</th>
+        <th>Sabiázinho 4</th>
+        <th>Sabiázinho 3</th>
+        <th>gpt-oss 120b</th>
+        <th>GPT-4.1 mini</th>
+        <th>GPT-5.1 mini</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cost</td>
+        <td>Cost to run the benchmarks below</td>
+        <td>Brazilian reais spent on tokens via API</td>
+        <td>R$ 15.87</td>
+        <td>R$ 9.42</td>
+        <td>R$ 31.76</td>
+        <td>R$ 47.59</td>
+        <td>R$ 101.94</td>
+      </tr>
+      <tr>
+        <td>OAB Bench</td>
+        <td>Legal writing (lawyer) – 21 exams</td>
+        <td>Average score (0–10)</td>
+        <td><strong>7.02</strong></td>
+        <td>6.01</td>
+        <td>5.99</td>
+        <td>5.50</td>
+        <td>6.37</td>
+      </tr>
+      <tr>
+        <td>Magis Bench</td>
+        <td>Legal writing (judge) – 24 exams</td>
+        <td>Average score (0–10)</td>
+        <td><strong>4.50</strong></td>
+        <td>3.64</td>
+        <td>3.62</td>
+        <td>3.67</td>
+        <td>4.47</td>
+      </tr>
+      <tr>
+        <td>Brazilian laws</td>
+        <td>Knowledge of Brazilian legislation</td>
+        <td>Accuracy (5 options)</td>
+        <td><strong>85.0%</strong></td>
+        <td>72.9%</td>
+        <td>52.3%</td>
+        <td>57.0%</td>
+        <td>68.2%</td>
+      </tr>
+      <tr>
+        <td>Agentic capabilities</td>
+        <td>Use of tools and environments in Portuguese</td>
+        <td>Pass³ and success@1</td>
+        <td>55.2%</td>
+        <td>14.1%</td>
+        <td>60.9%</td>
+        <td>59.4%</td>
+        <td><strong>85.1%</strong></td>
+      </tr>
+      <tr>
+        <td>Brazilian exams</td>
+        <td>13 exams (ENEM, USP, OAB, etc.)</td>
+        <td>Accuracy (4 and 5 options)</td>
+        <td>81.5%</td>
+        <td>77.9%</td>
+        <td>77.0%</td>
+        <td>81.0%</td>
+        <td><strong>84.6%</strong></td>
+      </tr>
+      <tr>
+        <td>Portuguese Multi-IF</td>
+        <td>Ability to follow instructions</td>
+        <td>Strict, average of 3 turns</td>
+        <td>81.4%</td>
+        <td>72.2%</td>
+        <td>82.0%</td>
+        <td>79.6%</td>
+        <td><strong>85.8%</strong></td>
+      </tr>
+      <tr>
+        <td>BRACEval</td>
+        <td>Conversational skills in Portuguese</td>
+        <td>Wins against GPT-4o</td>
+        <td><strong>66.5%</strong></td>
+        <td>36.2%</td>
+        <td>55.8%</td>
+        <td>32.7%</td>
+        <td>56.3%</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <style>
   {`
-    #graph-container {
+    .benchmark-table {
+      margin: 1.75rem auto;
+      max-width: 1100px;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #ffffff;
+      overflow-x: auto;
+    }
+    .benchmark-table table {
       width: 100%;
-      max-width: 100%;
-      overflow: hidden;
-      position: relative;
+      min-width: 880px;
+      border-collapse: collapse;
     }
-    @media (min-width: 1024px) {
-      #graph-container {
-        height: 465.6px; /* 1164px * 0.4 */
-      }
-      #graph-container iframe {
-        transform: scale(0.4);
-      }
+    .benchmark-table caption {
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-align: center;
+      letter-spacing: 0.01em;
+      color: #0f172a;
     }
-    @media (min-width: 768px) and (max-width: 1023px) {  /* Landscape - @media (orientation: landscape) {*/
-      #graph-container {
-        height: 349.2px; /* 1164px * 0.3 */
-      }
-      #graph-container iframe {
-        transform: scale(0.3);
-      }
+    .benchmark-table th,
+    .benchmark-table td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid #e5e7eb;
+      vertical-align: top;
+      text-align: center;
     }
-    @media (max-width: 767px) { /* Portrait - @media (orientation: portrait) {*/
-      #graph-container {
-        height: 186.24px; /* 1164px * 0.16 */
+    .benchmark-table thead th {
+      background: #111827;
+      color: #f8fafc;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      font-size: 0.78rem;
+    }
+    .benchmark-table tbody tr:nth-child(odd) {
+      background: #f9fafb;
+    }
+    .benchmark-table tbody tr:hover {
+      background: #f3f4f6;
+    }
+    .benchmark-table th:nth-child(1),
+    .benchmark-table td:nth-child(1),
+    .benchmark-table th:nth-child(2),
+    .benchmark-table td:nth-child(2) {
+      text-align: left;
+    }
+    .benchmark-table th:nth-child(4),
+    .benchmark-table td:nth-child(4) {
+      background: #e8f9f1;
+      color: #0f172a;
+      font-weight: 800;
+    }
+    .benchmark-table td strong {
+      color: #0f172a;
+    }
+    [data-theme='dark'] .benchmark-table {
+      border-color: #262626;
+      background: #0f1115;
+    }
+    [data-theme='dark'] .benchmark-table table {
+      color: #e5e7eb;
+    }
+    [data-theme='dark'] .benchmark-table caption {
+      color: #e5e7eb;
+    }
+    [data-theme='dark'] .benchmark-table th,
+    [data-theme='dark'] .benchmark-table td {
+      border-color: #1c1f26;
+    }
+    [data-theme='dark'] .benchmark-table thead th {
+      background: #13161d;
+      color: #e5e7eb;
+    }
+    [data-theme='dark'] .benchmark-table tbody tr:nth-child(odd) {
+      background: #151820;
+    }
+    [data-theme='dark'] .benchmark-table tbody tr:nth-child(even) {
+      background: #0f1115;
+    }
+    [data-theme='dark'] .benchmark-table tbody tr:hover {
+      background: #1c1f28;
+    }
+    [data-theme='dark'] .benchmark-table th:nth-child(4),
+    [data-theme='dark'] .benchmark-table td:nth-child(4) {
+      background: #133524;
+      color: #d8f3e6;
+    }
+    [data-theme='dark'] .benchmark-table td strong {
+      color: #e5e7eb;
+    }
+    @media (max-width: 768px) {
+      .benchmark-table th,
+      .benchmark-table td {
+        padding: 0.75rem 0.65rem;
+        font-size: 0.9rem;
       }
-      #graph-container iframe {
-        transform: scale(0.16);
+      .benchmark-table caption {
+        padding: 0.85rem 0.65rem;
       }
     }
   `}
