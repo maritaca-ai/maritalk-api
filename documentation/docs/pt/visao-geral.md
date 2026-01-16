@@ -10,7 +10,7 @@ A API da Maritaca facilita a integração dos mais recentes modelos da Maritaca 
 <a href="https://www.maritaca.ai/research" className={styles.ctaReport}>
   <img src="/img/nova_identidade/Digital/logo/logo.png" alt="Sabia" style={{ width: '50px', height: 'auto', marginRight: '15px' }} />
   <p style={{ margin: 0 }}>
-    <strong>Apresentando o Sabiazinho 4</strong>, nosso modelo mais avançado até agora. Leia em nosso site os relatórios técnicos das principais produções científicas desenvolvidas pela Maritaca.
+    <strong>Apresentando o Sabiá 4</strong>, nosso modelo mais avançado até agora. Leia em nosso site os relatórios técnicos das principais produções científicas desenvolvidas pela Maritaca.
   </p>
 </a>
 
