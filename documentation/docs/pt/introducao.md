@@ -52,7 +52,11 @@ A cobrança pelo uso dos modelos é baseada no volume de tokens, considerando ta
 ---
 ## Desempenho
 
-Graças ao nosso treinamento especializado em português e em contextos brasileiros, nossos modelos apresentam excelente desempenho em benchmarks nacionais, com custos significativamente menores do que alternativas comparáveis. A tabela abaixo compara Sabiazinho 4, Sabiazinho 3 e modelos concorrentes em uma série de avaliações brasileiras — incluindo exames jurídicos, provas educacionais, conhecimento legislativo, capacidade agêntica e habilidades conversacionais (considerando qualidade e custo de execução via API).
+Graças ao nosso treinamento especializado em português e em contextos brasileiros, nossos modelos apresentam excelente desempenho em benchmarks nacionais, com custos significativamente menores do que alternativas comparáveis.
+
+### Sabiazinho 4
+
+A tabela abaixo compara Sabiazinho 4, Sabiazinho 3 e modelos concorrentes em uma série de avaliações brasileiras — incluindo exames jurídicos, provas educacionais, conhecimento legislativo, capacidade agêntica e habilidades conversacionais (considerando qualidade e custo de execução via API).
 
 Os resultados mostram que o Sabiazinho 4 lidera a maior parte dos benchmarks focados no Brasil, como redação jurídica (OAB e Magis), conhecimento da legislação brasileira e conversação em português, mantendo um custo de execução muito inferior aos modelos comparativos. 
 
@@ -208,6 +212,268 @@ Essa comparação evidencia que nossos modelos oferecem uma combinação competi
     .benchmark-table td:nth-child(2) {
       text-align: left;
     }
+    .benchmark-table th:nth-child(4),
+    .benchmark-table td:nth-child(4) {
+      background: #e8f9f1;
+      color: #0f172a;
+    }
+    .benchmark-table td strong {
+      color: #0f172a;
+    }
+    [data-theme='dark'] .benchmark-table {
+      border-color: #262626;
+      background: #0f1115;
+    }
+    [data-theme='dark'] .benchmark-table table {
+      color: #e5e7eb;
+    }
+    [data-theme='dark'] .benchmark-table caption {
+      color: #e5e7eb;
+    }
+    [data-theme='dark'] .benchmark-table th,
+    [data-theme='dark'] .benchmark-table td {
+      border-color: #1c1f26;
+    }
+    [data-theme='dark'] .benchmark-table thead th {
+      background: #13161d;
+      color: #e5e7eb;
+    }
+    [data-theme='dark'] .benchmark-table tbody tr:nth-child(odd) {
+      background: #151820;
+    }
+    [data-theme='dark'] .benchmark-table tbody tr:nth-child(even) {
+      background: #0f1115;
+    }
+    [data-theme='dark'] .benchmark-table tbody tr:hover {
+      background: #1c1f28;
+    }
+    [data-theme='dark'] .benchmark-table th:nth-child(4),
+    [data-theme='dark'] .benchmark-table td:nth-child(4) {
+      background: #133524;
+      color: #d8f3e6;
+    }
+    [data-theme='dark'] .benchmark-table td strong {
+      color: #e5e7eb;
+    }
+    @media (max-width: 768px) {
+      .benchmark-table th,
+      .benchmark-table td {
+        padding: 0.75rem 0.65rem;
+        font-size: 0.9rem;
+      }
+      .benchmark-table caption {
+        padding: 0.85rem 0.65rem;
+      }
+    }
+  `}
+</style>
+
+
+
+### Sabiá 4
+
+A tabela abaixo compara Sabiá 4, Sabiá 3.1 e modelos concorrentes em uma série de avaliações brasileiras — incluindo exames jurídicos, provas educacionais, conhecimento legislativo, capacidade agêntica e habilidades conversacionais (considerando qualidade e custo de execução via API).
+
+O Sabiá 4 tem uma maior acurácia em Leis Brasileiras e melhorias consistentes frente ao Sabiá 3.1 em todas as demais métricas, com destaque para capacidades agênticas. Com um custo muito abaixo do cobrado pelos modelos de fronteira listados.
+
+Essa combinação reforça o Sabiá 4 como escolha equilibrada para aplicações jurídicas, educacionais e institucionais no Brasil que exigem contexto local e boa relação custo-desempenho.
+
+<div className="benchmark-table">
+  <table>
+    <caption>Comparação de desempenho e custo em benchmarks brasileiros</caption>
+    <thead>
+      <tr>
+        <th>Benchmark</th>
+        <th>Descrição</th>
+        <th>Métrica</th>
+        <th>Sabiá-4</th>
+        <th>Sabiá-3.1</th>
+        <th>GPT-4.1</th>
+        <th>GPT-5.2 s/ reasoning</th>
+        <th>GPT-5.2 reasoning</th>
+        <th>Gemini-3-Pro (low)</th>
+        <th>Gemini-3-Pro (high)</th>
+        <th>Kimi-k2-thinking</th>
+        <th>Qwen3-235b-instruct-2507</th>
+        <th>Deepseek-v3.2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Custo</td>
+        <td>Custo para rodar os benchmarks abaixo</td>
+        <td>Reais gastos em tokens via API</td>
+        <td>R$ 80,49</td>
+        <td>R$ 62,15</td>
+        <td>R$ 182,49</td>
+        <td>R$ 307,12</td>
+        <td>R$ 752,41</td>
+        <td>R$ 403,31</td>
+        <td>R$ 804,07</td>
+        <td>R$ 516,52</td>
+        <td>R$ 44,36</td>
+        <td>R$ 49,22</td>
+      </tr>
+      <tr>
+        <td>Leis brasileiras</td>
+        <td>Conhecimento da legislação brasileira</td>
+        <td>Acurácia (5 alternativas)</td>
+        <td><strong>97,4%</strong></td>
+        <td>77,8%</td>
+        <td>80,8%</td>
+        <td>84,0%</td>
+        <td>86,3%</td>
+        <td>74,9%</td>
+        <td>88,6%</td>
+        <td>59,1%</td>
+        <td>65,9%</td>
+        <td>67,3%</td>
+      </tr>
+      <tr>
+        <td>OAB Bench</td>
+        <td>Redação jurídica (advogado) – 21 provas</td>
+        <td>Pontuação média (0–10)</td>
+        <td><strong>7,49</strong></td>
+        <td>7,21</td>
+        <td>7,30</td>
+        <td>8,07</td>
+        <td>8,73</td>
+        <td>9,05</td>
+        <td>8,90</td>
+        <td>6,62</td>
+        <td>6,33</td>
+        <td>6,40</td>
+      </tr>
+      <tr>
+        <td>Magis Bench</td>
+        <td>Redação jurídica (juiz) – 24 provas</td>
+        <td>Pontuação média (0–10)</td>
+        <td><strong>5,08</strong></td>
+        <td>4,97</td>
+        <td>5,55</td>
+        <td>6,66</td>
+        <td>6,99</td>
+        <td>7,79</td>
+        <td>7,48</td>
+        <td>4,49</td>
+        <td>4,52</td>
+        <td>4,88</td>
+      </tr>
+      <tr>
+        <td>Capacidades Agênticas</td>
+        <td>Uso de ferramentas e ambientes em português</td>
+        <td>Pass³ e success@1</td>
+        <td>72,2%</td>
+        <td>43,1%</td>
+        <td>73,3%</td>
+        <td>81,1%</td>
+        <td>85,7%</td>
+        <td><strong>90,4%</strong></td>
+        <td>90,1%</td>
+        <td>77,3%</td>
+        <td>67,8%</td>
+        <td>40,5%</td>
+      </tr>
+      <tr>
+        <td>Provas brasileiras</td>
+        <td>13 provas (ENEM, USP, OAB, etc.)</td>
+        <td>Acurácia (4 e 5 alternativas)</td>
+        <td>86,6%</td>
+        <td>82,4%</td>
+        <td>86,1%</td>
+        <td>88,0%</td>
+        <td>92,9%</td>
+        <td>93,3%</td>
+        <td><strong>95,0%</strong></td>
+        <td>83,0%</td>
+        <td>82,0%</td>
+        <td>84,0%</td>
+      </tr>
+      <tr>
+        <td>Multi-IF Português</td>
+        <td>Capacidade de seguir instruções</td>
+        <td>Strict, média de 3 turnos</td>
+        <td>82,0%</td>
+        <td>80,7%</td>
+        <td>82,7%</td>
+        <td>83,7%</td>
+        <td>87,2%</td>
+        <td>86,0%</td>
+        <td><strong>88,0%</strong></td>
+        <td>86,0%</td>
+        <td>84,4%</td>
+        <td>81,5%</td>
+      </tr>
+      <tr>
+        <td>BRACEval</td>
+        <td>Habilidades conversacionais em português</td>
+        <td>Vitórias contra GPT-4o</td>
+        <td>53,8%</td>
+        <td>44,6%</td>
+        <td>50,2%</td>
+        <td>59,0%</td>
+        <td>60,2%</td>
+        <td><strong>70,8%</strong></td>
+        <td>68,1%</td>
+        <td>56,9%</td>
+        <td>65,6%</td>
+        <td>60,8%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<style>
+  {`
+    .benchmark-table {
+      margin: 1.75rem auto;
+      max-width: 1100px;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #ffffff;
+      overflow-x: auto;
+    }
+    .benchmark-table table {
+      width: 100%;
+      min-width: 980px;
+      border-collapse: collapse;
+    }
+    .benchmark-table caption {
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-align: center;
+      letter-spacing: 0.01em;
+      color: #0f172a;
+    }
+    .benchmark-table th,
+    .benchmark-table td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid #e5e7eb;
+      vertical-align: top;
+      text-align: center;
+    }
+    .benchmark-table thead th {
+      background: #111827;
+      color: #f8fafc;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+    .benchmark-table tbody tr:nth-child(odd) {
+      background: #f9fafb;
+    }
+    .benchmark-table tbody tr:hover {
+      background: #f3f4f6;
+    }
+    .benchmark-table th:nth-child(1),
+    .benchmark-table td:nth-child(1),
+    .benchmark-table th:nth-child(2),
+    .benchmark-table td:nth-child(2) {
+      text-align: left;
+    }
+    /* destaca a coluna Sabiá-4 */
     .benchmark-table th:nth-child(4),
     .benchmark-table td:nth-child(4) {
       background: #e8f9f1;
