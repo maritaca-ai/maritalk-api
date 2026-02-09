@@ -16,6 +16,7 @@ Extract structured information from unstructured text:
 ```python
 from pydantic import BaseModel
 import openai
+import json
 
 client = openai.OpenAI(
     api_key="", #Your API_KEY
@@ -28,16 +29,20 @@ class EventDetails(BaseModel):
     participants: list[str]
     attire: list[str]
 
-completion = client.beta.chat.completions.parse(
-    model="sabia-3",
-    messages=[
-        {"role": "system", "content": "Extract event details."},
-        {"role": "user", "content": "João and Maria are going to a June festival on Saturday at 6 PM in Campina Grande. They will be dressed for the occasion: Maria in a floral dress and João in a plaid shirt and straw hat."}
-    ],
-    response_format=EventDetails,
+response = client.responses.create(
+    model="sabia-4",
+    instructions="Extract event details.",
+    input="João and Maria are going to a June festival on Saturday at 6 PM in Campina Grande. They will be dressed for the occasion: Maria in a floral dress and João in a plaid shirt and straw hat.",
+    text={
+        "format": {
+            "type": "json_schema",
+            "name": "event_details",
+            "schema": EventDetails.model_json_schema()
+        }
+    },
 )
 
-event_response = completion.choices[0].message.parsed
+event_response = json.loads(response.output[0].content[0].text)
 
 print(event_response)
 ```
@@ -48,6 +53,7 @@ Identify sentiments in texts:
 
 ```python
 import openai
+import json
 
 client = openai.OpenAI(
     api_key="", #Your API_KEY
@@ -56,25 +62,27 @@ client = openai.OpenAI(
 
 sentiment_schema = {
     "type": "object",
-    "schema": {
-        "properties": {
-            "text": {"type": "string"},
-            "sentiment": {"type": "string", "enum": ["positive", "negative", "neutral"]},
-        },
-        "required": ["text", "sentiment"],
-    }
+    "properties": {
+        "text": {"type": "string"},
+        "sentiment": {"type": "string", "enum": ["positive", "negative", "neutral"]},
+    },
+    "required": ["text", "sentiment"],
 }
 
-completion = client.beta.chat.completions.parse(
-    model="sabia-3",
-    messages=[
-        {"role": "system", "content": "Classify the sentiment of the text as positive, negative, or neutral."},
-        {"role": "user", "content": "I hated the job offered!"},
-    ],
-    response_format={"type": "json_schema", "json_schema": sentiment_schema}
+response = client.responses.create(
+    model="sabia-4",
+    instructions="Classify the sentiment of the text as positive, negative, or neutral.",
+    input="I hated the job offered!",
+    text={
+        "format": {
+            "type": "json_schema",
+            "name": "sentiment_analysis",
+            "schema": sentiment_schema
+        }
+    },
 )
 
-result = completion.choices[0].message.content
+result = json.loads(response.output[0].content[0].text)
 print(result)
 
 ```
@@ -111,41 +119,20 @@ class ReadingPlan(BaseModel):
     plan_name: str
     books: List[Book]
 
-
-schema = {
-    "type": "object",
-    "schema": {
-        "properties": {
-            "plan_name": {"type": "string"},
-            "books": {
-                "type": "array",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "type": {"type": "string", "enum": ["classic", "contemporary"]},
-                        "title": {"type": "string"},
-                        "author": {"type": "string"},
-                        "description": {"type": "string"},
-                        "subitems": {"type": ["array", "null"]}
-                    },
-                    "required": ["type", "title", "author", "description"]
-                }
-            }
-        },
-        "required": ["plan_name", "books"]
-    }
-}
-
-completion = client.beta.chat.completions.parse(
-    model="sabia-3",
-    messages=[
-        {"role": "system", "content": "You are a reading plan generator. Convert the user's request into a structured reading plan."},
-        {"role": "user", "content": "Create a reading plan to explore Brazilian literature, including classics and contemporary works."}
-    ],
-    response_format={"type": "json_schema", "json_schema": schema}
+response = client.responses.create(
+    model="sabia-4",
+    instructions="You are a reading plan generator. Convert the user's request into a structured reading plan.",
+    input="Create a reading plan to explore Brazilian literature, including classics and contemporary works.",
+    text={
+        "format": {
+            "type": "json_schema",
+            "name": "reading_plan",
+            "schema": ReadingPlan.model_json_schema()
+        }
+    },
 )
 
-reading_plan = ReadingPlan.model_validate(json.loads(completion.choices[0].message.content))
+reading_plan = ReadingPlan.model_validate(json.loads(response.output[0].content[0].text))
 
 print("Plan Name:", reading_plan.plan_name)
 print("Books:")
@@ -161,9 +148,10 @@ for book in reading_plan.books:
 In the case of stream usage, structured outputs can be processed in real time as they are generated, providing a more interactive experience. This method is particularly advantageous for handling tasks involving the generation of large volumes of data or extensive responses. Below, we present an example:
 
 ```python
-from typing import List, Dict
+from typing import List
 from pydantic import BaseModel
 import openai
+import json
 
 class TypicalDishesModel(BaseModel):
     dishes: List[str]
@@ -173,51 +161,49 @@ client = openai.OpenAI(
     base_url="https://chat.maritaca.ai/api",
 )
 
-with client.beta.chat.completions.stream(
-    model="sabia-3",
-    messages=[
-        {"role": "system", "content": "Identify the typical Brazilian dishes in the provided text."},
-        {
-            "role": "user",
-            "content": "At the June festival, we have canjica, pamonha, curau, and quentão, along with lots of music and dancing.",
-        },
-    ],
-    response_format=TypicalDishesModel,
-) as stream:
-    for event in stream:
-        if event.type == "content.delta":
-            if event.parsed is not None:
-                print("content.delta parsed:", event.parsed)
-        elif event.type == "content.done":
-            print("content.done")
-        elif event.type == "error":
-            print("Error in stream:", event.error)
+stream = client.responses.create(
+    model="sabia-4",
+    instructions="Identify the typical Brazilian dishes in the provided text.",
+    input="At the June festival, we have canjica, pamonha, curau, and quentão, along with lots of music and dancing.",
+    text={
+        "format": {
+            "type": "json_schema",
+            "name": "typical_dishes",
+            "schema": TypicalDishesModel.model_json_schema()
+        }
+    },
+    stream=True,
+)
 
-final_completion = stream.get_final_completion()
-print("Final completion:", final_completion)
+full_text = ""
+for event in stream:
+    if event.type == "response.output_text.delta":
+        full_text += event.delta
+        print(event.delta, end="", flush=True)
+
+print()
+result = TypicalDishesModel.model_validate(json.loads(full_text))
+print("Parsed result:", result)
 
 
 ```
 
-## How to Use the response_format Parameter
+## How to Use the text.format Parameter
 
-The `response_format` parameter is used to instruct the model to generate responses that follow a predefined structured format. The values for response_format are:
+The `text.format` parameter in the Responses API is used to instruct the model to generate responses that follow a predefined structured format. The values for `text.format.type` are:
 
 1. JSON Schema (json_schema): Define a JSON schema to validate the structure and data types of the response.
 
 ```python
-response_format={type: "json_schema", json_schema: {"strict": true, "schema": ...}}
-or
-response_format={type: "json_schema", schema: {...}}
-
+text={"format": {"type": "json_schema", "name": "my_schema", "schema": {...}}}
 ```
-2. Pydantic Models: Use Pydantic classes to map and validate the returned data.
+2. Pydantic Models: Use Pydantic classes to generate the schema automatically.
 ```python
-response_format=ModelPydantic
+text={"format": {"type": "json_schema", "name": "my_schema", "schema": MyModel.model_json_schema()}}
 ```
 3. Simple JSON Object: Also known as json mode, where a JSON object is requested without additional validations:
 ```python
-response_format={"type": "json_object"}
+text={"format": {"type": "json_object"}}
 ```
 
 ## Best Practices
@@ -228,12 +214,12 @@ response_format={"type": "json_object"}
 
 <br/>
 <div className="custom-box" style={{
-    display: 'flex', 
-    alignItems: 'center', 
-    backgroundColor: 'var(--ifm-table-stripe-background)', 
-    padding: '12px', 
-    border: '1px solid var(--navbar-border)', 
-    borderRadius: '8px', 
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: 'var(--ifm-table-stripe-background)',
+    padding: '12px',
+    border: '1px solid var(--navbar-border)',
+    borderRadius: '8px',
     margin: '12px 0',
     color: 'var(--ifm-font-color-base)'
     }}>
@@ -248,4 +234,4 @@ response_format={"type": "json_object"}
 ## Supported Schemas
 Structured Outputs is compatible with a subset of JSON Schema, allowing you to use the following types: String, Number, Boolean, Integer, Object, Array, Enum, anyOf, and oneOf. To maintain stability and proper functionality, some JSON Schema features are not supported — for example: minLength, maxLength, pattern, format, minimum, maximum, multipleOf, minItems, maxItems, uniqueItems, minProperties, maxProperties, allOf, patternProperties, unevaluatedProperties, propertyNames, unevaluatedItems, and contains.
 
-When working with objects, you can use up to 100 properties, with a maximum of 5 levels of nesting. To optimize your schema’s structure, the total length of all property names, definitions, enum values, and const values must remain below 15,000 characters. For enum fields, you can include up to 500 values in total. However, if a single enum exceeds 250 values (all of type string), the total length of those values must stay below 7,500 characters. If any limit is exceeded or if any unsupported feature is encountered, an error will be generated.
+When working with objects, you can use up to 100 properties, with a maximum of 5 levels of nesting. To optimize your schema's structure, the total length of all property names, definitions, enum values, and const values must remain below 15,000 characters. For enum fields, you can include up to 500 values in total. However, if a single enum exceeds 250 values (all of type string), the total length of those values must stay below 7,500 characters. If any limit is exceeded or if any unsupported feature is encountered, an error will be generated.

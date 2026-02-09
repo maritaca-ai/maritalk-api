@@ -164,7 +164,7 @@ Aqui, utilizamos a compatibilidade com a OpenAI através do ChatOpenAI para aces
 from langchain.chat_models import ChatOpenAI
 
 llm = ChatOpenAI(
-    model="sabia-3",
+    model="sabia-4",
     temperature=0,
     api_key=api_key, # Insira sua chave aqui  
     base_url="https://chat.maritaca.ai/api",

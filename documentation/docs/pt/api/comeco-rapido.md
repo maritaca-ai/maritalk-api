@@ -199,7 +199,7 @@ onde X.XX.X é o número da versão da biblioteca openai que você instalou.
 
 ## Passo 4: Enviando sua primeira solicitação de API
 
-Depois de configurar o Python e configurar uma chave API, o passo final é enviar uma solicitação à API da OpenAI usando a biblioteca Python. Para fazer isso, crie um arquivo chamado maritaca.py usando o terminal ou um IDE.
+Depois de configurar o Python e configurar uma chave API, o passo final é enviar uma solicitação à API usando a biblioteca Python. Para fazer isso, crie um arquivo chamado maritaca.py usando o terminal ou um IDE.
 Dentro do arquivo, copie e cole um dos exemplos abaixo:
 
 ```python
@@ -210,14 +210,11 @@ client = openai.OpenAI(
     base_url="https://chat.maritaca.ai/api",
 )
 
-response = client.chat.completions.create(
-  model="sabia-3",
-  messages=[
-    {"role": "user", "content": "Quanto é 25 + 27?"},
-  ],
-  max_tokens=8000
+response = client.responses.create(
+  model="sabia-4",
+  input="Quanto é 25 + 27?",
 )
-answer = response.choices[0].message.content
+answer = response.output[0].content[0].text
 
 print(f"Resposta: {answer}")   # Deve imprimir algo como "25 + 27 é igual a 52."
 ```

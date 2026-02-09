@@ -6,7 +6,7 @@ title: Function Calls
 # Function Calls
 Function calls enable the connection of models like sabiá-3 to external tools and systems on the client side. With this functionality, it's possible to create agents that perform autonomous tasks, interacting with APIs and external systems to carry out specific actions such as querying data, automating processes, or making decisions.
 
-Here is an example of how to provide tools for sabiá-3 using the message API:
+Here is an example of how to provide tools for sabiá-3 using the Responses API:
 
 ## How to Use Function Calls
 
@@ -21,7 +21,7 @@ import requests
 
 def consultar_previsao_tempo(latitude, longitude):
     BASE_URL = "https://api.open-meteo.com/v1/forecast"
-    
+
     # Parameters for the API call, including latitude, longitude, and timezone
     params = {
         'latitude': latitude,
@@ -29,15 +29,15 @@ def consultar_previsao_tempo(latitude, longitude):
         'current_weather': True,
         'timezone': 'America/Sao_Paulo'
     }
-    
+
     response = requests.get(BASE_URL, params=params)
-    
+
     # If the response is successful (code 200), we extract the necessary data
     if response.status_code == 200:
         data = response.json()
         temperature = data['current_weather']['temperature']
         condition = data['current_weather']['weathercode']
-        
+
         return {
             "temperature": temperature,
             "condition": condition
@@ -48,10 +48,11 @@ def consultar_previsao_tempo(latitude, longitude):
 ```
 
 #### Step 2: Configuring Function Calls in the Model
-Now, we create the structure to register the consultar_previsao_tempo function as a function that can be called automatically by the assistant based on the needs of the conversation. This function will be exposed to the conversation API.
+Now, we create the structure to register the consultar_previsao_tempo function as a tool that can be called automatically by the assistant based on the needs of the conversation.
 ```python
-functions = [
+tools = [
     {
+        "type": "function",
         "name": "consultar_previsao_tempo",
         "description": "Gets the weather forecast for a location based on coordinates.",
         "parameters": {
@@ -81,37 +82,37 @@ import os
 
 client = openai.OpenAI(
     api_key=os.environ.get("MARITACA_API_KEY"),  # Insert your API key here
-    base_url="https://chat.maritaca.ai/api", 
+    base_url="https://chat.maritaca.ai/api",
 )
 
-response = client.chat.completions.create(
-  model="sabia-3", 
-  messages=[
-    {"role": "system", "content": "You are an assistant that provides weather forecasts."},
-    {"role": "user", "content": "What is the weather forecast for Rio de Janeiro?"}
-  ],
-  tools=functions,  # Here we register the functions that the assistant can call
+response = client.responses.create(
+  model="sabia-4",
+  instructions="You are an assistant that provides weather forecasts.",
+  input="What is the weather forecast for Rio de Janeiro?",
+  tools=tools,
 )
 ```
 
 #### Step 4: Extracting and Using the Function Arguments
-After interaction with the assistant, it may determine that the consultar_previsao_tempo function should be called. The assistant's response will include the necessary arguments (such as latitude and longitude) to make the query.
+After interaction with the assistant, it may determine that the consultar_previsao_tempo function should be called. The assistant's response will include function call items in the output with the necessary arguments (such as latitude and longitude) to make the query.
 
 In the code below, we show how to extract the arguments, transform the format (if necessary), and make the weather forecast query:
 ```python
 import json
 
-function_call = response.choices[0].message.tool_calls[0].function.arguments
-function_call_json = json.loads(function_call)
+# Check if the model made a function call
+for item in response.output:
+    if item.type == "function_call":
+        function_call_json = json.loads(item.arguments)
 
-# We extract latitude and longitude from the returned arguments
-latitude = function_call_json['latitude']
-longitude = function_call_json['longitude']
+        # We extract latitude and longitude from the returned arguments
+        latitude = function_call_json['latitude']
+        longitude = function_call_json['longitude']
 
-# We make the call to the weather forecast API with the returned data
-forecast = consultar_previsao_tempo(latitude, longitude)
-    
-print(forecast)
+        # We make the call to the weather forecast API with the returned data
+        forecast = consultar_previsao_tempo(latitude, longitude)
+
+        print(forecast)
 ```
 Finally, the result of the weather forecast (temperature and weather conditions) is displayed.
 
@@ -138,20 +139,18 @@ Next, we configure the assistant to register the get_user_id function, allowing 
 tools = [
     {
         "type": "function",
-        "function": {
-            "name": "get_user_id",
-            "description": "Get the id of a user given the user name",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "description": "The name of the user"
-                    }
-                },
-                "required": ["name"],
-                "additionalProperties": False
-            }
+        "name": "get_user_id",
+        "description": "Get the id of a user given the user name",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the user"
+                }
+            },
+            "required": ["name"],
+            "additionalProperties": False
         }
     }
 ]
@@ -166,14 +165,12 @@ import json
 
 client = openai.OpenAI(
     api_key=os.environ.get("MARITACA_API_KEY"),  # Insert your API key here
-    base_url="https://chat.maritaca.ai/api", 
+    base_url="https://chat.maritaca.ai/api",
 )
 
-response = client.chat.completions.create(
-  model="sabia-3",
-  messages=[
-    {"role": "user", "content": "What is the id for the clients alexandre and helena? what is the sum of both of them"},
-  ],
+response = client.responses.create(
+  model="sabia-4",
+  input="What is the id for the clients alexandre and helena? what is the sum of both of them",
   temperature=0.0,
   tools=tools,  # We pass the registered tools
 )
@@ -184,30 +181,27 @@ Here, the assistant receives a message from the user asking about the IDs of two
 #### Step 4: Executing Function Calls
 
 After the assistant identifies that it needs to call the get_user_id function, we process all function calls and generate responses. The following code handles the execution of these calls:
-```python 
-all_tool_calls = []
+```python
+all_tool_outputs = []
 
-if response.choices[0].message.tool_calls:
-    for tool_call in response.choices[0].message.tool_calls:
-        arguments = json.loads(tool_call.function.arguments)
-        function_name = tool_call.function.name
-        
+for item in response.output:
+    if item.type == "function_call":
+        arguments = json.loads(item.arguments)
+        function_name = item.name
+
         # We call the get_user_id function for each provided name
         if function_name == "get_user_id":
             get_user_id_response = get_user_id(arguments['name'])
-        
-            # We create a message with the result of the called function
-            function_call_result_message = {
-                "role": "tool",
-                "content": json.dumps({
+
+            # We create a function call output item with the result
+            all_tool_outputs.append({
+                "type": "function_call_output",
+                "call_id": item.call_id,
+                "output": json.dumps({
                     "name": arguments['name'],
                     "id": get_user_id_response
-                }),
-                "tool_call_id": tool_call.id
-            }
-        
-            # We add the function response to the results list
-            all_tool_calls.append(function_call_result_message)
+                })
+            })
 
 ```
 
@@ -221,30 +215,28 @@ In this part, we process all function calls:
 
 After generating the IDs for the clients, we prepare the final response, which includes the sum of the IDs. We send this back to the assistant so that it can inform the user.
 ```python
-completion_payload = {
-    "model": "sabia-3",
-    "messages": [
+# Build the new input including the original conversation and tool outputs
+final_response = client.responses.create(
+    model="sabia-4",
+    input=[
         {"role": "user", "content": "What is the id for the clients alexandre and helena? what is the sum of both of them"},
-        response.choices[0].message,  # We include the assistant's original message
-        *all_tool_calls  # We include the function call responses
-    ]
-}
-
-# We make a new call to generate the final response
-final_response = client.chat.completions.create(**completion_payload)
+        *[{"type": "function_call", "call_id": item.call_id, "name": item.name, "arguments": item.arguments} for item in response.output if item.type == "function_call"],
+        *all_tool_outputs  # We include the function call output items
+    ],
+)
 
 # We print the assistant's final response
-print(final_response.choices[0].message)
+print(final_response.output[0].content[0].text)
 
 ```
 <br/>
 <div className="custom-box" style={{
-    display: 'flex', 
-    alignItems: 'center', 
-    backgroundColor: 'var(--ifm-table-stripe-background)', 
-    padding: '12px', 
-    border: '1px solid var(--navbar-border)', 
-    borderRadius: '8px', 
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: 'var(--ifm-table-stripe-background)',
+    padding: '12px',
+    border: '1px solid var(--navbar-border)',
+    borderRadius: '8px',
     margin: '12px 0',
     color: 'var(--ifm-font-color-base)'
     }}>
@@ -260,12 +252,12 @@ print(final_response.choices[0].message)
 </div>
 <br/>
 <div className="custom-box" style={{
-        display: 'flex', 
-        alignItems: 'center', 
-        backgroundColor: 'var(--cta-chat-bg)', 
-        padding: '12px', 
-        border: '1px solid var(--cta-chat-border)', 
-        borderRadius: '8px', 
+        display: 'flex',
+        alignItems: 'center',
+        backgroundColor: 'var(--cta-chat-bg)',
+        padding: '12px',
+        border: '1px solid var(--cta-chat-border)',
+        borderRadius: '8px',
         margin: '12px 0',
         color: 'var(--ifm-font-color-base)'
         }}>

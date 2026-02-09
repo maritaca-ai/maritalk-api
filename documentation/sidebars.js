@@ -17,6 +17,7 @@ module.exports = {
           items: [
             'pt/api/comeco-rapido',
             'pt/api/openai-compatibilidade',
+            'pt/responses-api',
             'pt/chamada-funcao',
             'pt/structured-outputs',
             'pt/embeddings+Sabia-3+RAG',
@@ -71,6 +72,7 @@ module.exports = {
           items: [
             'en/api/quick-start',
             'en/api/openai-compatibility',
+            'en/responses-api',
             'en/function-call',
             'en/structured-outputs',
             'en/embeddings+Sabia-3+RAG',

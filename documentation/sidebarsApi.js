@@ -8,6 +8,16 @@ module.exports = {
             items: [
                 {
                     type: 'category',
+                    label: 'Endpoint Responses',
+                    collapsible: false,
+                    collapsed: false,
+                    items: [
+                      'pt/responses-api',
+                      'pt/responses-api-response',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Endpoint Chat Completion',
                     collapsible: false,
                     collapsed: false,
@@ -46,6 +56,16 @@ module.exports = {
             collapsible: false,
             collapsed: false,
             items: [
+                {
+                    type: 'category',
+                    label: 'Endpoint Responses',
+                    collapsible: false,
+                    collapsed: false,
+                    items: [
+                      'en/responses-api',
+                      'en/responses-api-response',
+                    ],
+                },
                 {
                     type: 'category',
                     label: 'Endpoint Chat Completion',

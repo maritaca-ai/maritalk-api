@@ -16,6 +16,7 @@ Extraia informações estruturadas de textos não estruturados:
 ```python
 from pydantic import BaseModel
 import openai
+import json
 
 client = openai.OpenAI(
     api_key="", #Sua API_KEY
@@ -28,16 +29,20 @@ class DetalhesEvento(BaseModel):
     participantes: list[str]
     traje: list[str]
 
-completion = client.beta.chat.completions.parse(
-    model="sabia-3",
-    messages=[
-        {"role": "system", "content": "Extraia detalhes do evento."},
-        {"role": "user", "content": "João e Maria vão a uma festa junina no sábado, às 18h, em Campina Grande. Eles vão vestidos a caráter: Maria com um vestido florido e João com camisa xadrez e chapéu de palha."},
-    ],
-    response_format=DetalhesEvento,
+response = client.responses.create(
+    model="sabia-4",
+    instructions="Extraia detalhes do evento.",
+    input="João e Maria vão a uma festa junina no sábado, às 18h, em Campina Grande. Eles vão vestidos a caráter: Maria com um vestido florido e João com camisa xadrez e chapéu de palha.",
+    text={
+        "format": {
+            "type": "json_schema",
+            "name": "detalhes_evento",
+            "schema": DetalhesEvento.model_json_schema()
+        }
+    },
 )
 
-evento = completion.choices[0].message.parsed
+evento = json.loads(response.output[0].content[0].text)
 
 print(evento)
 ```
@@ -48,6 +53,7 @@ Identifique sentimentos em textos:
 
 ```python
 import openai
+import json
 
 client = openai.OpenAI(
     api_key="", #Sua API_KEY
@@ -56,25 +62,27 @@ client = openai.OpenAI(
 
 sentimento_schema = {
     "type": "object",
-    "schema":{
-        "properties": {
-            "texto": {"type": "string"},
-            "sentimento": {"type": "string", "enum": ["positivo", "negativo", "neutro"]},
-        },
-        "required": ["texto", "sentimento"],
-    }
+    "properties": {
+        "texto": {"type": "string"},
+        "sentimento": {"type": "string", "enum": ["positivo", "negativo", "neutro"]},
+    },
+    "required": ["texto", "sentimento"],
 }
 
-completion = client.beta.chat.completions.parse(
-    model="sabia-3",
-    messages=[
-        {"role": "system", "content": "Classifique o sentimento do texto em positivo, negativo ou neutro."},
-        {"role": "user", "content": "Odiei o trabalho oferecido!"},
-    ],
-    response_format={"type": "json_schema", "json_schema": sentimento_schema}
+response = client.responses.create(
+    model="sabia-4",
+    instructions="Classifique o sentimento do texto em positivo, negativo ou neutro.",
+    input="Odiei o trabalho oferecido!",
+    text={
+        "format": {
+            "type": "json_schema",
+            "name": "analise_sentimento",
+            "schema": sentimento_schema
+        }
+    },
 )
 
-resultado = completion.choices[0].message.content
+resultado = json.loads(response.output[0].content[0].text)
 
 print(resultado)
 ```
@@ -105,47 +113,26 @@ class Livro(BaseModel):
     autor: str
     descricao: str
 
-Livro.model_rebuild() 
+Livro.model_rebuild()
 
 class PlanoLeitura(BaseModel):
     nome_plano: str
     livros: List[Livro]
 
-
-schema = {
-    "type": "object",
-    "schema": {
-        "properties": {
-            "nome_plano": {"type": "string"},
-            "livros": {
-                "type": "array",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "tipo": {"type": "string", "enum": ["clássico", "contemporâneo"]},
-                        "titulo": {"type": "string"},
-                        "autor": {"type": "string"},
-                        "descricao": {"type": "string"},
-                        "subitens": {"type": ["array", "null"]}
-                    },
-                    "required": ["tipo", "titulo", "autor", "descricao"]
-                }
-            }
-        },
-        "required": ["nome_plano", "livros"]
-    }
-}
-
-completion = client.beta.chat.completions.parse(
-    model="sabia-3",
-    messages=[
-        {"role": "system", "content": "Você é um gerador de planos de leitura. Converta a solicitação do usuário em um plano de leitura estruturado."},
-        {"role": "user", "content": "Crie um plano de leitura para explorar a literatura brasileira, incluindo clássicos e literatura contemporânea."}
-    ],
-    response_format={"type": "json_schema", "json_schema": schema}
+response = client.responses.create(
+    model="sabia-4",
+    instructions="Você é um gerador de planos de leitura. Converta a solicitação do usuário em um plano de leitura estruturado.",
+    input="Crie um plano de leitura para explorar a literatura brasileira, incluindo clássicos e literatura contemporânea.",
+    text={
+        "format": {
+            "type": "json_schema",
+            "name": "plano_leitura",
+            "schema": PlanoLeitura.model_json_schema()
+        }
+    },
 )
 
-plano_leitura = PlanoLeitura.model_validate(json.loads(completion.choices[0].message.content))
+plano_leitura = PlanoLeitura.model_validate(json.loads(response.output[0].content[0].text))
 
 print("Nome do Plano:", plano_leitura.nome_plano)
 print("Livros:")
@@ -159,9 +146,10 @@ for livro in plano_leitura.livros:
 No caso de uso com stream, as saídas estruturadas podem ser processadas em tempo real, conforme são geradas, proporcionando uma experiência mais interativa. Esse método é particularmente vantajoso para lidar com tarefas que envolvem a geração de grandes volumes de dados ou respostas extensas. A seguir, apresentamos um exemplo:
 
 ```python
-from typing import List, Dict
+from typing import List
 from pydantic import BaseModel
 import openai
+import json
 
 class PratosTipicosModel(BaseModel):
     pratos: List[str]
@@ -171,47 +159,47 @@ client = openai.OpenAI(
     base_url="https://chat.maritaca.ai/api",
 )
 
-with client.beta.chat.completions.stream(
-    model="sabia-3",
-    messages=[
-        {"role": "system", "content": "Identifique os pratos típicos brasileiros no texto fornecido."},
-        {
-            "role": "user",
-            "content": "Na festa junina, temos canjica, pamonha, curau e quentão, além de muita música e dança.",
-        },
-    ],
-    response_format=PratosTipicosModel,
-) as stream:
-    for event in stream:
-        if event.type == "content.delta":
-            if event.parsed is not None:
-                print("content.delta parsed:", event.parsed)
-        elif event.type == "content.done":
-            print("content.done")
-        elif event.type == "error":
-            print("Error in stream:", event.error)
+stream = client.responses.create(
+    model="sabia-4",
+    instructions="Identifique os pratos típicos brasileiros no texto fornecido.",
+    input="Na festa junina, temos canjica, pamonha, curau e quentão, além de muita música e dança.",
+    text={
+        "format": {
+            "type": "json_schema",
+            "name": "pratos_tipicos",
+            "schema": PratosTipicosModel.model_json_schema()
+        }
+    },
+    stream=True,
+)
 
-final_completion = stream.get_final_completion()
-print("Final completion:", final_completion)
+full_text = ""
+for event in stream:
+    if event.type == "response.output_text.delta":
+        full_text += event.delta
+        print(event.delta, end="", flush=True)
+
+print()
+result = PratosTipicosModel.model_validate(json.loads(full_text))
+print("Resultado parseado:", result)
 
 
 ```
 
-## Como usar o parâmetro response_format
-O parâmetro `response_format` é usado para instruir que as respostas geradas pelo modelo sigam um formato estruturado predefinido. Os valores para o response_format são:
+## Como usar o parâmetro text.format
+O parâmetro `text.format` na Responses API é usado para instruir que as respostas geradas pelo modelo sigam um formato estruturado predefinido. Os valores para `text.format.type` são:
+
 1. Schema JSON (json_schema): Defina um esquema JSON para validar a estrutura e os tipos de dados da resposta.
 ```python
-response_format={ type: "json_schema", json_schema: {"strict": true, "schema": ...} }
-ou
-response_format={ type: "json_schema", schema: {...} }
+text={"format": {"type": "json_schema", "name": "meu_schema", "schema": {...}}}
 ```
-2. Modelos Pydantic: Utilize classes Pydantic para mapear e validar os dados retornados.
+2. Modelos Pydantic: Utilize classes Pydantic para gerar o esquema automaticamente.
 ```python
-response_format=ModelPydantic
+text={"format": {"type": "json_schema", "name": "meu_schema", "schema": MeuModelo.model_json_schema()}}
 ```
-3. Objeto JSON simples também conhecido por modo json onde é solicitado um objeto json sem validações adicionais: 
+3. Objeto JSON simples também conhecido por modo json onde é solicitado um objeto json sem validações adicionais:
 ```python
-response_format={"type": "json_object"}
+text={"format": {"type": "json_object"}}
 ```
 
 ## Boas Práticas
@@ -222,12 +210,12 @@ response_format={"type": "json_object"}
 
 <br/>
 <div className="custom-box" style={{
-    display: 'flex', 
-    alignItems: 'center', 
-    backgroundColor: 'var(--ifm-table-stripe-background)', 
-    padding: '12px', 
-    border: '1px solid var(--navbar-border)', 
-    borderRadius: '8px', 
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: 'var(--ifm-table-stripe-background)',
+    padding: '12px',
+    border: '1px solid var(--navbar-border)',
+    borderRadius: '8px',
     margin: '12px 0',
     color: 'var(--ifm-font-color-base)'
     }}>

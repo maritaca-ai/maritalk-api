@@ -197,7 +197,7 @@ where X.XX.X is the version number of the openai library you installed.
 
 ## Step 4: Sending your first API request
 
-After setting up Python and configuring an API key, the final step is to send a request to the OpenAI API using the Python library. To do this, create a file named maritaca.py using the terminal or an IDE.
+After setting up Python and configuring an API key, the final step is to send a request to the API using the Python library. To do this, create a file named maritaca.py using the terminal or an IDE.
 Inside the file, copy and paste one of the examples below:
 
 ```python
@@ -208,14 +208,11 @@ client = openai.OpenAI(
     base_url="https://chat.maritaca.ai/api",
 )
 
-response = client.chat.completions.create(
-  model="sabia-3",
-  messages=[
-    {"role": "user", "content": "What is 25 + 27?"},
-  ],
-  max_tokens=8000
+response = client.responses.create(
+  model="sabia-4",
+  input="What is 25 + 27?",
 )
-answer = response.choices[0].message.content
+answer = response.output[0].content[0].text
 
 print(f"Answer: {answer}")   # Should print something like "25 + 27 equals 52."
 ```

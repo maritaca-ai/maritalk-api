@@ -165,7 +165,7 @@ Here, we use OpenAI compatibility via ChatOpenAI to access the Sabiá-3 model. Y
 from langchain.chat_models import ChatOpenAI
 
 llm = ChatOpenAI(
-    model="sabia-3",
+    model="sabia-4",
     temperature=0,
     api_key=api_key, # Insert your API key here
     base_url="https://chat.maritaca.ai/api",
