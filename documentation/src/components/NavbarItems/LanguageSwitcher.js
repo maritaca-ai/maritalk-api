@@ -12,7 +12,7 @@ const pathMap = {
   '/pt/chamada-funcao': '/en/function-call',
   '/pt/structured-outputs': '/en/structured-outputs',
   '/pt/api/batch-api': '/en/api/batch-api',
-  '/pt/embeddings+Sabia-3+RAG': '/en/embeddings+Sabia-3+RAG',
+  '/pt/embeddings+Sabia-4+RAG': '/en/embeddings+Sabia-4+RAG',
   '/pt/biblioteca': '/en/library',
   '/pt/casos-de-uso': '/en/use-cases',
   '/pt/glossario': '/en/glossary',

@@ -1,9 +1,9 @@
 ---
-id: embeddings+Sabia-3+RAG
-title: Embeddings+Sabia-3+RAG
+id: embeddings+Sabia-4+RAG
+title: Embeddings+Sabia-4+RAG
 ---
 
-# Embeddings + Sabiá-3 + RAG
+# Embeddings + Sabiá-4 + RAG
 
 ## Embeddings
 
@@ -105,12 +105,12 @@ Example:
 
 Visit the DeepInfra pricing page for details: [(https://deepinfra.com/intfloat/multilingual-e5-large)](https://deepinfra.com/intfloat/multilingual-e5-large).
 
-## RAG with Sabiá-3
-RAG (Retrieval-Augmented Generation) is an approach that combines information retrieval from a database with text generation capabilities of a language model (LLM). Below is a detailed step-by-step guide to creating a RAG system using the Sabiá-3 model. In this example, we will use:
+## RAG with Sabiá-4
+RAG (Retrieval-Augmented Generation) is an approach that combines information retrieval from a database with text generation capabilities of a language model (LLM). Below is a detailed step-by-step guide to creating a RAG system using the Sabiá-4 model. In this example, we will use:
 * A data source (a PDF of an admissions notice from Unicamp).
 * A tool to extract and split the PDF text into chunks.
 * A retriever system based on the "intfloat/multilingual-e5-large" model from DeepInfra, which retrieves the most relevant sections for a given question.
-* The Sabiá-3 model to generate the final response.
+* The Sabiá-4 model to generate the final response.
 * A prompt in conversational format, providing context and the user's question.
 
 
@@ -159,8 +159,8 @@ vectorstore = FAISS.from_documents(texts, embeddings)
 retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
 ```
 **Note:** Before running the code, you need to export the DeepInfra access key for authentication. Make sure you have properly configured the corresponding environment variable, following the official DeepInfra documentation.
-### Step 4: Configure Sabiá-3
-Here, we use OpenAI compatibility via ChatOpenAI to access the Sabiá-3 model. You need to provide the base_url and api_key.
+### Step 4: Configure sabia-4
+Here, we use OpenAI compatibility via ChatOpenAI to access the sabia-4 model. You need to provide the base_url and api_key.
 ```python
 from langchain.chat_models import ChatOpenAI
 

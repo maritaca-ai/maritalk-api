@@ -49,10 +49,10 @@ Você pode trabalhar com a Batch API de duas maneiras: pela interface visual ou 
 ### 1. Preparando seu arquivo de lote
 
 Para cada lote use um único arquivo .jsonl: cada linha corresponde a uma solicitação da API (mesmos parâmetros do endpoint). Inclua em cada requisição um custom_id exclusivo para localizar o resultado depois. Cada arquivo pode ter no máximo 200MB e até 50k requisições. Exemplo (duas solicitações):
-*Observação*: cada arquivo só pode conter solicitações para um único modelo. Por exemplo, não é possivel ter solicitações para o sabia-3.1 e sabiazinho-3 em um mesmo arquivo.
+*Observação*: cada arquivo só pode conter solicitações para um único modelo. Por exemplo, não é possivel ter solicitações para o sabia-4 e sabiazinho-4 em um mesmo arquivo.
 ```json
-{"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "sabia-3.1", "messages": [{"role": "user", "content": "Escreva um lindo poema sobre a Serra do Mar"}],"max_tokens": 1000}}
-{"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions","body": {"model": "sabia-3.1", "messages": [{"role": "user", "content": "O Brasil tem vulcão?"}],"max_tokens": 200}}
+{"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "sabia-4", "messages": [{"role": "user", "content": "Escreva um lindo poema sobre a Serra do Mar"}],"max_tokens": 1000}}
+{"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions","body": {"model": "sabia-4", "messages": [{"role": "user", "content": "O Brasil tem vulcão?"}],"max_tokens": 200}}
 ```
 
 ### 2. Enviando o arquivo de entrada para o lote
@@ -179,8 +179,8 @@ O arquivo de saída JSONL conterá uma linha de resposta para cada requisição 
 Observe que a ordem das linhas de saída pode não corresponder à ordem das linhas de entrada. Para correlacionar cada saída com sua requisição de entrada, utilize o campo custom_id, presente em cada linha do arquivo de saída.
 
 ```jsonl
-{"id": "batch_req_1", "custom_id": "request1", "response": {"status_code": 200, "request_id": "req_1", "body": {"id": "chat1", "object": "chat.completion", "created": 1744838747, "model": "sabia-3", "choices": [{"index": 0, "message": {"role": "assistant", "content": "Olá mundo."}, "logprobs": null, "finish_reason": "stop"}], "usage": {"prompt_tokens": 5, "completion_tokens": 14, "total_tokens": 19}, "system_fingerprint": "abc123"}}, "error": null}
-{"id": "batch_req_1", "custom_id": "request2", "response": {"status_code": 200, "request_id": "req_2", "body": {"id": "chat2", "object": "chat.completion", "created": 1744838747, "model": "sabia-3", "choices": [{"index": 0, "message": {"role": "assistant", "content": "Hello World."}, "logprobs": null, "finish_reason": "stop"}], "usage": {"prompt_tokens": 4, "completion_tokens": 26, "total_tokens": 30}, "system_fingerprint": "abc123"}}, "error": null}
+{"id": "batch_req_1", "custom_id": "request1", "response": {"status_code": 200, "request_id": "req_1", "body": {"id": "chat1", "object": "chat.completion", "created": 1744838747, "model": "sabia-4", "choices": [{"index": 0, "message": {"role": "assistant", "content": "Olá mundo."}, "logprobs": null, "finish_reason": "stop"}], "usage": {"prompt_tokens": 5, "completion_tokens": 14, "total_tokens": 19}, "system_fingerprint": "abc123"}}, "error": null}
+{"id": "batch_req_1", "custom_id": "request2", "response": {"status_code": 200, "request_id": "req_2", "body": {"id": "chat2", "object": "chat.completion", "created": 1744838747, "model": "sabia-4", "choices": [{"index": 0, "message": {"role": "assistant", "content": "Hello World."}, "logprobs": null, "finish_reason": "stop"}], "usage": {"prompt_tokens": 4, "completion_tokens": 26, "total_tokens": 30}, "system_fingerprint": "abc123"}}, "error": null}
 ```
 Após a conclusão do lote, o arquivo de saída permanece disponível por 30 dias e é excluído automaticamente depois disso.
 
