@@ -1,9 +1,9 @@
 ---
-id: embeddings+Sabia-3+RAG
-title: Embeddings+Sabia-3+RAG
+id: embeddings+Sabia-4+RAG
+title: Embeddings+Sabia-4+RAG
 ---
 
-# Embeddings + Sabiá-3 + RAG
+# Embeddings + Sabiá-4 + RAG
 
 ## Embeddings
 
@@ -103,12 +103,12 @@ Exemplo:
 #### Preço
 Visite a página de precificação do modelo da DeepInfra para obter mais detalhes [(https://deepinfra.com/intfloat/multilingual-e5-large)](https://deepinfra.com/intfloat/multilingual-e5-large).
 
-## RAG com o Sabiá-3
-RAG (Retrieval-Augmented Generation) é uma abordagem que combina busca de informações em uma base de dados com a capacidade de geração de texto de um modelo de linguagem (LLM). Abaixo está o passo a passo detalhado para criar um sistema RAG usando o modelo Sabiá-3, neste exemplo utilizaremos:
+## RAG com o sabia-4
+RAG (Retrieval-Augmented Generation) é uma abordagem que combina busca de informações em uma base de dados com a capacidade de geração de texto de um modelo de linguagem (LLM). Abaixo está o passo a passo detalhado para criar um sistema RAG usando o modelo sabia-4, neste exemplo utilizaremos:
 * Uma fonte de dados (um PDF de um edital da Unicamp).
 * Uma ferramenta para extrair e dividir o texto do PDF em pedaços (chunks).
 * Um sistema de recuperação (retriever) baseado no modelo "intfloat/multilingual-e5-large" da DeepInfra, que busca os trechos mais relevantes para uma determinada pergunta.
-* O modelo Sabiá-3 para gerar a resposta final.
+* O modelo sabia-4 para gerar a resposta final.
 * O prompt baseado no formato de conversa, fornecendo contexto e a pergunta do usuário.
 
 
@@ -158,13 +158,13 @@ retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
 ```
 **Observação:** Antes de executar o código, é necessário realizar o export da chave de acesso da DeepInfra para autenticação. Certifique-se de ter configurado corretamente a variável de ambiente correspondente, seguindo a documentação oficial do DeepInfra.
 
-### Passo 4: Configuração do Sabiá-3
-Aqui, utilizamos a compatibilidade com a OpenAI através do ChatOpenAI para acessar o modelo Sabiá-3. É necessário fornecer a base_url e a api_key.
+### Passo 4: Configuração do sabia-4
+Aqui, utilizamos a compatibilidade com a OpenAI através do ChatOpenAI para acessar o modelo sabia-4. É necessário fornecer a base_url e a api_key.
 ```python
 from langchain.chat_models import ChatOpenAI
 
 llm = ChatOpenAI(
-    model="sabia-3",
+    model="sabia-4",
     temperature=0,
     api_key=api_key, # Insira sua chave aqui  
     base_url="https://chat.maritaca.ai/api",

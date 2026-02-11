@@ -6,7 +6,7 @@ title: Compatibility with OpenAI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Compatibility with OpenAI 
+# Compatibility with OpenAI
 
 Maritaca API is compatible with OpenAI client libraries, making it easy to experiment with our open-source models in existing applications.
 
@@ -34,15 +34,121 @@ client = openai.OpenAI(
 )
 ```
 
-### <span className="inline-heading"><span className="geo-icon geo-icon-chat geo-icon-small" aria-hidden="true"></span><span>Making a Chat Request</span></span>
+### <span className="inline-heading"><span className="geo-icon geo-icon-chat geo-icon-small" aria-hidden="true"></span><span>Making a Request</span></span>
 
-You can make a chat request to the sabia-3 model by passing a list of messages.
+You can make a request to the sabia-4 model using the Responses API.
+
+<Tabs>
+<TabItem value="python" label="Python" default>
+```python
+response = client.responses.create(
+  model="sabia-4",
+  instructions="You are a travel agent. Be descriptive and kind.",
+  input="Tell me about the Christ the Redeemer.",
+  max_output_tokens=8000
+)
+
+print(response.output[0].content[0].text)
+```
+</TabItem>
+<TabItem value="curl" label="cURL">
+```bash
+curl -X POST https://chat.maritaca.ai/api/v1/responses \
+  -H "Authorization: Bearer my_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "sabia-4",
+    "instructions": "You are a travel agent. Be descriptive and kind.",
+    "input": "Tell me about the Christ the Redeemer.",
+    "max_output_tokens": 8000
+  }'
+```
+</TabItem>
+</Tabs>
+
+### <span className="inline-heading"><span className="geo-icon geo-icon-chat geo-icon-small" aria-hidden="true"></span><span>Making a Request with Message List</span></span>
+
+You can also pass a list of messages as input for multi-turn conversations.
+
+<Tabs>
+<TabItem value="python" label="Python" default>
+```python
+response = client.responses.create(
+  model="sabia-4",
+  input=[
+    {"role": "user", "content": "My name is Alice."},
+    {"role": "assistant", "content": "Hello Alice! Nice to meet you."},
+    {"role": "user", "content": "What is my name?"},
+  ],
+  max_output_tokens=8000
+)
+
+print(response.output[0].content[0].text)
+```
+</TabItem>
+<TabItem value="curl" label="cURL">
+```bash
+curl -X POST https://chat.maritaca.ai/api/v1/responses \
+  -H "Authorization: Bearer my_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "sabia-4",
+    "input": [
+      {"role": "user", "content": "My name is Alice."},
+      {"role": "assistant", "content": "Hello Alice! Nice to meet you."},
+      {"role": "user", "content": "What is my name?"}
+    ],
+    "max_output_tokens": 8000
+  }'
+```
+</TabItem>
+</Tabs>
+
+### <span className="inline-heading"><span className="geo-icon geo-icon-stream geo-icon-small" aria-hidden="true"></span><span>Streaming Request</span></span>
+
+To receive responses in real time (streaming), you can use the parameter stream=True.
+
+<Tabs>
+<TabItem value="python" label="Python" default>
+```python
+import os
+import openai
+
+stream = client.responses.create(
+  model="sabia-4",
+  instructions="You are a travel agent. Be descriptive and kind.",
+  input="Tell me about the Christ the Redeemer.",
+  stream=True,
+  max_output_tokens=8000
+)
+for event in stream:
+  if event.type == "response.output_text.delta":
+    print(event.delta, end="", flush=True)
+```
+</TabItem>
+<TabItem value="curl" label="cURL">
+```bash
+curl -X POST https://chat.maritaca.ai/api/v1/responses \
+  -H "Authorization: Bearer my_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "sabia-4",
+    "instructions": "You are a travel agent. Be descriptive and kind.",
+    "input": "Tell me about the Christ the Redeemer.",
+    "stream": true,
+    "max_output_tokens": 8000
+  }'
+```
+</TabItem>
+</Tabs>
+
+### <span className="inline-heading"><span className="geo-icon geo-icon-chat geo-icon-small" aria-hidden="true"></span><span>Also available: Chat Completions API</span></span>
 
 <Tabs>
 <TabItem value="python" label="Python" default>
 ```python
 response = client.chat.completions.create(
-  model="sabia-3",
+  model="sabia-4",
   messages=[
     {"role": "system", "content": "You are a travel agent. Be descriptive and kind."},
     {"role": "user", "content": "Tell me about the Christ the Redeemer."},
@@ -59,74 +165,7 @@ curl https://chat.maritaca.ai/api/chat/completions \
   -H "Authorization: Bearer my_key" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "sabia-3",
-    "messages": [{"role": "system", "content": "You are a travel agent. Be descriptive and kind."},
-                 {"role": "user", "content": "Tell me about the Christ the Redeemer."}],
-    "max_tokens": 8000
-  }'
-```
-</TabItem>
-</Tabs>
-
-### <span className="inline-heading"><span className="geo-icon geo-icon-creative geo-icon-small" aria-hidden="true"></span><span>Making a Request to Complete Input</span></span>
-In addition to chats, you can also use the model to complete input, as in the example below:
-
-<Tabs>
-<TabItem value="python" label="Python" default>
-```python
-response = client.completions.create(
-  model="sabia-3",
-  prompt="Once upon a time, in a distant kingdom, a young adventurer dreamed of exploring unknown lands. One day, he found a mysterious map that showed the way to a lost treasure",
-  max_tokens=175
-)
-
-print(response.choices[0].text)
-```
-</TabItem>
-<TabItem value="curl" label="cURL">
-```bash
-curl https://chat.maritaca.ai/api/completions \
-  -H "Authorization: Bearer my_key" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model": "sabia-3",
-    "prompt": "Once upon a time, in a distant kingdom, a young adventurer dreamed of exploring unknown lands. One day, he found a mysterious map that showed the way to a lost treasure",
-    "max_tokens": 175
-  }'
-```
-</TabItem>
-</Tabs>
-
-### <span className="inline-heading"><span className="geo-icon geo-icon-stream geo-icon-small" aria-hidden="true"></span><span>Streaming Chat Request</span></span>
-
-To receive responses in real time (streaming), you can use the parameter stream=True.
-
-<Tabs>
-<TabItem value="python" label="Python" default>
-```python
-import os
-import openai
-
-stream = client.chat.completions.create(
-  model="sabia-3",
-  messages=[
-    {"role": "system", "content": "You are a travel agent. Be descriptive and kind."},
-    {"role": "user", "content": "Tell me about the Christ the Redeemer."},
-  ],
-  stream=True,
-  max_tokens=8000
-)
-for chunk in stream:
-  print(chunk.choices[0].delta.content or "", end="", flush=True)
-```
-</TabItem>
-<TabItem value="curl" label="cURL">
-```bash
-curl https://chat.maritaca.ai/api/chat/completions \
-  -H "Authorization: Bearer my_key" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model": "sabia-3",
+    "model": "sabia-4",
     "messages": [{"role": "system", "content": "You are a travel agent. Be descriptive and kind."},
                  {"role": "user", "content": "Tell me about the Christ the Redeemer."}],
     "max_tokens": 8000

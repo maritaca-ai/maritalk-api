@@ -87,7 +87,7 @@ Estatísticas de uso para a resposta.
   "id": "123abc45-67de-f89g-1011-12h131415i16",
   "object": "chat_completion",
   "created": 1730807994,
-  "model": "sabia-3",
+  "model": "sabia-4",
   "choices": [
     {
       "index": 0,

@@ -48,11 +48,11 @@ You can work with the Batch API in two ways: through the visual interface or pro
 
 For each batch, use a single `.jsonl` file: each line corresponds to one API request (the same parameters as the endpoint). Include a unique `custom_id` in each request to locate the result later. Each file can be at most 200 MB and contain up to 50,000 requests. Example (two requests):
 
-*Note:* Each file can only contain requests for a single model.  For example, it is not possible to have requests for sabia-3.1 and sabiazinho-3 in the same file.
+*Note:* Each file can only contain requests for a single model.  For example, it is not possible to have requests for sabia-4 and sabiazinho-4 in the same file.
 
 ```json
-{"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "sabia-3.1", "messages": [{"role": "user", "content": "Escreva um lindo poema sobre a Serra do Mar"}],"max_tokens": 1000}}
-{"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions","body": {"model": "sabia-3.1", "messages": [{"role": "user", "content": "O Brasil tem vulcão?"}],"max_tokens": 200}}
+{"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "sabia-4", "messages": [{"role": "user", "content": "Escreva um lindo poema sobre a Serra do Mar"}],"max_tokens": 1000}}
+{"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions","body": {"model": "sabia-4", "messages": [{"role": "user", "content": "O Brasil tem vulcão?"}],"max_tokens": 200}}
 ```
 
 ### 2. Uploading the Batch Input File
@@ -169,8 +169,8 @@ The JSONL output file will contain a single response line for each successful re
 Keep in mind that the order of the output lines may not match the input lines. To reliably match each output to its corresponding input, use the custom_id field, which is included in every line of the output file.
 
 ```jsonl
-{"id": "batch_req_1", "custom_id": "request1", "response": {"status_code": 200, "request_id": "req_1", "body": {"id": "chat1", "object": "chat.completion", "created": 1744838747, "model": "sabia-3", "choices": [{"index": 0, "message": {"role": "assistant", "content": "Olá mundo."}, "logprobs": null, "finish_reason": "stop"}], "usage": {"prompt_tokens": 5, "completion_tokens": 14, "total_tokens": 19}, "system_fingerprint": "abc123"}}, "error": null}
-{"id": "batch_req_1", "custom_id": "request2", "response": {"status_code": 200, "request_id": "req_2", "body": {"id": "chat2", "object": "chat.completion", "created": 1744838747, "model": "sabia-3", "choices": [{"index": 0, "message": {"role": "assistant", "content": "Hello World."}, "logprobs": null, "finish_reason": "stop"}], "usage": {"prompt_tokens": 4, "completion_tokens": 26, "total_tokens": 30}, "system_fingerprint": "abc123"}}, "error": null}
+{"id": "batch_req_1", "custom_id": "request1", "response": {"status_code": 200, "request_id": "req_1", "body": {"id": "chat1", "object": "chat.completion", "created": 1744838747, "model": "sabia-4", "choices": [{"index": 0, "message": {"role": "assistant", "content": "Olá mundo."}, "logprobs": null, "finish_reason": "stop"}], "usage": {"prompt_tokens": 5, "completion_tokens": 14, "total_tokens": 19}, "system_fingerprint": "abc123"}}, "error": null}
+{"id": "batch_req_1", "custom_id": "request2", "response": {"status_code": 200, "request_id": "req_2", "body": {"id": "chat2", "object": "chat.completion", "created": 1744838747, "model": "sabia-4", "choices": [{"index": 0, "message": {"role": "assistant", "content": "Hello World."}, "logprobs": null, "finish_reason": "stop"}], "usage": {"prompt_tokens": 4, "completion_tokens": 26, "total_tokens": 30}, "system_fingerprint": "abc123"}}, "error": null}
 ```
 After the batch finishes, the output file remains available for 30 days and is then automatically deleted.
 

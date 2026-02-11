@@ -40,7 +40,7 @@ from maritalk import count_tokens
 
 prompt = "Com quantos paus se faz uma canoa?"
 
-total_tokens = count_tokens(prompt, model="sabia-3")
+total_tokens = count_tokens(prompt, model="sabia-4")
 
 print(f'O prompt "{prompt}" contém {total_tokens} tokens.')
 ```

@@ -16,27 +16,26 @@ Here are examples of how you can integrate the Maritaca API in C# and JavaScript
 ```javascript
 const process = require('node:process');
 
-const CHAT_API_URL = "https://chat.maritaca.ai/api/chat/inference";
+const RESPONSES_API_URL = "https://chat.maritaca.ai/api/v1/responses";
 
 if (!process.env.MARITACA_API_KEY) {
     console.error("Environment variable MARITACA_API_KEY not found!");
     process.exit(1);
 }
 
-async function sendChatRequest(message) {
+async function sendRequest(message) {
     try {
         const params = {
-            messages: [{ "role": "user", "content": message }],
-            do_sample: true,
-            max_tokens: 50,
+            model: "sabia-4",
+            input: message,
+            max_output_tokens: 50,
             temperature: 0.4,
             top_p: 0.95,
-            model: "sabia-3",
         };
 
-        const response = await fetch(CHAT_API_URL, {
+        const response = await fetch(RESPONSES_API_URL, {
             headers: {
-                "Authorization": `Key ${process.env.MARITACA_API_KEY}`,
+                "Authorization": `Bearer ${process.env.MARITACA_API_KEY}`,
                 "Content-Type": "application/json",
             },
             method: "POST",
@@ -49,15 +48,15 @@ async function sendChatRequest(message) {
 
         return await response.json();
     } catch (error) {
-        console.error("Error sending chat request:", error);
+        console.error("Error sending request:", error);
         throw error;
     }
 }
 
 async function main() {
     try {
-        const result = await sendChatRequest('Olá, qual é seu nome?');
-        console.log("Response:", result);
+        const result = await sendRequest('Hello, what is your name?');
+        console.log("Response:", result.output[0].content[0].text);
     } catch (error) {
         console.error("Error in main function:", error);
     }
@@ -80,7 +79,7 @@ namespace ChatMaritaca
         {
             //variables
             string key = "";
-            string model = "sabia-3";
+            string model = "sabiazinho-4";
             string url = "https://chat.maritaca.ai/api";
             string nameProject = "ExemploUsandoMaritaca";
 

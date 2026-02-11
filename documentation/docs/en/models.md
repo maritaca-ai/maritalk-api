@@ -39,7 +39,7 @@ from maritalk import count_tokens
 
 prompt = "How many sticks does it take to make a canoe?"
 
-total_tokens = count_tokens(prompt, model="sabia-3")
+total_tokens = count_tokens(prompt, model="sabia-4")
 
 print(f'The prompt "{prompt}" contains {total_tokens} tokens.')
 ```
