@@ -377,7 +377,7 @@ for event in result.events:
 # "Olympics — 2016 in Rio de Janeiro"
 ```
 
-> For more format options (`json_object`, `strict`), see [Structured Outputs](/docs/en/structured-outputs).
+> For more format options (`json_object`, `strict`), see [Structured Outputs](./structured_outputs.md).
 
 ### Example 3 — Streaming with token tracking
 
