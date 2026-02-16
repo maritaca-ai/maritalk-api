@@ -5,7 +5,7 @@ title: n8n
 
 ## Maritaca AI + n8n
 
-O [n8n](https://n8n.io) é uma plataforma de automação de workflows que permite conectar diversas aplicações e serviços. Como a API da Maritaca é compatível com o formato OpenAI, você pode usar o nó **OpenAI Chat Model** do n8n para integrar o Sabiá-4 nos seus workflows.
+O [n8n](https://n8n.io) é uma plataforma de automação de workflows que permite conectar diversas aplicações e serviços. Como a API da Maritaca é compatível com o formato OpenAI, você pode usar o nó **OpenAI Chat Model** do n8n para integrar os modelos Sabiá (por exemplo, Sabiá-4) nos seus workflows.
 
 ### Pré-requisitos
 

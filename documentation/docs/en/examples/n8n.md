@@ -5,7 +5,7 @@ title: n8n
 
 ## Maritaca AI + n8n
 
-[n8n](https://n8n.io) is a workflow automation platform that connects various applications and services. Since the Maritaca API is OpenAI-compatible, you can use n8n's **OpenAI Chat Model** node to integrate Sabiá-4 into your workflows.
+[n8n](https://n8n.io) is a workflow automation platform that connects various applications and services. Since the Maritaca API is OpenAI-compatible, you can use n8n's **OpenAI Chat Model** node to integrate Sabiá models (e.g., Sabiá-4) into your workflows.
 
 ### Prerequisites
 
