@@ -11,7 +11,7 @@ A Maritaca AI oferece uma gama de modelos na família Sabiá, projetados para at
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4</span></span>
 
-Modelo generalista com foco em capacidade agêntica e contexto brasileiro, atualizado até agosto de 2024 e indicado para usos que precisam de precisão e eficiência de custo.
+Modelo generalista com foco em capacidade agêntica e contexto brasileiro, atualizado até agosto de 2024 e indicado para usos que precisam de precisão e eficiência de custo. Leia o [artigo técnico (arXiv)](https://arxiv.org/abs/2603.10213) para mais detalhes.
 
 **Exemplos de uso:** Elaboração e revisão de peças e pareceres, tutoria para provas, análise e síntese de documentos longos e orquestração de fluxos agênticos multi-etapas.
 
@@ -31,21 +31,15 @@ Modelo robusto e atualizado até agosto de 2024, com ótimo desempenho em racioc
 
 Geração anterior dos modelos Sabiá.
 
-## Especificações e preços
+## Especificações
 
 | | **Sabiá 4** | **Sabiazinho 4** | **Sabiá 3.1** | **Sabiá 3** | **Sabiazinho 3** |
 |---|---|---|---|---|---|
 | **Contexto máximo** | 128K | 128K | 128K | 128K | 32K |
 | **Dados de treinamento** | Até ago/2024 | Até ago/2024 | Até ago/2024 | Até meados de 2023 | Até meados de 2023 |
-| **Entrada (por 1M tokens)** | R$ 5,00 | R$ 1,00 | R$ 5,00 | R$ 5,00 | R$ 1,00 |
-| **Saída (por 1M tokens)** | R$ 20,00 | R$ 4,00 | R$ 10,00 | R$ 10,00 | R$ 3,00 |
-| **Entrada fora de pico ¹** | R$ 3,50 | R$ 0,70 | R$ 3,50 | R$ 3,50 | R$ 0,70 |
-| **Saída fora de pico ¹** | R$ 14,00 | R$ 2,80 | R$ 7,00 | R$ 7,00 | R$ 2,10 |
-| **Entrada Batch API** | R$ 2,50 | R$ 0,50 | R$ 2,50 | R$ 2,50 | R$ 0,50 |
-| **Saída Batch API** | R$ 10,00 | R$ 2,00 | R$ 5,00 | R$ 5,00 | R$ 1,50 |
 | **Nomes aceitos (alias)** | sabia-4<br />sabia-4-2026-01-06 | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabia-3.1<br />sabiá-3.1<br />sabia-3.1-2025-05-08<br />sabiá-3.1-2025-05-08 | sabia-3<br />sabiá-3<br />sabia-3-2024-12-11<br />sabiá-3-2024-12-11 | sabiazinho-3<br />sabiazinho-3-2025-02-06<br />sabia-3-small<br />sabiazim-3 |
 
-<small>¹ Fora de pico: 22:00–06:00 BRT. Preços por milhão de tokens.</small>
+Para informações sobre preços, consulte a página de [Preços](/pt/precos).
 
 ## Modelos descontinuados
 
@@ -59,19 +53,6 @@ Conforme lançamos modelos mais seguros e avançados, descontinuamos regularment
 | sabia-3-2024-09-09 | 2025-02-17 | sabiazinho-4 |
 | sabiazinho-3-2024-11-13 | 2025-03-06 | sabiazinho-4 |
 
-## Como saber quantos tokens serei cobrado?
-Para saber de antemão o quanto suas requisições irão custar, use a função count_tokens para saber o número de tokens em um dado prompt.
-```python
-from maritalk import count_tokens
-
-prompt = "Com quantos paus se faz uma canoa?"
-
-total_tokens = count_tokens(prompt, model="sabia-4")
-
-print(f'O prompt "{prompt}" contém {total_tokens} tokens.')
-```
-
-É necessário instalar a biblioteca da Maritaca (`pip install maritalk`) para rodar o trecho de código acima.
 
 <style>
   {`
