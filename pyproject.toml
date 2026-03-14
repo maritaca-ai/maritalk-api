@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "maritalk"
-version = "0.3.0"
+version = "0.3.1"
 authors = [
   { name="Maritaca AI", email="suporte@maritaca.ai" },
 ]
@@ -21,7 +21,7 @@ dependencies = [
     "requests",
     "tqdm",
     "httpx",
-    "tiktoken>=0.7,<0.8",
+    "tiktoken>=0.7",
     "transformers"
 ]
 
