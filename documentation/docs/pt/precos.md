@@ -6,18 +6,18 @@ slug: /pt/precos
 
 # Preços
 
-Todos os preços são por milhão de tokens processados. A cobrança considera tanto tokens de entrada quanto de saída.
+Todos os preços são por milhão de tokens processados. A cobrança considera tanto tokens de input quanto de output.
 
 | | **Sabiá 4** | **Sabiazinho 4** | **Sabiá 3.1** | **Sabiá 3** | **Sabiazinho 3** |
 |---|---|---|---|---|---|
-| **Entrada** | R$ 5,00 | R$ 1,00 | R$ 5,00 | R$ 5,00 | R$ 1,00 |
-| **Saída** | R$ 20,00 | R$ 4,00 | R$ 10,00 | R$ 10,00 | R$ 3,00 |
-| **Entrada fora de pico ¹** | R$ 3,50 | R$ 0,70 | R$ 3,50 | R$ 3,50 | R$ 0,70 |
-| **Saída fora de pico ¹** | R$ 14,00 | R$ 2,80 | R$ 7,00 | R$ 7,00 | R$ 2,10 |
-| **Entrada Batch API** | R$ 2,50 | R$ 0,50 | R$ 2,50 | R$ 2,50 | R$ 0,50 |
-| **Saída Batch API** | R$ 10,00 | R$ 2,00 | R$ 5,00 | R$ 5,00 | R$ 1,50 |
+| **Input** | R$ 5,00 | R$ 1,00 | R$ 5,00 | R$ 5,00 | R$ 1,00 |
+| **Output** | R$ 20,00 | R$ 4,00 | R$ 10,00 | R$ 10,00 | R$ 3,00 |
+| **Input noturno ¹** | R$ 3,50 | R$ 0,70 | R$ 3,50 | R$ 3,50 | R$ 0,70 |
+| **Output noturno ¹** | R$ 14,00 | R$ 2,80 | R$ 7,00 | R$ 7,00 | R$ 2,10 |
+| **Input Batch API** | R$ 2,50 | R$ 0,50 | R$ 2,50 | R$ 2,50 | R$ 0,50 |
+| **Output Batch API** | R$ 10,00 | R$ 2,00 | R$ 5,00 | R$ 5,00 | R$ 1,50 |
 
-<small>¹ Fora de pico: 22:00–06:00 BRT.</small>
+<small>¹ Noturno: 22:00–06:00 BRT.</small>
 
 ## Como saber quantos tokens serei cobrado?
 
