@@ -9,6 +9,7 @@ module.exports = {
         'pt/visao-geral',
         'pt/introducao',
         'pt/modelos',
+        'pt/precos',
         {
           type: 'category',
           label: 'API',
@@ -65,6 +66,7 @@ module.exports = {
         'en/overview',
         'en/introduction',
         'en/models',
+        'en/pricing',
         {
           type: 'category',
           label: 'API',
