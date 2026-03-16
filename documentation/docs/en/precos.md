@@ -1,5 +1,5 @@
 ---
-id: pricing
+id: precos
 title: Pricing
 ---
 

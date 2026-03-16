@@ -39,7 +39,7 @@ Previous generation models.
 | **Training data cutoff** | Through Aug 2024 | Through Aug 2024 | Through Aug 2024 | Through mid-2023 | Through mid-2023 |
 | **Model names/aliases** | sabia-4<br />sabia-4-2026-01-06 | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabia-3.1<br />sabiá-3.1<br />sabia-3.1-2025-05-08<br />sabiá-3.1-2025-05-08 | sabia-3<br />sabiá-3<br />sabia-3-2024-12-11<br />sabiá-3-2024-12-11 | sabiazinho-3<br />sabiazinho-3-2025-02-06<br />sabia-3-small<br />sabiazim-3 |
 
-For pricing information, see the [Pricing](pricing) page.
+For pricing information, see the [Pricing](precos) page.
 
 ## Deprecated models
 

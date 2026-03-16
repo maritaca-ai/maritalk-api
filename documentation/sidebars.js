@@ -66,7 +66,7 @@ module.exports = {
         'en/overview',
         'en/introduction',
         'en/models',
-        'en/pricing',
+        'en/precos',
         {
           type: 'category',
           label: 'API',
