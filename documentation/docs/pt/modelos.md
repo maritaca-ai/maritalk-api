@@ -39,7 +39,7 @@ Geração anterior dos modelos Sabiá.
 | **Dados de treinamento** | Até ago/2024 | Até ago/2024 | Até ago/2024 | Até meados de 2023 | Até meados de 2023 |
 | **Nomes aceitos (alias)** | sabia-4<br />sabia-4-2026-01-06 | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabia-3.1<br />sabiá-3.1<br />sabia-3.1-2025-05-08<br />sabiá-3.1-2025-05-08 | sabia-3<br />sabiá-3<br />sabia-3-2024-12-11<br />sabiá-3-2024-12-11 | sabiazinho-3<br />sabiazinho-3-2025-02-06<br />sabia-3-small<br />sabiazim-3 |
 
-Para informações sobre preços, consulte a página de [Preços](/pt/precos).
+Para informações sobre preços, consulte a página de [Preços](precos).
 
 ## Modelos descontinuados
 

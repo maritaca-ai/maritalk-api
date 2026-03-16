@@ -1,7 +1,6 @@
 ---
 id: precos
 title: Preços
-slug: /pt/precos
 ---
 
 # Preços

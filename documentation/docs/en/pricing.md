@@ -1,7 +1,6 @@
 ---
 id: pricing
 title: Pricing
-slug: /en/precos
 ---
 
 # Pricing
