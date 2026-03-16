@@ -56,6 +56,8 @@ Graças ao nosso treinamento especializado em português e em contextos brasilei
 
 ### Sabiá 4
 
+Leia o [artigo técnico (arXiv)](https://arxiv.org/abs/2603.10213) para mais detalhes sobre o Sabiá 4.
+
 A tabela abaixo compara Sabiá 4, Sabiá 3.1 e modelos concorrentes em uma série de avaliações brasileiras — incluindo exames jurídicos, provas educacionais, conhecimento legislativo, capacidade agêntica e habilidades conversacionais (considerando qualidade e custo de execução via API).
 
 O Sabiá 4 tem uma maior acurácia em Leis Brasileiras e melhorias consistentes frente ao Sabiá 3.1 em todas as demais métricas, com destaque para capacidades agênticas. Com um custo muito abaixo do cobrado pelos modelos de fronteira listados.

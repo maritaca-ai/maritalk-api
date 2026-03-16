@@ -56,6 +56,8 @@ Thanks to our specialized training in Portuguese and Brazilian-specific contexts
 
 ### Sabiá 4
 
+Read the [technical paper (arXiv)](https://arxiv.org/abs/2603.10213) for more details about Sabiá 4.
+
 The table below compares Sabiá 4, Sabiá 3.1, and competing models across a range of Brazilian evaluations—including legal exams, educational assessments, legislative knowledge, agentic capabilities, and conversational skills—considering both quality and API execution cost.
 
 Sabiá 4 has higher accuracy on Brazilian Laws and consistent improvements over Sabiá 3.1 across every metric, with a notable lead in agentic capabilities. It also comes at a cost far below the frontier models listed.
