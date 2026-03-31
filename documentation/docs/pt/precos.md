@@ -11,12 +11,19 @@ Todos os preços são por milhão de tokens processados. A cobrança considera t
 |---|---|---|---|---|---|
 | **Input** | R$ 5,00 | R$ 1,00 | R$ 5,00 | R$ 5,00 | R$ 1,00 |
 | **Output** | R$ 20,00 | R$ 4,00 | R$ 10,00 | R$ 10,00 | R$ 3,00 |
-| **Input noturno ¹** | R$ 3,50 | R$ 0,70 | R$ 3,50 | R$ 3,50 | R$ 0,70 |
-| **Output noturno ¹** | R$ 14,00 | R$ 2,80 | R$ 7,00 | R$ 7,00 | R$ 2,10 |
+| **Input em cache ¹** | R$ 1,25 | R$ 0,25 | R$ 1,25 | R$ 1,25 | R$ 0,25 |
+| **Input noturno ²** | R$ 3,50 | R$ 0,70 | R$ 3,50 | R$ 3,50 | R$ 0,70 |
+| **Output noturno ²** | R$ 14,00 | R$ 2,80 | R$ 7,00 | R$ 7,00 | R$ 2,10 |
+| **Input Flex ³** | R$ 2,50 | R$ 0,50 | R$ 2,50 | R$ 2,50 | R$ 0,50 |
+| **Output Flex ³** | R$ 10,00 | R$ 2,00 | R$ 5,00 | R$ 5,00 | R$ 1,50 |
 | **Input Batch API** | R$ 2,50 | R$ 0,50 | R$ 2,50 | R$ 2,50 | R$ 0,50 |
 | **Output Batch API** | R$ 10,00 | R$ 2,00 | R$ 5,00 | R$ 5,00 | R$ 1,50 |
 
-<small>¹ Noturno: 22:00–06:00 BRT.</small>
+<small>¹ Tokens de input reutilizados entre requisições são cobrados com 75% de desconto (1/4 do preço). Saiba mais em [Cache de Prompt](cache-de-prompt).</small>
+
+<small>² Noturno: 22:00–06:00 BRT.</small>
+
+<small>³ Requisições Flex oferecem 50% de desconto, sujeitas a disponibilidade de capacidade. Saiba mais em [Flex Tier](flex-tier).</small>
 
 ## Como saber quantos tokens serei cobrado?
 
