@@ -11,12 +11,19 @@ All prices are per million tokens processed. Billing considers both input and ou
 |---|---|---|---|---|---|
 | **Input** | R$ 5.00 | R$ 1.00 | R$ 5.00 | R$ 5.00 | R$ 1.00 |
 | **Output** | R$ 20.00 | R$ 4.00 | R$ 10.00 | R$ 10.00 | R$ 3.00 |
-| **Off-peak input ¹** | R$ 3.50 | R$ 0.70 | R$ 3.50 | R$ 3.50 | R$ 0.70 |
-| **Off-peak output ¹** | R$ 14.00 | R$ 2.80 | R$ 7.00 | R$ 7.00 | R$ 2.10 |
+| **Cached input ¹** | R$ 1.25 | R$ 0.25 | R$ 1.25 | R$ 1.25 | R$ 0.25 |
+| **Off-peak input ²** | R$ 3.50 | R$ 0.70 | R$ 3.50 | R$ 3.50 | R$ 0.70 |
+| **Off-peak output ²** | R$ 14.00 | R$ 2.80 | R$ 7.00 | R$ 7.00 | R$ 2.10 |
+| **Flex input ³** | R$ 2.50 | R$ 0.50 | R$ 2.50 | R$ 2.50 | R$ 0.50 |
+| **Flex output ³** | R$ 10.00 | R$ 2.00 | R$ 5.00 | R$ 5.00 | R$ 1.50 |
 | **Batch API input** | R$ 2.50 | R$ 0.50 | R$ 2.50 | R$ 2.50 | R$ 0.50 |
 | **Batch API output** | R$ 10.00 | R$ 2.00 | R$ 5.00 | R$ 5.00 | R$ 1.50 |
 
-<small>¹ Off-peak: 10 p.m.–6 a.m. BRT.</small>
+<small>¹ Reused input tokens are charged at a 75% discount (1/4 of the price). Learn more at [Prompt Caching](prompt-caching).</small>
+
+<small>² Off-peak: 10 p.m.–6 a.m. BRT.</small>
+
+<small>³ Flex requests offer a 50% discount, subject to capacity availability. Learn more at [Flex Tier](flex-tier).</small>
 
 ## How do I know how many tokens I will be charged?
 
