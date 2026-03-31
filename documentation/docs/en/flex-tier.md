@@ -33,17 +33,7 @@ print(f"Service tier: {response.service_tier}")  # "flex"
 
 ## Pricing
 
-Flex requests have the same 50% discount as the Batch API, but are processed in real time:
-
-| Model | Standard input | Flex input | Standard output | Flex output |
-|---|---|---|---|---|
-| **Sabiá 4** | R$ 5.00 | R$ 2.50 | R$ 20.00 | R$ 10.00 |
-| **Sabiazinho 4** | R$ 1.00 | R$ 0.50 | R$ 4.00 | R$ 2.00 |
-| **Sabiá 3.1** | R$ 5.00 | R$ 2.50 | R$ 10.00 | R$ 5.00 |
-| **Sabiá 3** | R$ 5.00 | R$ 2.50 | R$ 10.00 | R$ 5.00 |
-| **Sabiazinho 3** | R$ 1.00 | R$ 0.50 | R$ 3.00 | R$ 1.50 |
-
-All prices are per million tokens.
+Flex requests have the same 50% discount as the Batch API, but are processed in real time. See the full pricing table on the [Pricing](precos) page.
 
 ## Flex vs Batch API
 

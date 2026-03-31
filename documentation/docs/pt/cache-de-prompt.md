@@ -46,15 +46,7 @@ print(f"Tokens de output: {usage.completion_tokens}")
 
 ## Preços com cache
 
-Tokens cacheados pagam 25% do preço de input padrão:
-
-| Modelo | Input padrão (1M tokens) | Input cacheado (1M tokens) |
-|---|---|---|
-| **Sabiá 4** | R$ 5,00 | R$ 1,25 |
-| **Sabiazinho 4** | R$ 1,00 | R$ 0,25 |
-| **Sabiá 3.1** | R$ 5,00 | R$ 1,25 |
-| **Sabiá 3** | R$ 5,00 | R$ 1,25 |
-| **Sabiazinho 3** | R$ 1,00 | R$ 0,25 |
+Tokens cacheados pagam 25% do preço de input padrão. Consulte a tabela completa na página de [Preços](precos).
 
 ## Dicas para maximizar o cache
 
