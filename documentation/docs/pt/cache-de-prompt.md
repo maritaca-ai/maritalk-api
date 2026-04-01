@@ -52,7 +52,6 @@ Tokens cacheados pagam 25% do preço de input padrão. Consulte a tabela complet
 
 1. **Coloque o conteúdo estável no início do prompt**: system prompts e documentos de referência devem vir antes do conteúdo dinâmico (ex.: a pergunta do usuário).
 2. **Reutilize prefixos idênticos**: quanto maior o prefixo comum entre requisições, maior a economia.
-3. **Combine com outras estratégias**: o cache se acumula com descontos de horário noturno, Flex e Batch API para maximizar a economia.
 
 <style>
   {`
