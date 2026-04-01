@@ -52,7 +52,6 @@ Cached tokens pay 25% of the standard input price. See the full pricing table on
 
 1. **Place stable content at the beginning of the prompt**: system prompts and reference documents should come before dynamic content (e.g., the user's question).
 2. **Reuse identical prefixes**: the larger the common prefix between requests, the greater the savings.
-3. **Combine with other strategies**: caching stacks with off-peak, Flex, and Batch API discounts to maximize savings.
 
 <style>
   {`

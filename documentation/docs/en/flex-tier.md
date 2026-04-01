@@ -40,8 +40,8 @@ Flex requests have the same 50% discount as the Batch API, but are processed in 
 | | **Flex** | **Batch API** |
 |---|---|---|
 | **Discount** | 50% | 50% |
-| **Response** | Real-time (synchronous) | Up to 24h (asynchronous) |
-| **Availability** | Subject to capacity (may return 429) | Guaranteed within 24h window |
+| **Response** | Real-time (synchronous) | Up to 7 days (asynchronous) |
+| **Availability** | Subject to capacity (may return 429) | No delivery guarantee (requests may expire) |
 | **Streaming** | Yes | No |
 | **Best for** | Applications that tolerate retry | Non-urgent batch processing |
 
@@ -49,7 +49,7 @@ Flex requests have the same 50% discount as the Batch API, but are processed in 
 
 1. **Implement retry with backoff**: since Flex requests may return 429, add retry logic with exponential backoff.
 2. **Ideal for multi-agent architectures**: agents can send discounted requests and simply retry if they receive 429.
-3. **Combine with prompt caching**: cached tokens keep the 75% discount on input price, stacking with the Flex discount for even greater savings.
+3. **Combine with prompt caching**: cached tokens have a 75% discount on input price, but this discount does not stack with the Flex discount.
 
 <style>
   {`
