@@ -43,7 +43,7 @@ Requisições Flex têm o mesmo desconto de 50% da Batch API, mas são processad
 | **Resposta** | Tempo real (síncrona) | Até 24h (assíncrona) |
 | **Disponibilidade** | Sujeita a capacidade (pode retornar 429) | Garantida dentro da janela de 24h |
 | **Streaming** | Sim | Não |
-| **Ideal para** | Aplicações que toleram retry, arquiteturas multiagente | Processamento em lote sem urgência |
+| **Ideal para** | Aplicações que toleram retry | Processamento em lote sem urgência |
 
 ## Boas práticas
 

@@ -43,7 +43,7 @@ Flex requests have the same 50% discount as the Batch API, but are processed in 
 | **Response** | Real-time (synchronous) | Up to 24h (asynchronous) |
 | **Availability** | Subject to capacity (may return 429) | Guaranteed within 24h window |
 | **Streaming** | Yes | No |
-| **Best for** | Applications that tolerate retry, multi-agent architectures | Non-urgent batch processing |
+| **Best for** | Applications that tolerate retry | Non-urgent batch processing |
 
 ## Best practices
 
