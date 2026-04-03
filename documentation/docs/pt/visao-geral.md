@@ -8,7 +8,7 @@ import styles from './styles.module.css';
 
 A API da Maritaca facilita a integração dos mais recentes modelos da Maritaca em seus projetos. Com acesso a toda a família de modelos Sabiá, explore as possibilidades e potencialize suas soluções com nossa tecnologia.
 <a href="https://arxiv.org/abs/2603.10213" className={styles.ctaReport}>
-  <img src="/img/nova_identidade/Digital/logo/logo.png" alt="Sabia" style={{ width: '50px', height: 'auto', marginRight: '15px' }} />
+  <img src="/img/favicon.svg" alt="Sabia" style={{ width: '50px', height: 'auto', marginRight: '15px' }} />
   <p style={{ margin: 0 }}>
     <strong>Apresentando o Sabiá 4</strong>, nosso modelo mais avançado até agora. Leia o artigo técnico no arXiv.
   </p>

@@ -62,7 +62,7 @@ const config = {
     navbar: {
       title: 'Docs',
       logo: {
-        src: 'img/nova_identidade/Digital/logo/logo.png',
+        src: 'img/favicon.svg',
       },
       items: [
         {
