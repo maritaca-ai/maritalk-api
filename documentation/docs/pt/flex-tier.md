@@ -43,13 +43,12 @@ Requisições Flex têm o mesmo desconto de 50% da Batch API, mas são processad
 | **Resposta** | Tempo real (síncrona) | Até 24h (assíncrona) |
 | **Disponibilidade** | Sujeita a capacidade (pode retornar 429) | Garantida dentro da janela de 24h |
 | **Streaming** | Sim | Não |
-| **Ideal para** | Aplicações que toleram retry | Processamento em lote sem urgência |
+| **Ideal para** | Aplicações que toleram retry, arquiteturas multiagente | Processamento em lote sem urgência |
 
 ## Boas práticas
 
-1. **Ideal para arquiteturas multiagente**: agentes podem enviar requisições com desconto e simplesmente tentar novamente se receberem 429.
-2. **Combine com cache de prompt**: tokens cacheados mantêm o desconto de 75% sobre o preço de input, acumulando com o desconto Flex para economia ainda maior.
-3. **Implemente retry com backoff**: como requisições Flex podem retornar 429, adicione lógica de retry com backoff exponencial.
+1. **Combine com cache de prompt**: tokens cacheados mantêm o desconto de 75% sobre o preço de input, acumulando com o desconto Flex para economia ainda maior.
+2. **Implemente retry com backoff**: como requisições Flex podem retornar 429, adicione lógica de retry com backoff exponencial.
 
 ```python
 import openai
