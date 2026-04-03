@@ -51,6 +51,43 @@ Requisições Flex têm o mesmo desconto de 50% da Batch API, mas são processad
 2. **Ideal para arquiteturas multiagente**: agentes podem enviar requisições com desconto e simplesmente tentar novamente se receberem 429.
 3. **Combine com cache de prompt**: tokens cacheados mantêm o desconto de 75% sobre o preço de input, acumulando com o desconto Flex para economia ainda maior.
 
+<details>
+<summary>Exemplo de retry com exponential backoff</summary>
+
+```python
+import openai
+import time
+import random
+
+client = openai.OpenAI(
+    api_key="sua-chave-aqui",
+    base_url="https://chat.maritaca.ai/api",
+)
+
+def chat_flex_with_retry(messages, model="sabiazinho-4", max_retries=5):
+    for attempt in range(max_retries):
+        try:
+            response = client.chat.completions.create(
+                model=model,
+                messages=messages,
+                extra_body={"service_tier": "flex"},
+            )
+            return response
+        except openai.RateLimitError:
+            if attempt == max_retries - 1:
+                raise
+            wait = (2 ** attempt) + random.random()
+            print(f"429 recebido. Tentando novamente em {wait:.1f}s...")
+            time.sleep(wait)
+
+response = chat_flex_with_retry(
+    messages=[{"role": "user", "content": "Qual a capital do Brasil?"}]
+)
+print(response.choices[0].message.content)
+```
+
+</details>
+
 <style>
   {`
     .markdown table,

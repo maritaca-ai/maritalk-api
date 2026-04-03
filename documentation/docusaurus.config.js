@@ -3,7 +3,7 @@ const config = {
   tagline: 'API Documentation',
   url: 'https://maritaca-ai.github.io',
   baseUrl: '/',
-  favicon: '/img/nova_identidade/Digital/logo/logo.png',
+  favicon: '/img/favicon.svg',
   organizationName: 'maritaca-ai',
   projectName: 'maritalk',
   trailingSlash: false,

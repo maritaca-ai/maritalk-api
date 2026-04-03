@@ -51,6 +51,43 @@ Flex requests have the same 50% discount as the Batch API, but are processed in 
 2. **Ideal for multi-agent architectures**: agents can send discounted requests and simply retry if they receive 429.
 3. **Combine with prompt caching**: cached tokens keep the 75% discount on input price, stacking with the Flex discount for even greater savings.
 
+<details>
+<summary>Exponential backoff retry example</summary>
+
+```python
+import openai
+import time
+import random
+
+client = openai.OpenAI(
+    api_key="your-api-key",
+    base_url="https://chat.maritaca.ai/api",
+)
+
+def chat_flex_with_retry(messages, model="sabiazinho-4", max_retries=5):
+    for attempt in range(max_retries):
+        try:
+            response = client.chat.completions.create(
+                model=model,
+                messages=messages,
+                extra_body={"service_tier": "flex"},
+            )
+            return response
+        except openai.RateLimitError:
+            if attempt == max_retries - 1:
+                raise
+            wait = (2 ** attempt) + random.random()
+            print(f"429 received. Retrying in {wait:.1f}s...")
+            time.sleep(wait)
+
+response = chat_flex_with_retry(
+    messages=[{"role": "user", "content": "What is the capital of Brazil?"}]
+)
+print(response.choices[0].message.content)
+```
+
+</details>
+
 <style>
   {`
     .markdown table,
