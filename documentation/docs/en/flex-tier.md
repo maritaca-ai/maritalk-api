@@ -47,11 +47,9 @@ Flex requests have the same 50% discount as the Batch API, but are processed in 
 
 ## Best practices
 
-1. **Implement retry with backoff**: since Flex requests may return 429, add retry logic with exponential backoff.
-2. **Ideal for multi-agent architectures**: agents can send discounted requests and simply retry if they receive 429.
-3. **Combine with prompt caching**: cached tokens keep the 75% discount on input price, stacking with the Flex discount for even greater savings.
-
-Exponential backoff retry example:
+1. **Ideal for multi-agent architectures**: agents can send discounted requests and simply retry if they receive 429.
+2. **Combine with prompt caching**: cached tokens keep the 75% discount on input price, stacking with the Flex discount for even greater savings.
+3. **Implement retry with backoff**: since Flex requests may return 429, add retry logic with exponential backoff.
 
 ```python
 import openai
