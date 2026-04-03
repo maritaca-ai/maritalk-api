@@ -73,7 +73,7 @@ def chat_flex_with_retry(messages, model="sabiazinho-4", max_retries=5):
         except openai.RateLimitError:
             if attempt == max_retries - 1:
                 raise
-            wait = (2 ** attempt) + random.random()
+            wait = (2 ** attempt) + random.random()  # jitter para evitar retries simultâneos
             print(f"429 recebido. Tentando novamente em {wait:.1f}s...")
             time.sleep(wait)
 
