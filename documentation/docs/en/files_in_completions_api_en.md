@@ -1,9 +1,11 @@
 ---
 id: files
-title: File Inputs
+title: Document & PDF Processing
+sidebar_label: Documents & PDFs
 ---
 
-Our API supports uploading files directly through the Chat Completions endpoint.
+Our API supports sending documents directly through the Chat Completions endpoint.
+The API extracts textual content from files — including **OCR for PDFs** with images, tables, and complex layouts — and feeds it to the model.
 At the moment, files must be sent **in Base64 format**.
 
 Below is an example illustrating how to upload a PDF to the API:
@@ -46,8 +48,7 @@ response = client.chat.completions.create(
 )
 ```
 
-When you submit files, the API extracts the text content and feeds it to the model.
-All extracted content is returned in the response and can be accessed like this:
+Extracted content is returned in the response and can be accessed like this:
 
 ```python
 extracted_docs = response.extracted_files
@@ -80,8 +81,8 @@ If not specified, the default extraction level is **`medium`**.
 
 | Level      | Description                                                            | Cost per page of PDF   |
 | ---------- | ---------------------------------------------------------------------- | ---------------------- |
-| `medium`   | Balanced extraction. Works best for most PDFs.                         | R$ 0,02                |
-| `advanced` | Highest-quality extraction for complex layouts, formulas, or diagrams. | R$ 0,045               |
+| `medium`   | Balanced OCR extraction. Works best for most PDFs.                              | R$ 0,02                |
+| `advanced` | Advanced OCR; highest quality for complex layouts, formulas, tables, or images. | R$ 0,045               |
 
 You can check the extraction pricing on our [platform](https://plataforma.maritaca.ai/modelos).
 
