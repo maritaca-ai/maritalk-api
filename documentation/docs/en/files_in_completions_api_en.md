@@ -67,6 +67,97 @@ We currently support the following file types:
 * **XML**
 * **XLSX**
 * **MD**
+* **PNG / JPEG** (images)
+
+---
+
+## Images
+
+The API also accepts images (PNG and JPEG) using the OpenAI-compatible `image_url` format.
+Image content is extracted via OCR and passed to the model as text.
+
+You can send an image via URL or Base64:
+
+```python
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": "https://example.com/photo.png",
+                },
+            },
+            {
+                "type": "text",
+                "text": "What does this image say?",
+            },
+        ],
+    }
+]
+
+response = client.chat.completions.create(
+    model="sabia-4",
+    messages=messages,
+)
+```
+
+To send the image as Base64 (no public URL needed):
+
+```python
+with open("photo.png", "rb") as f:
+    img_b64 = base64.b64encode(f.read()).decode("utf-8")
+
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": f"data:image/png;base64,{img_b64}",
+                },
+            },
+            {
+                "type": "text",
+                "text": "Extract the text from this image.",
+            },
+        ],
+    }
+]
+```
+
+Images can also be sent as `type: "file"`, just like PDFs and other documents:
+
+```python
+with open("photo.png", "rb") as f:
+    img_b64 = base64.b64encode(f.read()).decode("utf-8")
+
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "file",
+                "file": {
+                    "filename": "photo.png",
+                    "file_data": f"data:image/png;base64,{img_b64}",
+                },
+            },
+            {
+                "type": "text",
+                "text": "Extract the text from this image.",
+            },
+        ],
+    }
+]
+```
+
+:::info
+Images are processed via OCR — the model receives extracted text, not the original image.
+Supported formats: **PNG** and **JPEG**.
+:::
 
 ---
 
@@ -81,8 +172,8 @@ If not specified, the default extraction level is **`medium`**.
 
 | Level      | Description                                                            | Cost per page of PDF   |
 | ---------- | ---------------------------------------------------------------------- | ---------------------- |
-| `medium`   | Balanced OCR extraction. Works best for most PDFs.                              | R$ 0,02                |
-| `advanced` | Advanced OCR; highest quality for complex layouts, formulas, tables, or images. | R$ 0,045               |
+| `medium`   | OCR for text, tables, and images; works best for most PDFs.    | R$ 0,02                |
+| `advanced` | Same coverage as medium + formulas and complex layouts.         | R$ 0,045               |
 
 You can check the extraction pricing on our [platform](https://plataforma.maritaca.ai/modelos).
 

@@ -67,6 +67,97 @@ Atualmente, suportamos os seguintes tipos de arquivo:
 * **XML**
 * **XLSX**
 * **MD**
+* **PNG / JPEG** (imagens)
+
+---
+
+## Imagens
+
+A API também aceita imagens (PNG e JPEG) no formato compatível com a OpenAI, usando `image_url`.
+O conteúdo da imagem é extraído via OCR e repassado ao modelo como texto.
+
+Você pode enviar uma imagem via URL ou em Base64:
+
+```python
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": "https://example.com/foto.png",
+                },
+            },
+            {
+                "type": "text",
+                "text": "O que está escrito nesta imagem?",
+            },
+        ],
+    }
+]
+
+response = client.chat.completions.create(
+    model="sabia-4",
+    messages=messages,
+)
+```
+
+Para enviar a imagem em Base64 (sem precisar de URL pública):
+
+```python
+with open("foto.png", "rb") as f:
+    img_b64 = base64.b64encode(f.read()).decode("utf-8")
+
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": f"data:image/png;base64,{img_b64}",
+                },
+            },
+            {
+                "type": "text",
+                "text": "Extraia o texto desta imagem.",
+            },
+        ],
+    }
+]
+```
+
+Imagens também podem ser enviadas como `type: "file"`, da mesma forma que PDFs e outros documentos:
+
+```python
+with open("foto.png", "rb") as f:
+    img_b64 = base64.b64encode(f.read()).decode("utf-8")
+
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "file",
+                "file": {
+                    "filename": "foto.png",
+                    "file_data": f"data:image/png;base64,{img_b64}",
+                },
+            },
+            {
+                "type": "text",
+                "text": "Extraia o texto desta imagem.",
+            },
+        ],
+    }
+]
+```
+
+:::info
+Imagens são processadas via OCR — o modelo recebe o texto extraído, não a imagem original.
+Formatos suportados: **PNG** e **JPEG**.
+:::
 
 ---
 
@@ -81,8 +172,8 @@ Se não for especificado, o nível padrão é **`medium`**.
 
 | Nível      | Descrição                                                     | Custo por página do PDF  |
 | ---------- | ------------------------------------------------------------- | ------------------------ |
-| `medium`   | Extração intermediária com OCR; ideal para a maioria dos PDFs.              | R$ 0,02                  |
-| `advanced` | OCR avançado; melhor para PDFs complexos, com fórmulas, tabelas e imagens.  | R$ 0,045                 |
+| `medium`   | OCR para texto, tabelas e imagens; ideal para a maioria dos PDFs.  | R$ 0,02                  |
+| `advanced` | Mesma cobertura do medium + fórmulas e layouts complexos.          | R$ 0,045                 |
 
 Você pode consultar os preços de extração na nossa [plataforma](https://plataforma.maritaca.ai/modelos).
 
