@@ -128,8 +128,34 @@ messages = [
 ]
 ```
 
+Imagens também podem ser enviadas como `type: "file"`, da mesma forma que PDFs e outros documentos:
+
+```python
+with open("foto.png", "rb") as f:
+    img_b64 = base64.b64encode(f.read()).decode("utf-8")
+
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "file",
+                "file": {
+                    "filename": "foto.png",
+                    "file_data": f"data:image/png;base64,{img_b64}",
+                },
+            },
+            {
+                "type": "text",
+                "text": "Extraia o texto desta imagem.",
+            },
+        ],
+    }
+]
+```
+
 :::info
-Imagens são processadas via OCR — o modelo recebe o texto extraído, não a imagem original. 
+Imagens são processadas via OCR — o modelo recebe o texto extraído, não a imagem original.
 Formatos suportados: **PNG** e **JPEG**.
 :::
 

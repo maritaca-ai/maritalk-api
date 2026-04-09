@@ -128,6 +128,32 @@ messages = [
 ]
 ```
 
+Images can also be sent as `type: "file"`, just like PDFs and other documents:
+
+```python
+with open("photo.png", "rb") as f:
+    img_b64 = base64.b64encode(f.read()).decode("utf-8")
+
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "file",
+                "file": {
+                    "filename": "photo.png",
+                    "file_data": f"data:image/png;base64,{img_b64}",
+                },
+            },
+            {
+                "type": "text",
+                "text": "Extract the text from this image.",
+            },
+        ],
+    }
+]
+```
+
 :::info
 Images are processed via OCR — the model receives extracted text, not the original image.
 Supported formats: **PNG** and **JPEG**.
