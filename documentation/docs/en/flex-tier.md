@@ -5,7 +5,7 @@ title: Flex Tier
 
 # Flex Tier
 
-The Flex Tier offers a **50% discount** on synchronous (real-time) requests, subject to capacity availability. When capacity is unavailable, the API returns HTTP status code `429`.
+The Flex Tier offers a **50% discount** on synchronous (real-time) requests, subject to capacity availability. When capacity is not immediately available, the request waits in the queue for **up to 5 minutes**. If it is still not processed within that window, the API returns HTTP status code `429`.
 
 ## How to use
 
@@ -41,7 +41,7 @@ Flex requests have the same 50% discount as the Batch API, but are processed in 
 |---|---|---|
 | **Discount** | 50% | 50% |
 | **Response** | Real-time (synchronous) | Up to 24h (asynchronous) |
-| **Availability** | Subject to capacity (may return 429) | Guaranteed within 24h window |
+| **Availability** | Subject to capacity (queued up to 5 min, then 429) | Guaranteed within 24h window |
 | **Streaming** | Yes | No |
 | **Best for** | Applications that tolerate retry | Non-urgent batch processing |
 
