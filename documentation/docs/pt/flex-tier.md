@@ -5,7 +5,7 @@ title: Flex Tier
 
 # Flex Tier
 
-O Flex Tier oferece **50% de desconto** em requisições síncronas (tempo real), sujeitas a disponibilidade de capacidade. Quando não há capacidade disponível, a API retorna o código HTTP `429`.
+O Flex Tier oferece **50% de desconto** em requisições síncronas (tempo real), sujeitas a disponibilidade de capacidade. Quando não há capacidade disponível imediata, a requisição entra em uma fila e aguarda por **até 5 minutos** antes de retornar o código HTTP `429`. Se a fila estiver cheia no momento da requisição, a API retorna `429` imediatamente.
 
 ## Como usar
 
@@ -41,7 +41,7 @@ Requisições Flex têm o mesmo desconto de 50% da Batch API, mas são processad
 |---|---|---|
 | **Desconto** | 50% | 50% |
 | **Resposta** | Tempo real (síncrona) | Até 24h (assíncrona) |
-| **Disponibilidade** | Sujeita a capacidade (pode retornar 429) | Garantida dentro da janela de 24h |
+| **Disponibilidade** | Sujeita a capacidade (fila de até 5 min, ou 429 imediato se fila cheia) | Garantida dentro da janela de 24h |
 | **Streaming** | Sim | Não |
 | **Ideal para** | Aplicações que toleram retry | Processamento em lote sem urgência |
 
