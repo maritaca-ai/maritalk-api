@@ -47,7 +47,7 @@ Requisições Flex têm o mesmo desconto de 50% da Batch API, mas são processad
 
 ## Boas práticas
 
-1. **Combine com cache de prompt**: tokens cacheados mantêm o desconto de 75% sobre o preço de input, acumulando com o desconto Flex para economia ainda maior.
+1. **Combine com cache de prompt**: tokens cacheados mantêm o desconto de 75% sobre o preço de input. Os descontos de cache e Flex **não são cumulativos** — cada um se aplica independentemente ao seu respectivo componente.
 2. **Implemente retry com backoff**: como requisições Flex podem retornar 429, adicione lógica de retry com backoff exponencial.
 
 ```python
