@@ -52,7 +52,22 @@ Tokens cacheados pagam 25% do preço de input padrão. Consulte a tabela complet
 
 1. **Coloque o conteúdo estável no início do prompt**: system prompts e documentos de referência devem vir antes do conteúdo dinâmico (ex.: a pergunta do usuário).
 2. **Reutilize prefixos idênticos**: quanto maior o prefixo comum entre requisições, maior a economia.
-3. **Combine com outras estratégias**: o cache se acumula com descontos de horário noturno, Flex e Batch API para maximizar a economia.
+3. **Combine com outras estratégias**: o desconto de cache pode ser usado junto com descontos de horário noturno, Flex e Batch API — cada um incide sobre uma parte diferente do custo (veja abaixo).
+
+## Como os descontos interagem
+
+O desconto de cache (75%) se aplica apenas aos tokens de input em cache. Os demais descontos (Batch API, Flex, horário noturno) se aplicam apenas aos tokens de input não cacheados e aos tokens de output. Os descontos não se multiplicam entre si.
+
+Batch API, Flex e horário noturno são mutuamente exclusivos — apenas um deles é aplicado por requisição.
+
+| Cenário | Input não cacheado e output | Tokens em cache |
+|---|---|---|
+| Batch + cache | 50% de desconto | 75% de desconto |
+| Flex + cache | 50% de desconto | 75% de desconto |
+| Horário noturno + cache | 30% de desconto | 75% de desconto |
+| Horário noturno + Flex | só Flex (50%) | — |
+| Horário noturno + Batch | só Batch (50%) | — |
+| Somente cache | sem desconto | 75% de desconto |
 
 <style>
   {`
