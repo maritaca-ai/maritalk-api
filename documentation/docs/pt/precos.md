@@ -25,6 +25,10 @@ Todos os preços são por milhão de tokens processados. A cobrança considera t
 
 <small>³ Requisições Flex oferecem 50% de desconto, sujeitas a disponibilidade de capacidade. Saiba mais em [Flex Tier](flex-tier).</small>
 
+:::info Como os descontos interagem
+O desconto de cache (75%) se aplica apenas aos tokens de input em cache. Os descontos de Batch API, Flex e horário noturno se aplicam apenas aos tokens de input não cacheados e de output — eles não se multiplicam com o desconto de cache. Além disso, Batch API, Flex e horário noturno são mutuamente exclusivos. Veja mais detalhes em [Cache de Prompt](cache-de-prompt#como-os-descontos-interagem).
+:::
+
 ## Como saber quantos tokens serei cobrado?
 
 Para saber de antemão o quanto suas requisições irão custar, use a função `count_tokens` para saber o número de tokens em um dado prompt.

@@ -25,6 +25,10 @@ All prices are per million tokens processed. Billing considers both input and ou
 
 <small>³ Flex requests offer a 50% discount, subject to capacity availability. Learn more at [Flex Tier](flex-tier).</small>
 
+:::info How discounts interact
+The cache discount (75%) applies only to cached input tokens. Batch API, Flex, and off-peak discounts apply only to non-cached input tokens and output tokens — they do not multiply with the cache discount. Additionally, Batch API, Flex, and off-peak are mutually exclusive. See more details at [Prompt Caching](prompt-caching#how-discounts-interact).
+:::
+
 ## How do I know how many tokens I will be charged?
 
 To know in advance how much your requests will cost, use the `count_tokens` function to find out the number of tokens in a given prompt.
