@@ -52,7 +52,22 @@ Cached tokens pay 25% of the standard input price. See the full pricing table on
 
 1. **Place stable content at the beginning of the prompt**: system prompts and reference documents should come before dynamic content (e.g., the user's question).
 2. **Reuse identical prefixes**: the larger the common prefix between requests, the greater the savings.
-3. **Combine with other strategies**: caching stacks with off-peak, Flex, and Batch API discounts to maximize savings.
+3. **Combine with other strategies**: the cache discount can be used alongside off-peak, Flex, and Batch API discounts — each one applies to a different part of the cost (see below).
+
+## How discounts interact
+
+The cache discount (75%) applies only to cached input tokens. Other discounts (Batch API, Flex, off-peak) apply only to non-cached input tokens and output tokens. Discounts do not multiply with each other.
+
+Batch API, Flex, and off-peak are mutually exclusive — only one of them is applied per request.
+
+| Scenario | Non-cached input and output | Cached tokens |
+|---|---|---|
+| Batch + cache | 50% discount | 75% discount |
+| Flex + cache | 50% discount | 75% discount |
+| Off-peak + cache | 30% discount | 75% discount |
+| Off-peak + Flex | Flex only (50%) | — |
+| Off-peak + Batch | Batch only (50%) | — |
+| Cache only | no discount | 75% discount |
 
 <style>
   {`
