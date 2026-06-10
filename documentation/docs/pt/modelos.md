@@ -21,6 +21,12 @@ Modelo otimizado para aplicações em larga escala, com foco em velocidade, baix
 
 **Exemplos de uso:** Escrever e revisar peças jurídicas, analisar contratos, aplicar e interpretar leis brasileiras, classificar e extrair informações de documentos, apoiar avaliações educacionais em larga escala e executar fluxos agênticos para automação de tarefas multi-etapas com respostas rápidas e custo menor.
 
+### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiazinho 4 BR-SP</span></span>
+
+O mesmo modelo Sabiazinho 4, com **inferência e processamento realizados 100% em território nacional** — indicado para casos de uso que exigem soberania e residência de dados no Brasil. Capacidades, contexto e dados de treinamento são idênticos ao Sabiazinho 4 (contexto de 128K, dados até agosto de 2024); o custo é 30% superior. Nome aceito na API: `sabiazinho-4-br-sp`.
+
+**Exemplos de uso:** Os mesmos do Sabiazinho 4, em cenários que exigem que o processamento dos dados ocorra exclusivamente em território nacional.
+
 ### <span className="inline-title"><span className="geo-icon geo-icon-trophy geo-icon-small" aria-hidden="true"></span><span>Sabiá 3.1</span></span>
 
 Modelo robusto e atualizado até agosto de 2024, com ótimo desempenho em raciocínio matemático, geração/refatoração de código e tarefas que exigem conhecimento amplo.
