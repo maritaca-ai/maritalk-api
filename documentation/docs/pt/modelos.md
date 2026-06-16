@@ -23,9 +23,7 @@ Modelo otimizado para aplicações em larga escala, com foco em velocidade, baix
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiazinho 4 BR-SP</span></span>
 
-O mesmo modelo Sabiazinho 4, com **inferência e processamento realizados 100% em território nacional** — indicado para casos de uso que exigem soberania e residência de dados no Brasil. Capacidades, contexto e dados de treinamento são idênticos ao Sabiazinho 4 (contexto de 128K, dados até agosto de 2024); o custo é 30% superior. Nome aceito na API: `sabiazinho-4-br-sp`.
-
-**Exemplos de uso:** Os mesmos do Sabiazinho 4, em cenários que exigem que o processamento dos dados ocorra exclusivamente em território nacional.
+O mesmo modelo Sabiazinho 4, com **inferência e processamento realizados 100% em território nacional** — indicado para casos de uso que exigem soberania e residência de dados no Brasil. Capacidades, contexto e dados de treinamento são idênticos ao Sabiazinho 4; o custo é 30% superior. Nome aceito na API: `sabiazinho-4-br-sp`.
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-trophy geo-icon-small" aria-hidden="true"></span><span>Sabiá 3.1</span></span>
 
@@ -33,17 +31,13 @@ Modelo robusto e atualizado até agosto de 2024, com ótimo desempenho em racioc
 
 **Exemplos de uso:** Refatoração e otimização de código legado em múltiplas linguagens, síntese de relatórios de pesquisa clínica e assistente jurídico para revisão de contratos complexos.
 
-### <span className="inline-title"><span className="geo-icon geo-icon-balance geo-icon-small" aria-hidden="true"></span><span>Sabiá 3</span></span> · <span className="inline-title"><span className="geo-icon geo-icon-bolt geo-icon-small" aria-hidden="true"></span><span>Sabiazinho 3</span></span>
-
-Geração anterior dos modelos Sabiá.
-
 ## Especificações
 
-| | **Sabiá 4** | **Sabiazinho 4** | **Sabiá 3.1** | **Sabiá 3** | **Sabiazinho 3** |
-|---|---|---|---|---|---|
-| **Contexto máximo** | 128K | 128K | 128K | 128K | 32K |
-| **Dados de treinamento** | Até ago/2024 | Até ago/2024 | Até ago/2024 | Até meados de 2023 | Até meados de 2023 |
-| **Nomes aceitos (alias)** | sabia-4<br />sabia-4-2026-01-06 | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabia-3.1<br />sabiá-3.1<br />sabia-3.1-2025-05-08<br />sabiá-3.1-2025-05-08 | sabia-3<br />sabiá-3<br />sabia-3-2024-12-11<br />sabiá-3-2024-12-11 | sabiazinho-3<br />sabiazinho-3-2025-02-06<br />sabia-3-small<br />sabiazim-3 |
+| | **Sabiá 4** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** | **Sabiá 3.1** |
+|---|---|---|---|---|
+| **Contexto máximo** | 128K | 128K | 128K | 128K |
+| **Dados de treinamento** | Até ago/2024 | Até ago/2024 | Até ago/2024 | Até ago/2024 |
+| **Nomes aceitos (alias)** | sabia-4<br />sabia-4-2026-01-06 | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp | sabia-3.1<br />sabiá-3.1<br />sabia-3.1-2025-05-08<br />sabiá-3.1-2025-05-08 |
 
 Para informações sobre preços, consulte a página de [Preços](precos).
 
