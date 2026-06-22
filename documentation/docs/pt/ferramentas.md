@@ -1,0 +1,160 @@
+---
+id: ferramentas
+title: Ferramentas integradas
+---
+
+# Ferramentas integradas
+
+As ferramentas integradas permitem que os modelos Sabiá **busquem na web, executem código e consultem bases de dados oficiais brasileiras no lado do servidor**, sem que você precise implementar ou hospedar nada. Diferentemente da [chamada de funções](chamada-funcao.md) — em que o modelo delega de volta para o *seu* código — as ferramentas integradas rodam dentro da infraestrutura da Maritaca como um fluxo agêntico: o modelo decide quais ferramentas chamar, as chama em múltiplos passos e retorna apenas a resposta final. O raciocínio e as chamadas de ferramenta intermediários ficam internos.
+
+As ferramentas integradas estão disponíveis na família agêntica Sabiá-4: **`sabia-4`**, **`sabia-4-thinking`** e **`sabiazinho-4`**.
+
+## Ferramentas disponíveis
+
+| Ferramenta | Flag | O que faz |
+|---|---|---|
+| **Busca na web** | `web_search` | Pesquisa na web e lê páginas para responder com informações atualizadas e fontes. |
+| **Execução de código** | `code_execution` | Executa Python/Bash em um sandbox para calcular, analisar dados e gerar arquivos (gráficos, documentos). |
+| **Data Ocean** | `data_ocean` | Consulta dezenas de bases de dados oficiais brasileiras — população, empresas, saúde, clima, segurança, economia, eleições e mais — para responder com números e fontes reais. |
+
+## Ativando as ferramentas
+
+As ferramentas integradas exigem **`stream: false`** (o fluxo agêntico retorna apenas a resposta final) e um modelo agêntico Sabiá-4. Elas vêm **desligadas por padrão** — você as ativa por requisição.
+
+### Chat Completions
+
+Ative uma ferramenta definindo a flag booleana correspondente no corpo da requisição. Com a biblioteca da OpenAI, envie as flags via `extra_body`.
+
+```bash
+curl https://chat.maritaca.ai/api/chat/completions \
+  -H "Authorization: Bearer $MARITACA_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "sabia-4",
+    "stream": false,
+    "data_ocean": true,
+    "messages": [
+      {"role": "user", "content": "Quantos habitantes tem Campinas segundo o Censo 2022?"}
+    ]
+  }'
+```
+
+```python
+from openai import OpenAI
+
+client = OpenAI(api_key=MARITACA_API_KEY, base_url="https://chat.maritaca.ai/api")
+
+response = client.chat.completions.create(
+    model="sabia-4",
+    stream=False,
+    messages=[{"role": "user", "content": "Pesquise na web a cotação atual do dólar e cite a fonte."}],
+    extra_body={"web_search": True},
+)
+print(response.choices[0].message.content)
+```
+
+### Responses API
+
+Na [Responses API](responses-api.md) você pode ativar as ferramentas da mesma forma (pelas flags), **ou** pela convenção de ferramentas integradas da OpenAI, no array `tools`:
+
+```bash
+curl https://chat.maritaca.ai/api/v1/responses \
+  -H "Authorization: Bearer $MARITACA_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "sabia-4",
+    "input": "Gere um gráfico de barras (3, 7, 2, 5) com matplotlib e mostre para mim.",
+    "tools": [{"type": "code_interpreter"}]
+  }'
+```
+
+Os tipos de ferramenta integrada são mapeados para as flags da seguinte forma:
+
+| Entrada em `tools` | Ativa |
+|---|---|
+| `{"type": "web_search"}` | `web_search` |
+| `{"type": "code_interpreter"}` | `code_execution` |
+| `{"type": "data_ocean"}` | `data_ocean` |
+
+Você pode combinar ferramentas integradas com as suas próprias [ferramentas de função](chamada-funcao.md) na mesma requisição.
+
+## O que você recebe de volta
+
+### Medição de uso
+
+Toda resposta informa quantas execuções de ferramenta ocorreram, em `usage.tool_execution_details`:
+
+```json
+"usage": {
+  "prompt_tokens": 20,
+  "completion_tokens": 139,
+  "total_tokens": 159,
+  "tool_execution_details": {
+    "web_search_calls": 0,
+    "page_reads": 0,
+    "data_ocean_gb_processed": 0.000161,
+    "code_execution_minutes": 0
+  }
+}
+```
+
+Esse campo só aparece quando ao menos uma ferramenta integrada foi executada. Na Responses API ele aparece sob o mesmo objeto `usage`.
+
+### Arquivos gerados
+
+Quando a execução de código produz um arquivo (um gráfico ou um documento editável), ele é retornado com os bytes do arquivo codificados em base64.
+
+**Chat Completions** — em um array `generated_files` de nível superior:
+
+```json
+"generated_files": [
+  {
+    "filename": "grafico_barras.png",
+    "mime_type": "image/png",
+    "size_bytes": 26728,
+    "content_base64": "iVBORw0KGgo..."
+  }
+]
+```
+
+**Responses API** — como itens `code_execution_artifact` no array `output`:
+
+```json
+"output": [
+  {
+    "type": "code_execution_artifact",
+    "id": "cea_...",
+    "status": "completed",
+    "filename": "grafico_barras.png",
+    "mime_type": "image/png",
+    "size_bytes": 26728,
+    "content_base64": "iVBORw0KGgo..."
+  },
+  {
+    "type": "message",
+    "role": "assistant",
+    "content": [{"type": "output_text", "text": "Aqui está o gráfico..."}]
+  }
+]
+```
+
+Verifique o `mime_type` para distinguir imagens de documentos. Decodifique o `content_base64` para obter o arquivo.
+
+## Preços
+
+As execuções de ferramentas integradas são cobradas por uso, além dos custos normais de tokens. As cobranças são reportadas em `usage.tool_execution_details` e na sua fatura.
+
+| Ferramenta | Unidade | Preço (BRL) |
+|---|---|---|
+| Busca na web | por busca | R$ 0,0165 |
+| Leitura de página | por página lida | R$ 0,066 |
+| Data Ocean | por GB processado | R$ 0,10 |
+| Execução de código | por minuto (arredondado para cima) | R$ 0,016 |
+
+Uma única requisição com `web_search` pode gerar cobranças tanto de `web_search_calls` quanto de `page_reads` — o modelo busca e depois lê uma ou mais páginas de resultado. O tempo de execução de código é o tempo total de computação no sandbox ao longo da requisição, arredondado para o próximo minuto inteiro.
+
+## Observações e limitações
+
+- **Streaming não é suportado** com ferramentas integradas — envie `stream: false`. Uma requisição em streaming que ative uma ferramenta retorna um erro `400`.
+- **Apenas modelos agênticos Sabiá-4** (`sabia-4`, `sabia-4-thinking`, `sabiazinho-4`). Em outros modelos as flags são ignoradas.
+- O fluxo agêntico é **interno**: o raciocínio e as chamadas de ferramenta intermediários não são expostos — apenas a mensagem final do assistente (mais eventuais arquivos gerados) é retornada.
