@@ -27,13 +27,17 @@ Modelo otimizado para aplicações em larga escala, com foco em velocidade, baix
 
 **Exemplos de uso:** Escrever e revisar peças jurídicas, analisar contratos, aplicar e interpretar leis brasileiras, classificar e extrair informações de documentos, apoiar avaliações educacionais em larga escala e executar fluxos agênticos para automação de tarefas multi-etapas com respostas rápidas e custo menor.
 
+### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiazinho 4 BR-SP</span></span>
+
+O mesmo modelo Sabiazinho 4, com **inferência e processamento realizados 100% em território nacional** — indicado para casos de uso que exigem soberania e residência de dados no Brasil. Capacidades, contexto e dados de treinamento são idênticos ao Sabiazinho 4; o custo é 30% superior. Nome aceito na API: `sabiazinho-4-br-sp`.
+
 ## Especificações
 
-| | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** |
-|---|---|---|---|
-| **Contexto máximo** | 128K | 128K | 128K |
-| **Dados de treinamento** | Até ago/2024 | Até ago/2024 | Até ago/2024 |
-| **Nomes aceitos (alias)** | sabia-4-thinking | sabia-4<br />sabia-4-2026-01-06 | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 |
+| | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** |
+|---|---|---|---|---|
+| **Contexto máximo** | 128K | 128K | 128K | 128K |
+| **Dados de treinamento** | Até ago/2024 | Até ago/2024 | Até ago/2024 | Até ago/2024 |
+| **Nomes aceitos (alias)** | sabia-4-thinking | sabia-4<br />sabia-4-2026-01-06 | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp |
 
 Para informações sobre preços, consulte a página de [Preços](precos).
 

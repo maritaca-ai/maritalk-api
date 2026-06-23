@@ -27,13 +27,17 @@ Optimized for large-scale applications with a focus on speed, low cost, and soli
 
 **Example use cases:** Drafting and reviewing legal documents, analyzing contracts, applying and interpreting Brazilian law, classifying and extracting information from documents, supporting large-scale educational assessments, and running agentic multi-step automations with fast responses and lower cost.
 
+### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiazinho 4 BR-SP</span></span>
+
+The same Sabiazinho 4 model, with **inference and processing performed entirely (100%) within Brazilian territory** — intended for use cases that require Brazilian data sovereignty and residency. Capabilities, context, and training data are identical to Sabiazinho 4; pricing is 30% higher. API model name: `sabiazinho-4-br-sp`.
+
 ## Specifications
 
-| | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** |
-|---|---|---|---|
-| **Max context** | 128K | 128K | 128K |
-| **Training data cutoff** | Through Aug 2024 | Through Aug 2024 | Through Aug 2024 |
-| **Model names/aliases** | sabia-4-thinking | sabia-4<br />sabia-4-2026-01-06 | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 |
+| | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** |
+|---|---|---|---|---|
+| **Max context** | 128K | 128K | 128K | 128K |
+| **Training data cutoff** | Through Aug 2024 | Through Aug 2024 | Through Aug 2024 | Through Aug 2024 |
+| **Model names/aliases** | sabia-4-thinking | sabia-4<br />sabia-4-2026-01-06 | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp |
 
 For pricing information, see the [Pricing](precos) page.
 

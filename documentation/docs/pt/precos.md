@@ -29,6 +29,22 @@ Todos os preços são por milhão de tokens processados. A cobrança considera t
 O desconto de cache (75%) se aplica apenas aos tokens de input em cache. Os descontos de Batch API, Flex e horário noturno se aplicam apenas aos tokens de input não cacheados e de output — eles não se multiplicam com o desconto de cache. Além disso, Batch API, Flex e horário noturno são mutuamente exclusivos. Veja mais detalhes em [Cache de Prompt](cache-de-prompt#como-os-descontos-interagem).
 :::
 
+## Sabiazinho 4 BR-SP
+
+O Sabiazinho 4 BR-SP tem os mesmos preços do Sabiazinho 4 acrescidos de 30% — inferência e processamento 100% em território nacional. Nome na API: `sabiazinho-4-br-sp`.
+
+| | **Sabiazinho 4 BR-SP** |
+|---|---|
+| **Input** | R$ 1,30 |
+| **Output** | R$ 5,20 |
+| **Input em cache ¹** | R$ 0,33 |
+| **Input noturno ²** | R$ 0,91 |
+| **Output noturno ²** | R$ 3,64 |
+| **Input Flex ³** | R$ 0,65 |
+| **Output Flex ³** | R$ 2,60 |
+| **Input Batch API** | R$ 0,65 |
+| **Output Batch API** | R$ 2,60 |
+
 ## Como saber quantos tokens serei cobrado?
 
 Para saber de antemão o quanto suas requisições irão custar, use a função `count_tokens` para saber o número de tokens em um dado prompt.
