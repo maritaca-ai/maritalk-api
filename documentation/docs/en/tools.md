@@ -68,6 +68,31 @@ curl https://chat.maritaca.ai/api/v1/responses \
   }'
 ```
 
+The same call with the OpenAI SDK. Generated files come back as
+`code_execution_artifact` items in `response.output` — decode `content_base64`
+to save them:
+
+```python
+import base64
+from openai import OpenAI
+
+client = OpenAI(api_key=MARITACA_API_KEY, base_url="https://chat.maritaca.ai/api")
+
+response = client.responses.create(
+    model="sabia-4",
+    input="Gere um gráfico de barras (3, 7, 2, 5) com matplotlib e mostre para mim.",
+    tools=[{"type": "code_interpreter"}],  # or extra_body={"code_execution": True}
+)
+
+print(response.output_text)
+
+for item in response.output:
+    if item.type == "code_execution_artifact":
+        with open(item.filename, "wb") as f:
+            f.write(base64.b64decode(item.content_base64))
+        print("saved", item.filename)
+```
+
 The built-in tool types map to the flags as follows:
 
 | `tools` entry | Enables |
