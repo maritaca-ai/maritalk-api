@@ -54,6 +54,136 @@ A cobrança pelo uso dos modelos é baseada no volume de tokens, considerando ta
 
 Graças ao nosso treinamento especializado em português e em contextos brasileiros, nossos modelos apresentam excelente desempenho em benchmarks nacionais, com custos significativamente menores do que alternativas comparáveis.
 
+### Sabiá 4 Thinking
+
+Sabiá 4 Thinking é o modelo de raciocínio da família Sabiá: alcança qualidade de fronteira em português e contextos brasileiros pelo menor custo entre os modelos avaliados. Em relação ao Sabiá 4, traz ganhos expressivos em uso de ferramentas, tarefas jurídicas e qualidade das respostas.
+
+A tabela abaixo traz o desempenho do Sabiá 4 Thinking, benchmark a benchmark, frente aos principais modelos de fronteira, em três frentes: chamada de função e agentes, jurídico e tarefas gerais. Os concorrentes (Gemini 3.1 Pro, GPT-5.4 e Opus 4.8) foram avaliados com *reasoning effort* medium. Rodar a suíte completa custa, no Sabiá 4 Thinking, menos da metade do GPT-5.4 e cerca de um terço do Opus 4.8. Em **negrito**, o melhor de cada linha.
+
+<style>{`
+  .bench-thinking { margin: 1.75rem auto; border: 1px solid #e5e7eb; border-radius: 12px; background: #fff; overflow-x: auto; }
+  .bench-thinking table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+  .bench-thinking caption { padding: 1rem 1.25rem; font-weight: 700; font-size: 0.95rem; text-align: center; color: #0f172a; }
+  .bench-thinking th, .bench-thinking td { padding: 0.6rem 0.5rem; border-bottom: 1px solid #e5e7eb; text-align: center; vertical-align: middle; font-size: 0.82rem; }
+  .bench-thinking thead th { background: #111827; color: #f8fafc; text-transform: uppercase; letter-spacing: 0.02em; font-size: 0.72rem; white-space: normal; line-height: 1.25; }
+  .bench-thinking thead th .eff { display: block; text-transform: none; font-weight: 400; font-size: 0.9em; opacity: 0.7; letter-spacing: 0; margin-top: 3px; }
+  .bench-thinking th:nth-child(1), .bench-thinking td:nth-child(1) { text-align: left; width: 32%; }
+  .bench-thinking th:nth-child(2), .bench-thinking td:nth-child(2) { background: #e8f9f1; color: #0f172a; font-weight: 600; }
+  .bench-thinking tbody tr:nth-child(odd) { background: #f9fafb; }
+  .bench-thinking td.grp { text-align: left; background: #fff; color: #ea580c; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding-top: 1rem; padding-bottom: 0.35rem; }
+  .bench-thinking .src { color: #94a3b8; font-weight: 400; }
+  [data-theme='dark'] .bench-thinking { border-color: #262626; background: #0f1115; }
+  [data-theme='dark'] .bench-thinking th, [data-theme='dark'] .bench-thinking td { border-color: #262626; color: #e5e7eb; }
+  [data-theme='dark'] .bench-thinking thead th { background: #1f2937; color: #f8fafc; }
+  [data-theme='dark'] .bench-thinking tbody tr:nth-child(odd) { background: #161922; }
+  [data-theme='dark'] .bench-thinking td:nth-child(2) { background: rgba(110,212,75,0.14); color: #e5e7eb; }
+  [data-theme='dark'] .bench-thinking td.grp { background: #0f1115; color: #fb923c; }
+`}</style>
+
+<div className="bench-thinking">
+  <table>
+    <caption>Sabiá 4 Thinking — desempenho por benchmark vs. modelos de fronteira</caption>
+    <thead>
+      <tr>
+        <th>Benchmark</th>
+        <th>Sabiá 4<br/>Thinking</th>
+        <th>Gemini 3.1 Pro<span className="eff">(effort medium)</span></th>
+        <th>GPT-5.4<span className="eff">(effort medium)</span></th>
+        <th>Opus 4.8<span className="eff">(effort medium)</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Custo total <span className="src">· R$ para rodar a suíte</span></td>
+        <td><strong>R$ 206</strong></td>
+        <td>R$ 281</td>
+        <td>R$ 449</td>
+        <td>R$ 590</td>
+      </tr>
+      <tr><td className="grp" colSpan={5}>Chamada de função / Agentes</td></tr>
+      <tr>
+        <td>Pix-Bench <span className="src">· interno</span></td>
+        <td><strong>100%</strong></td>
+        <td><strong>100%</strong></td>
+        <td><strong>100%</strong></td>
+        <td>97%</td>
+      </tr>
+      <tr>
+        <td>Ticket-Bench <span className="src">· público</span></td>
+        <td>98%</td>
+        <td><strong>100%</strong></td>
+        <td>98%</td>
+        <td>96,7%</td>
+      </tr>
+      <tr>
+        <td>MARCA <span className="src">· público</span></td>
+        <td>83,9%</td>
+        <td>84,8%</td>
+        <td><strong>93,2%</strong></td>
+        <td>91,5%</td>
+      </tr>
+      <tr><td className="grp" colSpan={5}>Jurídico</td></tr>
+      <tr>
+        <td>OAB (juiz) <span className="src">· interno</span></td>
+        <td>90,1%</td>
+        <td>91,1%</td>
+        <td><strong>91,6%</strong></td>
+        <td>90,1%</td>
+      </tr>
+      <tr>
+        <td>Redação jurídica <span className="src">· interno</span></td>
+        <td><strong>77,7%</strong></td>
+        <td>75,9%</td>
+        <td>72,8%</td>
+        <td>74,8%</td>
+      </tr>
+      <tr>
+        <td>Extração de processos <span className="src">· interno</span></td>
+        <td>92,3%</td>
+        <td>91,4%</td>
+        <td><strong>95,7%</strong></td>
+        <td>94,3%</td>
+      </tr>
+      <tr><td className="grp" colSpan={5}>Geral</td></tr>
+      <tr>
+        <td>BLUEX <span className="src">· público</span></td>
+        <td>93%</td>
+        <td><strong>96,8%</strong></td>
+        <td>95,7%</td>
+        <td>95,4%</td>
+      </tr>
+      <tr>
+        <td>ENAMED <span className="src">· público</span></td>
+        <td>94,4%</td>
+        <td><strong>98,9%</strong></td>
+        <td>97,8%</td>
+        <td>97,8%</td>
+      </tr>
+      <tr>
+        <td>POSCOMP <span className="src">· público</span></td>
+        <td>90,8%</td>
+        <td>94,6%</td>
+        <td>94,6%</td>
+        <td><strong>96,2%</strong></td>
+      </tr>
+      <tr>
+        <td>PoETa v2 <span className="src">· público</span></td>
+        <td>83,7%</td>
+        <td>85%</td>
+        <td>83,3%</td>
+        <td><strong>86,3%</strong></td>
+      </tr>
+      <tr>
+        <td>Sotaques Digitais <span className="src">· público</span></td>
+        <td>94,6%</td>
+        <td>97,6%</td>
+        <td><strong>97,8%</strong></td>
+        <td><strong>97,8%</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 ### Sabiá 4
 
 Leia o [artigo técnico (arXiv)](https://arxiv.org/abs/2603.10213) para mais detalhes sobre o Sabiá 4.
@@ -64,7 +194,22 @@ O Sabiá 4 tem uma maior acurácia em Leis Brasileiras e melhorias consistentes 
 
 Essa combinação reforça o Sabiá 4 como escolha equilibrada para aplicações jurídicas, educacionais e institucionais no Brasil que exigem contexto local e boa relação custo-desempenho.
 
-<div className="benchmark-table">
+<style>{`
+  .bench-thinking.wide table { table-layout: auto; min-width: 980px; }
+  .bench-thinking.wide thead th { white-space: nowrap; }
+  .bench-thinking.wide th:nth-child(2), .bench-thinking.wide td:nth-child(2) { display: none; }
+  .bench-thinking.wide th:nth-child(1), .bench-thinking.wide td:nth-child(1) { width: auto; }
+  .bench-thinking.wide th:nth-child(2), .bench-thinking.wide td:nth-child(2), .bench-thinking.wide th:nth-child(3), .bench-thinking.wide td:nth-child(3) { text-align: left; }
+  .bench-thinking.wide td:nth-child(2) { background: transparent; color: inherit; font-weight: 400; }
+  .bench-thinking.wide thead th:nth-child(2) { background: #111827; color: #f8fafc; }
+  .bench-thinking.wide th:nth-child(4), .bench-thinking.wide td:nth-child(4) { background: #e8f9f1; color: #0f172a; font-weight: 600; }
+  [data-theme='dark'] .bench-thinking.wide thead th:nth-child(2) { background: #1f2937; color: #f8fafc; }
+  [data-theme='dark'] .bench-thinking.wide thead th:nth-child(4) { background: #1f2937; color: #f8fafc; }
+  [data-theme='dark'] .bench-thinking.wide td:nth-child(2) { background: transparent; color: #e5e7eb; }
+  [data-theme='dark'] .bench-thinking.wide td:nth-child(4) { background: rgba(110,212,75,0.14); color: #e5e7eb; }
+`}</style>
+
+<div className="bench-thinking wide">
   <table>
     <caption>Comparação de desempenho e custo em benchmarks brasileiros</caption>
     <thead>

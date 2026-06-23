@@ -9,6 +9,12 @@ Maritaca AI offers a range of models in the Sabiá family, designed to meet vari
 
 ## Available models
 
+### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4 Thinking</span></span>
+
+The reasoning model of the Sabiá family, delivering frontier quality in Portuguese and Brazilian contexts at the lowest cost among the evaluated models. Compared to Sabiá 4, it brings significant gains in tool use, legal tasks, and answer quality. Recommended for complex tasks that benefit from explicit reasoning before answering.
+
+**Example use cases:** Multi-step problem solving, agentic workflows and tool use, legal analysis and drafting, and exam questions and technical reasoning.
+
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4</span></span>
 
 General-purpose model focused on agentic capability and Brazilian context, updated through August 2024 and recommended for uses that need accuracy with cost efficiency. Read the [technical paper (arXiv)](https://arxiv.org/abs/2603.10213) for more details.
@@ -25,19 +31,13 @@ Optimized for large-scale applications with a focus on speed, low cost, and soli
 
 The same Sabiazinho 4 model, with **inference and processing performed entirely (100%) within Brazilian territory** — intended for use cases that require Brazilian data sovereignty and residency. Capabilities, context, and training data are identical to Sabiazinho 4; pricing is 30% higher. API model name: `sabiazinho-4-br-sp`.
 
-### <span className="inline-title"><span className="geo-icon geo-icon-trophy geo-icon-small" aria-hidden="true"></span><span>Sabiá 3.1</span></span>
-
-Robust model updated through August 2024, with great performance in mathematical reasoning, code generation/refactoring, and tasks that require broad knowledge.
-
-**Example use cases:** Refactoring and optimizing legacy code across multiple languages, synthesizing clinical research reports, and serving as a legal assistant for complex contract reviews.
-
 ## Specifications
 
-| | **Sabiá 4** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** | **Sabiá 3.1** |
+| | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** |
 |---|---|---|---|---|
 | **Max context** | 128K | 128K | 128K | 128K |
 | **Training data cutoff** | Through Aug 2024 | Through Aug 2024 | Through Aug 2024 | Through Aug 2024 |
-| **Model names/aliases** | sabia-4<br />sabia-4-2026-01-06 | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp | sabia-3.1<br />sabiá-3.1<br />sabia-3.1-2025-05-08<br />sabiá-3.1-2025-05-08 |
+| **Model names/aliases** | sabia-4-thinking | sabia-4<br />sabia-4-2026-01-06 | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp |
 
 For pricing information, see the [Pricing](precos) page.
 

@@ -9,6 +9,12 @@ A Maritaca AI oferece uma gama de modelos na família Sabiá, projetados para at
 
 ## Modelos disponíveis
 
+### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4 Thinking</span></span>
+
+Modelo de raciocínio da família Sabiá, com qualidade de fronteira em português e contextos brasileiros pelo menor custo entre os modelos avaliados. Em relação ao Sabiá 4, traz ganhos expressivos em uso de ferramentas, tarefas jurídicas e qualidade das respostas. Indicado para tarefas complexas que se beneficiam de raciocínio explícito antes da resposta.
+
+**Exemplos de uso:** Resolução de problemas com múltiplas etapas, fluxos agênticos e uso de ferramentas, análise e redação jurídica, e questões de exames e raciocínio técnico.
+
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4</span></span>
 
 Modelo generalista com foco em capacidade agêntica e contexto brasileiro, atualizado até agosto de 2024 e indicado para usos que precisam de precisão e eficiência de custo. Leia o [artigo técnico (arXiv)](https://arxiv.org/abs/2603.10213) para mais detalhes.
@@ -25,19 +31,13 @@ Modelo otimizado para aplicações em larga escala, com foco em velocidade, baix
 
 O mesmo modelo Sabiazinho 4, com **inferência e processamento realizados 100% em território nacional** — indicado para casos de uso que exigem soberania e residência de dados no Brasil. Capacidades, contexto e dados de treinamento são idênticos ao Sabiazinho 4; o custo é 30% superior. Nome aceito na API: `sabiazinho-4-br-sp`.
 
-### <span className="inline-title"><span className="geo-icon geo-icon-trophy geo-icon-small" aria-hidden="true"></span><span>Sabiá 3.1</span></span>
-
-Modelo robusto e atualizado até agosto de 2024, com ótimo desempenho em raciocínio matemático, geração/refatoração de código e tarefas que exigem conhecimento amplo.
-
-**Exemplos de uso:** Refatoração e otimização de código legado em múltiplas linguagens, síntese de relatórios de pesquisa clínica e assistente jurídico para revisão de contratos complexos.
-
 ## Especificações
 
-| | **Sabiá 4** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** | **Sabiá 3.1** |
+| | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** |
 |---|---|---|---|---|
 | **Contexto máximo** | 128K | 128K | 128K | 128K |
 | **Dados de treinamento** | Até ago/2024 | Até ago/2024 | Até ago/2024 | Até ago/2024 |
-| **Nomes aceitos (alias)** | sabia-4<br />sabia-4-2026-01-06 | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp | sabia-3.1<br />sabiá-3.1<br />sabia-3.1-2025-05-08<br />sabiá-3.1-2025-05-08 |
+| **Nomes aceitos (alias)** | sabia-4-thinking | sabia-4<br />sabia-4-2026-01-06 | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp |
 
 Para informações sobre preços, consulte a página de [Preços](precos).
 

@@ -7,17 +7,17 @@ title: Preços
 
 Todos os preços são por milhão de tokens processados. A cobrança considera tanto tokens de input quanto de output.
 
-| | **Sabiá 4** | **Sabiazinho 4** | **Sabiá 3.1** | **Sabiá 3** | **Sabiazinho 3** |
-|---|---|---|---|---|---|
-| **Input** | R$ 5,00 | R$ 1,00 | R$ 5,00 | R$ 5,00 | R$ 1,00 |
-| **Output** | R$ 20,00 | R$ 4,00 | R$ 10,00 | R$ 10,00 | R$ 3,00 |
-| **Input em cache ¹** | R$ 1,25 | R$ 0,25 | R$ 1,25 | R$ 1,25 | R$ 0,25 |
-| **Input noturno ²** | R$ 3,50 | R$ 0,70 | R$ 3,50 | R$ 3,50 | R$ 0,70 |
-| **Output noturno ²** | R$ 14,00 | R$ 2,80 | R$ 7,00 | R$ 7,00 | R$ 2,10 |
-| **Input Flex ³** | R$ 2,50 | R$ 0,50 | R$ 2,50 | R$ 2,50 | R$ 0,50 |
-| **Output Flex ³** | R$ 10,00 | R$ 2,00 | R$ 5,00 | R$ 5,00 | R$ 1,50 |
-| **Input Batch API** | R$ 2,50 | R$ 0,50 | R$ 2,50 | R$ 2,50 | R$ 0,50 |
-| **Output Batch API** | R$ 10,00 | R$ 2,00 | R$ 5,00 | R$ 5,00 | R$ 1,50 |
+| | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** |
+|---|---|---|---|
+| **Input** | R$ 5,00 | R$ 5,00 | R$ 1,00 |
+| **Output** | R$ 40,00 | R$ 20,00 | R$ 4,00 |
+| **Input em cache ¹** | R$ 1,25 | R$ 1,25 | R$ 0,25 |
+| **Input noturno ²** | R$ 3,50 | R$ 3,50 | R$ 0,70 |
+| **Output noturno ²** | R$ 28,00 | R$ 14,00 | R$ 2,80 |
+| **Input Flex ³** | R$ 2,50 | R$ 2,50 | R$ 0,50 |
+| **Output Flex ³** | R$ 20,00 | R$ 10,00 | R$ 2,00 |
+| **Input Batch API** | R$ 2,50 | R$ 2,50 | R$ 0,50 |
+| **Output Batch API** | R$ 20,00 | R$ 10,00 | R$ 2,00 |
 
 <small>¹ Tokens de input reutilizados entre requisições são cobrados com 75% de desconto (1/4 do preço). Saiba mais em [Cache de Prompt](cache-de-prompt).</small>
 
