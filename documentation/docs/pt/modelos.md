@@ -27,7 +27,7 @@ Modelo generalista com foco em capacidade agêntica e contexto brasileiro, atual
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4 BR-SP</span></span>
 
-O mesmo modelo Sabiá 4, com **inferência e processamento realizados 100% em território nacional** — indicado para casos de uso que exigem soberania e residência de dados no Brasil. Capacidades, contexto e dados de treinamento são idênticos ao Sabiá 4; o custo é 30% superior. Nome aceito na API: `sabia-4-br-sp`.
+O mesmo modelo Sabiá 4, com **inferência e processamento realizados 100% em território nacional** — indicado para casos de uso que exigem residência de dados no Brasil. Capacidades, contexto e dados de treinamento são idênticos ao Sabiá 4; o custo é 30% superior. Nome aceito na API: `sabia-4-br-sp`.
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiazinho 4</span></span>
 

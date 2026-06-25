@@ -17,7 +17,7 @@ The reasoning model of the Sabiá family, delivering frontier quality in Portugu
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4 Thinking BR-SP</span></span>
 
-The same Sabiá 4 Thinking model, with **inference and processing performed entirely (100%) within Brazilian territory** — intended for use cases that require Brazilian data sovereignty and residency. Capabilities, context, and training data are identical to Sabiá 4 Thinking; pricing is 30% higher. API model name: `sabia-4-thinking-br-sp`.
+The same Sabiá 4 Thinking model, with **inference and processing performed entirely (100%) within Brazilian territory** — intended for use cases that require Brazilian data residency. Capabilities, context, and training data are identical to Sabiá 4 Thinking; pricing is 30% higher. API model name: `sabia-4-thinking-br-sp`.
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4</span></span>
 
