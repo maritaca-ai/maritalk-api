@@ -21,7 +21,7 @@ O mesmo modelo Sabiá 4 Thinking, com **inferência e processamento realizados 1
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4</span></span>
 
-Modelo generalista com foco em capacidade agêntica e contexto brasileiro, atualizado até agosto de 2024 e indicado para usos que precisam de precisão e eficiência de custo. Leia o [artigo técnico (arXiv)](https://arxiv.org/abs/2603.10213) para mais detalhes.
+Modelo generalista com foco em capacidade agêntica e contexto brasileiro, indicado para usos que precisam de precisão e eficiência de custo. Leia o [artigo técnico (arXiv)](https://arxiv.org/abs/2603.10213) para mais detalhes.
 
 **Exemplos de uso:** Elaboração e revisão de peças e pareceres, tutoria para provas, análise e síntese de documentos longos e orquestração de fluxos agênticos multi-etapas.
 
@@ -44,7 +44,6 @@ O mesmo modelo Sabiazinho 4, com **inferência e processamento realizados 100% e
 | | **Sabiá 4 Thinking** | **Sabiá 4 Thinking BR-SP** | **Sabiá 4** | **Sabiá 4 BR-SP** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** |
 |---|---|---|---|---|---|---|
 | **Contexto máximo** | 128K | 128K | 128K | 128K | 128K | 128K |
-| **Dados de treinamento** | Até ago/2024 | Até ago/2024 | Até ago/2024 | Até ago/2024 | Até ago/2024 | Até ago/2024 |
 | **Nomes aceitos (alias)** | sabia-4-thinking | sabia-4-thinking-br-sp | sabia-4<br />sabia-4-2026-01-06 | sabia-4-br-sp | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp |
 
 Para informações sobre preços, consulte a página de [Preços](precos).

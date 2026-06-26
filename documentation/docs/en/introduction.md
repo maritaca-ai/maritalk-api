@@ -18,7 +18,7 @@ The Sabiá family of models, developed by Maritaca AI, can simulate human intera
   <div className="intro-feature-card">
     <span className="geo-icon geo-icon-context" aria-hidden="true"></span>
     <h3>Provide Information</h3>
-    <p>It can follow the context of a conversation and adjust responses accordingly, providing up-to-date information up to its cutoff date, such as details about historical events, science, technology, culture, and more.</p>
+    <p>It can follow the context of a conversation and adjust responses accordingly, providing information about historical events, science, technology, culture, and more.</p>
   </div>
   <div className="intro-feature-card">
     <span className="geo-icon geo-icon-translate" aria-hidden="true"></span>
@@ -43,7 +43,7 @@ The Sabiá family of models, developed by Maritaca AI, can simulate human intera
   <div className="intro-feature-card">
     <span className="geo-icon geo-icon-data" aria-hidden="true"></span>
     <h3>Data analysis</h3>
-    <p>It can help interpret and analyze provided data that do not require updates after the cutoff date.</p>
+    <p>It can help interpret and analyze provided data.</p>
   </div>
 </div>
 

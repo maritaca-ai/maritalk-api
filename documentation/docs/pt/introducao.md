@@ -18,7 +18,7 @@ A cobrança pelo uso dos modelos é baseada no volume de tokens, considerando ta
   <div className="intro-feature-card">
     <span className="geo-icon geo-icon-context" aria-hidden="true"></span>
     <h3>Auxiliar com Informações</h3>
-    <p>Pode seguir o contexto de uma conversa e ajustar as respostas de acordo com a situação, fornecendo informações atualizadas até sua data de corte, como detalhes sobre eventos históricos, ciência, tecnologia, cultura e muito mais.</p>
+    <p>Pode seguir o contexto de uma conversa e ajustar as respostas de acordo com a situação, fornecendo informações sobre eventos históricos, ciência, tecnologia, cultura e muito mais.</p>
   </div>
   <div className="intro-feature-card">
     <span className="geo-icon geo-icon-translate" aria-hidden="true"></span>
@@ -43,7 +43,7 @@ A cobrança pelo uso dos modelos é baseada no volume de tokens, considerando ta
   <div className="intro-feature-card">
     <span className="geo-icon geo-icon-data" aria-hidden="true"></span>
     <h3>Análise de dados</h3>
-    <p>Pode ajudar a interpretar e analisar dados fornecidos que não exijam atualizações após a data de corte.</p>
+    <p>Pode ajudar a interpretar e analisar dados fornecidos.</p>
   </div>
 </div>
 
