@@ -15,11 +15,19 @@ Modelo de raciocínio da família Sabiá, com qualidade de fronteira em portugu�
 
 **Exemplos de uso:** Resolução de problemas com múltiplas etapas, fluxos agênticos e uso de ferramentas, análise e redação jurídica, e questões de exames e raciocínio técnico.
 
+### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4 Thinking BR-SP</span></span>
+
+O mesmo modelo Sabiá 4 Thinking, com **inferência e processamento realizados 100% em território nacional** — indicado para casos de uso que exigem soberania e residência de dados no Brasil. Capacidades, contexto e dados de treinamento são idênticos ao Sabiá 4 Thinking; o custo é 30% superior. Nome aceito na API: `sabia-4-thinking-br-sp`.
+
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4</span></span>
 
-Modelo generalista com foco em capacidade agêntica e contexto brasileiro, atualizado até agosto de 2024 e indicado para usos que precisam de precisão e eficiência de custo. Leia o [artigo técnico (arXiv)](https://arxiv.org/abs/2603.10213) para mais detalhes.
+Modelo generalista com foco em capacidade agêntica e contexto brasileiro, indicado para usos que precisam de precisão e eficiência de custo. Leia o [artigo técnico (arXiv)](https://arxiv.org/abs/2603.10213) para mais detalhes.
 
 **Exemplos de uso:** Elaboração e revisão de peças e pareceres, tutoria para provas, análise e síntese de documentos longos e orquestração de fluxos agênticos multi-etapas.
+
+### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4 BR-SP</span></span>
+
+O mesmo modelo Sabiá 4, com **inferência e processamento realizados 100% em território nacional** — indicado para casos de uso que exigem residência de dados no Brasil. Capacidades, contexto e dados de treinamento são idênticos ao Sabiá 4; o custo é 30% superior. Nome aceito na API: `sabia-4-br-sp`.
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiazinho 4</span></span>
 
@@ -33,11 +41,10 @@ O mesmo modelo Sabiazinho 4, com **inferência e processamento realizados 100% e
 
 ## Especificações
 
-| | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** |
-|---|---|---|---|---|
-| **Contexto máximo** | 128K | 128K | 128K | 128K |
-| **Dados de treinamento** | Até ago/2024 | Até ago/2024 | Até ago/2024 | Até ago/2024 |
-| **Nomes aceitos (alias)** | sabia-4-thinking | sabia-4<br />sabia-4-2026-01-06 | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp |
+| | **Sabiá 4 Thinking** | **Sabiá 4 Thinking BR-SP** | **Sabiá 4** | **Sabiá 4 BR-SP** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** |
+|---|---|---|---|---|---|---|
+| **Contexto máximo** | 128K | 128K | 128K | 128K | 128K | 128K |
+| **Nomes aceitos (alias)** | sabia-4-thinking | sabia-4-thinking-br-sp | sabia-4<br />sabia-4-2026-01-06 | sabia-4-br-sp | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp |
 
 Para informações sobre preços, consulte a página de [Preços](precos).
 
