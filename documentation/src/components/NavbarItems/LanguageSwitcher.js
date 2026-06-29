@@ -10,6 +10,7 @@ const pathMap = {
   '/pt/api/comeco-rapido': '/en/api/quick-start',
   '/pt/api/openai-compatibilidade': '/en/api/openai-compatibility',
   '/pt/chamada-funcao': '/en/function-call',
+  '/pt/ferramentas': '/en/tools',
   '/pt/structured-outputs': '/en/structured-outputs',
   '/pt/api/batch-api': '/en/api/batch-api',
   '/pt/embeddings+Sabia-4+RAG': '/en/embeddings+Sabia-4+RAG',
