@@ -45,6 +45,19 @@ BR-SP models perform inference and processing entirely (100%) within Brazilian t
 | **Batch API input** | R$ 3.25 | R$ 3.25 | R$ 0.65 |
 | **Batch API output** | R$ 26.00 | R$ 13.00 | R$ 2.60 |
 
+## Built-in tools
+
+[Built-in tool](tools.md) executions (web search, code execution, and Data Ocean) are billed per use, in addition to the usual token costs. Charges are reported in `usage.tool_execution_details` and on your invoice.
+
+| Tool | Unit | Price (BRL) |
+|---|---|---|
+| Web search | per search | R$ 0.0165 |
+| Page read | per page read | R$ 0.066 |
+| Data Ocean | per GB scanned | R$ 0.10 |
+| Code execution | per minute (rounded up) | R$ 0.016 |
+
+A single `web_search` request can incur both `web_search_calls` and `page_reads` charges: the model searches, then reads one or more result pages. Code execution time is the total sandbox compute time across the request, rounded up to the next whole minute.
+
 ## How do I know how many tokens I will be charged?
 
 To know in advance how much your requests will cost, use the `count_tokens` function to find out the number of tokens in a given prompt.

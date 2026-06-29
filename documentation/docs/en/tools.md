@@ -30,7 +30,7 @@ curl https://chat.maritaca.ai/api/chat/completions \
   -H "Authorization: Bearer $MARITACA_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "sabia-4",
+    "model": "sabia-4-thinking",
     "stream": false,
     "data_ocean": true,
     "messages": [
@@ -45,7 +45,7 @@ from openai import OpenAI
 client = OpenAI(api_key=MARITACA_API_KEY, base_url="https://chat.maritaca.ai/api")
 
 response = client.chat.completions.create(
-    model="sabia-4",
+    model="sabia-4-thinking",
     stream=False,
     messages=[{"role": "user", "content": "Pesquise na web a cotação atual do dólar e cite a fonte."}],
     extra_body={"web_search": True},
@@ -62,7 +62,7 @@ curl https://chat.maritaca.ai/api/v1/responses \
   -H "Authorization: Bearer $MARITACA_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "sabia-4",
+    "model": "sabia-4-thinking",
     "input": "Gere um gráfico de barras (3, 7, 2, 5) com matplotlib e mostre para mim.",
     "tools": [{"type": "code_interpreter"}]
   }'
@@ -79,7 +79,7 @@ from openai import OpenAI
 client = OpenAI(api_key=MARITACA_API_KEY, base_url="https://chat.maritaca.ai/api")
 
 response = client.responses.create(
-    model="sabia-4",
+    model="sabia-4-thinking",
     input="Gere um gráfico de barras (3, 7, 2, 5) com matplotlib e mostre para mim.",
     tools=[{"type": "code_interpreter"}],  # or extra_body={"code_execution": True}
 )
@@ -167,16 +167,7 @@ Inspect `mime_type` to tell images apart from documents. Decode `content_base64`
 
 ## Pricing
 
-Built-in tool executions are billed per use, in addition to the usual token costs. Charges are reported in `usage.tool_execution_details` and on your invoice.
-
-| Tool | Unit | Price (BRL) |
-|---|---|---|
-| Web search | per search | R$ 0.0165 |
-| Page read | per page read | R$ 0.066 |
-| Data Ocean | per GB scanned | R$ 0.10 |
-| Code execution | per minute (rounded up) | R$ 0.016 |
-
-A single `web_search` request can incur both `web_search_calls` and `page_reads` charges — the model searches, then reads one or more result pages. Code execution time is the total sandbox compute time across the request, rounded up to the next whole minute.
+Built-in tool executions are billed per use, in addition to the usual token costs, and reported in `usage.tool_execution_details`. See the figures on the [Pricing](precos.md#built-in-tools) page.
 
 ## Notes and limitations
 

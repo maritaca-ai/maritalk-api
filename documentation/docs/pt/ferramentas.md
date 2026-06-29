@@ -30,7 +30,7 @@ curl https://chat.maritaca.ai/api/chat/completions \
   -H "Authorization: Bearer $MARITACA_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "sabia-4",
+    "model": "sabia-4-thinking",
     "stream": false,
     "data_ocean": true,
     "messages": [
@@ -45,7 +45,7 @@ from openai import OpenAI
 client = OpenAI(api_key=MARITACA_API_KEY, base_url="https://chat.maritaca.ai/api")
 
 response = client.chat.completions.create(
-    model="sabia-4",
+    model="sabia-4-thinking",
     stream=False,
     messages=[{"role": "user", "content": "Pesquise na web a cotação atual do dólar e cite a fonte."}],
     extra_body={"web_search": True},
@@ -62,7 +62,7 @@ curl https://chat.maritaca.ai/api/v1/responses \
   -H "Authorization: Bearer $MARITACA_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "sabia-4",
+    "model": "sabia-4-thinking",
     "input": "Gere um gráfico de barras (3, 7, 2, 5) com matplotlib e mostre para mim.",
     "tools": [{"type": "code_interpreter"}]
   }'
@@ -79,7 +79,7 @@ from openai import OpenAI
 client = OpenAI(api_key=MARITACA_API_KEY, base_url="https://chat.maritaca.ai/api")
 
 response = client.responses.create(
-    model="sabia-4",
+    model="sabia-4-thinking",
     input="Gere um gráfico de barras (3, 7, 2, 5) com matplotlib e mostre para mim.",
     tools=[{"type": "code_interpreter"}],  # ou extra_body={"code_execution": True}
 )
@@ -167,16 +167,7 @@ Verifique o `mime_type` para distinguir imagens de documentos. Decodifique o `co
 
 ## Preços
 
-As execuções de ferramentas integradas são cobradas por uso, além dos custos normais de tokens. As cobranças são reportadas em `usage.tool_execution_details` e na sua fatura.
-
-| Ferramenta | Unidade | Preço (BRL) |
-|---|---|---|
-| Busca na web | por busca | R$ 0,0165 |
-| Leitura de página | por página lida | R$ 0,066 |
-| Data Ocean | por GB processado | R$ 0,10 |
-| Execução de código | por minuto (arredondado para cima) | R$ 0,016 |
-
-Uma única requisição com `web_search` pode gerar cobranças tanto de `web_search_calls` quanto de `page_reads` — o modelo busca e depois lê uma ou mais páginas de resultado. O tempo de execução de código é o tempo total de computação no sandbox ao longo da requisição, arredondado para o próximo minuto inteiro.
+As execuções de ferramentas integradas são cobradas por uso, além dos custos normais de tokens, e reportadas em `usage.tool_execution_details`. Os valores estão na página de [Preços](precos.md#ferramentas-integradas).
 
 ## Observações e limitações
 
