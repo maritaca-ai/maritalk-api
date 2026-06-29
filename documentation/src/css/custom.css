@@ -209,6 +209,20 @@ a:hover {
   color: var(--ifm-link-hover-color);
 }
 
+/* Links no corpo do texto: cor de acento + sublinhado, para ler claramente como link */
+.markdown a:not([class]) {
+  color: var(--color-tangerine);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1.5px;
+}
+
+.markdown a:not([class]):hover {
+  color: var(--color-tangerine);
+  text-decoration-thickness: 2.5px;
+}
+
 :not(pre) > code,
 strong code {
   color: var(--code-inline-color);
