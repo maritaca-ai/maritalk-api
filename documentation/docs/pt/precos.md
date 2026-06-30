@@ -45,6 +45,19 @@ Os modelos BR-SP têm inferência e processamento realizados 100% em território
 | **Input Batch API** | R$ 3,25 | R$ 3,25 | R$ 0,65 |
 | **Output Batch API** | R$ 26,00 | R$ 13,00 | R$ 2,60 |
 
+## Ferramentas integradas
+
+As [ferramentas integradas](ferramentas.md) (busca na web, execução de código e Data Ocean) são cobradas por uso, além dos custos normais de tokens. As cobranças são reportadas em `usage.tool_execution_details` e na sua fatura.
+
+| Ferramenta | Unidade | Preço (BRL) |
+|---|---|---|
+| Busca na web | por busca | R$ 0,0165 |
+| Leitura de página | por página lida | R$ 0,066 |
+| Data Ocean | por GB processado | R$ 0,10 |
+| Execução de código | por minuto (arredondado para cima) | R$ 0,016 |
+
+Uma única requisição com `web_search` pode gerar cobranças tanto de `web_search_calls` quanto de `page_reads`: o modelo busca e depois lê uma ou mais páginas de resultado. O tempo de execução de código é o tempo total de computação no sandbox ao longo da requisição, arredondado para o próximo minuto inteiro.
+
 ## Como saber quantos tokens serei cobrado?
 
 Para saber de antemão o quanto suas requisições irão custar, use a função `count_tokens` para saber o número de tokens em um dado prompt.
