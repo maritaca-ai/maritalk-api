@@ -66,36 +66,36 @@ Informações do provedor principal, incluindo `context_length` e `max_completio
   "object": "list",
   "data": [
     {
-      "id": "sabia-3.1",
-      "created": 1746662400,
+      "id": "sabia-4-thinking",
+      "created": 1781049600,
       "object": "model",
       "owned_by": "maritacaai",
       "context_length": 128000,
       "top_provider": {
         "context_length": 128000,
-        "max_completion_tokens": 12000
+        "max_completion_tokens": 32768
       }
     },
     {
-      "id": "sabia-3",
-      "created": 1733875200,
+      "id": "sabia-4",
+      "created": 1767657600,
       "object": "model",
       "owned_by": "maritacaai",
       "context_length": 128000,
       "top_provider": {
         "context_length": 128000,
-        "max_completion_tokens": 12000
+        "max_completion_tokens": 32768
       }
     },
     {
-      "id": "sabiazinho-3",
-      "created": 1738800000,
+      "id": "sabiazinho-4",
+      "created": 1767657600,
       "object": "model",
       "owned_by": "maritacaai",
-      "context_length": 32000,
+      "context_length": 128000,
       "top_provider": {
-        "context_length": 32000,
-        "max_completion_tokens": 12000
+        "context_length": 128000,
+        "max_completion_tokens": 32768
       }
     }
   ]
