@@ -58,6 +58,8 @@ As [ferramentas integradas](ferramentas.md) (busca na web, execução de código
 
 Uma única requisição com `web_search` pode gerar cobranças tanto de `web_search_calls` quanto de `page_reads`: o modelo busca e depois lê uma ou mais páginas de resultado. O tempo de execução de código é o tempo total de computação no sandbox ao longo da requisição, arredondado para o próximo minuto inteiro.
 
+Como o `data_ocean` liga automaticamente a busca na web e a execução de código (veja [Ferramentas integradas](ferramentas.md)), uma requisição com `data_ocean: true` pode gerar cobranças de **Data Ocean, busca na web (`web_search_calls`/`page_reads`) e execução de código** na mesma resposta.
+
 ## Como saber quantos tokens serei cobrado?
 
 Para saber de antemão o quanto suas requisições irão custar, use a função `count_tokens` para saber o número de tokens em um dado prompt.

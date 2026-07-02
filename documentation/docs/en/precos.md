@@ -58,6 +58,8 @@ BR-SP models perform inference and processing entirely (100%) within Brazilian t
 
 A single `web_search` request can incur both `web_search_calls` and `page_reads` charges: the model searches, then reads one or more result pages. Code execution time is the total sandbox compute time across the request, rounded up to the next whole minute.
 
+Because `data_ocean` automatically turns on web search and code execution (see [Built-in tools](tools.md)), a request with `data_ocean: true` can incur charges for **Data Ocean, web search (`web_search_calls`/`page_reads`), and code execution** in the same response.
+
 ## How do I know how many tokens I will be charged?
 
 To know in advance how much your requests will cost, use the `count_tokens` function to find out the number of tokens in a given prompt.

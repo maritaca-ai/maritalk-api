@@ -17,6 +17,10 @@ Availability varies by tool: **web search** works on all Sabiá models, while **
 | **Code execution** | `code_execution` | `sabia-4-thinking` only | Runs Python/Bash in a sandbox to compute, analyze data, and generate files (charts, documents). |
 | **Data Ocean** | `data_ocean` | `sabia-4-thinking` only | Queries dozens of official Brazilian databases — population, companies, health, climate, public safety, economy, elections, and more — to answer with real figures and sources. |
 
+:::info Data Ocean turns on the other tools automatically
+Enabling `data_ocean` also turns on **web search** (`web_search`) and **code execution** (`code_execution`) automatically. Data Ocean answers typically cross official data with web search and calculations. As a result, `data_ocean: true` can incur charges for **Data Ocean + web search + code execution** in the same request (see [Pricing](precos.md#built-in-tools)).
+:::
+
 ## Enabling tools
 
 Built-in tools require **`stream: false`** (the agentic flow returns only the final answer) and a compatible model (see the table above). They are **off by default** — you opt in per request.
