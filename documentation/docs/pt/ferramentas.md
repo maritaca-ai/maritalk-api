@@ -17,6 +17,10 @@ A disponibilidade varia por ferramenta: a **Busca na web** funciona em todos os 
 | **Execução de código** | `code_execution` | Apenas `sabia-4-thinking` | Executa Python/Bash em um sandbox para calcular, analisar dados e gerar arquivos (gráficos, documentos). |
 | **Data Ocean** | `data_ocean` | Apenas `sabia-4-thinking` | Consulta dezenas de bases de dados oficiais brasileiras — população, empresas, saúde, clima, segurança, economia, eleições e mais — para responder com números e fontes reais. |
 
+:::info O Data Ocean liga as outras ferramentas automaticamente
+Ao ativar `data_ocean`, a **busca na web** (`web_search`) e a **execução de código** (`code_execution`) também são ativadas automaticamente. As respostas do Data Ocean costumam cruzar dados oficiais com busca na web e cálculos. Como consequência, `data_ocean: true` pode gerar cobranças de **Data Ocean + busca na web + execução de código** na mesma requisição (veja [Preços](precos.md#ferramentas-integradas)).
+:::
+
 ## Ativando as ferramentas
 
 As ferramentas integradas exigem **`stream: false`** (o fluxo agêntico retorna apenas a resposta final) e um modelo compatível (veja a tabela acima). Elas vêm **desligadas por padrão** — você as ativa por requisição.
