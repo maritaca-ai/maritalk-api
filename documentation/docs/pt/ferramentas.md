@@ -7,15 +7,15 @@ title: Ferramentas integradas
 
 As ferramentas integradas permitem que os modelos Sabiá **busquem na web, executem código e consultem bases de dados oficiais brasileiras no lado do servidor**, sem que você precise implementar ou hospedar nada. Diferentemente da [chamada de funções](chamada-funcao.md) — em que o modelo delega de volta para o *seu* código — as ferramentas integradas rodam dentro da infraestrutura da Maritaca como um fluxo agêntico: o modelo decide quais ferramentas chamar, as chama em múltiplos passos e retorna apenas a resposta final. O raciocínio e as chamadas de ferramenta intermediários ficam internos.
 
-A disponibilidade varia por ferramenta: a **Busca na web** funciona em todos os modelos Sabiá, enquanto a **Execução de código** e o **Data Ocean** estão disponíveis apenas no **`sabia-4-thinking`**.
+A disponibilidade varia por ferramenta: a **Busca na web** funciona em todos os modelos Sabiá, enquanto a **Execução de código** e o **Data Ocean** estão disponíveis nos modelos **`sabia-4`** e **`sabia-4-thinking`**.
 
 ## Ferramentas disponíveis
 
 | Ferramenta | Flag | Modelos | O que faz |
 |---|---|---|---|
 | **Busca na web** | `web_search` | Todos os modelos Sabiá | Pesquisa na web e lê páginas para responder com informações atualizadas e fontes. |
-| **Execução de código** | `code_execution` | Apenas `sabia-4-thinking` | Executa Python/Bash em um sandbox para calcular, analisar dados e gerar arquivos (gráficos, documentos). |
-| **Data Ocean** | `data_ocean` | Apenas `sabia-4-thinking` | Consulta dezenas de bases de dados oficiais brasileiras — população, empresas, saúde, clima, segurança, economia, eleições e mais — para responder com números e fontes reais. |
+| **Execução de código** | `code_execution` | `sabia-4` e `sabia-4-thinking` | Executa Python/Bash em um sandbox para calcular, analisar dados e gerar arquivos (gráficos, documentos). |
+| **Data Ocean** | `data_ocean` | `sabia-4` e `sabia-4-thinking` | Consulta dezenas de bases de dados oficiais brasileiras — população, empresas, saúde, clima, segurança, economia, eleições e mais — para responder com números e fontes reais. |
 
 :::info O Data Ocean liga as outras ferramentas automaticamente
 Ao ativar `data_ocean`, a **busca na web** (`web_search`) e a **execução de código** (`code_execution`) também são ativadas automaticamente. As respostas do Data Ocean costumam cruzar dados oficiais com busca na web e cálculos. Como consequência, `data_ocean: true` pode gerar cobranças de **Data Ocean + busca na web + execução de código** na mesma requisição (veja [Preços](precos.md#ferramentas-integradas)).
@@ -176,5 +176,5 @@ As execuções de ferramentas integradas são cobradas por uso, além dos custos
 ## Observações e limitações
 
 - **Streaming não é suportado** com ferramentas integradas — envie `stream: false`. Uma requisição em streaming que ative uma ferramenta retorna um erro `400`.
-- **A disponibilidade depende da ferramenta**: a Busca na web (`web_search`) funciona em todos os modelos Sabiá; a Execução de código (`code_execution`) e o Data Ocean (`data_ocean`) funcionam apenas no `sabia-4-thinking`. Em modelos incompatíveis, as flags são ignoradas.
+- **A disponibilidade depende da ferramenta**: a Busca na web (`web_search`) funciona em todos os modelos Sabiá; a Execução de código (`code_execution`) e o Data Ocean (`data_ocean`) funcionam nos modelos `sabia-4` e `sabia-4-thinking`. Em modelos incompatíveis, a API retorna erro 400.
 - O fluxo agêntico é **interno**: o raciocínio e as chamadas de ferramenta intermediários não são expostos — apenas a mensagem final do assistente (mais eventuais arquivos gerados) é retornada.
