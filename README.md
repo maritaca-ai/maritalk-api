@@ -8,7 +8,7 @@
 - [Exemplo de uso](#exemplo-de-uso)
 - [Exemplo de uso via requisições HTTP - JavaScript](https://docs.maritaca.ai/pt/exemplos/csharp-js)
 - [Exemplo de uso via requisições HTTP - C#](https://docs.maritaca.ai/pt/exemplos/csharp-js)
-- [Exemplo MariTalk + RAG com LangChain](https://python.langchain.com/docs/integrations/chat/maritalk)
+- [Exemplo LangChain com Sabiá 4 e tools](https://docs.maritaca.ai/pt/examples/langchain)
 - [Exemplo Maritalk no LlamaIndex](https://docs.llamaindex.ai/en/latest/examples/llm/maritalk)
 - [Documentação da API](https://docs.maritaca.ai)
 
