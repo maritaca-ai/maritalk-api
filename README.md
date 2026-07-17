@@ -6,10 +6,10 @@
 - [Compatibilidade com API da Open AI](#a-api-da-maritalk-é-compatível-com-a-api-da-open-ai)
 - [Instalação](#instalação)
 - [Exemplo de uso](#exemplo-de-uso)
-- [Exemplo de uso via requisições HTTP - JavaScript](https://docs.maritaca.ai/pt/exemplos/csharp-js)
-- [Exemplo de uso via requisições HTTP - C#](https://docs.maritaca.ai/pt/exemplos/csharp-js)
+- [Exemplo de uso em JavaScript](https://docs.maritaca.ai/pt/examples/csharp-js)
+- [Exemplo de uso em C#](https://docs.maritaca.ai/pt/examples/csharp-js)
 - [Exemplo LangChain com Sabiá 4 e tools](https://docs.maritaca.ai/pt/examples/langchain)
-- [Exemplo Maritalk no LlamaIndex](https://docs.llamaindex.ai/en/latest/examples/llm/maritalk)
+- [Exemplo Maritaca no LlamaIndex](https://docs.maritaca.ai/pt/examples/llama-index)
 - [Documentação da API](https://docs.maritaca.ai)
 
 [MariTalk Local](https://github.com/maritaca-ai/maritalk-api/blob/main/README-Local.md)
