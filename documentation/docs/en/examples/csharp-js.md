@@ -1,205 +1,179 @@
 ---
 id: csharp-js
-title: C#
+title: C# and JavaScript
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Usage Examples in C# and JavaScript
+The examples below use the official OpenAI SDKs with Maritaca's compatible
+endpoint. Both make a regular call and complete a full tool-calling cycle.
 
-Here are examples of how you can integrate the Maritaca API in C# and JavaScript:
+Set the API key before running the examples. The default model is `sabia-4`; set
+`MARITACA_MODEL=sabia-4-thinking` to use the reasoning model.
 
+```bash
+export MARITACA_API_KEY="your-key-here"
+export MARITACA_MODEL="sabia-4"
+```
 
 <Tabs>
 <TabItem value="JavaScript" label="JavaScript" default>
-```javascript
-const process = require('node:process');
 
-const RESPONSES_API_URL = "https://chat.maritaca.ai/api/v1/responses";
+Install the SDK and save the example as `example.mjs`:
 
-if (!process.env.MARITACA_API_KEY) {
-    console.error("Environment variable MARITACA_API_KEY not found!");
-    process.exit(1);
-}
-
-async function sendRequest(message) {
-    try {
-        const params = {
-            model: "sabia-4",
-            input: message,
-            max_output_tokens: 50,
-            temperature: 0.4,
-            top_p: 0.95,
-        };
-
-        const response = await fetch(RESPONSES_API_URL, {
-            headers: {
-                "Authorization": `Bearer ${process.env.MARITACA_API_KEY}`,
-                "Content-Type": "application/json",
-            },
-            method: "POST",
-            body: JSON.stringify(params),
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        return await response.json();
-    } catch (error) {
-        console.error("Error sending request:", error);
-        throw error;
-    }
-}
-
-async function main() {
-    try {
-        const result = await sendRequest('Hello, what is your name?');
-        console.log("Response:", result.output[0].content[0].text);
-    } catch (error) {
-        console.error("Error in main function:", error);
-    }
-}
-
-main();
+```bash
+npm install openai
+node example.mjs
 ```
+
+```javascript
+import OpenAI from "openai";
+
+const apiKey = process.env.MARITACA_API_KEY;
+if (!apiKey) throw new Error("Set MARITACA_API_KEY");
+
+const model = process.env.MARITACA_MODEL ?? "sabia-4";
+const client = new OpenAI({
+  apiKey,
+  baseURL: "https://chat.maritaca.ai/api",
+});
+
+const normal = await client.chat.completions.create({
+  model,
+  messages: [{ role: "user", content: "What is 25 + 27? Include 52 in the answer." }],
+});
+const normalText = normal.choices[0].message.content;
+console.log("Regular call:", normalText);
+
+const multiplyTool = {
+  type: "function",
+  function: {
+    name: "multiply",
+    description: "Multiply two integers.",
+    parameters: {
+      type: "object",
+      properties: {
+        a: { type: "integer" },
+        b: { type: "integer" },
+      },
+      required: ["a", "b"],
+      additionalProperties: false,
+    },
+  },
+};
+
+const messages = [
+  { role: "user", content: "Use multiply to calculate 6 times 7." },
+];
+const toolRequest = await client.chat.completions.create({
+  model,
+  messages,
+  tools: [multiplyTool],
+  tool_choice: { type: "function", function: { name: "multiply" } },
+});
+
+const assistantMessage = toolRequest.choices[0].message;
+const toolCall = assistantMessage.tool_calls?.[0];
+if (!toolCall) throw new Error("The model did not request a tool");
+
+const { a, b } = JSON.parse(toolCall.function.arguments);
+messages.push(
+  assistantMessage,
+  { role: "tool", tool_call_id: toolCall.id, content: String(a * b) },
+);
+
+const final = await client.chat.completions.create({
+  model,
+  messages,
+  tools: [multiplyTool],
+});
+console.log("Tool response:", final.choices[0].message.content); // 42
+```
+
 </TabItem>
 <TabItem value="C#" label="C#">
+
+Create a .NET 8 or newer project, install the SDK, and replace `Program.cs` with
+the example:
+
+```bash
+dotnet new console -n MaritacaExample
+cd MaritacaExample
+dotnet add package OpenAI
+dotnet run
+```
+
 ```csharp
+using System.ClientModel;
+using System.Text.Json;
 using OpenAI;
 using OpenAI.Chat;
-using System.ClientModel;
 
-namespace ChatMaritaca
-{
-    class Program
+static int Multiply(int a, int b) => a * b;
+
+string apiKey = Environment.GetEnvironmentVariable("MARITACA_API_KEY")
+    ?? throw new InvalidOperationException("MARITACA_API_KEY is required.");
+string model = Environment.GetEnvironmentVariable("MARITACA_MODEL") ?? "sabia-4";
+
+ChatClient client = new ChatClient(
+    model: model,
+    credential: new ApiKeyCredential(apiKey),
+    options: new OpenAIClientOptions
     {
-        static async Task Main(string[] args)
+        Endpoint = new Uri("https://chat.maritaca.ai/api")
+    });
+
+ChatCompletion normal = await client.CompleteChatAsync(
+    "What is 25 + 27? Include 52 in the answer.");
+string normalText = normal.Content[0].Text;
+Console.WriteLine($"Regular call: {normalText}");
+
+ChatTool multiplyTool = ChatTool.CreateFunctionTool(
+    functionName: nameof(Multiply),
+    functionDescription: "Multiply two integers.",
+    functionParameters: BinaryData.FromBytes("""
         {
-            //variables
-            string key = "";
-            string model = "sabiazinho-4";
-            string url = "https://chat.maritaca.ai/api";
-            string nameProject = "ExemploUsandoMaritaca";
-
-            //Create the credential using the API access key
-            ApiKeyCredential apiKeyCredential = new ApiKeyCredential(key);
-
-            //Configure the Client for the Maritaca endpoint
-            OpenAIClientOptions openAIClientOptions = new OpenAIClientOptions
-            {
-                Endpoint = new Uri(url),
-                OrganizationId = nameProject,
-                ApplicationId = nameProject,
-                ProjectId = nameProject
-            };
-
-            //Create the ChatClient
-            ChatClient chatClient = new ChatClient(model, apiKeyCredential, openAIClientOptions);
-
-            //Create the chat options
-            ChatCompletionOptions chatOptions = new ChatCompletionOptions
-            {
-                MaxTokens = 255,
-                Temperature = 0.7f,
-            };
-
-            //Create a list to store the chat messages
-            List<ChatMessage> chatMessages = new List<ChatMessage>();
-
-            //Show the menu
-            ShowMenu();
-            do
-            {
-                try
-                {
-                    //User question
-                    string prompt = ShowPrompt();
-
-                    //If the user types 'sair', the chat ends
-                    if (prompt.ToLower() == "sair")
-                        break;
-
-                    //Create the user message
-                    UserChatMessage userChat = ChatMessage.CreateUserMessage(prompt);
-                    chatMessages.Add(userChat);
-
-                    //Send the question to the API
-                    ChatCompletion chatCompletion = await chatClient.CompleteChatAsync(chatMessages, chatOptions);
-
-                    //Capture the response from the model
-                    AssistantChatMessage assistant = ChatMessage.CreateAssistantMessage(chatCompletion.Content[0].Text);
-                    chatMessages.Add(assistant);
-
-                    //Display the model's response
-                    ShowAssistant(assistant);
-                }
-                catch (Exception e)
-                {
-                    ShowError(e);
-                }
-            } while (true);
-
-            ShowSair();
+          "type": "object",
+          "properties": {
+            "a": { "type": "integer" },
+            "b": { "type": "integer" }
+          },
+          "required": ["a", "b"],
+          "additionalProperties": false
         }
+        """u8.ToArray()));
 
-        static void ShowMenu()
-        {
-            Console.WriteLine(new string('-', 100));
-            Console.WriteLine();
-            Console.WriteLine("Welcome to Maritaca Chat!");
-            Console.WriteLine();
-            Console.WriteLine(new string('-', 100));
-            Console.WriteLine("Type 'exit' to end the chat.");
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-        }
+List<ChatMessage> messages =
+[
+    new UserChatMessage("Use Multiply to calculate 6 times 7.")
+];
+ChatCompletionOptions options = new()
+{
+    ToolChoice = ChatToolChoice.CreateFunctionChoice(nameof(Multiply))
+};
+options.Tools.Add(multiplyTool);
 
-        static string ShowPrompt()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write($"[{DateTime.Now}] Send a message: ");
-            Console.ResetColor();
-            string prompt = Console.ReadLine();
-            if (string.IsNullOrEmpty(prompt))
-            {
-                throw new Exception("Please enter a message.");
-            }
-            return prompt;
-        }
+ChatCompletion toolRequest = await client.CompleteChatAsync(messages, options);
+if (toolRequest.ToolCalls.Count == 0)
+    throw new InvalidOperationException("The model did not request a tool.");
 
-        static void ShowAssistant(AssistantChatMessage assistant)
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine();
-            Console.Write($"[{DateTime.Now}] Assistente: ");
-            Console.ResetColor();
-            Console.WriteLine(assistant.Content[0].Text);
-            Console.WriteLine();
-        }
+messages.Add(new AssistantChatMessage(toolRequest));
+ChatToolCall toolCall = toolRequest.ToolCalls[0];
+using JsonDocument arguments = JsonDocument.Parse(toolCall.FunctionArguments);
+int result = Multiply(
+    arguments.RootElement.GetProperty("a").GetInt32(),
+    arguments.RootElement.GetProperty("b").GetInt32());
+messages.Add(new ToolChatMessage(toolCall.Id, result.ToString()));
 
-        static void ShowError(Exception e)
-        {
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write($"[{DateTime.Now}] Erro: ");
-            Console.ResetColor();
-            Console.WriteLine(e.Message);
-            Console.WriteLine();
-        }
-
-        static void ShowSair()
-        {
-            Console.WriteLine(new string('-', 100));
-            Console.WriteLine();
-            Console.WriteLine("Thanks for using Maritaca Chat!");
-            Console.WriteLine();
-            Console.WriteLine();
-        }
-    }
-}
+options.ToolChoice = ChatToolChoice.CreateAutoChoice();
+ChatCompletion final = await client.CompleteChatAsync(messages, options);
+Console.WriteLine($"Tool response: {final.Content[0].Text}"); // 42
 ```
+
 </TabItem>
 </Tabs>
+
+Do not rely on `FinishReason` alone to detect a tool request: check whether
+`ToolCalls` contains items. The same flow works with `sabia-4` and
+`sabia-4-thinking`.

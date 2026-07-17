@@ -3,103 +3,95 @@ id: n8n
 title: n8n
 ---
 
-## Maritaca AI + n8n
+O [n8n](https://n8n.io) pode usar os modelos da Maritaca por meio do sub-nó
+**OpenAI Chat Model**. A configuração abaixo foi validada no n8n 2.30.7 com uma
+chain simples e com um agente que executa uma ferramenta.
 
-O [n8n](https://n8n.io) é uma plataforma de automação de workflows que permite conectar diversas aplicações e serviços. Como a API da Maritaca é compatível com o formato OpenAI, você pode usar o nó **OpenAI Chat Model** do n8n para integrar os modelos Sabiá (por exemplo, Sabiá-4) nos seus workflows.
+## Pré-requisitos
 
-### Pré-requisitos
+- Uma instância do n8n Cloud ou self-hosted.
+- Uma chave criada na
+  [plataforma da Maritaca](https://plataforma.maritaca.ai/chaves-de-api).
 
-- Uma instância do n8n (self-hosted ou n8n Cloud)
-- Uma chave de API da Maritaca ([obtenha aqui](https://chat.maritaca.ai))
+Mantenha o valor de `MARITACA_API_KEY` fora do workflow e salve-o somente em uma
+credencial do n8n.
 
-### Passo 1: Criar a credencial
+## Criar a credencial
 
-1. No n8n, vá em **Settings** > **Credentials** > **Add Credential**
-2. Busque por **OpenAI** e selecione
-3. Preencha os campos:
-   - **API Key:** sua chave de API da Maritaca
-   - **Base URL:** `https://chat.maritaca.ai/api`
-4. Dê um nome descritivo, como **"Maritaca AI"**
-5. Clique em **Save**
+1. Acesse **Settings** > **Credentials** > **Add Credential**.
+2. Busque por **OpenAI**.
+3. Em **API Key**, cole o valor da sua `MARITACA_API_KEY`.
+4. Em **Base URL**, use `https://chat.maritaca.ai/api`.
+5. Salve com um nome como **Maritaca AI**.
 
-:::info
-O botão "Test" da credencial pode mostrar um aviso, pois o n8n tenta validar usando endpoints específicos da OpenAI. Isso não afeta o funcionamento — prossiga normalmente.
-:::
+## Configurar o OpenAI Chat Model
 
-### Passo 2: Configurar o modelo no workflow
+Adicione **OpenAI Chat Model** ao slot **Chat Model** da chain ou do agente e
+configure:
 
-1. Crie um novo workflow e adicione um nó raiz — **AI Agent** (para workflows com ferramentas) ou **Basic LLM Chain** (para chamadas simples)
-2. Clique no **"+"** no slot **Chat Model** do nó raiz
-3. Selecione **OpenAI Chat Model**
-4. Configure:
-   - **Credential:** selecione a credencial "Maritaca AI" criada no Passo 1
-   - **Model:** digite `sabia-4` manualmente (use o modo de expressão caso o dropdown não liste o modelo)
+- **Credential:** `Maritaca AI`.
+- **Model:** selecione o modo **ID** e informe `sabia-4` ou
+  `sabia-4-thinking`.
+- **Use Responses API:** desativado.
 
-:::tip
-Se o dropdown de modelos não carregar, clique no ícone de expressão ao lado do campo e digite o nome do modelo diretamente: `sabia-4`.
-:::
+Desativar **Use Responses API** faz o sub-nó usar Chat Completions, que é o
+fluxo validado nos exemplos abaixo.
 
-### Exemplo 1: Chatbot simples
+## Chamada normal com Basic LLM Chain
 
-Monte o seguinte workflow:
+Monte o workflow:
 
-```
-Chat Trigger → Basic LLM Chain → (saída)
-                     │
-               OpenAI Chat Model
-               (credencial: Maritaca AI)
-               (modelo: sabia-4)
+```text
+Manual Trigger → Basic LLM Chain
+                       │
+                OpenAI Chat Model
 ```
 
-**Passos:**
-1. Adicione um nó **Chat Trigger** (fornece a interface de chat para testes)
-2. Adicione um nó **Basic LLM Chain** e conecte ao Chat Trigger
-3. Anexe o sub-nó **OpenAI Chat Model** ao Basic LLM Chain (via slot Chat Model)
-4. Selecione a credencial Maritaca AI e o modelo `sabia-4`
-5. Clique em **Chat** na parte inferior do canvas para testar
+1. Em **Basic LLM Chain**, escolha **Define below** para o prompt.
+2. Use `Quanto é 25 + 27? Inclua 52 na resposta.`.
+3. Conecte o **OpenAI Chat Model** configurado acima.
+4. Execute o workflow e confira a saída da chain.
 
-### Exemplo 2: Agente com ferramentas
+## Agente com Calculator
 
-```
-Chat Trigger → AI Agent → (saída)
-                  │
-            OpenAI Chat Model  +  Tool nodes  +  Memory
-            (credencial: Maritaca AI)
-            (modelo: sabia-4)
+Monte o workflow:
+
+```text
+Manual Trigger → AI Agent
+                    ├── OpenAI Chat Model
+                    └── Calculator
 ```
 
-**Passos:**
-1. Adicione um nó **Chat Trigger**
-2. Adicione um nó **AI Agent** e conecte ao trigger
-3. Anexe o sub-nó **OpenAI Chat Model** com a credencial Maritaca AI
-4. Adicione **Tool** sub-nós conforme necessário (HTTP Request Tool, Calculator, Code Tool, etc.)
-5. Opcionalmente, adicione um sub-nó de **Memory** (ex: Window Buffer Memory) para manter o histórico da conversa
+1. Em **AI Agent**, escolha **Define below** para o prompt.
+2. Use `Use a ferramenta Calculator para calcular 6 vezes 7.`.
+3. Conecte o **OpenAI Chat Model** no slot **Chat Model**.
+4. Adicione **Calculator** ao slot **Tool**.
+5. Execute o workflow; a resposta final deve incluir `42`.
 
-### Exemplo 3: Chamada HTTP direta (alternativa)
+## Alternativa com HTTP Request
 
-Se preferir controle total sobre a requisição, use o nó **HTTP Request**:
+Para enviar uma chamada direta, configure um nó **HTTP Request**:
 
-1. Adicione um nó **HTTP Request**
-2. Configure:
-   - **Method:** POST
-   - **URL:** `https://chat.maritaca.ai/api/chat/completions`
-   - **Authentication:** Header Auth
-   - **Header Name:** `Authorization`
-   - **Header Value:** `Bearer SUA_CHAVE_API`
-   - **Body (JSON):**
+- **Method:** `POST`.
+- **URL:** `https://chat.maritaca.ai/api/chat/completions`.
+- **Authentication:** `Header Auth`.
+- **Header Name:** `Authorization`.
+- **Header Value:** `Bearer SUA_CHAVE_API`.
+- **Content-Type:** `application/json`.
+- **Body:**
 
 ```json
 {
   "model": "sabia-4",
   "messages": [
-    {"role": "user", "content": "Explique o que é inteligência artificial."}
+    {
+      "role": "user",
+      "content": "Quanto é 25 + 27? Inclua 52 na resposta."
+    }
   ],
-  "max_tokens": 1024
+  "max_tokens": 100
 }
 ```
 
-### Dicas
-
-- **Modelos disponíveis:** `sabia-4`, `sabiazinho-4`, `sabia-3.1`, `sabia-3`, `sabiazinho-3`
-- **Chamada de funções (function calling):** o Sabiá-4 suporta function calling no formato OpenAI, compatível com o nó AI Agent do n8n
-- **Docker:** se o n8n roda em Docker e a API é local, use o IP da máquina host ou `host.docker.internal` ao invés de `localhost`
+Para usar o modelo de raciocínio, troque apenas `model` por
+`sabia-4-thinking`. Não coloque a chave diretamente no JSON do workflow.
