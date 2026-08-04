@@ -107,6 +107,24 @@ Default is `0.95`. If less than 1, only the top tokens with cumulative probabili
 A list of tools the model can call. Use this parameter to provide a list of functions for which the model can generate JSON inputs.
 
 ---
+### web_search `bool or null` <sup class="sup-opcional">Optional</sup>
+Default is `false`. If `true`, allows the model to search and read web pages.
+Web search requires `stream: false`.
+
+---
+### web_search_filters `object or null` <sup class="sup-opcional">Optional</sup>
+Optional filters used when `web_search` is enabled.
+
+- **allowed_domains** (array of strings): Keeps only results from these domains. Maximum 100.
+- **blocked_domains** (array of strings): Excludes results from these domains. Maximum 100.
+
+When both lists are used, `allowed_domains` restricts the result set and
+`blocked_domains` removes results from that set, taking precedence. Provide
+domains without a protocol, port, or path. Each domain also includes its
+subdomains. With the OpenAI SDK, pass `web_search` and `web_search_filters`
+through `extra_body`.
+
+---
 ### tool_choice `string or object` <sup class="sup-opcional">Optional</sup>
 Controls which (if any) tool the model calls.
   - `"none"`: the model will not call any tool and will instead generate a message.
