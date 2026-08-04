@@ -106,6 +106,24 @@ Padrão é `0.95`. Se menor que 1, mantém apenas os tokens superiores com proba
 Uma lista de ferramentas que o modelo pode chamar. Use esse parâmetro para fornecer uma lista de funções para as quais o modelo pode gerar entradas JSON.
 
 ---
+### web_search `bool ou null` <sup class="sup-opcional">Opcional</sup>
+Padrão é `false`. Se `true`, permite que o modelo pesquise e leia páginas da
+web. A busca na web exige `stream: false`.
+
+---
+### web_search_filters `object ou null` <sup class="sup-opcional">Opcional</sup>
+Filtros opcionais usados quando `web_search` está ativo.
+
+- **allowed_domains** (array de strings): Mantém apenas resultados destes domínios. Máximo de 100.
+- **blocked_domains** (array de strings): Exclui resultados destes domínios. Máximo de 100.
+
+Quando as duas listas são usadas, `allowed_domains` restringe o conjunto de
+resultados e `blocked_domains` remove resultados desse conjunto, tendo
+precedência. Informe apenas domínios, sem protocolo, porta ou caminho. Cada
+domínio também inclui seus subdomínios. Com a biblioteca da OpenAI, envie
+`web_search` e `web_search_filters` por `extra_body`.
+
+---
 ### tool_choice `string ou object` <sup class="sup-opcional">Opcional</sup>
 Controla qual (se houver) ferramenta é chamada pelo modelo.
   - `"none"`: o modelo não chamará nenhuma ferramenta e, em vez disso, gerará uma mensagem.

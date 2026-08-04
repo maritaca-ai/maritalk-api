@@ -86,16 +86,41 @@ Default is `false`. If `true`, returns the response via Server-Sent Events in re
 
 ---
 ### tools `array or null` <sup class="sup-opcional">Optional</sup>
-List of tools (functions) the model can call. Each tool has the format:
+List of tools the model can call. Accepts functions and built-in tools,
+including `web_search`.
 
 <details>
-<summary>Tool object format</summary>
+<summary>Function format</summary>
 
 - **type** (string): Always `"function"`.
 - **name** (string) **Required**: Function name.
 - **description** (string): Function description.
 - **parameters** (object): JSON Schema of the parameters.
 - **strict** (bool): If `true`, enables strict schema validation. Default: `true`.
+
+</details>
+
+<details>
+<summary>Web search format</summary>
+
+- **type** (string) **Required**: Always `"web_search"`.
+- **filters** (object): Optional domain filters.
+  - **allowed_domains** (array of strings): Keeps only results from these domains. Maximum 100.
+  - **blocked_domains** (array of strings): Excludes results from these domains. Maximum 100.
+
+When both lists are used, `allowed_domains` restricts the result set and
+`blocked_domains` removes results from that set, taking precedence. Provide
+domains without a protocol, port, or path. Each domain also includes its
+subdomains. Web search requires `stream: false`.
+
+```json
+{
+  "type": "web_search",
+  "filters": {
+    "allowed_domains": ["stf.jus.br", "gov.br"]
+  }
+}
+```
 
 </details>
 

@@ -107,6 +107,48 @@ Os tipos de ferramenta integrada são mapeados para as flags da seguinte forma:
 
 Você pode combinar ferramentas integradas com as suas próprias [ferramentas de função](chamada-funcao.md) na mesma requisição.
 
+## Filtrando fontes da busca na web
+
+Você pode restringir a busca a determinados domínios com `allowed_domains` e
+excluir domínios com `blocked_domains`. Cada lista aceita até 100 domínios.
+Quando ambas são usadas, a busca mantém apenas os domínios permitidos e depois
+remove os bloqueados; `blocked_domains` tem precedência. Informe apenas o
+domínio, sem protocolo, porta ou caminho. Um domínio também inclui seus
+subdomínios.
+
+Na Responses API, use `filters` dentro da ferramenta `web_search`:
+
+```python
+response = client.responses.create(
+    model="sabia-4",
+    input="Quais foram as decisões recentes do STF sobre o tema?",
+    tools=[{
+        "type": "web_search",
+        "filters": {"allowed_domains": ["stf.jus.br"]},
+    }],
+)
+```
+
+Em Chat Completions, envie o filtro pela extensão `web_search_filters`:
+
+```python
+response = client.chat.completions.create(
+    model="sabia-4",
+    stream=False,
+    messages=[{"role": "user", "content": "Pesquise notícias sobre o tema."}],
+    extra_body={
+        "web_search": True,
+        "web_search_filters": {
+            "blocked_domains": ["example.com"],
+        },
+    },
+)
+```
+
+`allowed_domains` mantém apenas resultados dos domínios informados;
+`blocked_domains` remove resultados desses domínios. Quando nenhum filtro é
+enviado, a busca continua consultando a web sem restrição de domínio.
+
 ## O que você recebe de volta
 
 ### Medição de uso

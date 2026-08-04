@@ -86,16 +86,41 @@ Padrão é `false`. Se `true`, retorna a resposta via Server-Sent Events em temp
 
 ---
 ### tools `array ou null` <sup class="sup-opcional">Opcional</sup>
-Lista de ferramentas (funções) que o modelo pode chamar. Cada tool tem o formato:
+Lista de ferramentas que o modelo pode chamar. Aceita funções e ferramentas
+integradas, incluindo `web_search`.
 
 <details>
-<summary>Formato do objeto Tool</summary>
+<summary>Formato de uma função</summary>
 
 - **type** (string): Sempre `"function"`.
 - **name** (string) **Obrigatório**: Nome da função.
 - **description** (string): Descrição da função.
 - **parameters** (object): JSON Schema dos parâmetros.
 - **strict** (bool): Se `true`, ativa validação estrita do schema. Padrão: `true`.
+
+</details>
+
+<details>
+<summary>Formato da busca na web</summary>
+
+- **type** (string) **Obrigatório**: Sempre `"web_search"`.
+- **filters** (object): Filtros opcionais de domínio.
+  - **allowed_domains** (array de strings): Mantém apenas resultados destes domínios. Máximo de 100.
+  - **blocked_domains** (array de strings): Exclui resultados destes domínios. Máximo de 100.
+
+Quando as duas listas são usadas, `allowed_domains` restringe o conjunto de
+resultados e `blocked_domains` remove resultados desse conjunto, tendo
+precedência. Informe apenas domínios, sem protocolo, porta ou caminho. Cada
+domínio também inclui seus subdomínios. A busca na web exige `stream: false`.
+
+```json
+{
+  "type": "web_search",
+  "filters": {
+    "allowed_domains": ["stf.jus.br", "gov.br"]
+  }
+}
+```
 
 </details>
 

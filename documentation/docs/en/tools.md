@@ -107,6 +107,48 @@ The built-in tool types map to the flags as follows:
 
 You can mix built-in tools with your own [function tools](function-call.md) in the same request.
 
+## Filtering web search sources
+
+You can restrict search to specific domains with `allowed_domains` and exclude
+domains with `blocked_domains`. Each list accepts up to 100 domains. When both
+are used, search first keeps only allowed domains and then removes blocked
+ones; `blocked_domains` takes precedence. Provide the domain only, without a
+protocol, port, or path. A domain also includes its subdomains.
+
+On the Responses API, use `filters` inside the `web_search` tool:
+
+```python
+response = client.responses.create(
+    model="sabia-4",
+    input="What are the latest decisions from Brazil's Supreme Court on this topic?",
+    tools=[{
+        "type": "web_search",
+        "filters": {"allowed_domains": ["stf.jus.br"]},
+    }],
+)
+```
+
+On Chat Completions, pass the filter through the `web_search_filters`
+extension:
+
+```python
+response = client.chat.completions.create(
+    model="sabia-4",
+    stream=False,
+    messages=[{"role": "user", "content": "Search for news about this topic."}],
+    extra_body={
+        "web_search": True,
+        "web_search_filters": {
+            "blocked_domains": ["example.com"],
+        },
+    },
+)
+```
+
+`allowed_domains` keeps only results from the specified domains;
+`blocked_domains` removes results from those domains. When no filter is sent,
+web search continues without domain restrictions.
+
 ## What you get back
 
 ### Usage metering
