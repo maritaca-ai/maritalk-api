@@ -60,7 +60,13 @@ Lista de itens de saída. Cada item pode ser uma mensagem ou uma chamada de fun�
 - **content** (array): Lista de partes de conteúdo:
   - **type** (string): `"output_text"`.
   - **text** (string): Texto gerado pelo modelo.
-  - **annotations** (array): Anotações (geralmente vazia).
+  - **annotations** (array): Citações associadas ao texto. Fica vazio quando
+    não há fontes citadas. Cada citação de URL contém:
+    - **type** (string): Sempre `"url_citation"`.
+    - **start_index** (integer): Índice inicial da citação em `text`.
+    - **end_index** (integer): Índice final da citação em `text`.
+    - **url** (string): URL da fonte citada.
+    - **title** (string): Título da fonte citada.
 
 </details>
 
