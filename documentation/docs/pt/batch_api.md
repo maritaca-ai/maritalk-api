@@ -60,7 +60,7 @@ Para cada lote use um único arquivo .jsonl: cada linha corresponde a uma solici
 Envie seu arquivo .jsonl usando o endpoint abaixo. Os arquivos podem conter no máximo 50.000 requisições e não devem ultrapassar 200MB cada.
 
 ```python
-from openai import OpenAI
+import openai
 
 client = openai.OpenAI(
     api_key="", #Sua API_KEY
@@ -84,7 +84,7 @@ print(batch_input_file)
 Use o ID do arquivo (por exemplo, file1) para criar o lote. O completion_window é fixo em 24h, e você pode fornecer metadados extras por meio do parâmetro metadata. Exemplo:
 
 ```python
-from openai import OpenAI
+import openai
 client = openai.OpenAI(
     api_key="", #Sua API_KEY
     base_url="https://chat.maritaca.ai/api",
@@ -135,8 +135,7 @@ Essa requisição retornará um objeto Batch com as informações sobre o lote:
 
 
 ```python
-from openai import OpenAI
-from openai import OpenAI
+import openai
 client = openai.OpenAI(
     api_key="", #Sua API_KEY
     base_url="https://chat.maritaca.ai/api",
@@ -165,7 +164,7 @@ Cada objeto Batch pode ter um dos seguintes status:
 Quando o lote tiver sido processado, você pode obter o arquivo de saída enviando uma requisição para a API utilizando o output_file_id do objeto Batch. Depois de receber o arquivo, salve-o localmente (por exemplo, como batch_output.jsonl).
 
 ```python
-from openai import OpenAI
+import openai
 client = openai.OpenAI(
     api_key="", #Sua API_KEY
     base_url="https://chat.maritaca.ai/api",
@@ -190,7 +189,7 @@ Se necessário, é possível cancelar um lote que esteja em execução. Durante 
 Cancelando um lote:
 
 ```python
-from openai import OpenAI
+import openai
 client = openai.OpenAI(
     api_key="", #Sua API_KEY
     base_url="https://chat.maritaca.ai/api",
@@ -202,7 +201,7 @@ client.batches.cancel("batch1")
 Você pode visualizar todos os seus lotes a qualquer momento. Se possuir muitos lotes, utilize os parâmetros limit e after para paginar os resultados.
 
 ```python
-from openai import OpenAI
+import openai
 client = openai.OpenAI(
     api_key="", #Sua API_KEY
     base_url="https://chat.maritaca.ai/api",
