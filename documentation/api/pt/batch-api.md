@@ -130,7 +130,7 @@ atualmente apenas `batch_input` é aceito
 <TabItem value="python" label="Default" default>
 
 ```python
-from openai import OpenAI
+import openai
 
 client = openai.OpenAI(
     api_key="", #Sua API_KEY

@@ -116,7 +116,7 @@ model = maritalk.MariTalk(
   import openai
 
   model = openai.OpenAI(
-    api_key="minha_chave",,
+    api_key="minha_chave",
     base_url="https://chat.maritaca.ai/api",
   )
 
