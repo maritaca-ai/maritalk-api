@@ -58,7 +58,7 @@ For each batch, use a single `.jsonl` file: each line corresponds to one API req
 ### 2. Uploading the Batch Input File
 Send your .jsonl file using the endpoint below. Files can contain at most 50,000 requests and must be no larger than 200MB each.
 ```python
-from openai import OpenAI
+import openai
 
 client = openai.OpenAI(
     api_key="",  # Your API_KEY
@@ -78,7 +78,7 @@ print(batch_input_file)
 Use the file ID (for example, file1) to create the batch. The completion_window is fixed at 24h, and you can include extra metadata via the metadata parameter. Example:
 
 ```python
-from openai import OpenAI
+import openai
 client = openai.OpenAI(
     api_key="",  # Your API_KEY
     base_url="https://chat.maritaca.ai/api",
@@ -126,7 +126,7 @@ This request will return a Batch object with metadata about your batch:
 
 It's possible to check a batch's status at any time, and you'll also receive the corresponding Batch object as part of that process.
 ```python 
-from openai import OpenAI
+import openai
 client = openai.OpenAI(
     api_key="",  # Your API_KEY
     base_url="https://chat.maritaca.ai/api",
@@ -153,7 +153,7 @@ Each Batch object can have one of the following status:
 When the batch has finished processing, you can obtain the output by sending a request to the API using the output_file_id from the Batch object. After receiving the file, save it locally (for example, as batch_output.jsonl).
 
 ```python
-from openai import OpenAI
+import openai
 client = openai.OpenAI(
     api_key="",  # Your# API_KEY
     base_url="https://chat.maritaca.ai/api",
@@ -181,7 +181,7 @@ Canceling a batch:
 
 ```python
 
-from openai import OpenAI
+import openai
 client = openai.OpenAI(
     api_key="",  # Your API_KEY
     base_url="https://chat.maritaca.ai/api",
@@ -194,7 +194,7 @@ client.batches.cancel("batch1")
 You can view all of your batches at any point in time. If you have a large number of batches, you can use the limit and after parameters to paginate your results.
 
 ```python
-from openai import OpenAI
+import openai
 client = openai.OpenAI(
     api_key="",  # Your API_KEY
     base_url="https://chat.maritaca.ai/api",
