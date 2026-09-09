@@ -151,6 +151,32 @@ enviado, a busca continua consultando a web sem restrição de domínio.
 
 ## O que você recebe de volta
 
+### Fontes citadas na Responses API
+
+Quando a resposta da busca na web cita uma fonte, a citação aparece em
+`output[].content[].annotations[]`, no formato `url_citation` compatível com a
+Responses API da OpenAI:
+
+```json
+{
+  "type": "output_text",
+  "text": "Segundo a [fonte](https://stf.jus.br/noticia), houve decisão.",
+  "annotations": [
+    {
+      "type": "url_citation",
+      "start_index": 10,
+      "end_index": 45,
+      "url": "https://stf.jus.br/noticia",
+      "title": "STF"
+    }
+  ]
+}
+```
+
+`start_index` e `end_index` delimitam, em `text`, o trecho associado à fonte.
+O array contém somente URLs citadas na resposta final; páginas consultadas mas
+não citadas não aparecem em `annotations`.
+
 ### Medição de uso
 
 Toda resposta informa quantas execuções de ferramenta ocorreram, em `usage.tool_execution_details`:
