@@ -11,7 +11,7 @@ A Maritaca AI oferece uma gama de modelos na família Sabiá, projetados para at
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4 Thinking</span></span>
 
-Modelo de raciocínio da família Sabiá, com qualidade de fronteira em português e contextos brasileiros pelo menor custo entre os modelos avaliados. Em relação ao Sabiá 4, traz ganhos expressivos em uso de ferramentas, tarefas jurídicas e qualidade das respostas. Indicado para tarefas complexas que se beneficiam de raciocínio explícito antes da resposta.
+Modelo de raciocínio da família Sabiá, com qualidade de fronteira em português e contextos brasileiros pelo menor custo entre os modelos avaliados. Em relação ao Sabiá 4, traz ganhos expressivos em uso de ferramentas, tarefas jurídicas e qualidade das respostas. Indicado para tarefas complexas que se beneficiam de raciocínio explícito antes da resposta. Suporta até **1 milhão de tokens de contexto**, o que permite enviar documentos extensos, processos completos ou bases de conhecimento inteiras em um único request (disponível também na Batch API).
 
 **Exemplos de uso:** Resolução de problemas com múltiplas etapas, fluxos agênticos e uso de ferramentas, análise e redação jurídica, e questões de exames e raciocínio técnico.
 
@@ -43,7 +43,7 @@ O mesmo modelo Sabiazinho 4, com **inferência e processamento realizados 100% e
 
 | | **Sabiá 4 Thinking** | **Sabiá 4 Thinking BR-SP** | **Sabiá 4** | **Sabiá 4 BR-SP** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** |
 |---|---|---|---|---|---|---|
-| **Contexto máximo** | 128K | 128K | 128K | 128K | 128K | 128K |
+| **Contexto máximo** | 1M | 128K | 128K | 128K | 128K | 128K |
 | **Máximo de tokens de saída** | 32K | 32K | 32K | 32K | 32K | 32K |
 | **Nomes aceitos (alias)** | sabia-4-thinking | sabia-4-thinking-br-sp | sabia-4<br />sabia-4-2026-01-06 | sabia-4-br-sp | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp |
 
