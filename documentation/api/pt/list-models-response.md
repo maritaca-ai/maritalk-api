@@ -70,9 +70,9 @@ Informações do provedor principal, incluindo `context_length` e `max_completio
       "created": 1781049600,
       "object": "model",
       "owned_by": "maritacaai",
-      "context_length": 128000,
+      "context_length": 1000000,
       "top_provider": {
-        "context_length": 128000,
+        "context_length": 1000000,
         "max_completion_tokens": 32768
       }
     },
