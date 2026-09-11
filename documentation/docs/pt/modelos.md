@@ -43,7 +43,7 @@ O mesmo modelo Sabiazinho 4, com **inferência e processamento realizados 100% e
 
 | | **Sabiá 4 Thinking** | **Sabiá 4 Thinking BR-SP** | **Sabiá 4** | **Sabiá 4 BR-SP** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** |
 |---|---|---|---|---|---|---|
-| **Contexto máximo** | 1M | 128K | 128K | 128K | 128K | 128K |
+| **Contexto máximo** | 1M | 1M | 128K | 128K | 128K | 128K |
 | **Máximo de tokens de saída** | 32K | 32K | 32K | 32K | 32K | 32K |
 | **Nomes aceitos (alias)** | sabia-4-thinking | sabia-4-thinking-br-sp | sabia-4<br />sabia-4-2026-01-06 | sabia-4-br-sp | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp |
 
