@@ -54,7 +54,6 @@ module.exports = {
       items: [
         'pt/glossario',
         'pt/status',
-        'pt/system',
         'pt/deletar-conta',
       ],
     },
@@ -114,7 +113,6 @@ module.exports = {
       items: [
         'en/glossary',
         'en/status',
-        'en/system',
         'en/delete-account',
       ],
     },
