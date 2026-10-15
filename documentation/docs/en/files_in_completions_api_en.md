@@ -163,17 +163,18 @@ Supported formats: **PNG** and **JPEG**.
 
 ## Extraction effort
 
-For **PDF files**, you can specify the extraction effort level.
-This setting currently has **no effect** on other file types.
+For **PDFs and images**, you can specify the extraction effort level.
+Every PDF page goes through OCR, and each image counts as one page.
+This setting has **no effect** on the other file types (DOCX, TXT, CSV, XML, XLSX and MD), which are read directly and incur no extraction charges.
 
-If not specified, the default extraction level is **`medium`**.
+If not specified, the default extraction level is **`medium`**. Values other than `medium` and `advanced` return a 400 error.
 
 ### Available extraction levels
 
-| Level      | Description                                                            | Cost per page of PDF   |
-| ---------- | ---------------------------------------------------------------------- | ---------------------- |
-| `medium`   | OCR for text, tables, and images; works best for most PDFs.    | R$ 0,02                |
-| `advanced` | Same coverage as medium + formulas and complex layouts.         | R$ 0,045               |
+| Level      | Description                                                                              | Cost per page  |
+| ---------- | ---------------------------------------------------------------------------------------- | -------------- |
+| `medium`   | OCR of each page: text and tables. Works best for most documents.                         | R$ 0,020       |
+| `advanced` | Everything in `medium` + text descriptions of images, charts, and flowcharts on the page. | R$ 0,025       |
 
 You can check the extraction pricing on our [platform](https://plataforma.maritaca.ai/modelos).
 
@@ -189,7 +190,7 @@ response = client.chat.completions.create(
 )
 ```
 
-The `usage` field includes both token usage and the number of extracted PDF pages:
+The `usage` field includes both token usage and the number of extracted pages:
 
 ```python
 usage = response.usage
@@ -211,13 +212,13 @@ print(usage)
 ## Important Considerations
 
 * **Extracted text is not stored by the API.**
-  If you plan to ask follow-up questions about the same file, store the extracted text yourself — otherwise, a new request will trigger extraction (and trigger extraction charges for medium/advanced PDFs).
+  If you plan to ask follow-up questions about the same file, store the extracted text yourself — otherwise, a new request will trigger extraction (and extraction charges for PDFs and images).
 
 * **The combined size of all files in a request must be under 50 MB.**
 
-* **PDFs extracted using `medium` or `advanced` effort incur extraction charges**, in addition to the prompt tokens processed by the model.
+* **PDFs and images incur a per-page extraction charge** based on the chosen level, in addition to the prompt tokens processed by the model.
 
-* **Discounts** Off-peak and Batch API discounts apply only to input and output tokens. *These discounts do not apply to the extraction cost.*
+* **Discounts** Off-peak, Batch API, and Flex discounts apply only to input and output tokens. *These discounts do not apply to the extraction cost.*
 
 ---
 
