@@ -163,17 +163,18 @@ Formatos suportados: **PNG** e **JPEG**.
 
 ## Extraction effort
 
-Para **arquivos PDF**, você pode especificar o nível de esforço da extração.
-Esse parâmetro **não afeta outros tipos de arquivo**.
+Para **PDFs e imagens**, você pode especificar o nível de esforço da extração.
+Cada página do PDF passa por OCR, e cada imagem conta como uma página.
+Esse parâmetro **não afeta os demais tipos de arquivo** (DOCX, TXT, CSV, XML, XLSX e MD), que são lidos diretamente e não geram cobrança de extração.
 
-Se não for especificado, o nível padrão é **`medium`**.
+Se não for especificado, o nível padrão é **`medium`**. Valores diferentes de `medium` e `advanced` retornam erro 400.
 
 ### Níveis de extração disponíveis
 
-| Nível      | Descrição                                                     | Custo por página do PDF  |
-| ---------- | ------------------------------------------------------------- | ------------------------ |
-| `medium`   | OCR para texto, tabelas e imagens; ideal para a maioria dos PDFs.  | R$ 0,02                  |
-| `advanced` | Mesma cobertura do medium + fórmulas e layouts complexos.          | R$ 0,045                 |
+| Nível      | Descrição                                                                                   | Custo por página  |
+| ---------- | ------------------------------------------------------------------------------------------- | ----------------- |
+| `medium`   | OCR de cada página: texto e tabelas. Ideal para a maioria dos documentos.                    | R$ 0,020          |
+| `advanced` | Tudo do `medium` + descrição em texto de imagens, gráficos e fluxogramas presentes na página. | R$ 0,025          |
 
 Você pode consultar os preços de extração na nossa [plataforma](https://plataforma.maritaca.ai/modelos).
 
@@ -211,13 +212,13 @@ print(usage)
 ## Considerações Importantes
 
 * **A API não armazena o texto extraído.**
-  Se você pretende fazer várias perguntas sobre o mesmo arquivo, salve o texto retornado — caso contrário, uma nova extração será feita (e cobrada no caso de PDFs com nível medium/advanced).
+  Se você pretende fazer várias perguntas sobre o mesmo arquivo, salve o texto retornado — caso contrário, uma nova extração será feita (e cobrada no caso de PDFs e imagens).
 
 * **O tamanho total dos arquivos enviados em uma mesma requisição deve ser inferior a 50 MB.**
 
-* **PDFs processados com `medium` ou `advanced` geram cobrança por extração**, além dos tokens usados na requisição.
+* **PDFs e imagens geram cobrança por página extraída**, conforme o nível escolhido, além dos tokens usados na requisição.
 
-* **Descontos** Descontos para horário fora de pico e batch API são aplicados apenas aos tokens de entrada e saída. *Esses descontos não se aplicam ao custo da extração*.
+* **Descontos** Descontos para horário fora de pico, batch API e Flex são aplicados apenas aos tokens de entrada e saída. *Esses descontos não se aplicam ao custo da extração*.
  
 
 
