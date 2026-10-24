@@ -9,14 +9,9 @@ O cache de prompt reduz automaticamente o custo de tokens de input que são reut
 
 ## Como funciona
 
-Quando você envia uma requisição, a API identifica automaticamente prefixos de tokens que já foram processados em requisições recentes. Esses tokens são marcados como "cached" e cobrados com o desconto aplicado.
+O cache funciona automaticamente, sem necessidade de ativar uma opção ou enviar parâmetros extras. Quando requisições para o mesmo modelo começam com a mesma sequência de tokens (o **prefixo**), a API pode reaproveitar o processamento desse trecho, desde que ele ainda esteja disponível no cache. Isso reduz o custo dos tokens reutilizados e pode diminuir o tempo até o início da resposta. A resposta é gerada novamente a cada chamada; o cache reaproveita o processamento do contexto, não uma resposta pronta.
 
-Isso é especialmente útil em cenários onde há repetição de contexto entre requisições, como:
-
-- **System prompts** fixos ou longos reutilizados em múltiplas chamadas
-- **Documentos de referência** incluídos como contexto em várias requisições
-- **Conversas multi-turno**, onde o histórico de mensagens cresce a cada interação
-- **Arquiteturas multiagente**, onde vários agentes compartilham o mesmo contexto base
+Para aproveitar o cache, mantenha instruções fixas, exemplos e documentos de referência no início do prompt e coloque a pergunta ou os dados variáveis no final. Por exemplo, ao fazer várias perguntas sobre o mesmo documento, envie o documento e as instruções na mesma ordem e altere apenas a pergunta ao final. O prefixo precisa ser **idêntico**: uma alteração impede o reaproveitamento a partir do ponto modificado. Repetir conteúdo não garante um acerto de cache; confira os tokens efetivamente reutilizados em `usage.prompt_tokens_details.cached_tokens` na resposta de Chat Completions. Apenas esses tokens recebem o desconto de cache.
 
 ## Verificando tokens cacheados
 
