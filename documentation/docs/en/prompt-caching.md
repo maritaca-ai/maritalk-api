@@ -9,14 +9,9 @@ Prompt caching automatically reduces the cost of input tokens that are reused ac
 
 ## How it works
 
-When you send a request, the API automatically identifies token prefixes that have already been processed in recent requests. These tokens are marked as "cached" and charged at the discounted rate.
+Caching works automatically, without enabling an option or sending extra parameters. When requests to the same model begin with the same sequence of tokens (the **prefix**), the API can reuse the processing of that portion, provided it is still available in the cache. This reduces the cost of reused tokens and can shorten the time until the response starts. A new response is generated for each call; the cache reuses context processing, not a previously generated answer.
 
-This is especially useful in scenarios with repeated context across requests, such as:
-
-- **Fixed system prompts** reused across multiple calls
-- **Reference documents** included as context in several requests
-- **Multi-turn conversations**, where message history grows with each interaction
-- **Multi-agent architectures**, where multiple agents share the same base context
+To benefit from caching, place fixed instructions, examples, and reference documents at the beginning of the prompt, followed by the question or variable data. For example, when asking several questions about the same document, send the document and instructions in the same order and change only the question at the end. The prefix must be **identical**: a change prevents reuse from that point onward. Repeating content does not guarantee a cache hit; check the tokens actually reused in `usage.prompt_tokens_details.cached_tokens` in the Chat Completions response. Only those tokens receive the cache discount.
 
 ## Checking cached tokens
 
