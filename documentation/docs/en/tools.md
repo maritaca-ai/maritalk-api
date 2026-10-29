@@ -151,6 +151,32 @@ web search continues without domain restrictions.
 
 ## What you get back
 
+### Cited sources in the Responses API
+
+When a web-search response cites a source, the citation appears in
+`output[].content[].annotations[]`, using the OpenAI Responses API-compatible
+`url_citation` shape:
+
+```json
+{
+  "type": "output_text",
+  "text": "According to [the source](https://stf.jus.br/noticia), there was a decision.",
+  "annotations": [
+    {
+      "type": "url_citation",
+      "start_index": 13,
+      "end_index": 53,
+      "url": "https://stf.jus.br/noticia",
+      "title": "STF"
+    }
+  ]
+}
+```
+
+`start_index` and `end_index` delimit the span associated with the source in
+`text`. The array contains only URLs cited in the final response; pages that
+were consulted but not cited do not appear in `annotations`.
+
 ### Usage metering
 
 Every response reports how many tool executions ran in `usage.tool_execution_details`:
