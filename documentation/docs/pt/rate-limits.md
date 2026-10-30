@@ -82,6 +82,7 @@ Conforme o uso e o gasto na API aumentam, você é automaticamente promovido par
         </tr>
       </thead>
       <tbody>
+        <tr><td>S5</td><td>60</td><td>128k</td><td>10k</td></tr>
         <tr><td>sabia-4</td><td>60</td><td>128k</td><td>10k</td></tr>
         <tr><td>sabiazinho-4</td><td>60</td><td>128k</td><td>10k</td></tr>
         <tr><td>sabia-3</td><td>60</td><td>128k</td><td>10k</td></tr>
@@ -101,6 +102,7 @@ Conforme o uso e o gasto na API aumentam, você é automaticamente promovido par
         </tr>
       </thead>
       <tbody>
+        <tr><td>S5</td><td>1.000</td><td>2M</td><td>200k</td></tr>
         <tr><td>sabia-4</td><td>1.000</td><td>2M</td><td>200k</td></tr>
         <tr><td>sabiazinho-4</td><td>1.000</td><td>2M</td><td>200k</td></tr>
         <tr><td>sabia-3</td><td>1.000</td><td>2M</td><td>200k</td></tr>
@@ -120,6 +122,7 @@ Conforme o uso e o gasto na API aumentam, você é automaticamente promovido par
         </tr>
       </thead>
       <tbody>
+        <tr><td>S5</td><td>1.500</td><td>4M</td><td>350k</td></tr>
         <tr><td>sabia-4</td><td>1.500</td><td>4M</td><td>350k</td></tr>
         <tr><td>sabiazinho-4</td><td>2.000</td><td>4M</td><td>400k</td></tr>
         <tr><td>sabia-3</td><td>1.500</td><td>4M</td><td>350k</td></tr>
@@ -139,6 +142,7 @@ Conforme o uso e o gasto na API aumentam, você é automaticamente promovido par
         </tr>
       </thead>
       <tbody>
+        <tr><td>S5</td><td>2.000</td><td>6M</td><td>500k</td></tr>
         <tr><td>sabia-4</td><td>2.000</td><td>6M</td><td>500k</td></tr>
         <tr><td>sabiazinho-4</td><td>5.000</td><td>20M</td><td>800k</td></tr>
         <tr><td>sabia-3</td><td>2.000</td><td>6M</td><td>500k</td></tr>
@@ -158,6 +162,7 @@ Conforme o uso e o gasto na API aumentam, você é automaticamente promovido par
         </tr>
       </thead>
       <tbody>
+        <tr><td>S5</td><td>5.000</td><td>10M</td><td>1M</td></tr>
         <tr><td>sabia-4</td><td>5.000</td><td>10M</td><td>1M</td></tr>
         <tr><td>sabiazinho-4</td><td>10.000</td><td>50M</td><td>2M</td></tr>
         <tr><td>sabia-3</td><td>5.000</td><td>10M</td><td>1M</td></tr>
@@ -177,6 +182,7 @@ Conforme o uso e o gasto na API aumentam, você é automaticamente promovido par
         </tr>
       </thead>
       <tbody>
+        <tr><td>S5</td><td>10.000</td><td>20M</td><td>2M</td></tr>
         <tr><td>sabia-4</td><td>10.000</td><td>20M</td><td>2M</td></tr>
         <tr><td>sabiazinho-4</td><td>30.000</td><td>100M</td><td>10M</td></tr>
         <tr><td>sabia-3</td><td>10.000</td><td>20M</td><td>2M</td></tr>
