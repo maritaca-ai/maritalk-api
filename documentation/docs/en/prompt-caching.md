@@ -5,7 +5,7 @@ title: Prompt Caching
 
 # Prompt Caching
 
-Prompt caching automatically reduces the cost of input tokens that are reused across requests. Cached tokens are charged at a **75% discount** — paying only **1/4 of the standard input price**.
+Prompt caching automatically reduces the cost of input tokens that are reused across requests. Cached tokens are charged at a **75% discount** — paying only **1/4 of the standard input price**. On S5 models (`S5`, `S5-br-sp`) the discount is **90%** (1/10 of the input price).
 
 ## How it works
 

@@ -7,19 +7,19 @@ title: Pricing
 
 All prices are per million tokens processed. Billing considers both input and output tokens.
 
-| | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** |
-|---|---|---|---|
-| **Input** | R$ 5.00 | R$ 5.00 | R$ 1.00 |
-| **Output** | R$ 40.00 | R$ 20.00 | R$ 4.00 |
-| **Cached input ¹** | R$ 1.25 | R$ 1.25 | R$ 0.25 |
-| **Off-peak input ²** | R$ 3.50 | R$ 3.50 | R$ 0.70 |
-| **Off-peak output ²** | R$ 28.00 | R$ 14.00 | R$ 2.80 |
-| **Flex input ³** | R$ 2.50 | R$ 2.50 | R$ 0.50 |
-| **Flex output ³** | R$ 20.00 | R$ 10.00 | R$ 2.00 |
-| **Batch API input** | R$ 2.50 | R$ 2.50 | R$ 0.50 |
-| **Batch API output** | R$ 20.00 | R$ 10.00 | R$ 2.00 |
+| | **S5** | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** |
+|---|---|---|---|---|
+| **Input** | R$ 0.50 | R$ 5.00 | R$ 5.00 | R$ 1.00 |
+| **Output** | R$ 2.50 | R$ 40.00 | R$ 20.00 | R$ 4.00 |
+| **Cached input ¹** | R$ 0.05 | R$ 1.25 | R$ 1.25 | R$ 0.25 |
+| **Off-peak input ²** | R$ 0.35 | R$ 3.50 | R$ 3.50 | R$ 0.70 |
+| **Off-peak output ²** | R$ 1.75 | R$ 28.00 | R$ 14.00 | R$ 2.80 |
+| **Flex input ³** | R$ 0.25 | R$ 2.50 | R$ 2.50 | R$ 0.50 |
+| **Flex output ³** | R$ 1.25 | R$ 20.00 | R$ 10.00 | R$ 2.00 |
+| **Batch API input** | R$ 0.25 | R$ 2.50 | R$ 2.50 | R$ 0.50 |
+| **Batch API output** | R$ 1.25 | R$ 20.00 | R$ 10.00 | R$ 2.00 |
 
-<small>¹ Reused input tokens are charged at a 75% discount (1/4 of the price). Learn more at [Prompt Caching](prompt-caching).</small>
+<small>¹ Reused input tokens are charged at a 75% discount (1/4 of the price); on S5 models, at a 90% discount (1/10 of the price). Learn more at [Prompt Caching](prompt-caching).</small>
 
 <small>² Off-peak: 10 p.m.–6 a.m. BRT.</small>
 
@@ -31,19 +31,27 @@ The cache discount (75%) applies only to cached input tokens. Batch API, Flex, a
 
 ## BR-SP models
 
-BR-SP models perform inference and processing entirely (100%) within Brazilian territory, priced 30% above the corresponding model. API model names: `sabia-4-thinking-br-sp`, `sabia-4-br-sp`, `sabiazinho-4-br-sp`.
+BR-SP models perform inference and processing entirely (100%) within Brazilian territory, priced 30% above the corresponding model. API model names: `S5-br-sp`, `sabia-4-thinking-br-sp`, `sabia-4-br-sp`, `sabiazinho-4-br-sp`.
 
-| | **Sabiá 4 Thinking BR-SP** | **Sabiá 4 BR-SP** | **Sabiazinho 4 BR-SP** |
-|---|---|---|---|
-| **Input** | R$ 6.50 | R$ 6.50 | R$ 1.30 |
-| **Output** | R$ 52.00 | R$ 26.00 | R$ 5.20 |
-| **Cached input ¹** | R$ 1.63 | R$ 1.63 | R$ 0.33 |
-| **Off-peak input ²** | R$ 4.55 | R$ 4.55 | R$ 0.91 |
-| **Off-peak output ²** | R$ 36.40 | R$ 18.20 | R$ 3.64 |
-| **Flex input ³** | R$ 3.25 | R$ 3.25 | R$ 0.65 |
-| **Flex output ³** | R$ 26.00 | R$ 13.00 | R$ 2.60 |
-| **Batch API input** | R$ 3.25 | R$ 3.25 | R$ 0.65 |
-| **Batch API output** | R$ 26.00 | R$ 13.00 | R$ 2.60 |
+| | **S5 BR-SP** | **Sabiá 4 Thinking BR-SP** | **Sabiá 4 BR-SP** | **Sabiazinho 4 BR-SP** |
+|---|---|---|---|---|
+| **Input** | R$ 0.65 | R$ 6.50 | R$ 6.50 | R$ 1.30 |
+| **Output** | R$ 3.25 | R$ 52.00 | R$ 26.00 | R$ 5.20 |
+| **Cached input ¹** | R$ 0.065 | R$ 1.63 | R$ 1.63 | R$ 0.33 |
+| **Off-peak input ²** | R$ 0.455 | R$ 4.55 | R$ 4.55 | R$ 0.91 |
+| **Off-peak output ²** | R$ 2.275 | R$ 36.40 | R$ 18.20 | R$ 3.64 |
+| **Flex input ³** | R$ 0.325 | R$ 3.25 | R$ 3.25 | R$ 0.65 |
+| **Flex output ³** | R$ 1.625 | R$ 26.00 | R$ 13.00 | R$ 2.60 |
+| **Batch API input** | R$ 0.325 | R$ 3.25 | R$ 3.25 | R$ 0.65 |
+| **Batch API output** | R$ 1.625 | R$ 26.00 | R$ 13.00 | R$ 2.60 |
+
+## S5 Free
+
+`S5-free` is free of charge for a limited time: tokens are not billed. Text only; Batch API, Flex and built-in tools are not included. See the limits in [Rate Limits](rate-limits).
+
+:::caution Available for a limited time
+S5 Free is a temporary launch offer and may be discontinued at any time. For ongoing or production use, use `S5`.
+:::
 
 ## Built-in tools
 

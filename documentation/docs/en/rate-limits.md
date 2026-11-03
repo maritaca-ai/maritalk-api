@@ -71,6 +71,8 @@ As your API usage and spending increase, you are automatically promoted to the n
 
 ## Limits per tier
 
+`S5-br-sp` has the same limits as `S5` in every tier. `S5-free` (available for a limited time) has a fixed limit, the same in every tier: 60 RPM, 256k input TPM and 256k output TPM (no Batch API).
+
 <div className="tier-grid tier-grid--wide">
   <div className="tier-card tier-card--table">
     <div className="tier-chip">Tier 0</div>
@@ -82,6 +84,7 @@ As your API usage and spending increase, you are automatically promoted to the n
         </tr>
       </thead>
       <tbody>
+        <tr><td>S5</td><td>60</td><td>128k</td><td>10k</td></tr>
         <tr><td>sabia-4</td><td>60</td><td>128k</td><td>10k</td></tr>
         <tr><td>sabiazinho-4</td><td>60</td><td>128k</td><td>10k</td></tr>
         <tr><td>sabia-3</td><td>60</td><td>128k</td><td>10k</td></tr>
@@ -101,6 +104,7 @@ As your API usage and spending increase, you are automatically promoted to the n
         </tr>
       </thead>
       <tbody>
+        <tr><td>S5</td><td>1,000</td><td>2M</td><td>200k</td></tr>
         <tr><td>sabia-4</td><td>1,000</td><td>2M</td><td>200k</td></tr>
         <tr><td>sabiazinho-4</td><td>1,000</td><td>2M</td><td>200k</td></tr>
         <tr><td>sabia-3</td><td>1,000</td><td>2M</td><td>200k</td></tr>
@@ -120,6 +124,7 @@ As your API usage and spending increase, you are automatically promoted to the n
         </tr>
       </thead>
       <tbody>
+        <tr><td>S5</td><td>1,500</td><td>4M</td><td>350k</td></tr>
         <tr><td>sabia-4</td><td>1,500</td><td>4M</td><td>350k</td></tr>
         <tr><td>sabiazinho-4</td><td>2,000</td><td>4M</td><td>400k</td></tr>
         <tr><td>sabia-3</td><td>1,500</td><td>4M</td><td>350k</td></tr>
@@ -139,6 +144,7 @@ As your API usage and spending increase, you are automatically promoted to the n
         </tr>
       </thead>
       <tbody>
+        <tr><td>S5</td><td>2,000</td><td>6M</td><td>500k</td></tr>
         <tr><td>sabia-4</td><td>2,000</td><td>6M</td><td>500k</td></tr>
         <tr><td>sabiazinho-4</td><td>5,000</td><td>20M</td><td>800k</td></tr>
         <tr><td>sabia-3</td><td>2,000</td><td>6M</td><td>500k</td></tr>
@@ -158,6 +164,7 @@ As your API usage and spending increase, you are automatically promoted to the n
         </tr>
       </thead>
       <tbody>
+        <tr><td>S5</td><td>5,000</td><td>10M</td><td>1M</td></tr>
         <tr><td>sabia-4</td><td>5,000</td><td>10M</td><td>1M</td></tr>
         <tr><td>sabiazinho-4</td><td>10,000</td><td>50M</td><td>2M</td></tr>
         <tr><td>sabia-3</td><td>5,000</td><td>10M</td><td>1M</td></tr>
@@ -177,6 +184,7 @@ As your API usage and spending increase, you are automatically promoted to the n
         </tr>
       </thead>
       <tbody>
+        <tr><td>S5</td><td>10,000</td><td>20M</td><td>2M</td></tr>
         <tr><td>sabia-4</td><td>10,000</td><td>20M</td><td>2M</td></tr>
         <tr><td>sabiazinho-4</td><td>30,000</td><td>100M</td><td>10M</td></tr>
         <tr><td>sabia-3</td><td>10,000</td><td>20M</td><td>2M</td></tr>
