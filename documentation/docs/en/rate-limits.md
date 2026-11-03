@@ -71,6 +71,8 @@ As your API usage and spending increase, you are automatically promoted to the n
 
 ## Limits per tier
 
+`S5-br-sp` has the same limits as `S5` in every tier. `S5-free` has a fixed limit, the same in every tier: 60 RPM, 256k input TPM and 256k output TPM (no Batch API).
+
 <div className="tier-grid tier-grid--wide">
   <div className="tier-card tier-card--table">
     <div className="tier-chip">Tier 0</div>

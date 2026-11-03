@@ -11,9 +11,17 @@ Maritaca AI offers a range of models in the Sabiá family, designed to meet vari
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5</span></span>
 
-The latest model in the Sabiá family, with **native reasoning**: the model thinks before answering, and the reasoning intensity is adjustable through the `reasoning_effort` parameter (`none`, `low`, `medium` or `xhigh`, the default). Recommended for tasks that benefit from explicit reasoning, tool use and multi-step agentic workflows. Supports up to **256 thousand tokens of context** and is also available through the Batch API. API model names: `S5` or `s5`.
+The latest model in the Sabiá family, with **native reasoning**: the model thinks before answering, and the reasoning intensity is adjustable through the `reasoning_effort` parameter (`none`, `low`, `medium` or `xhigh`, the default). Recommended for tasks that benefit from explicit reasoning, tool use and multi-step agentic workflows. Supports up to **1 million tokens of context** and is also available through the Batch API. API model names: `S5` or `s5`.
 
 **Example use cases:** Agentic workflows and tool use, analysis and summarization of long documents, multi-step problem solving and structured content generation.
+
+### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5 BR-SP</span></span>
+
+The same S5 model, with **inference and processing performed entirely (100%) within Brazilian territory** — intended for use cases that require Brazilian data sovereignty and residency. Capabilities, context, and training data are identical to S5; pricing is 30% higher. API model names: `S5-br-sp` or `s5-br-sp`.
+
+### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5 Free</span></span>
+
+S5 **free of charge for a limited time**, to try the model at no cost. Text only; Batch API, Flex and [built-in tools](tools.md) are not included, and rate limits are fixed (see [Rate Limits](rate-limits)). API model names: `S5-free` or `s5-free`.
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4 Thinking</span></span>
 
@@ -47,11 +55,11 @@ The same Sabiazinho 4 model, with **inference and processing performed entirely 
 
 ## Specifications
 
-| | **S5** | **Sabiá 4 Thinking** | **Sabiá 4 Thinking BR-SP** | **Sabiá 4** | **Sabiá 4 BR-SP** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** |
-|---|---|---|---|---|---|---|---|
-| **Max context** | 256K | 1M | 1M | 128K | 128K | 128K | 128K |
-| **Max output tokens** | 32K | 32K | 32K | 32K | 32K | 32K | 32K |
-| **Model names/aliases** | S5<br />s5 | sabia-4-thinking | sabia-4-thinking-br-sp | sabia-4<br />sabia-4-2026-01-06 | sabia-4-br-sp | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp |
+| | **S5** | **S5 BR-SP** | **S5 Free** | **Sabiá 4 Thinking** | **Sabiá 4 Thinking BR-SP** | **Sabiá 4** | **Sabiá 4 BR-SP** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** |
+|---|---|---|---|---|---|---|---|---|---|
+| **Max context** | 1M | 1M | 1M | 1M | 1M | 128K | 128K | 128K | 128K |
+| **Max output tokens** | 32K | 32K | 32K | 32K | 32K | 32K | 32K | 32K | 32K | 32K |
+| **Model names/aliases** | S5<br />s5 | S5-br-sp<br />s5-br-sp | S5-free<br />s5-free | sabia-4-thinking | sabia-4-thinking-br-sp | sabia-4<br />sabia-4-2026-01-06 | sabia-4-br-sp | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp |
 
 For pricing information, see the [Pricing](precos) page.
 

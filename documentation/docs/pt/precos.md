@@ -11,7 +11,7 @@ Todos os preços são por milhão de tokens processados. A cobrança considera t
 |---|---|---|---|---|
 | **Input** | R$ 0,50 | R$ 5,00 | R$ 5,00 | R$ 1,00 |
 | **Output** | R$ 2,50 | R$ 40,00 | R$ 20,00 | R$ 4,00 |
-| **Input em cache ¹** | R$ 0,13 | R$ 1,25 | R$ 1,25 | R$ 0,25 |
+| **Input em cache ¹** | R$ 0,05 | R$ 1,25 | R$ 1,25 | R$ 0,25 |
 | **Input noturno ²** | R$ 0,35 | R$ 3,50 | R$ 3,50 | R$ 0,70 |
 | **Output noturno ²** | R$ 1,75 | R$ 28,00 | R$ 14,00 | R$ 2,80 |
 | **Input Flex ³** | R$ 0,25 | R$ 2,50 | R$ 2,50 | R$ 0,50 |
@@ -19,7 +19,7 @@ Todos os preços são por milhão de tokens processados. A cobrança considera t
 | **Input Batch API** | R$ 0,25 | R$ 2,50 | R$ 2,50 | R$ 0,50 |
 | **Output Batch API** | R$ 1,25 | R$ 20,00 | R$ 10,00 | R$ 2,00 |
 
-<small>¹ Tokens de input reutilizados entre requisições são cobrados com 75% de desconto (1/4 do preço). Saiba mais em [Cache de Prompt](cache-de-prompt).</small>
+<small>¹ Tokens de input reutilizados entre requisições são cobrados com 75% de desconto (1/4 do preço); nos modelos S5, com 90% de desconto (1/10 do preço). Saiba mais em [Cache de Prompt](cache-de-prompt).</small>
 
 <small>² Noturno: 22:00–06:00 BRT.</small>
 
@@ -31,19 +31,23 @@ O desconto de cache (75%) se aplica apenas aos tokens de input em cache. Os desc
 
 ## Modelos BR-SP
 
-Os modelos BR-SP têm inferência e processamento realizados 100% em território nacional, com os mesmos preços do modelo correspondente acrescidos de 30%. Nomes na API: `sabia-4-thinking-br-sp`, `sabia-4-br-sp`, `sabiazinho-4-br-sp`.
+Os modelos BR-SP têm inferência e processamento realizados 100% em território nacional, com os mesmos preços do modelo correspondente acrescidos de 30%. Nomes na API: `S5-br-sp`, `sabia-4-thinking-br-sp`, `sabia-4-br-sp`, `sabiazinho-4-br-sp`.
 
-| | **Sabiá 4 Thinking BR-SP** | **Sabiá 4 BR-SP** | **Sabiazinho 4 BR-SP** |
-|---|---|---|---|
-| **Input** | R$ 6,50 | R$ 6,50 | R$ 1,30 |
-| **Output** | R$ 52,00 | R$ 26,00 | R$ 5,20 |
-| **Input em cache ¹** | R$ 1,63 | R$ 1,63 | R$ 0,33 |
-| **Input noturno ²** | R$ 4,55 | R$ 4,55 | R$ 0,91 |
-| **Output noturno ²** | R$ 36,40 | R$ 18,20 | R$ 3,64 |
-| **Input Flex ³** | R$ 3,25 | R$ 3,25 | R$ 0,65 |
-| **Output Flex ³** | R$ 26,00 | R$ 13,00 | R$ 2,60 |
-| **Input Batch API** | R$ 3,25 | R$ 3,25 | R$ 0,65 |
-| **Output Batch API** | R$ 26,00 | R$ 13,00 | R$ 2,60 |
+| | **S5 BR-SP** | **Sabiá 4 Thinking BR-SP** | **Sabiá 4 BR-SP** | **Sabiazinho 4 BR-SP** |
+|---|---|---|---|---|
+| **Input** | R$ 0,65 | R$ 6,50 | R$ 6,50 | R$ 1,30 |
+| **Output** | R$ 3,25 | R$ 52,00 | R$ 26,00 | R$ 5,20 |
+| **Input em cache ¹** | R$ 0,065 | R$ 1,63 | R$ 1,63 | R$ 0,33 |
+| **Input noturno ²** | R$ 0,455 | R$ 4,55 | R$ 4,55 | R$ 0,91 |
+| **Output noturno ²** | R$ 2,275 | R$ 36,40 | R$ 18,20 | R$ 3,64 |
+| **Input Flex ³** | R$ 0,325 | R$ 3,25 | R$ 3,25 | R$ 0,65 |
+| **Output Flex ³** | R$ 1,625 | R$ 26,00 | R$ 13,00 | R$ 2,60 |
+| **Input Batch API** | R$ 0,325 | R$ 3,25 | R$ 3,25 | R$ 0,65 |
+| **Output Batch API** | R$ 1,625 | R$ 26,00 | R$ 13,00 | R$ 2,60 |
+
+## S5 Free
+
+O `S5-free` é gratuito por tempo limitado: não há cobrança de tokens. Aceita somente texto e não inclui Batch API, Flex nem ferramentas integradas. Veja os limites em [Rate Limits](rate-limits).
 
 ## Ferramentas integradas
 
