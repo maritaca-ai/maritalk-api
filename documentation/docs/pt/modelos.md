@@ -23,6 +23,10 @@ O mesmo modelo S5, com **inferência e processamento realizados 100% em territó
 
 O S5 **gratuito por tempo limitado**, para experimentar o modelo sem custo. Aceita somente texto e não inclui Batch API, Flex nem [ferramentas integradas](ferramentas.md); os rate limits são fixos (veja [Rate Limits](rate-limits)). Nomes aceitos na API: `S5-free` ou `s5-free`.
 
+:::caution Disponível por tempo limitado
+O S5 Free é uma oferta temporária de lançamento e pode ser encerrada a qualquer momento. Para uso contínuo ou em produção, use o `S5`.
+:::
+
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4 Thinking</span></span>
 
 Modelo de raciocínio da família Sabiá, com qualidade de fronteira em português e contextos brasileiros pelo menor custo entre os modelos avaliados. Em relação ao Sabiá 4, traz ganhos expressivos em uso de ferramentas, tarefas jurídicas e qualidade das respostas. Indicado para tarefas complexas que se beneficiam de raciocínio explícito antes da resposta. Suporta até **1 milhão de tokens de contexto**, o que permite enviar documentos extensos, processos completos ou bases de conhecimento inteiras em um único request (disponível também na Batch API).

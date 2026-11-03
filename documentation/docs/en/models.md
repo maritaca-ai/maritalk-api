@@ -23,6 +23,10 @@ The same S5 model, with **inference and processing performed entirely (100%) wit
 
 S5 **free of charge for a limited time**, to try the model at no cost. Text only; Batch API, Flex and [built-in tools](tools.md) are not included, and rate limits are fixed (see [Rate Limits](rate-limits)). API model names: `S5-free` or `s5-free`.
 
+:::caution Available for a limited time
+S5 Free is a temporary launch offer and may be discontinued at any time. For ongoing or production use, use `S5`.
+:::
+
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4 Thinking</span></span>
 
 The reasoning model of the Sabiá family, delivering frontier quality in Portuguese and Brazilian contexts at the lowest cost among the evaluated models. Compared to Sabiá 4, it brings significant gains in tool use, legal tasks, and answer quality. Recommended for complex tasks that benefit from explicit reasoning before answering. Supports up to **1 million tokens of context**, so long documents, entire case files or whole knowledge bases fit in a single request (also available through the Batch API).

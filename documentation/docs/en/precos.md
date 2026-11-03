@@ -49,6 +49,10 @@ BR-SP models perform inference and processing entirely (100%) within Brazilian t
 
 `S5-free` is free of charge for a limited time: tokens are not billed. Text only; Batch API, Flex and built-in tools are not included. See the limits in [Rate Limits](rate-limits).
 
+:::caution Available for a limited time
+S5 Free is a temporary launch offer and may be discontinued at any time. For ongoing or production use, use `S5`.
+:::
+
 ## Built-in tools
 
 [Built-in tool](tools.md) executions (web search, code execution, and Data Ocean) are billed per use, in addition to the usual token costs. Charges are reported in `usage.tool_execution_details` and on your invoice.
