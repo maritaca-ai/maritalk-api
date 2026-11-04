@@ -5,7 +5,7 @@ title: Visão Geral
 import styles from './styles.module.css';
 import S5Cover from '@site/src/components/S5Cover';
 
-# Documentação da API da Maritaca
+# Documentação da Maritaca
 
 Os modelos Sabiá, treinados para o português e o contexto brasileiro, por uma API compatível com a da OpenAI. Troque a `base_url`, use a sua chave e faça a primeira chamada em minutos.
 

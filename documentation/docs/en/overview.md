@@ -5,7 +5,7 @@ title: Overview
 import styles from './styles.module.css';
 import S5Cover from '@site/src/components/S5Cover';
 
-# Maritaca API documentation
+# Maritaca documentation
 
 The Sabiá models, trained for Portuguese and the Brazilian context, through an OpenAI-compatible API. Change the `base_url`, use your key, and make your first call in minutes.
 
