@@ -1304,34 +1304,101 @@ html[data-theme='dark'] .theme-code-block button.clean-btn {
   }
 }
 
-/* Capa da documentação: nome "Sabiá 5" que vira "S5" (src/components/S5Name.js).
-   O miolo "abiá " é uma grade de 1fr que anima para 0fr: as letras somem e o
-   "5" desliza até encostar no "S", como no vídeo de lançamento. */
-.s5n {
-  display: inline-flex;
-  align-items: baseline;
-  flex-shrink: 0;
-  font-weight: 700;
-  font-size: 46px;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: var(--ifm-color-primary);
-  white-space: nowrap;
-}
-.s5n-mid {
-  display: inline-grid;
-  grid-template-columns: 1fr;
+/* ---------- Capa do S5 na Visão geral (src/components/S5Cover.js) ----------
+   Faixa verde-floresta como na home da reforma, com o nome animado como no
+   vídeo de lançamento: "Sabiá 5" entra, o miolo "abiá " se apaga (grade 1fr -> 0fr)
+   e o "5" desliza até encostar no "S". Noka só aqui (nome, selo e pílulas). */
+@font-face { font-family: 'Noka'; src: url('/fonts/Noka-Medium.woff2') format('woff2'), url('/fonts/Noka-Medium.woff') format('woff'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Noka'; src: url('/fonts/Noka-Semibold.woff2') format('woff2'), url('/fonts/Noka-Semibold.woff') format('woff'); font-weight: 600; font-display: swap; }
+
+.s5c {
+  --s5c-forest: #1a3c34;
+  --s5c-leaf: #70d44b;
+  --s5c-lime: #e6f57b;
+  --s5c-mint: #bddfc5;
+  --s5c-orange: #ff7f40;
+  --s5c-display: 'Noka', 'Lexend', system-ui, sans-serif;
+  position: relative;
   overflow: hidden;
-  animation: s5n-erase 0.6s cubic-bezier(0.7, 0, 0.3, 1) 1.6s forwards;
+  border-radius: 24px;
+  background: var(--s5c-forest);
+  color: #fff;
+  padding: 40px 44px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 8px 0 28px;
 }
-.s5n-mid > span {
-  min-width: 0;
-  overflow: hidden;
-  white-space: nowrap;
+.s5c-bg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center 40%;
+  opacity: 0.8; z-index: 0;
+  animation: s5c-breathe 18s ease-in-out infinite alternate;
 }
-@keyframes s5n-erase {
-  to { grid-template-columns: 0fr; opacity: 0; }
+.s5c-shade {
+  position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(180deg, rgba(26, 60, 52, 0.86) 0%, rgba(26, 60, 52, 0.62) 55%, rgba(26, 60, 52, 0.4) 100%);
+}
+.s5c-in { position: relative; z-index: 1; min-width: 0; }
+.s5c-eyebrow {
+  font-family: var(--s5c-display);
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--s5c-mint); margin: 0 0 14px;
+  animation: s5c-up 0.6s ease both;
+}
+.s5c-name {
+  display: inline-flex; align-items: baseline; cursor: pointer; user-select: none;
+  font-family: var(--s5c-display); font-weight: 600;
+  font-size: clamp(64px, 9vw, 104px); line-height: 0.95; letter-spacing: -0.035em;
+  color: var(--s5c-lime); margin: 0;
+  animation: s5c-up 0.7s ease both, s5c-pop 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.3) 3.15s both;
+  transform-origin: left center;
+}
+.s5c-name .s5c-s, .s5c-name .s5c-5 { display: inline-block; }
+.s5c-mid {
+  display: inline-grid; grid-template-columns: 1fr; overflow: hidden;
+  animation: s5c-erase 1s cubic-bezier(0.65, 0, 0.3, 1) 2.2s forwards;
+}
+.s5c-mid > span { min-width: 0; overflow: hidden; white-space: nowrap; }
+.s5c-p {
+  color: rgba(255, 255, 255, 0.88); font-size: 1.02rem; line-height: 1.6;
+  margin: 18px 0 0; max-width: 32em;
+  animation: s5c-up 0.6s ease 0.15s both;
+}
+.s5c-ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; animation: s5c-up 0.6s ease 0.25s both; }
+.s5c-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--s5c-display); font-weight: 600; font-size: 14px;
+  padding: 10px 18px; border-radius: 999px; text-decoration: none !important;
+  transition: transform 0.15s ease, background-color 0.2s ease, color 0.2s ease;
+}
+.s5c-pill:hover { transform: translateY(-1px); }
+.s5c-pill--orange { background: var(--s5c-orange); color: #1b1b1b !important; }
+.s5c-pill--orange:hover { background: #ff9360; }
+.s5c-pill--light { background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.28); color: #fff !important; }
+.s5c-pill--light:hover { background: rgba(255, 255, 255, 0.2); }
+.s5c-specs {
+  position: relative; z-index: 1; margin: 0;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px;
+  animation: s5c-up 0.6s ease 0.35s both;
+}
+.s5c-specs div {
+  display: flex; flex-direction: column; gap: 4px; min-width: 0;
+  background: rgba(17, 40, 34, 0.62); border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px; padding: 12px 14px; backdrop-filter: blur(4px);
+}
+.s5c-specs dt { margin: 0; font-size: 12px; letter-spacing: 0.02em; color: rgba(255, 255, 255, 0.68); }
+.s5c-specs dd { margin: 0; font-family: var(--s5c-display); font-weight: 600; color: #fff; font-size: 14.5px; line-height: 1.3; }
+.s5c-specs dd.mono { font-family: var(--ifm-font-family-monospace); font-weight: 500; font-size: 13.5px; }
+@keyframes s5c-erase { to { grid-template-columns: 0fr; opacity: 0; } }
+@keyframes s5c-pop { 0% { transform: scale(1); } 45% { transform: scale(1.06); } 100% { transform: scale(1); } }
+@keyframes s5c-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes s5c-breathe { from { transform: scale(1); } to { transform: scale(1.06); } }
+@media (max-width: 720px) {
+  .s5c { padding: 30px 24px 26px; gap: 24px; }
+  .s5c-specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .s5n-mid { display: none; }
+  .s5c-mid { display: none; }
+  .s5c-bg, .s5c-name, .s5c-eyebrow, .s5c-p, .s5c-ctas, .s5c-specs { animation: none; }
 }
