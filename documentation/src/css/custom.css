@@ -1303,3 +1303,35 @@ html[data-theme='dark'] .theme-code-block button.clean-btn {
     display: none !important;
   }
 }
+
+/* Capa da documentação: nome "Sabiá 5" que vira "S5" (src/components/S5Name.js).
+   O miolo "abiá " é uma grade de 1fr que anima para 0fr: as letras somem e o
+   "5" desliza até encostar no "S", como no vídeo de lançamento. */
+.s5n {
+  display: inline-flex;
+  align-items: baseline;
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ifm-color-primary);
+  white-space: nowrap;
+}
+.s5n-mid {
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+  animation: s5n-erase 0.6s cubic-bezier(0.7, 0, 0.3, 1) 1.6s forwards;
+}
+.s5n-mid > span {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+@keyframes s5n-erase {
+  to { grid-template-columns: 0fr; opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .s5n-mid { display: none; }
+}

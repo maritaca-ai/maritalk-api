@@ -3,15 +3,16 @@ id: overview
 title: Overview
 ---
 import styles from './styles.module.css';
+import S5Name from '@site/src/components/S5Name';
 
 # Welcome to Maritaca API
 
 Maritaca API makes it easy to integrate the latest Maritaca models into your projects. With access to the entire Sabiá family of models, explore the possibilities and enhance your solutions with our technology.
 
-<a href="https://arxiv.org/abs/2603.10213" className={styles.ctaReport}>
-  <img src="/img/sabia.png" alt="Sabia" style={{ width: '50px', height: 'auto', marginRight: '15px' }} />
+<a href="/en/models" className={styles.ctaReport}>
+  <S5Name />
   <p style={{ margin: 0 }}>
-    <strong>Introducing Sabiá 4</strong>, our most advanced model to date. Read the technical paper on arXiv.
+    <strong>Introducing S5</strong>, the next generation of Sabiá: native reasoning, a 1 million token context window, and the lowest price in the family. Meet the models.
   </p>
 </a>
 
