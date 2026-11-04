@@ -3,16 +3,13 @@ id: visao-geral
 title: Visão Geral
 ---
 import styles from './styles.module.css';
+import S5Cover from '@site/src/components/S5Cover';
 
-# Bem-vindo à Maritaca API
+# Documentação da Maritaca
 
-A API da Maritaca facilita a integração dos mais recentes modelos da Maritaca em seus projetos. Com acesso a toda a família de modelos Sabiá, explore as possibilidades e potencialize suas soluções com nossa tecnologia.
-<a href="https://arxiv.org/abs/2603.10213" className={styles.ctaReport}>
-  <img src="/img/favicon.svg" alt="Sabia" style={{ width: '50px', height: 'auto', marginRight: '15px' }} />
-  <p style={{ margin: 0 }}>
-    <strong>Apresentando o Sabiá 4</strong>, nosso modelo mais avançado até agora. Leia o artigo técnico no arXiv.
-  </p>
-</a>
+Os modelos Sabiá, treinados para o português e o contexto brasileiro, por uma API compatível com a da OpenAI. Troque a `base_url`, use a sua chave e faça a primeira chamada em minutos.
+
+<S5Cover lang="pt" />
 
 <br/>
 <a href="https://chat.maritaca.ai/" className={styles.ctaChat}>

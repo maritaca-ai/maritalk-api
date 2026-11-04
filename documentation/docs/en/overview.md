@@ -3,17 +3,13 @@ id: overview
 title: Overview
 ---
 import styles from './styles.module.css';
+import S5Cover from '@site/src/components/S5Cover';
 
-# Welcome to Maritaca API
+# Maritaca documentation
 
-Maritaca API makes it easy to integrate the latest Maritaca models into your projects. With access to the entire Sabiá family of models, explore the possibilities and enhance your solutions with our technology.
+The Sabiá models, trained for Portuguese and the Brazilian context, through an OpenAI-compatible API. Change the `base_url`, use your key, and make your first call in minutes.
 
-<a href="https://arxiv.org/abs/2603.10213" className={styles.ctaReport}>
-  <img src="/img/sabia.png" alt="Sabia" style={{ width: '50px', height: 'auto', marginRight: '15px' }} />
-  <p style={{ margin: 0 }}>
-    <strong>Introducing Sabiá 4</strong>, our most advanced model to date. Read the technical paper on arXiv.
-  </p>
-</a>
+<S5Cover lang="en" />
 
 <br/>
 <a href="https://chat.maritaca.ai/" className={styles.ctaChat}>
