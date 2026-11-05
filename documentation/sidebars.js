@@ -8,6 +8,7 @@ module.exports = {
       items: [
         'pt/visao-geral',
         'pt/introducao',
+        'pt/primeiros-passos-s5',
         'pt/modelos',
         'pt/precos',
         {
@@ -67,6 +68,7 @@ module.exports = {
       items: [
         'en/overview',
         'en/introduction',
+        'en/s5-quick-start',
         'en/models',
         'en/precos',
         {
