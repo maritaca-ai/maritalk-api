@@ -2,6 +2,18 @@
 
 Os modelos especializados em língua portuguesa da Maritaca AI, conhecidos como Sabiá, estão disponíveis por meio de uma API.
 
+## S5, a geração mais recente
+
+O **S5** é o modelo mais recente e o recomendado para começar. Ele tem raciocínio nativo, com intensidade ajustável pelo parâmetro `reasoning_effort`, suporta até 1 milhão de tokens de contexto e é o mais barato da família: R$ 0,50 por 1M de tokens de entrada e R$ 2,50 por 1M de saída. É indicado para fluxos agênticos e uso de ferramentas, documentos longos e problemas com várias etapas.
+
+Na API, o S5 tem três nomes:
+
+- `S5`: o modelo para uso contínuo e produção.
+- `S5-br-sp`: o mesmo modelo, com inferência 100% no Brasil (30% mais caro).
+- `S5-free`: **gratuito por tempo limitado**, para experimentar sem custo (somente texto, sem Batch API, Flex nem ferramentas integradas).
+
+Veja um exemplo completo em [Primeiros passos com o S5](primeiros-passos-s5) e todos os modelos em [Modelos](modelos).
+
 A cobrança pelo uso dos modelos é baseada no volume de tokens, considerando tanto os dados de entrada quanto os de saída. O treinamento especializado dos modelos Sabiá garante um desempenho superior a um custo mais acessível em comparação com outras soluções do mercado.
 
 
