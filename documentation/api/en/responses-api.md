@@ -65,6 +65,22 @@ Result of a function call to return to the model.
 System instructions that define the model's behavior (e.g., "Always respond in Portuguese").
 
 ---
+### reasoning `object or null` <sup class="sup-opcional">Optional</sup> {#reasoning}
+Configures reasoning for **S5**. The optional **effort** field (string or null) selects the level. If `reasoning` or `reasoning.effort` is omitted, it defaults to **`xhigh`**.
+
+| Supplied value | Effective level in S5 |
+|---|---|
+| `none` | Reasoning disabled |
+| `minimal` or `low` | `low` |
+| `medium` | `medium` |
+| `high` or `xhigh` | `xhigh` |
+| Omitted or `null` | `xhigh` (default) |
+
+```json
+{"reasoning": {"effort": "low"}}
+```
+
+---
 ### temperature `float or null` <sup class="sup-opcional">Optional</sup>
 Default is `0.7`. Controls response randomness (0.0 to 2.0).
 

@@ -11,7 +11,7 @@ A Maritaca AI oferece uma gama de modelos na família Sabiá, projetados para at
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5</span></span>
 
-Modelo mais recente da família Sabiá, com **raciocínio nativo**: o modelo pensa antes de responder, e a intensidade desse raciocínio é ajustável pelo parâmetro `reasoning_effort` (`none`, `low`, `medium` ou `xhigh`, o padrão). Indicado para tarefas que se beneficiam de raciocínio explícito, uso de ferramentas e fluxos agênticos de múltiplas etapas. Suporta até **1 milhão de tokens de contexto** e está disponível também na Batch API. Nomes aceitos na API: `S5` ou `s5`.
+Modelo mais recente da família Sabiá, com **raciocínio nativo**: o modelo pensa antes de responder, e a intensidade desse raciocínio é ajustável pelo parâmetro `reasoning_effort` (`none`, `low` ou `minimal`, `medium`, `xhigh` ou `high`; padrão: `xhigh`). Indicado para tarefas que se beneficiam de raciocínio explícito, uso de ferramentas e fluxos agênticos de múltiplas etapas. Suporta até **1 milhão de tokens de contexto** e está disponível também na Batch API. Nomes aceitos na API: `S5` ou `s5`.
 
 **Exemplos de uso:** Fluxos agênticos e uso de ferramentas, análise e síntese de documentos longos, resolução de problemas com múltiplas etapas e geração de conteúdo estruturado.
 

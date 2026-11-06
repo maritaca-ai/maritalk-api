@@ -28,6 +28,20 @@ The Responses API replaces Chat Completions as the recommended interface for new
 
 The Chat Completions API remains available and functional. If you already have a working integration with it, there's no immediate need to migrate. For new projects, we recommend the Responses API.
 
+### S5 reasoning
+
+In the Responses API, use `reasoning={"effort": "low"}`; in Chat Completions, use `reasoning_effort="low"`. For S5, `minimal` is equivalent to `low` and `high` is equivalent to `xhigh`. If `reasoning.effort` is omitted, S5 uses **`xhigh`**. Use `none` to disable reasoning.
+
+```python
+response = client.responses.create(
+    model="S5",
+    input="Explain why 17 is a prime number.",
+    reasoning={"effort": "low"},
+)
+```
+
+[See the reasoning level mapping in the API reference.](/api/en/responses-api#reasoning)
+
 ### Migrating from Chat Completions
 
 Migration is straightforward. Compare the two equivalent examples:

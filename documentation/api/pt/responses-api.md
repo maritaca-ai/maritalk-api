@@ -65,6 +65,22 @@ Resultado de uma chamada de função para devolver ao modelo.
 Instruções de sistema que definem o comportamento do modelo (ex: "Responda sempre em português").
 
 ---
+### reasoning `object ou null` <sup class="sup-opcional">Opcional</sup> {#reasoning}
+Configura o raciocínio do **S5**. O campo opcional **effort** (string ou null) seleciona o nível. Se `reasoning` ou `reasoning.effort` for omitido, usa **`xhigh`**.
+
+| Valor enviado | Nível efetivo no S5 |
+|---|---|
+| `none` | Raciocínio desligado |
+| `minimal` ou `low` | `low` |
+| `medium` | `medium` |
+| `high` ou `xhigh` | `xhigh` |
+| Omitido ou `null` | `xhigh` (padrão) |
+
+```json
+{"reasoning": {"effort": "low"}}
+```
+
+---
 ### temperature `float ou null` <sup class="sup-opcional">Opcional</sup>
 Padrão é `0.7`. Controla a aleatoriedade das respostas (0.0 a 2.0).
 

@@ -75,7 +75,7 @@ curl https://chat.maritaca.ai/api/chat/completions \
 
 ## 3. Tune the reasoning
 
-S5 thinks before answering. The `reasoning_effort` parameter controls how much: `none` (turns reasoning off, faster answers), `low`, `medium` or `xhigh` (the default). Only the final answer is returned; the reasoning stays internal.
+S5 thinks before answering. The `reasoning_effort` parameter controls how much: `none` (turns reasoning off, faster answers), `low` (or `minimal`), `medium` or `xhigh` (the default, also accepted as `high`). Only the final answer is returned; the reasoning stays internal.
 
 ```python
 response = client.chat.completions.create(
