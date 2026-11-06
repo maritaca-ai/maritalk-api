@@ -234,7 +234,7 @@ for event in stream:
 
 ## Raciocínio em texto no S5-nano
 
-O `S5-nano` tem pesos abertos, então o raciocínio dele não é confidencial: vem em texto, em qualquer conta, e nunca é cifrado. Todo o resto desta página vale igual (esforço, cobrança, `previous_response_id`, devolver o `output` na entrada).
+O `S5-nano` tem [pesos abertos](https://huggingface.co/maritaca-ai/S5-nano), então o raciocínio dele não é confidencial: vem em texto, em qualquer conta, e nunca é cifrado. Todo o resto desta página vale igual (esforço, cobrança, `previous_response_id`, devolver o `output` na entrada).
 
 Na Responses API, o texto vem em `content` do item `reasoning`, como partes do tipo `reasoning_text`, e não há `encrypted_content`:
 

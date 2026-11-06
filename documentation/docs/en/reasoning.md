@@ -234,7 +234,7 @@ for event in stream:
 
 ## Plain-text reasoning on S5-nano
 
-`S5-nano` has open weights, so its reasoning is not confidential: it comes as plain text, for every account, and is never encrypted. Everything else on this page applies the same way (effort, billing, `previous_response_id`, passing `output` back as input).
+`S5-nano` has [open weights](https://huggingface.co/maritaca-ai/S5-nano), so its reasoning is not confidential: it comes as plain text, for every account, and is never encrypted. Everything else on this page applies the same way (effort, billing, `previous_response_id`, passing `output` back as input).
 
 In the Responses API, the text comes in the `reasoning` item's `content`, as parts of type `reasoning_text`, and there is no `encrypted_content`:
 
