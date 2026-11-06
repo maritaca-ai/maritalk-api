@@ -29,19 +29,10 @@ First, create an account or log in to the [Maritaca platform](https://plataforma
 <br/>
 <br/>
 
-Paste the created key into my_key.
-
-
-```python
-model = maritalk.MariTalk(
-    key=f"{my_key}", #Paste the key here Ex: '100088...'
-    model="sabiazinho-4" # The list of supported models is available at https://docs.maritaca.ai/en/models
-)
-```
 <details>
   <summary> **Set up your API key for all projects (recommended)** </summary>
 
-  To set up your API key from the Maritaca AI platform for use in your projects, you will need to define an environment variable that will store this key. The process is similar on both Linux and Windows systems, but there are differences in how environment variables are handled on each system. Here is a step-by-step guide for both operating systems. The main advantage of this approach is that the Python library will automatically detect and use the key without requiring you to write any code.
+  To set up your API key from the Maritaca AI platform for use in your projects, you will need to define an environment variable that will store this key. The process is similar on both Linux and Windows systems, but there are differences in how environment variables are handled on each system. Here is a step-by-step guide for both operating systems. The main advantage of this approach is that your code reads the key with `os.environ["MARITACA_API_KEY"]`, without it being written in the code.
   #### For Linux/macOS:
 
   1. **Open the Terminal:** Open the terminal on your Linux or macOS operating system.
@@ -178,7 +169,7 @@ pip install --upgrade pip
 </details>
 
 ## Step 3: Install the Library
-Our API can be used in two ways: through our library or through OpenAI compatibility. In this tutorial, we will teach you how to send your first request using OpenAI compatibility. After installing Python and optionally activating the virtual environment and upgrading pip, you can install the openai library. In the terminal/command line, run:
+Our API is compatible with the OpenAI API. In this tutorial, we will teach you how to send your first request using the OpenAI library. After installing Python and optionally activating the virtual environment and upgrading pip, you can install the openai library. In the terminal/command line, run:
 
 ```bash
 pip install openai
@@ -209,10 +200,10 @@ client = openai.OpenAI(
 )
 
 response = client.responses.create(
-  model="sabia-4",
+  model="S5",
   input="What is 25 + 27?",
 )
-answer = response.output[0].content[0].text
+answer = response.output_text
 
 print(f"Answer: {answer}")   # Should print something like "25 + 27 equals 52."
 ```

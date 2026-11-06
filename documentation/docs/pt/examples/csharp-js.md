@@ -9,12 +9,12 @@ import TabItem from '@theme/TabItem';
 Os exemplos abaixo usam as SDKs oficiais da OpenAI com o endpoint compatível da
 Maritaca. Ambos fazem uma chamada normal e um ciclo completo de tool calling.
 
-Defina a chave antes de executar. O modelo padrão é `sabia-4`; para usar o
-modelo de raciocínio, defina `MARITACA_MODEL=sabia-4-thinking`.
+Defina a chave antes de executar. O modelo padrão é o `S5`; para usar outro
+modelo, defina `MARITACA_MODEL` (por exemplo, `MARITACA_MODEL=S5-free`).
 
 ```bash
 export MARITACA_API_KEY="sua-chave-aqui"
-export MARITACA_MODEL="sabia-4"
+export MARITACA_MODEL="S5"
 ```
 
 <Tabs>
@@ -33,7 +33,7 @@ import OpenAI from "openai";
 const apiKey = process.env.MARITACA_API_KEY;
 if (!apiKey) throw new Error("Defina MARITACA_API_KEY");
 
-const model = process.env.MARITACA_MODEL ?? "sabia-4";
+const model = process.env.MARITACA_MODEL ?? "S5";
 const client = new OpenAI({
   apiKey,
   baseURL: "https://chat.maritaca.ai/api",
@@ -114,7 +114,7 @@ static int Multiply(int a, int b) => a * b;
 
 string apiKey = Environment.GetEnvironmentVariable("MARITACA_API_KEY")
     ?? throw new InvalidOperationException("MARITACA_API_KEY é obrigatória.");
-string model = Environment.GetEnvironmentVariable("MARITACA_MODEL") ?? "sabia-4";
+string model = Environment.GetEnvironmentVariable("MARITACA_MODEL") ?? "S5";
 
 ChatClient client = new ChatClient(
     model: model,
@@ -175,5 +175,4 @@ Console.WriteLine($"Resposta com tool: {final.Content[0].Text}"); // 42
 </Tabs>
 
 Não dependa apenas de `FinishReason` para detectar uma solicitação: verifique
-se `ToolCalls` contém itens. O mesmo fluxo funciona com `sabia-4` e
-`sabia-4-thinking`.
+se `ToolCalls` contém itens.

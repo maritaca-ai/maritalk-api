@@ -26,7 +26,7 @@ client = openai.OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="sabia-4",
+    model="S5",
     messages=[
         {"role": "system", "content": "You are a legal assistant specialized in..."},
         {"role": "user", "content": "Summarize Article 5 of the Brazilian Constitution."},

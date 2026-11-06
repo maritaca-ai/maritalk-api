@@ -30,8 +30,7 @@ Adicione **OpenAI Chat Model** ao slot **Chat Model** da chain ou do agente e
 configure:
 
 - **Credential:** `Maritaca AI`.
-- **Model:** selecione o modo **ID** e informe `sabia-4` ou
-  `sabia-4-thinking`.
+- **Model:** selecione o modo **ID** e informe `S5`.
 - **Use Responses API:** desativado.
 
 Desativar **Use Responses API** faz o sub-nó usar Chat Completions, que é o
@@ -82,16 +81,16 @@ Para enviar uma chamada direta, configure um nó **HTTP Request**:
 
 ```json
 {
-  "model": "sabia-4",
+  "model": "S5",
   "messages": [
     {
       "role": "user",
       "content": "Quanto é 25 + 27? Inclua 52 na resposta."
     }
   ],
-  "max_tokens": 100
+  "reasoning_effort": "low"
 }
 ```
 
-Para usar o modelo de raciocínio, troque apenas `model` por
-`sabia-4-thinking`. Não coloque a chave diretamente no JSON do workflow.
+O S5 raciocina antes de responder; `reasoning_effort` (`none`, `low`, `medium`
+ou `xhigh`, o padrão) controla quanto. Não coloque a chave diretamente no JSON do workflow.

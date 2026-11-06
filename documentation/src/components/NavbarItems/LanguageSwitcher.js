@@ -14,7 +14,6 @@ const pathMap = {
   '/pt/structured-outputs': '/en/structured-outputs',
   '/pt/api/batch-api': '/en/api/batch-api',
   '/pt/embeddings+Sabia-4+RAG': '/en/embeddings+Sabia-4+RAG',
-  '/pt/biblioteca': '/en/library',
   '/pt/casos-de-uso': '/en/use-cases',
   '/pt/glossario': '/en/glossary',
   '/pt/status': '/en/status',

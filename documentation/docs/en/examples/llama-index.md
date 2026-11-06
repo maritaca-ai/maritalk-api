@@ -13,8 +13,8 @@ pip install -U llama-index-core llama-index-llms-openai-like
 export MARITACA_API_KEY="your-key-here"
 ```
 
-The example uses `sabia-4` by default. To use the reasoning model, set
-`MARITACA_MODEL=sabia-4-thinking`.
+The example uses `S5` by default. To use another model, set
+`MARITACA_MODEL` (for example, `MARITACA_MODEL=S5-free`).
 
 ## Regular call and tools
 
@@ -27,12 +27,13 @@ from llama_index.core.tools import FunctionTool
 from llama_index.llms.openai_like import OpenAILike
 
 
-model_name = os.getenv("MARITACA_MODEL", "sabia-4")
+model_name = os.getenv("MARITACA_MODEL", "S5")
 llm = OpenAILike(
     model=model_name,
     api_key=os.environ["MARITACA_API_KEY"],
     api_base="https://chat.maritaca.ai/api",
-    context_window=128_000,
+    temperature=1,  # S5 only accepts the default temperature (1)
+    context_window=256_000,
     is_chat_model=True,
     is_function_calling_model=True,
 )
@@ -76,8 +77,7 @@ final_response = llm.chat(messages, tools=[tool_spec])
 print("Tool response:", final_response)  # 42
 ```
 
-This tool loop only uses public LlamaIndex APIs and works with `sabia-4` and
-`sabia-4-thinking`. Your application receives the structured request, executes
+This tool loop only uses public LlamaIndex APIs. Your application receives the structured request, executes
 the function, and returns its result with the same `tool_call_id`.
 
 For more information, see the

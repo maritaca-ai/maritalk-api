@@ -1,9 +1,9 @@
 ---
 id: embeddings+Sabia-4+RAG
-title: Embeddings+Sabia-4+RAG
+title: Embeddings + S5 + RAG
 ---
 
-# Embeddings + Sabiá-4 + RAG
+# Embeddings + S5 + RAG
 
 ## Embeddings
 
@@ -103,33 +103,31 @@ Exemplo:
 #### Preço
 Visite a página de precificação do modelo da DeepInfra para obter mais detalhes [(https://deepinfra.com/intfloat/multilingual-e5-large)](https://deepinfra.com/intfloat/multilingual-e5-large).
 
-## RAG com o sabia-4
-RAG (Retrieval-Augmented Generation) é uma abordagem que combina busca de informações em uma base de dados com a capacidade de geração de texto de um modelo de linguagem (LLM). Abaixo está o passo a passo detalhado para criar um sistema RAG usando o modelo sabia-4, neste exemplo utilizaremos:
+## RAG com o S5
+RAG (Retrieval-Augmented Generation) é uma abordagem que combina busca de informações em uma base de dados com a capacidade de geração de texto de um modelo de linguagem (LLM). Abaixo está o passo a passo detalhado para criar um sistema RAG usando o modelo S5, neste exemplo utilizaremos:
 * Uma fonte de dados (um PDF de um edital da Unicamp).
 * Uma ferramenta para extrair e dividir o texto do PDF em pedaços (chunks).
 * Um sistema de recuperação (retriever) baseado no modelo "intfloat/multilingual-e5-large" da DeepInfra, que busca os trechos mais relevantes para uma determinada pergunta.
-* O modelo sabia-4 para gerar a resposta final.
+* O modelo S5 para gerar a resposta final.
 * O prompt baseado no formato de conversa, fornecendo contexto e a pergunta do usuário.
 
 
 ### Passo 1: Instalação das Dependências
 Primeiro, instale as bibliotecas necessárias para o projeto.
 ```bash
-!pip install unstructured rank_bm25 pdf2image pdfminer-six pikepdf pypdf unstructured_inference "pillow<10.1.0" pillow_heif -q
-!pip install langchain langchain-community langchain_openai -q
-!pip install deepinfra faiss-cpu
+pip install -U langchain-community langchain-openai langchain-text-splitters pypdf faiss-cpu
 ```
 
 ### Passo 2: Download do PDF
 No exemplo, utilizamos um edital da Unicamp. Para baixá-lo localmente:
 ```bash
-!wget https://www.comvest.unicamp.br/wp-content/uploads/2023/10/31-2023-Dispoe-sobre-o-Vestibular-Unicamp-2024_com-retificacao.pdf -O edital_unicamp_2024.pdf
+wget https://www.comvest.unicamp.br/wp-content/uploads/2023/10/31-2023-Dispoe-sobre-o-Vestibular-Unicamp-2024_com-retificacao.pdf -O edital_unicamp_2024.pdf
 ```
 ### Passo 3: Carregamento e processamento do documento
 Utilizaremos o PyPDFLoader do LangChain para extrair o texto, e depois faremos o split do texto em chunks menores usando RecursiveCharacterTextSplitter.
 ```python
-from langchain.document_loaders import PyPDFLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.document_loaders import PyPDFLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # Carregar o PDF
 loader = PyPDFLoader("edital_unicamp_2024.pdf")
@@ -142,10 +140,12 @@ text_splitter = RecursiveCharacterTextSplitter(
     separators=["\n", " ", ""]
 )
 texts = text_splitter.split_documents(data)
-
 ```
 Com os textos divididos em chunks, criamos um retriever para encontrar os trechos mais relevantes. Para isso, utilizamos os embeddings gerados pelo modelo da DeepInfra em conjunto com o FAISS (Facebook AI Similarity Search). O FAISS é responsável por armazenar os vetores e facilitar a busca eficiente dos trechos mais adequados:
 ```python
+from langchain_community.embeddings import DeepInfraEmbeddings
+from langchain_community.vectorstores import FAISS
+
 embeddings = DeepInfraEmbeddings(
     model_id="intfloat/multilingual-e5-large",
     query_instruction="",
@@ -156,25 +156,23 @@ vectorstore = FAISS.from_documents(texts, embeddings)
 
 retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
 ```
-**Observação:** Antes de executar o código, é necessário realizar o export da chave de acesso da DeepInfra para autenticação. Certifique-se de ter configurado corretamente a variável de ambiente correspondente, seguindo a documentação oficial do DeepInfra.
+**Observação:** Antes de executar o código, defina a variável de ambiente `DEEPINFRA_API_TOKEN` com a sua chave da DeepInfra, conforme a documentação oficial da DeepInfra.
 
-### Passo 4: Configuração do sabia-4
-Aqui, utilizamos a compatibilidade com a OpenAI através do ChatOpenAI para acessar o modelo sabia-4. É necessário fornecer a base_url e a api_key.
+### Passo 4: Configuração do S5
+Aqui, utilizamos a compatibilidade com a OpenAI através do ChatOpenAI para acessar o modelo S5. É necessário fornecer a base_url e a api_key.
 ```python
-from langchain.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 
 llm = ChatOpenAI(
-    model="sabia-4",
-    temperature=0,
-    api_key=api_key, # Insira sua chave aqui  
+    model="S5",
+    api_key=api_key, # Insira sua chave aqui
     base_url="https://chat.maritaca.ai/api",
 )
-
 ```
 ### Passo 5: Definição do prompt
 Vamos criar um prompt simples que fornecerá o contexto (documentos recuperados) e a pergunta do usuário.
 ```python
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 
 prompt = PromptTemplate(
     input_variables=["context", "query"],
@@ -186,75 +184,28 @@ prompt = PromptTemplate(
 )
 ```
 
-### Passo 6: Criação de question_answering chain
-Agora criamos a cadeia de QA utilizando o load_qa_chain do LangChain.
+### Passo 6: Criação da chain de perguntas e respostas
+Agora ligamos o prompt ao modelo e juntamos o texto dos documentos recuperados em um único contexto.
 
 ```python
-from langchain.chains.question_answering import load_qa_chain
+from langchain_core.output_parsers import StrOutputParser
 
-chain = load_qa_chain(llm, chain_type="stuff", prompt=prompt, verbose=True)
+chain = prompt | llm | StrOutputParser()
+
+def format_docs(docs):
+    return "\n\n".join(doc.page_content for doc in docs)
 ```
 ### Passo 7: Execução da consulta
-Finalmente, vamos fazer uma pergunta ao sistema. Primeiro, recuperamos os documentos relevantes com o retriever, depois passamos tudo para a cadeia.
+Finalmente, vamos fazer uma pergunta ao sistema. Primeiro, recuperamos os documentos relevantes com o retriever, depois passamos tudo para a chain.
 ```python
 query = "Qual o tempo máximo para realização da prova?"
-docs = retriever.get_relevant_documents(query)
+docs = retriever.invoke(query)
 
-try:
-    answer = chain({"input_documents": docs, "query": query})
-    print(answer)
-except Exception as e:
-    print(f"Erro durante execução: {e}")
-
+answer = chain.invoke({"context": format_docs(docs), "query": query})
+print(answer)
 ```
 
-A consulta feita ao sistema retornará um resultado no formato JSON, estruturado da seguinte forma:
-```json
-{
-  "input_documents": [
-    {
-      "id": "c03b98b0-edb3-4992-aca0-ec9fcd79311f",
-      "metadata": {
-        "source": "edital_unicamp_2024.pdf",
-        "page": 8
-      },
-      "page_content": "Médio, incluindo questões interdisciplinares.\n\n§1º O(a) candidato(a) terá no máximo 5 (cinco) horas e no mínimo 2 duas horas para a realização da prova da 1ª fase. Poderá ser concedido tempo adicional aos(às) candidatos(as) nos casos previstos no art. 14.\n\n§2º Cada questão da prova de Conhecimentos Gerais valerá 1 (um) ponto. A nota da prova da 1ª fase (N) será a nota da prova de Conhecimentos Gerais."
-    },
-    {
-      "id": "a6db2289-fa69-46b6-98bc-e9106a259e69",
-      "metadata": {
-        "source": "edital_unicamp_2024.pdf",
-        "page": 78
-      },
-      "page_content": "c. Com maior tempo para a realização da prova, tempo este estabelecido de acordo com critérios neuropsicológicos, até o limite de 20% do tempo regular.\nd. Com direito a ledor para realizar a leitura da prova, transcrever a redação mediante ditado do(a) vestibulando(a) e conferir a transcrição para a folha de resposta.\ne. Através de outros recursos, a depender da necessidade comprovada.\n§13 O(a) candidato(a) que necessitar de tempo adicional de até 20% do tempo regulamentar em"
-    },
-    {
-      "id": "11efcb5c-38f8-4f4d-b7d1-fd8815032034",
-      "metadata": {
-        "source": "edital_unicamp_2024.pdf",
-        "page": 56
-      },
-      "page_content": "(as) candidatos (as).\n\nOs(as) candidatos(as), divididos em turmas, deverão comparecer para as provas de técnica e de improvisação. Cada turma fará essas duas provas seguidas, com duração aproximada de duas horas.\n\nAs propostas práticas e o acompanhamento musical durante as provas de técnica e de improvisação serão fornecidos para cada turma pela Banca das Provas de Habil idades Específicas no momento de sua realização. O(a) candidato(a) deve estar descalço(a), com uma"
-    },
-    {
-      "id": "e9afcfe9-7452-4887-96ed-139954e65e04",
-      "metadata": {
-        "source": "edital_unicamp_2024.pdf",
-        "page": 49
-      },
-      "page_content": "Obs: Será permitido consultar material no dia da prova.\n\nProva de Aula\nOs candidatos farão três aulas práticas, ministradas por três duplas de professores.\n\nProva de Palco\nApresentação de uma cena previamente preparada, à escolha do candidato, conforme a relação de textos publicada ao final desta seção. Duração da cena: de três a cinco minutos.\n\nLista de Textos\nO candidato deverá escolher uma cena de uma das peças listadas ao final desta seção para"
-    },
-    {
-      "id": "a314ec37-7bf5-4354-9be3-238c6ade0016",
-      "metadata": {
-        "source": "edital_unicamp_2024.pdf",
-        "page": 13
-      },
-      "page_content": "período de 06 (seis) meses a contar da data da última chamada para matrícula. Para efeito de guarda da prova da 1ª fase, consideram-se exclusivamente as folhas de respostas nas quais os(as) candidatos(as) preenchem a alternativa escolhida (ficha de correção com leitura ótica). Os cadernos de questões serão eliminados imediatamente após a aplicação da prova."
-    }
-  ],
-  "query": "Qual o tempo máximo para realização da prova?",
-  "output_text": "O tempo máximo para a realização da prova da 1ª fase é de 5 (cinco) horas. Além disso, pode ser concedido um tempo adicional de até 20% do tempo regular para candidatos que necessitem, com base em critérios neuropsicológicos, conforme mencionado no §1º e na alínea c."
-}
-
+A resposta é o texto gerado pelo modelo a partir dos trechos recuperados, por exemplo:
+```text
+O tempo máximo para a realização da prova da 1ª fase é de 5 (cinco) horas. Pode ser concedido tempo adicional de até 20% do tempo regular aos candidatos que necessitem, conforme os critérios previstos no edital.
 ```

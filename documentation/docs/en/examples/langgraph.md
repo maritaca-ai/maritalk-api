@@ -14,8 +14,8 @@ pip install -U langchain langchain-openai langgraph
 export MARITACA_API_KEY="your-key-here"
 ```
 
-The example uses `sabia-4` by default. To use the reasoning model, set
-`MARITACA_MODEL=sabia-4-thinking`.
+The example uses `S5` by default. To use another model, set
+`MARITACA_MODEL` (for example, `MARITACA_MODEL=S5-free`).
 
 ## Regular call and agent with a tool
 
@@ -27,7 +27,7 @@ from langchain.tools import tool
 from langchain_openai import ChatOpenAI
 
 
-model_name = os.getenv("MARITACA_MODEL", "sabia-4")
+model_name = os.getenv("MARITACA_MODEL", "S5")
 llm = ChatOpenAI(
     model=model_name,
     api_key=os.environ["MARITACA_API_KEY"],
@@ -56,8 +56,7 @@ result = agent.invoke(
 print("Agent:", result["messages"][-1].content)  # 15
 ```
 
-The same code works with `sabia-4` and `sabia-4-thinking`. The agent executes
-the tool locally and adds its result to the message history before requesting
+The agent executes the tool locally and adds its result to the message history before requesting
 the final answer from the model.
 
 For more information, see the

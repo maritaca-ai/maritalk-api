@@ -30,7 +30,7 @@ class EventDetails(BaseModel):
     attire: list[str]
 
 response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     instructions="Extract event details.",
     input="João and Maria are going to a June festival on Saturday at 6 PM in Campina Grande. They will be dressed for the occasion: Maria in a floral dress and João in a plaid shirt and straw hat.",
     text={
@@ -42,7 +42,7 @@ response = client.responses.create(
     },
 )
 
-event_response = json.loads(response.output[0].content[0].text)
+event_response = json.loads(response.output_text)
 
 print(event_response)
 ```
@@ -70,7 +70,7 @@ sentiment_schema = {
 }
 
 response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     instructions="Classify the sentiment of the text as positive, negative, or neutral.",
     input="I hated the job offered!",
     text={
@@ -82,7 +82,7 @@ response = client.responses.create(
     },
 )
 
-result = json.loads(response.output[0].content[0].text)
+result = json.loads(response.output_text)
 print(result)
 
 ```
@@ -120,7 +120,7 @@ class ReadingPlan(BaseModel):
     books: List[Book]
 
 response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     instructions="You are a reading plan generator. Convert the user's request into a structured reading plan.",
     input="Create a reading plan to explore Brazilian literature, including classics and contemporary works.",
     text={
@@ -132,7 +132,7 @@ response = client.responses.create(
     },
 )
 
-reading_plan = ReadingPlan.model_validate(json.loads(response.output[0].content[0].text))
+reading_plan = ReadingPlan.model_validate(json.loads(response.output_text))
 
 print("Plan Name:", reading_plan.plan_name)
 print("Books:")
@@ -162,7 +162,7 @@ client = openai.OpenAI(
 )
 
 stream = client.responses.create(
-    model="sabia-4",
+    model="S5",
     instructions="Identify the typical Brazilian dishes in the provided text.",
     input="At the June festival, we have canjica, pamonha, curau, and quentão, along with lots of music and dancing.",
     text={

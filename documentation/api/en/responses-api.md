@@ -23,7 +23,7 @@ Sends a question to the model and receives a response. Supports plain text, mult
 
 ---
 ### model `string` <sup class="sup-obrigatorio">Required</sup>
-Model to use (e.g., `sabia-4`).
+Model to use (e.g., `S5`).
 
 ---
 ### input `string or array` <sup class="sup-obrigatorio">Required</sup>
@@ -210,11 +210,11 @@ client = openai.OpenAI(
 )
 
 response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     input="What is the capital of Brazil?",
 )
 
-print(response.output[0].content[0].text)
+print(response.output_text)
 ```
 </TabItem>
 <TabItem value="python2" label="Streaming">
@@ -227,7 +227,7 @@ client = openai.OpenAI(
 )
 
 stream = client.responses.create(
-    model="sabia-4",
+    model="S5",
     input="Tell a story about Brazil.",
     stream=True,
 )
@@ -266,13 +266,13 @@ tools = [
 ]
 
 response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     input="What's the weather in São Paulo?",
     tools=tools,
 )
 
-# Check function_call
-tool_call = response.output[0]
+# Find the function_call (on S5, the first item is the reasoning)
+tool_call = next(item for item in response.output if item.type == "function_call")
 print(f"Function: {tool_call.name}")
 print(f"Arguments: {tool_call.arguments}")
 print(f"call_id: {tool_call.call_id}")
@@ -284,7 +284,7 @@ curl -X POST https://chat.maritaca.ai/api/v1/responses \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "sabia-4",
+    "model": "S5",
     "input": "What is the capital of Brazil?"
   }'
 ```

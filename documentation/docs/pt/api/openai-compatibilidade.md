@@ -37,19 +37,19 @@ client = openai.OpenAI(
 
 ### <span className="inline-heading"><span className="geo-icon geo-icon-chat geo-icon-small" aria-hidden="true"></span><span>Realizando uma Requisição</span></span>
 
-Você pode fazer uma requisição para o modelo sabia-4 usando a Responses API.
+Você pode fazer uma requisição para o modelo S5 usando a Responses API.
 
 <Tabs>
 <TabItem value="python" label="Python" default>
 ```python
 response = client.responses.create(
-  model="sabia-4",
+  model="S5",
   instructions="Você é um agente de viagem. Seja descritivo e gentil.",
   input="Me fale sobre o Cristo Redentor",
   max_output_tokens=8000
 )
 
-print(response.output[0].content[0].text)
+print(response.output_text)
 ```
 </TabItem>
 <TabItem value="curl" label="cURL">
@@ -58,7 +58,7 @@ curl -X POST https://chat.maritaca.ai/api/v1/responses \
   -H "Authorization: Bearer minha_chave" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "sabia-4",
+    "model": "S5",
     "instructions": "Você é um agente de viagem. Seja descritivo e gentil.",
     "input": "Me fale sobre o Cristo Redentor",
     "max_output_tokens": 8000
@@ -75,7 +75,7 @@ Você também pode passar uma lista de mensagens como entrada para conversas mul
 <TabItem value="python" label="Python" default>
 ```python
 response = client.responses.create(
-  model="sabia-4",
+  model="S5",
   input=[
     {"role": "user", "content": "Meu nome é Alice."},
     {"role": "assistant", "content": "Olá Alice! Prazer em conhecê-la."},
@@ -84,7 +84,7 @@ response = client.responses.create(
   max_output_tokens=8000
 )
 
-print(response.output[0].content[0].text)
+print(response.output_text)
 ```
 </TabItem>
 <TabItem value="curl" label="cURL">
@@ -93,7 +93,7 @@ curl -X POST https://chat.maritaca.ai/api/v1/responses \
   -H "Authorization: Bearer minha_chave" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "sabia-4",
+    "model": "S5",
     "input": [
       {"role": "user", "content": "Meu nome é Alice."},
       {"role": "assistant", "content": "Olá Alice! Prazer em conhecê-la."},
@@ -116,7 +116,7 @@ import os
 import openai
 
 stream = client.responses.create(
-  model="sabia-4",
+  model="S5",
   instructions="Você é um agente de viagem. Seja descritivo e gentil.",
   input="Me fale sobre o Cristo Redentor",
   stream=True,
@@ -133,7 +133,7 @@ curl -X POST https://chat.maritaca.ai/api/v1/responses \
   -H "Authorization: Bearer minha_chave" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "sabia-4",
+    "model": "S5",
     "instructions": "Você é um agente de viagem. Seja descritivo e gentil.",
     "input": "Me fale sobre o Cristo Redentor",
     "stream": true,
@@ -149,7 +149,7 @@ curl -X POST https://chat.maritaca.ai/api/v1/responses \
 <TabItem value="python" label="Python" default>
 ```python
 response = client.chat.completions.create(
-  model="sabia-4",
+  model="S5",
   messages=[
     {"role": "system", "content": "Você é um agente de viagem. Seja descritivo e gentil."},
     {"role": "user", "content": "Me fale sobre o Cristo Redentor"},
@@ -166,7 +166,7 @@ curl https://chat.maritaca.ai/api/chat/completions \
   -H "Authorization: Bearer minha_chave" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "sabia-4",
+    "model": "S5",
     "messages": [{"role": "system", "content": "Você é um agente de viagem. Seja descritivo e gentil."},
                  {"role": "user", "content": "Me fale sobre o Cristo Redentor"}],
     "max_tokens": 8000

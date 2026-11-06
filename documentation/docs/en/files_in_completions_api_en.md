@@ -43,7 +43,7 @@ messages = [
 ]
 
 response = client.chat.completions.create(
-    model="sabia-4",
+    model="S5",
     messages=messages,
 )
 ```
@@ -98,7 +98,7 @@ messages = [
 ]
 
 response = client.chat.completions.create(
-    model="sabia-4",
+    model="S5",
     messages=messages,
 )
 ```
@@ -182,7 +182,7 @@ You can check the extraction pricing on our [platform](https://plataforma.marita
 
 ```python
 response = client.chat.completions.create(
-    model="sabia-4",
+    model="S5",
     messages=messages,
     extra_body={
         "extraction_effort": "medium"
@@ -285,9 +285,8 @@ messages = [
 ]
 
 r = client.chat.completions.create(
-    model=model_name,
+    model="S5",
     messages=messages,
-    max_tokens=30,
     extra_body={
         "extraction_effort": "medium",
     },

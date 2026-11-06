@@ -30,7 +30,7 @@ class DetalhesEvento(BaseModel):
     traje: list[str]
 
 response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     instructions="Extraia detalhes do evento.",
     input="João e Maria vão a uma festa junina no sábado, às 18h, em Campina Grande. Eles vão vestidos a caráter: Maria com um vestido florido e João com camisa xadrez e chapéu de palha.",
     text={
@@ -42,7 +42,7 @@ response = client.responses.create(
     },
 )
 
-evento = json.loads(response.output[0].content[0].text)
+evento = json.loads(response.output_text)
 
 print(evento)
 ```
@@ -70,7 +70,7 @@ sentimento_schema = {
 }
 
 response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     instructions="Classifique o sentimento do texto em positivo, negativo ou neutro.",
     input="Odiei o trabalho oferecido!",
     text={
@@ -82,7 +82,7 @@ response = client.responses.create(
     },
 )
 
-resultado = json.loads(response.output[0].content[0].text)
+resultado = json.loads(response.output_text)
 
 print(resultado)
 ```
@@ -120,7 +120,7 @@ class PlanoLeitura(BaseModel):
     livros: List[Livro]
 
 response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     instructions="Você é um gerador de planos de leitura. Converta a solicitação do usuário em um plano de leitura estruturado.",
     input="Crie um plano de leitura para explorar a literatura brasileira, incluindo clássicos e literatura contemporânea.",
     text={
@@ -132,7 +132,7 @@ response = client.responses.create(
     },
 )
 
-plano_leitura = PlanoLeitura.model_validate(json.loads(response.output[0].content[0].text))
+plano_leitura = PlanoLeitura.model_validate(json.loads(response.output_text))
 
 print("Nome do Plano:", plano_leitura.nome_plano)
 print("Livros:")
@@ -160,7 +160,7 @@ client = openai.OpenAI(
 )
 
 stream = client.responses.create(
-    model="sabia-4",
+    model="S5",
     instructions="Identifique os pratos típicos brasileiros no texto fornecido.",
     input="Na festa junina, temos canjica, pamonha, curau e quentão, além de muita música e dança.",
     text={

@@ -23,7 +23,7 @@ Este endpoint faz chamada para o modelo para gerar respostas baseadas em entrada
 
 ---
 ### model `string` <sup class="sup-obrigatorio">Obrigatório</sup>
-Padrão é `sabia-4`. Modelo que irá gerar a resposta.
+Modelo que irá gerar a resposta (ex: `S5`).
 
 ---
 ### messages `array` <sup class="sup-obrigatorio">Obrigatório</sup>
@@ -149,7 +149,7 @@ client = openai.OpenAI(
 
 
 completion = client.chat.completions.create(
-  model="sabia-4",
+  model="S5",
   messages= [
     {
       "role": "system",
@@ -178,7 +178,7 @@ client = openai.OpenAI(
 
 
 completion = client.chat.completions.create(
-  model="sabia-4",
+  model="S5",
   messages= [
     {
       "role": "system",
@@ -225,7 +225,7 @@ functions = [
 
 # Definindo a conversa e o uso de function_call
 completion = client.chat.completions.create(
-    model="sabia-4",
+    model="S5",
     messages=[
         {
           "role": "system",
@@ -261,7 +261,7 @@ headers = {
 
 # Corpo da requisição
 data = {
-    "model": "sabia-4",
+    "model": "S5",
     "messages": [
         {
             "role": "system",

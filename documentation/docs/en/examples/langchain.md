@@ -39,7 +39,7 @@ import os
 from langchain_openai import ChatOpenAI
 
 llm = ChatOpenAI(
-    model="sabia-4",
+    model="S5",
     api_key=os.environ["MARITACA_API_KEY"],
     base_url="https://chat.maritaca.ai/api",
 )
@@ -54,18 +54,13 @@ response = llm.invoke(
 print(response.content)
 ```
 
-Both models use the same configuration:
-
-| Model | When to use it |
-|---|---|
-| `sabia-4` | General use with a good balance of quality, speed, and cost. |
-| `sabia-4-thinking` | Complex tasks that benefit from reasoning before the answer. |
-
-To use the reasoning model, change only the model name:
+S5 reasons before answering. To adjust how much it thinks, pass
+`reasoning_effort` (`none`, `low`, `medium` or `xhigh`, the default):
 
 ```python
 llm = ChatOpenAI(
-    model="sabia-4-thinking",
+    model="S5",
+    reasoning_effort="low",
     api_key=os.environ["MARITACA_API_KEY"],
     base_url="https://chat.maritaca.ai/api",
 )
@@ -96,7 +91,7 @@ def multiply(a: int, b: int) -> int:
 
 
 llm = ChatOpenAI(
-    model="sabia-4-thinking",
+    model="S5",
     api_key=os.environ["MARITACA_API_KEY"],
     base_url="https://chat.maritaca.ai/api",
 )
@@ -121,6 +116,5 @@ final_response = llm.bind_tools([multiply]).invoke(messages)
 print(final_response.content)  # 42
 ```
 
-This flow works with both `sabia-4` and `sabia-4-thinking`. For more information
-about messages, chains, and agents, see the
+For more information about messages, chains, and agents, see the
 [ChatOpenAI documentation](https://docs.langchain.com/oss/python/integrations/chat/openai).

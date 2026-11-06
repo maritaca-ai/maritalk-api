@@ -32,17 +32,10 @@ Primeiro, crie uma conta ou faça login na [plataforma da Maritaca](https://plat
 <br/>
 <br/>
 
-Cole a chave criada em minha_chave.
-```python
-model = maritalk.MariTalk(
-    key=f"{minha_chave}", # Cole a chave aqui Ex: '100088...'
-    model="sabiazinho-4"  # A lista completa de modelos está disponível em https://docs.maritaca.ai/pt/modelos
-)
-```
 <details>
   <summary> **Configurar sua chave API para todos os projetos (recomendado)** </summary>
 
-  Para configurar sua chave de API da plataforma Maritaca AI para uso em seus projetos, você precisará definir uma variável de ambiente que armazenará essa chave. O processo é semelhante tanto em sistemas Linux quanto em Windows, mas há diferenças na forma como você manipula variáveis de ambiente em cada sistema. Aqui está um guia passo a passo para ambos os sistemas operacionais. A principal vantagem dessa abordagem é que a biblioteca Python detectará automaticamente e usará a chave sem precisar escrever qualquer código.
+  Para configurar sua chave de API da plataforma Maritaca AI para uso em seus projetos, você precisará definir uma variável de ambiente que armazenará essa chave. O processo é semelhante tanto em sistemas Linux quanto em Windows, mas há diferenças na forma como você manipula variáveis de ambiente em cada sistema. Aqui está um guia passo a passo para ambos os sistemas operacionais. A principal vantagem dessa abordagem é que seu código lê a chave com `os.environ["MARITACA_API_KEY"]`, sem que ela fique escrita no código.
   #### Para Linux/macOS:
 
   1. **Abra o Terminal:** Abra o terminal no seu sistema operacional Linux ou macOS.
@@ -179,7 +172,7 @@ pip install --upgrade pip
 </details>
 
 ## Passo 3: Instalar a biblioteca
-Nossa API pode ser usada de duas formas: Através da nossa biblioteca, ou através da compatibilidade com a OpenAI. Nesse tutorial, ensinaremos como enviar a primeira requisição usando a compatibilidade com a OpenAI. Depois de instalar o Python e opcionalmente com o ambiente virtual ativado e o pip atualizado, você pode instalar a biblioteca openai. No terminal/linha de comando, execute:
+Nossa API é compatível com a da OpenAI. Nesse tutorial, ensinaremos como enviar a primeira requisição usando a biblioteca da OpenAI. Depois de instalar o Python e opcionalmente com o ambiente virtual ativado e o pip atualizado, você pode instalar a biblioteca openai. No terminal/linha de comando, execute:
 
 ```bash
 pip install openai
@@ -211,10 +204,10 @@ client = openai.OpenAI(
 )
 
 response = client.responses.create(
-  model="sabia-4",
+  model="S5",
   input="Quanto é 25 + 27?",
 )
-answer = response.output[0].content[0].text
+answer = response.output_text
 
 print(f"Resposta: {answer}")   # Deve imprimir algo como "25 + 27 é igual a 52."
 ```
