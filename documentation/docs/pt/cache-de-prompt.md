@@ -5,7 +5,7 @@ title: Cache de Prompt
 
 # Cache de Prompt
 
-O cache de prompt reduz automaticamente o custo de tokens de input que são reutilizados entre requisições. Tokens cacheados são cobrados com **75% de desconto** — ou seja, pagam apenas **1/4 do preço** de input. Nos modelos S5 (`S5`, `S5-br-sp`) o desconto é de **90%** (1/10 do preço de input).
+O cache de prompt reduz automaticamente o custo de tokens de input que são reutilizados entre requisições. Tokens cacheados são cobrados com **75% de desconto** — ou seja, pagam apenas **1/4 do preço** de input. Nos modelos S5 (`S5`, `S5-br-sp`, `S5-nano`) o desconto é de **90%** (1/10 do preço de input).
 
 ## Como funciona
 

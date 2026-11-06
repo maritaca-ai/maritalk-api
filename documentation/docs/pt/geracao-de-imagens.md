@@ -7,7 +7,7 @@ title: Geração de imagens
 
 A geração de imagens é uma [ferramenta integrada](ferramentas.md): o modelo Sabiá **cria imagens a partir de texto e edita ou combina imagens que você envia na própria requisição**. Assim como as demais ferramentas integradas, ela roda no servidor como um fluxo agêntico. O modelo decide quando gerar, escreve o prompt da imagem e devolve a resposta final junto com as imagens prontas.
 
-Disponível nos modelos com ferramentas integradas: **`S5`**, **`sabia-4`** e **`sabia-4-thinking`**. As imagens saem em JPEG, 1024×1024.
+Disponível nos modelos com ferramentas integradas: **`S5`**, **`S5-nano`**, **`sabia-4`** e **`sabia-4-thinking`**. As imagens saem em JPEG, 1024×1024.
 
 ## Gerando uma imagem
 

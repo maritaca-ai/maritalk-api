@@ -29,6 +29,12 @@ O S5 **gratuito por tempo limitado**, para experimentar o modelo sem custo. Acei
 O S5 Free é uma oferta temporária de lançamento e pode ser encerrada a qualquer momento. Para uso contínuo ou em produção, use o `S5`.
 :::
 
+### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5 Nano</span></span>
+
+Versão compacta do S5, com **pesos abertos** e o melhor custo da família: R$ 0,10 por 1M de tokens de entrada e R$ 0,60 por 1M de saída. Tem o mesmo **raciocínio nativo** do S5, ajustável por `reasoning_effort` (`none`, `low`, `medium` ou `xhigh`, o padrão), e, por ser um modelo aberto, devolve o raciocínio **em texto**, sem cifra (veja [Raciocínio](raciocinio)). Suporta até **256 mil tokens de contexto**, chamada de funções, [ferramentas integradas](ferramentas) e Batch API. Nomes aceitos na API: `S5-nano` ou `s5-nano`.
+
+**Exemplos de uso:** Classificação e extração de informações em alto volume, atendimento e conversas com respostas rápidas, roteamento e triagem em fluxos agênticos, e tarefas simples em que custo e latência importam mais que o máximo de qualidade.
+
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4 Thinking</span></span>
 
 Modelo de raciocínio da família Sabiá, com qualidade de fronteira em português e contextos brasileiros pelo menor custo entre os modelos avaliados. Em relação ao Sabiá 4, traz ganhos expressivos em uso de ferramentas, tarefas jurídicas e qualidade das respostas. Indicado para tarefas complexas que se beneficiam de raciocínio explícito antes da resposta. Suporta até **1 milhão de tokens de contexto**, o que permite enviar documentos extensos, processos completos ou bases de conhecimento inteiras em um único request (disponível também na Batch API).
@@ -61,11 +67,11 @@ O mesmo modelo Sabiazinho 4, com **inferência e processamento realizados 100% e
 
 ## Especificações
 
-| | **S5** | **S5 BR-SP** | **S5 Free** | **Sabiá 4 Thinking** | **Sabiá 4 Thinking BR-SP** | **Sabiá 4** | **Sabiá 4 BR-SP** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** |
-|---|---|---|---|---|---|---|---|---|---|
-| **Contexto máximo** | 1M | 1M | 1M | 1M | 1M | 128K | 128K | 128K | 128K |
+| | **S5** | **S5 BR-SP** | **S5 Free** | **S5 Nano** | **Sabiá 4 Thinking** | **Sabiá 4 Thinking BR-SP** | **Sabiá 4** | **Sabiá 4 BR-SP** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** |
+|---|---|---|---|---|---|---|---|---|---|---|
+| **Contexto máximo** | 1M | 1M | 1M | 256K | 1M | 1M | 128K | 128K | 128K | 128K |
 | **Máximo de tokens de saída** | 32K | 32K | 32K | 32K | 32K | 32K | 32K | 32K | 32K | 32K |
-| **Nomes aceitos (alias)** | S5<br />s5 | S5-br-sp<br />s5-br-sp | S5-free<br />s5-free | sabia-4-thinking | sabia-4-thinking-br-sp | sabia-4<br />sabia-4-2026-01-06 | sabia-4-br-sp | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp |
+| **Nomes aceitos (alias)** | S5<br />s5 | S5-br-sp<br />s5-br-sp | S5-free<br />s5-free | S5-nano<br />s5-nano | sabia-4-thinking | sabia-4-thinking-br-sp | sabia-4<br />sabia-4-2026-01-06 | sabia-4-br-sp | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp |
 
 Para informações sobre preços, consulte a página de [Preços](precos).
 

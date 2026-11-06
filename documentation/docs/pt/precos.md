@@ -7,19 +7,19 @@ title: Preços
 
 Todos os preços são por milhão de tokens processados. A cobrança considera tanto tokens de input quanto de output.
 
-| | **S5** | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** |
-|---|---|---|---|---|
-| **Input** | R$ 0,50 | R$ 5,00 | R$ 5,00 | R$ 1,00 |
-| **Output** | R$ 2,50 | R$ 40,00 | R$ 20,00 | R$ 4,00 |
-| **Input em cache ¹** | R$ 0,05 | R$ 1,25 | R$ 1,25 | R$ 0,25 |
-| **Input noturno ²** | R$ 0,35 | R$ 3,50 | R$ 3,50 | R$ 0,70 |
-| **Output noturno ²** | R$ 1,75 | R$ 28,00 | R$ 14,00 | R$ 2,80 |
-| **Input Flex ³** | R$ 0,25 | R$ 2,50 | R$ 2,50 | R$ 0,50 |
-| **Output Flex ³** | R$ 1,25 | R$ 20,00 | R$ 10,00 | R$ 2,00 |
-| **Input Batch API** | R$ 0,25 | R$ 2,50 | R$ 2,50 | R$ 0,50 |
-| **Output Batch API** | R$ 1,25 | R$ 20,00 | R$ 10,00 | R$ 2,00 |
+| | **S5** | **S5 Nano** | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** |
+|---|---|---|---|---|---|
+| **Input** | R$ 0,50 | R$ 0,10 | R$ 5,00 | R$ 5,00 | R$ 1,00 |
+| **Output** | R$ 2,50 | R$ 0,60 | R$ 40,00 | R$ 20,00 | R$ 4,00 |
+| **Input em cache ¹** | R$ 0,05 | R$ 0,01 | R$ 1,25 | R$ 1,25 | R$ 0,25 |
+| **Input noturno ²** | R$ 0,35 | R$ 0,07 | R$ 3,50 | R$ 3,50 | R$ 0,70 |
+| **Output noturno ²** | R$ 1,75 | R$ 0,42 | R$ 28,00 | R$ 14,00 | R$ 2,80 |
+| **Input Flex ³** | R$ 0,25 | R$ 0,05 | R$ 2,50 | R$ 2,50 | R$ 0,50 |
+| **Output Flex ³** | R$ 1,25 | R$ 0,30 | R$ 20,00 | R$ 10,00 | R$ 2,00 |
+| **Input Batch API** | R$ 0,25 | R$ 0,05 | R$ 2,50 | R$ 2,50 | R$ 0,50 |
+| **Output Batch API** | R$ 1,25 | R$ 0,30 | R$ 20,00 | R$ 10,00 | R$ 2,00 |
 
-<small>¹ Tokens de input reutilizados entre requisições são cobrados com 75% de desconto (1/4 do preço); nos modelos S5, com 90% de desconto (1/10 do preço). Saiba mais em [Cache de Prompt](cache-de-prompt).</small>
+<small>¹ Tokens de input reutilizados entre requisições são cobrados com 75% de desconto (1/4 do preço); nos modelos S5 (incluindo o S5 Nano), com 90% de desconto (1/10 do preço). Saiba mais em [Cache de Prompt](cache-de-prompt).</small>
 
 <small>² Noturno: 22:00–06:00 BRT.</small>
 

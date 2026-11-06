@@ -7,7 +7,7 @@ title: Image generation
 
 Image generation is a [built-in tool](tools.md): the Sabiá model **creates images from text and edits or combines images you send in the same request**. Like the other built-in tools, it runs on the server as an agentic flow. The model decides when to generate, writes the image prompt, and returns its final answer together with the finished images.
 
-Available on the models with built-in tools: **`S5`**, **`sabia-4`**, and **`sabia-4-thinking`**. Images are returned as 1024×1024 JPEG.
+Available on the models with built-in tools: **`S5`**, **`S5-nano`**, **`sabia-4`**, and **`sabia-4-thinking`**. Images are returned as 1024×1024 JPEG.
 
 ## Generating an image
 

@@ -12,6 +12,8 @@ Na API, o S5 tem três nomes:
 - `S5-br-sp`: o mesmo modelo, com inferência 100% no Brasil (30% mais caro).
 - `S5-free`: **gratuito por tempo limitado**, para experimentar sem custo (somente texto, sem Batch API, Flex nem ferramentas integradas).
 
+Para tarefas simples em alto volume, use o **`S5-nano`**: a versão compacta do S5, com pesos abertos, por R$ 0,10 (entrada) e R$ 0,60 (saída) por 1M de tokens.
+
 Veja um exemplo completo em [Primeiros passos com o S5](primeiros-passos-s5) e todos os modelos em [Modelos](modelos).
 
 A cobrança pelo uso dos modelos é baseada no volume de tokens, considerando tanto os dados de entrada quanto os de saída. O treinamento especializado dos modelos Sabiá garante um desempenho superior a um custo mais acessível em comparação com outras soluções do mercado.
