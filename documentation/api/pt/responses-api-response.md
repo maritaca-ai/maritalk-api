@@ -48,7 +48,22 @@ O modelo utilizado para gerar a resposta.
 
 ### output `array`
 
-Lista de itens de saída. Cada item pode ser uma mensagem ou uma chamada de função.
+Lista de itens de saída. Cada item pode ser um raciocínio, uma mensagem ou uma chamada de função. Nos modelos S5, o item `reasoning` vem primeiro; para ler só o texto da resposta, use `output_text` no SDK da OpenAI.
+
+<details>
+<summary>reasoning (object)</summary>
+
+Raciocínio do modelo (modelos S5). O texto é confidencial e vem só cifrado. Devolva o item na próxima chamada para o modelo retomar o raciocínio. Veja [Raciocínio](/pt/raciocinio).
+
+- **id** (string): Identificador único do item (`rs_...`).
+- **type** (string): Sempre `"reasoning"`.
+- **content** (array): Sempre vazio (`[]`).
+- **encrypted_content** (string): Raciocínio cifrado. Só pode ser usado pela mesma conta.
+- **summary** (array): Resumo do raciocínio, quando pedido em `reasoning.summary`; senão, vazio.
+  - **type** (string): `"summary_text"`.
+  - **text** (string): Texto do resumo.
+
+</details>
 
 <details>
 <summary>message (object)</summary>
@@ -75,6 +90,28 @@ Lista de itens de saída. Cada item pode ser uma mensagem ou uma chamada de fun�
 - **status** (string): `"completed"`.
 
 </details>
+
+---
+
+### reasoning `object ou null`
+
+Configuração de raciocínio usada (modelos S5). Não contém o texto do raciocínio.
+
+<details>
+<summary>Mostrar propriedades</summary>
+
+- **effort** (string): Esforço usado (`xhigh` quando não informado).
+- **summary** (string ou null): Tipo de resumo pedido (`auto` aparece como `detailed`).
+- **context** (string): `all_turns` ou `current_turn`.
+- **mode** (string): Sempre `"standard"`.
+
+</details>
+
+---
+
+### previous_response_id `string ou null`
+
+Id da resposta anterior usada na requisição, se houver.
 
 ---
 
@@ -174,7 +211,7 @@ Se chamadas paralelas de ferramentas estavam habilitadas.
 
 ### store `boolean`
 
-Se a resposta foi armazenada.
+Se a resposta foi armazenada (padrão `true`). Respostas armazenadas ficam disponíveis por 30 dias para `previous_response_id`.
 
 ---
 
@@ -192,10 +229,16 @@ Quando `stream: true`, a API retorna eventos via Server-Sent Events (SSE).
 | `response.output_text.done` | Texto completo finalizado |
 | `response.content_part.done` | Parte de conteúdo finalizada |
 | `response.output_item.done` | Item de saída finalizado |
+| `response.reasoning_summary_part.added` | Nova parte do resumo do raciocínio iniciada (com `reasoning.summary`) |
+| `response.reasoning_summary_text.delta` | Fragmento do resumo do raciocínio |
+| `response.reasoning_summary_text.done` | Resumo do raciocínio finalizado |
+| `response.reasoning_summary_part.done` | Parte do resumo do raciocínio finalizada |
 | `response.completed` | Resposta completa (com `usage`) |
 | `response.failed` | Erro durante a geração |
 
 Todos os eventos incluem um campo `sequence_number` incrementado a cada evento.
+
+Nos modelos S5, o item `reasoning` é o primeiro item de saída (`output_index` 0) e já traz o `encrypted_content` em `response.output_item.added` e `response.output_item.done`. Não há eventos com o texto do raciocínio.
 
 ---
 
@@ -256,9 +299,52 @@ Todos os eventos incluem um campo `sequence_number` incrementado a cada evento.
   "tools": [],
   "tool_choice": "auto",
   "parallel_tool_calls": true,
-  "store": false,
+  "store": true,
   "error": null,
   "incomplete_details": null
+}
+```
+
+### Exemplo com raciocínio (S5)
+```json
+{
+  "id": "resp-7c1e9a2b",
+  "object": "response",
+  "status": "completed",
+  "model": "S5",
+  "output": [
+    {
+      "id": "rs_6f1c0d3e",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABp...",
+      "summary": []
+    },
+    {
+      "id": "fc-abc123",
+      "type": "function_call",
+      "name": "get_weather",
+      "arguments": "{\"city\": \"Campinas\"}",
+      "call_id": "call_abc123",
+      "status": "completed"
+    }
+  ],
+  "reasoning": {
+    "effort": "xhigh",
+    "summary": null,
+    "context": "all_turns",
+    "mode": "standard"
+  },
+  "previous_response_id": null,
+  "store": true,
+  "usage": {
+    "input_tokens": 52,
+    "output_tokens": 230,
+    "total_tokens": 282,
+    "output_tokens_details": {
+      "reasoning_tokens": 204
+    }
+  }
 }
 ```
 

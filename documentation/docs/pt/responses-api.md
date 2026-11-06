@@ -227,6 +227,21 @@ curl -X POST https://chat.maritaca.ai/api/v1/responses \
 
 
 
+## Raciocínio (S5)
+
+Nos modelos S5, o `output` começa com um item `reasoning`, com o raciocínio do modelo cifrado em `encrypted_content`, e a mensagem vem depois. Leia a resposta com `response.output_text`. Para o modelo retomar o raciocínio entre chamadas (por exemplo, depois de uma chamada de função), use `previous_response_id` ou devolva os itens do `output` na entrada. O esforço é ajustado com `reasoning.effort`.
+
+```python
+response = client.responses.create(
+    model="S5",
+    reasoning={"effort": "low"},
+    input="Qual é o maior divisor comum de 84 e 120?",
+)
+print(response.output_text)
+```
+
+Detalhes, exemplos completos e resumos do raciocínio em [Raciocínio](raciocinio).
+
 ## Mais exemplos 
 
 ### Exemplo 1 — Chamada de funções (fluxo completo)
