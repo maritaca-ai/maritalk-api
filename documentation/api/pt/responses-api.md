@@ -60,6 +60,40 @@ Resultado de uma chamada de função para devolver ao modelo.
 
 </details>
 
+<details>
+<summary>reasoning (object)</summary>
+
+Item de raciocínio devolvido de uma resposta anterior (modelos S5), para o modelo retomar o raciocínio. Basta repassar o item como veio no `output`. Veja [Raciocínio](/pt/raciocinio).
+
+- **type** (string) **Obrigatório**: Sempre `"reasoning"`.
+- **id** (string): Identificador do item (`rs_...`).
+- **encrypted_content** (string): Raciocínio cifrado, exatamente como veio na resposta. Um valor alterado ou de outra conta retorna `400` (`invalid_encrypted_content`).
+- **content** (array): Deve ficar vazio (`[]`). Texto aqui retorna `400` (`array_above_max_length`).
+- **summary** (array): Resumo recebido; pode ser repassado como veio.
+
+</details>
+
+---
+### reasoning `object ou null` <sup class="sup-opcional">Opcional</sup>
+Configuração do raciocínio (modelos S5). Veja [Raciocínio](/pt/raciocinio).
+
+<details>
+<summary>Mostrar propriedades</summary>
+
+- **effort** (string): Quanto o modelo pensa antes de responder: `none`, `minimal`, `low`, `medium`, `high`, `xhigh` ou `max`. Padrão: `xhigh`. `minimal` equivale a `low`; `high` e `max` equivalem a `xhigh`; `none` desliga o raciocínio.
+- **summary** (string): Pede um resumo legível do raciocínio no item `reasoning`: `auto` (igual a `detailed`), `concise` ou `detailed`. Padrão: sem resumo.
+- **context** (string): Raciocínio de quais turnos o modelo vê: `all_turns` (padrão, todos os turnos anteriores devolvidos) ou `current_turn` (só o gerado depois da última mensagem do usuário).
+
+</details>
+
+---
+### include `array ou null` <sup class="sup-opcional">Opcional</sup>
+Aceita `"reasoning.encrypted_content"`, por compatibilidade com a OpenAI. O `encrypted_content` do item `reasoning` vem sempre, com ou sem este parâmetro.
+
+---
+### previous_response_id `string ou null` <sup class="sup-opcional">Opcional</sup>
+Id de uma resposta anterior guardada (`store: true`). O modelo recebe a conversa daquela resposta, inclusive o raciocínio, e você envia em `input` só o que é novo. Um id inexistente, expirado ou de outra conta retorna `400` (`previous_response_not_found`).
+
 ---
 ### instructions `string ou null` <sup class="sup-opcional">Opcional</sup>
 Instruções de sistema que definem o comportamento do modelo (ex: "Responda sempre em português").
@@ -156,7 +190,7 @@ Pares chave-valor para rastreamento. Máximo 16 pares, chave até 64 caracteres,
 
 ---
 ### store `bool ou null` <sup class="sup-opcional">Opcional</sup>
-Padrão é `false`. Se deve armazenar a resposta no servidor.
+Padrão é `true`. Guarda a resposta por 30 dias, com o raciocínio cifrado, para uso com `previous_response_id`. Use `false` para não guardar nada; nesse caso, devolva os itens do `output` na próxima chamada.
 
 ---
 </div>

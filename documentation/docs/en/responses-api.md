@@ -227,6 +227,21 @@ curl -X POST https://chat.maritaca.ai/api/v1/responses \
 
 
 
+## Reasoning (S5)
+
+On S5 models, `output` starts with a `reasoning` item, with the model's reasoning encrypted in `encrypted_content`, and the message comes after it. Read the answer with `response.output_text`. To let the model resume its reasoning across calls (for example, after a function call), use `previous_response_id` or pass the `output` items back as input. Effort is set with `reasoning.effort`.
+
+```python
+response = client.responses.create(
+    model="S5",
+    reasoning={"effort": "low"},
+    input="What is the greatest common divisor of 84 and 120?",
+)
+print(response.output_text)
+```
+
+Details, full examples and reasoning summaries in [Reasoning](reasoning).
+
 ## More examples
 
 ### Example 1 — Function calling (full flow)
