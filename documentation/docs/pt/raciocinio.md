@@ -5,9 +5,11 @@ title: Raciocínio
 
 # Raciocínio
 
-Os modelos S5 (`S5`, `S5-br-sp` e `S5-free`) pensam antes de responder. Eles geram uma cadeia interna de raciocínio, analisam o pedido, planejam e só então escrevem a resposta ou chamam uma ferramenta. Isso os torna bons em problemas com várias etapas, em fluxos agênticos e em chamadas de função encadeadas.
+Os modelos S5 (`S5`, `S5-br-sp`, `S5-free` e `S5-nano`) pensam antes de responder. Eles geram uma cadeia interna de raciocínio, analisam o pedido, planejam e só então escrevem a resposta ou chamam uma ferramenta. Isso os torna bons em problemas com várias etapas, em fluxos agênticos e em chamadas de função encadeadas.
 
 Na Responses API, o raciocínio aparece no `output` como um item do tipo `reasoning`. O texto do raciocínio é **confidencial**: ele vem sempre **cifrado**, no campo `encrypted_content`, e só a Maritaca consegue lê-lo. Para o modelo continuar de onde parou, devolva esse item na próxima chamada, como no fluxo dos modelos de raciocínio da OpenAI.
+
+A exceção é o **S5-nano**: por ser um modelo de pesos abertos, ele devolve o raciocínio **em texto**, sem cifra. Veja [Raciocínio em texto no S5-nano](#raciocínio-em-texto-no-s5-nano).
 
 ## Começando
 
@@ -229,6 +231,56 @@ for event in stream:
     elif event.type == "response.completed":
         print("\nTokens de raciocínio:", event.response.usage.output_tokens_details.reasoning_tokens)
 ```
+
+## Raciocínio em texto no S5-nano
+
+O `S5-nano` tem [pesos abertos](https://huggingface.co/maritaca-ai/S5-nano), então o raciocínio dele não é confidencial: vem em texto, em qualquer conta, e nunca é cifrado. Todo o resto desta página vale igual (esforço, cobrança, `previous_response_id`, devolver o `output` na entrada).
+
+Na Responses API, o texto vem em `content` do item `reasoning`, como partes do tipo `reasoning_text`, e não há `encrypted_content`:
+
+```json
+{
+  "id": "rs_6f1c...",
+  "type": "reasoning",
+  "content": [{"type": "reasoning_text", "text": "O primeiro trem já andou 40 km às 8h30..."}],
+  "summary": []
+}
+```
+
+```python
+response = client.responses.create(
+    model="S5-nano",
+    reasoning={"effort": "low"},
+    input="Quanto é 17 × 23?",
+)
+
+for item in response.output:
+    if item.type == "reasoning":
+        for part in item.content:
+            print("Raciocínio:", part.text)
+
+print("Resposta:", response.output_text)
+```
+
+Na Chat Completions API, o raciocínio vem no campo `reasoning_content` da mensagem (e de cada `delta`, no streaming):
+
+```python
+completion = client.chat.completions.create(
+    model="S5-nano",
+    reasoning_effort="low",
+    messages=[{"role": "user", "content": "Quanto é 17 × 23?"}],
+)
+
+message = completion.choices[0].message
+print("Raciocínio:", message.to_dict().get("reasoning_content"))
+print("Resposta:", message.content)
+```
+
+Diferenças em relação ao S5:
+
+- Para retomar o raciocínio, devolva o item `reasoning` como veio, com o texto em `content`. Com `previous_response_id`, a Maritaca guarda o texto junto com a resposta.
+- Um item `reasoning` cifrado, gerado pelo `S5`, é ignorado pelo `S5-nano`, e vice-versa.
+- No streaming da Responses API, o texto do raciocínio vem completo no item `reasoning` do evento `response.output_item.done`. Não há eventos de delta com o texto do raciocínio.
 
 ## Dicas
 

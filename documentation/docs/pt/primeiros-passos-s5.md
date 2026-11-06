@@ -106,3 +106,4 @@ for chunk in stream:
 - Com o `S5`, ative a [busca na web](ferramentas) para respostas com informações atualizadas e fontes.
 - Conecte o modelo ao seu código com [chamada de funções](chamada-funcao) e [saídas estruturadas](structured-outputs).
 - Reduza o custo de prompts repetidos com o [cache de prompt](cache-de-prompt): nos modelos S5, tokens reutilizados custam 1/10 do preço.
+- Para tarefas simples em alto volume, troque para o `S5-nano`, a versão compacta do S5 (R$ 0,10 / R$ 0,60 por 1M de tokens). O código é o mesmo.

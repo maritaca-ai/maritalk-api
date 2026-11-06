@@ -53,12 +53,14 @@ List of output items. Each item can be a reasoning item, a message or a function
 <details>
 <summary>reasoning (object)</summary>
 
-The model's reasoning (S5 models). The text is confidential and only comes encrypted. Pass the item back on the next call so the model can resume its reasoning. See [Reasoning](https://docs.maritaca.ai/en/en/reasoning).
+The model's reasoning (S5 models). The text is confidential and only comes encrypted; on `S5-nano` (open weights), it comes as plain text in `content`, with no `encrypted_content`. Pass the item back on the next call so the model can resume its reasoning. See [Reasoning](https://docs.maritaca.ai/en/en/reasoning).
 
 - **id** (string): Unique item identifier (`rs_...`).
 - **type** (string): Always `"reasoning"`.
-- **content** (array): Always empty (`[]`).
-- **encrypted_content** (string): Encrypted reasoning. Can only be used by the same account.
+- **content** (array): Empty (`[]`), except on `S5-nano`, where it carries the reasoning text:
+  - **type** (string): `"reasoning_text"`.
+  - **text** (string): The reasoning text.
+- **encrypted_content** (string): Encrypted reasoning. Can only be used by the same account. Absent on `S5-nano`.
 - **summary** (array): Reasoning summary, when requested in `reasoning.summary`; otherwise empty.
   - **type** (string): `"summary_text"`.
   - **text** (string): Summary text.
@@ -238,7 +240,7 @@ When `stream: true`, the API returns events via Server-Sent Events (SSE).
 
 All events include a `sequence_number` field incremented with each event.
 
-On S5 models, the `reasoning` item is the first output item (`output_index` 0) and already carries `encrypted_content` in `response.output_item.added` and `response.output_item.done`. There are no events with the reasoning text.
+On S5 models, the `reasoning` item is the first output item (`output_index` 0) and already carries `encrypted_content` in `response.output_item.added` and `response.output_item.done`. There are no events with the reasoning text. On `S5-nano` there is no `encrypted_content`: the full reasoning text comes in the `reasoning` item of `response.output_item.done` (in `added`, `content` is empty).
 
 ---
 

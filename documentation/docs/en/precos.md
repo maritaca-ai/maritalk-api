@@ -7,19 +7,19 @@ title: Pricing
 
 All prices are per million tokens processed. Billing considers both input and output tokens.
 
-| | **S5** | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** |
-|---|---|---|---|---|
-| **Input** | R$ 0.50 | R$ 5.00 | R$ 5.00 | R$ 1.00 |
-| **Output** | R$ 2.50 | R$ 40.00 | R$ 20.00 | R$ 4.00 |
-| **Cached input ¹** | R$ 0.05 | R$ 1.25 | R$ 1.25 | R$ 0.25 |
-| **Off-peak input ²** | R$ 0.35 | R$ 3.50 | R$ 3.50 | R$ 0.70 |
-| **Off-peak output ²** | R$ 1.75 | R$ 28.00 | R$ 14.00 | R$ 2.80 |
-| **Flex input ³** | R$ 0.25 | R$ 2.50 | R$ 2.50 | R$ 0.50 |
-| **Flex output ³** | R$ 1.25 | R$ 20.00 | R$ 10.00 | R$ 2.00 |
-| **Batch API input** | R$ 0.25 | R$ 2.50 | R$ 2.50 | R$ 0.50 |
-| **Batch API output** | R$ 1.25 | R$ 20.00 | R$ 10.00 | R$ 2.00 |
+| | **S5** | **S5 Nano** | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** |
+|---|---|---|---|---|---|
+| **Input** | R$ 0.50 | R$ 0.10 | R$ 5.00 | R$ 5.00 | R$ 1.00 |
+| **Output** | R$ 2.50 | R$ 0.60 | R$ 40.00 | R$ 20.00 | R$ 4.00 |
+| **Cached input ¹** | R$ 0.05 | R$ 0.01 | R$ 1.25 | R$ 1.25 | R$ 0.25 |
+| **Off-peak input ²** | R$ 0.35 | R$ 0.07 | R$ 3.50 | R$ 3.50 | R$ 0.70 |
+| **Off-peak output ²** | R$ 1.75 | R$ 0.42 | R$ 28.00 | R$ 14.00 | R$ 2.80 |
+| **Flex input ³** | R$ 0.25 | R$ 0.05 | R$ 2.50 | R$ 2.50 | R$ 0.50 |
+| **Flex output ³** | R$ 1.25 | R$ 0.30 | R$ 20.00 | R$ 10.00 | R$ 2.00 |
+| **Batch API input** | R$ 0.25 | R$ 0.05 | R$ 2.50 | R$ 2.50 | R$ 0.50 |
+| **Batch API output** | R$ 1.25 | R$ 0.30 | R$ 20.00 | R$ 10.00 | R$ 2.00 |
 
-<small>¹ Reused input tokens are charged at a 75% discount (1/4 of the price); on S5 models, at a 90% discount (1/10 of the price). Learn more at [Prompt Caching](prompt-caching).</small>
+<small>¹ Reused input tokens are charged at a 75% discount (1/4 of the price); on S5 models (including S5 Nano), at a 90% discount (1/10 of the price). Learn more at [Prompt Caching](prompt-caching).</small>
 
 <small>² Off-peak: 10 p.m.–6 a.m. BRT.</small>
 

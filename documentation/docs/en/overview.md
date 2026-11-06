@@ -19,6 +19,7 @@ Try S5 in the API at no cost with the `S5-free` model. For ongoing or production
 | `S5-free` | Free for a limited time (text only) |
 | `S5` | R$ 0.50 / R$ 2.50 per 1M tokens (input / output) |
 | `S5-br-sp` | 30% above `S5` |
+| `S5-nano` | R$ 0.10 / R$ 0.60 per 1M tokens (compact version, open weights) |
 :::
 
 <br/>

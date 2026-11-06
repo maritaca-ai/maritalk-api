@@ -19,6 +19,7 @@ Experimente o S5 na API sem custo com o modelo `S5-free`. Para uso contínuo ou 
 | `S5-free` | Gratuito por tempo limitado (somente texto) |
 | `S5` | R$ 0,50 / R$ 2,50 por 1M de tokens (entrada / saída) |
 | `S5-br-sp` | 30% acima do `S5` |
+| `S5-nano` | R$ 0,10 / R$ 0,60 por 1M de tokens (versão compacta, pesos abertos) |
 :::
 
 <br/>

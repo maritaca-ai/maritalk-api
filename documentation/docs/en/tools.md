@@ -7,7 +7,7 @@ title: Built-in Tools
 
 Built-in tools let Sabiá models **search the web, run code, query official Brazilian databases, and generate images on the server side**, without you having to implement or host anything. Unlike [function calls](function-call.md) — which the model delegates back to *your* code — built-in tools run inside Maritaca's infrastructure as an agentic flow: the model decides which tools to call, calls them across multiple steps, and returns only the final answer. The intermediate reasoning and tool calls stay internal.
 
-Availability varies by tool: **web search** works on all Sabiá models, while **code execution**, **Data Ocean**, and **image generation** are available on **`sabia-4`** and **`sabia-4-thinking`** (image generation also on **`S5`**).
+Availability varies by tool: **web search** works on all Sabiá models, while **code execution**, **Data Ocean**, and **image generation** are available on **`sabia-4`** and **`sabia-4-thinking`** (image generation also on **`S5`** and **`S5-nano`**).
 
 ## Available tools
 
@@ -16,7 +16,7 @@ Availability varies by tool: **web search** works on all Sabiá models, while **
 | **Web search** | `web_search` | All Sabiá models | Searches the web and reads pages to answer with up-to-date information and sources. |
 | **Code execution** | `code_execution` | `sabia-4` and `sabia-4-thinking` | Runs Python/Bash in a sandbox to compute, analyze data, and generate files (charts, documents). |
 | **Data Ocean** | `data_ocean` | `sabia-4` and `sabia-4-thinking` | Queries dozens of official Brazilian databases — population, companies, health, climate, public safety, economy, elections, and more — to answer with real figures and sources. |
-| **[Image generation](image-generation.md)** | `image_generation` | `S5`, `sabia-4`, and `sabia-4-thinking` | Creates images from text and edits or combines images sent in the request. |
+| **[Image generation](image-generation.md)** | `image_generation` | `S5`, `S5-nano`, `sabia-4`, and `sabia-4-thinking` | Creates images from text and edits or combines images sent in the request. |
 
 :::info Data Ocean turns on the other tools automatically
 Enabling `data_ocean` also turns on **web search** (`web_search`) and **code execution** (`code_execution`) automatically. Data Ocean answers typically cross official data with web search and calculations. As a result, `data_ocean: true` can incur charges for **Data Ocean + web search + code execution** in the same request (see [Pricing](precos.md#built-in-tools)).
@@ -222,5 +222,5 @@ Built-in tool executions are billed per use, in addition to the usual token cost
 ## Notes and limitations
 
 - **Streaming is not supported** with built-in tools — send `stream: false`. A streaming request that enables a tool returns a `400` error.
-- **Availability depends on the tool**: web search (`web_search`) works on all Sabiá models; code execution (`code_execution`) and Data Ocean (`data_ocean`) work on `sabia-4` and `sabia-4-thinking`; image generation (`image_generation`) works on `S5`, `sabia-4`, and `sabia-4-thinking`. On incompatible models the API returns a 400 error.
+- **Availability depends on the tool**: web search (`web_search`) works on all Sabiá models; code execution (`code_execution`) and Data Ocean (`data_ocean`) work on `sabia-4` and `sabia-4-thinking`; image generation (`image_generation`) works on `S5`, `S5-nano`, `sabia-4`, and `sabia-4-thinking`. On incompatible models the API returns a 400 error.
 - The agentic flow is **internal**: intermediate reasoning and tool calls are not exposed — only the final assistant message (plus any generated files) is returned.

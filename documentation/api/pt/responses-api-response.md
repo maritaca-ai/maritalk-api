@@ -53,12 +53,14 @@ Lista de itens de saída. Cada item pode ser um raciocínio, uma mensagem ou uma
 <details>
 <summary>reasoning (object)</summary>
 
-Raciocínio do modelo (modelos S5). O texto é confidencial e vem só cifrado. Devolva o item na próxima chamada para o modelo retomar o raciocínio. Veja [Raciocínio](/pt/raciocinio).
+Raciocínio do modelo (modelos S5). O texto é confidencial e vem só cifrado; no `S5-nano` (pesos abertos), vem em texto em `content`, sem `encrypted_content`. Devolva o item na próxima chamada para o modelo retomar o raciocínio. Veja [Raciocínio](/pt/raciocinio).
 
 - **id** (string): Identificador único do item (`rs_...`).
 - **type** (string): Sempre `"reasoning"`.
-- **content** (array): Sempre vazio (`[]`).
-- **encrypted_content** (string): Raciocínio cifrado. Só pode ser usado pela mesma conta.
+- **content** (array): Vazio (`[]`), exceto no `S5-nano`, em que traz o texto do raciocínio:
+  - **type** (string): `"reasoning_text"`.
+  - **text** (string): Texto do raciocínio.
+- **encrypted_content** (string): Raciocínio cifrado. Só pode ser usado pela mesma conta. Ausente no `S5-nano`.
 - **summary** (array): Resumo do raciocínio, quando pedido em `reasoning.summary`; senão, vazio.
   - **type** (string): `"summary_text"`.
   - **text** (string): Texto do resumo.
@@ -238,7 +240,7 @@ Quando `stream: true`, a API retorna eventos via Server-Sent Events (SSE).
 
 Todos os eventos incluem um campo `sequence_number` incrementado a cada evento.
 
-Nos modelos S5, o item `reasoning` é o primeiro item de saída (`output_index` 0) e já traz o `encrypted_content` em `response.output_item.added` e `response.output_item.done`. Não há eventos com o texto do raciocínio.
+Nos modelos S5, o item `reasoning` é o primeiro item de saída (`output_index` 0) e já traz o `encrypted_content` em `response.output_item.added` e `response.output_item.done`. Não há eventos com o texto do raciocínio. No `S5-nano`, não há `encrypted_content`: o texto do raciocínio vem completo no item `reasoning` de `response.output_item.done` (no `added`, `content` vem vazio).
 
 ---
 
