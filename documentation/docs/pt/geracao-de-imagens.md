@@ -186,7 +186,3 @@ Os prompts e as imagens passam por filtros de segurança. Se um pedido for bloqu
 - Em modelos sem ferramentas integradas (por exemplo, `sabiazinho-4` e `S5-free`), a API retorna erro `400` (`tool_not_supported_for_model`).
 - Ativar `image_generation` não obriga o modelo a gerar uma imagem: ele só gera quando o pedido pede uma. Requisições sem geração não têm a cobrança de imagem.
 - Você pode combinar `image_generation` com as outras [ferramentas integradas](ferramentas.md), como `web_search`, e com as suas próprias [ferramentas de função](chamada-funcao.md).
-
-:::caution Residência de dados
-A geração de imagens é feita por um parceiro especializado, fora do Brasil, inclusive nos modelos BR-SP. Se o seu caso de uso exige que os dados não saiam do território nacional, não ative `image_generation`.
-:::

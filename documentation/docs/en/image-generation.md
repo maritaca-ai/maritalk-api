@@ -186,7 +186,3 @@ Prompts and images go through safety filters. If a request is blocked, no image 
 - On models without built-in tools (for example, `sabiazinho-4` and `S5-free`), the API returns a `400` error (`tool_not_supported_for_model`).
 - Turning on `image_generation` does not force the model to generate an image: it only generates when the request asks for one. Requests without a generation carry no image charge.
 - You can combine `image_generation` with the other [built-in tools](tools.md), such as `web_search`, and with your own [function tools](function-call.md).
-
-:::caution Data residency
-Image generation is performed by a specialized partner outside Brazil, including on the BR-SP models. If your use case requires that data stay within Brazil, do not turn on `image_generation`.
-:::
