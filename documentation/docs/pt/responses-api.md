@@ -21,7 +21,7 @@ A Responses API substitui a Chat Completions como a interface recomendada para n
 | Endpoint | `POST /v1/chat/completions` | `POST /v1/responses` |
 | Entrada | `messages` (lista de mensagens) | `input` (string ou lista de itens) |
 | Instruções de sistema | Via mensagem com `role: "system"` | Parâmetro dedicado `instructions` |
-| Saída | `choices[0].message.content` | `output[0].content[0].text` |
+| Saída | `choices[0].message.content` | `output_text` (ou os itens de `output`) |
 | Streaming | (`chat.completion.chunk`) | (`response.output_text.delta`, `response.completed`, etc.) |
 | Chamada de funções | Via `tool_calls` no message | Itens tipados `function_call` no output |
 | Saídas estruturadas | `response_format` | `text.format` com `json_schema` |
@@ -35,7 +35,7 @@ A migração é direta. Compare os dois exemplos equivalentes:
 **Chat Completions:**
 ```python
 response = client.chat.completions.create(
-    model="sabia-4",
+    model="S5",
     messages=[
         {"role": "system", "content": "Responda de forma concisa."},
         {"role": "user", "content": "Qual é a capital do Brasil?"},
@@ -48,15 +48,15 @@ print(response.choices[0].message.content)
 **Responses API:**
 ```python
 response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     instructions="Responda de forma concisa.",
     input="Qual é a capital do Brasil?",
     max_output_tokens=200,
 )
-print(response.output[0].content[0].text)
+print(response.output_text)
 ```
 
-As principais mudanças são: `messages` vira `input`, a mensagem `system` vira o parâmetro `instructions`, `max_tokens` vira `max_output_tokens`, e o acesso à resposta muda de `choices[0].message.content` para `output[0].content[0].text`.
+As principais mudanças são: `messages` vira `input`, a mensagem `system` vira o parâmetro `instructions`, `max_tokens` vira `max_output_tokens`, e o acesso à resposta muda de `choices[0].message.content` para `output_text`.
 
 ---
 
@@ -82,11 +82,11 @@ client = openai.OpenAI(
 )
 
 response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     input="Qual é a capital do Brasil?",
 )
 
-print(response.output[0].content[0].text)
+print(response.output_text)
 # "A capital do Brasil é Brasília."
 ```
 
@@ -98,7 +98,7 @@ curl -X POST https://chat.maritaca.ai/api/v1/responses \
   -H "Authorization: Bearer SUA_CHAVE_API" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "sabia-4",
+    "model": "S5",
     "input": "Qual é a capital do Brasil?"
   }'
 ```
@@ -117,7 +117,7 @@ Use quando você tem uma pergunta única, sem necessidade de contexto anterior:
 
 ```python
 response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     input="Qual é a capital do Brasil?",
 )
 ```
@@ -128,7 +128,7 @@ Use quando precisa manter o histórico da conversa ou definir papéis (usuário,
 
 ```python
 response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     input=[
         {"role": "user", "content": "Meu nome é Alice."},
         {"role": "assistant", "content": "Olá Alice! Prazer em conhecê-la."},
@@ -136,7 +136,7 @@ response = client.responses.create(
     ],
 )
 
-print(response.output[0].content[0].text)  # Deve mencionar "Alice"
+print(response.output_text)  # Deve mencionar "Alice"
 ```
 
 Papéis suportados: `user` (usuário), `assistant` (modelo), `system` (instruções de sistema) e `developer` (instruções de desenvolvedor).
@@ -163,12 +163,12 @@ Papéis suportados: `user` (usuário), `assistant` (modelo), `system` (instruç�
 
 ```python
 response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     instructions="Você é um professor de história. Responda de forma didática.",
     input="Quem foi Dom Pedro I?",
 )
 
-print(response.output[0].content[0].text)
+print(response.output_text)
 ```
 
 ## Streaming (resposta em tempo real)
@@ -180,7 +180,7 @@ Por padrão, a API aguarda o modelo gerar toda a resposta antes de retorná-la. 
 
 ```python
 stream = client.responses.create(
-    model="sabia-4",
+    model="S5",
     input="Conte uma breve história sobre o Brasil.",
     stream=True,
 )
@@ -198,7 +198,7 @@ curl -X POST https://chat.maritaca.ai/api/v1/responses \
   -H "Authorization: Bearer SUA_CHAVE_API" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "sabia-4",
+    "model": "S5",
     "input": "Conte uma breve história sobre o Brasil.",
     "stream": true
   }'
@@ -298,14 +298,13 @@ tools = [
 ]
 
 response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     input="Qual é a previsão do tempo no Rio de Janeiro?",
     tools=tools,
 )
 
-# Verificar que o modelo pediu uma chamada de função
-tool_call = response.output[0]
-assert tool_call.type == "function_call"
+# Encontrar a chamada de função (no S5, o primeiro item é o raciocínio)
+tool_call = next(item for item in response.output if item.type == "function_call")
 
 print(f"Função: {tool_call.name}")         # "consultar_previsao_tempo"
 print(f"Argumentos: {tool_call.arguments}") # '{"latitude": -22.9068, "longitude": -43.1729}'
@@ -319,15 +318,10 @@ print(f"Dados reais da API: {resultado_real}")
 
 # Devolver o resultado ao modelo para ele formular a resposta final
 final_response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     input=[
         {"role": "user", "content": "Qual é a previsão do tempo no Rio de Janeiro?"},
-        {
-            "type": "function_call",
-            "call_id": tool_call.call_id,
-            "name": tool_call.name,
-            "arguments": tool_call.arguments,
-        },
+        *response.output,  # raciocínio e chamada de função da resposta anterior
         {
             "type": "function_call_output",
             "call_id": tool_call.call_id,
@@ -337,7 +331,7 @@ final_response = client.responses.create(
     tools=tools,
 )
 
-print(final_response.output[0].content[0].text)
+print(final_response.output_text)
 # "A previsão do tempo no Rio de Janeiro indica uma temperatura atual de 24,8 °C."
 ```
 
@@ -367,7 +361,7 @@ class ExtractedEvents(BaseModel):
 
 # 2. Enviar com formato estruturado
 response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     instructions="Extraia os eventos mencionados no texto.",
     input="A Copa do Mundo de 2014 foi realizada no Brasil. "
           "As Olimpíadas de 2016 aconteceram no Rio de Janeiro.",
@@ -382,7 +376,7 @@ response = client.responses.create(
 )
 
 # 3. Parsear e validar o resultado
-raw_json = response.output[0].content[0].text
+raw_json = response.output_text
 data = json.loads(raw_json)
 result = ExtractedEvents.model_validate(data)
 
@@ -407,7 +401,7 @@ client = openai.OpenAI(
 )
 
 stream = client.responses.create(
-    model="sabia-4",
+    model="S5",
     input="Explique a importância da Floresta Amazônica em 3 parágrafos.",
     stream=True,
 )
@@ -458,12 +452,12 @@ while True:
     history.append({"role": "user", "content": user_input})
 
     response = client.responses.create(
-        model="sabia-4",
+        model="S5",
         instructions="Você é um assistente simpático e prestativo.",
         input=history,
     )
 
-    assistant_message = response.output[0].content[0].text
+    assistant_message = response.output_text
     history.append({"role": "assistant", "content": assistant_message})
 
     print(f"Assistente: {assistant_message}")

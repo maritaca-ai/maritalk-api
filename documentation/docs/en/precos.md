@@ -70,19 +70,16 @@ Because `data_ocean` automatically turns on web search and code execution (see [
 
 ## How do I know how many tokens I will be charged?
 
-To know in advance how much your requests will cost, use the `count_tokens` function to find out the number of tokens in a given prompt.
+Every API response includes the `usage` field, with the input (`prompt_tokens` or `input_tokens`) and output (`completion_tokens` or `output_tokens`) tokens charged. On reasoning models, reasoning tokens are part of the output and show up in `reasoning_tokens`.
 
 ```python
-from maritalk import count_tokens
+response = client.chat.completions.create(
+    model="S5",
+    messages=[{"role": "user", "content": "How many sticks does it take to make a canoe?"}],
+)
 
-prompt = "How many sticks does it take to make a canoe?"
-
-total_tokens = count_tokens(prompt, model="sabia-4")
-
-print(f'The prompt "{prompt}" contains {total_tokens} tokens.')
+print(response.usage)
 ```
-
-You need to install the maritalk library (`pip install maritalk`) to run the code snippet above.
 
 <style>
   {`

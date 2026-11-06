@@ -4,9 +4,9 @@ title: Function Calls
 ---
 
 # Function Calls
-Function calls enable the connection of models like sabiá-3 to external tools and systems on the client side. With this functionality, it's possible to create agents that perform autonomous tasks, interacting with APIs and external systems to carry out specific actions such as querying data, automating processes, or making decisions.
+Function calls enable the connection of models like S5 to external tools and systems on the client side. With this functionality, it's possible to create agents that perform autonomous tasks, interacting with APIs and external systems to carry out specific actions such as querying data, automating processes, or making decisions.
 
-Here is an example of how to provide tools for sabiá-3 using the Responses API:
+Here is an example of how to provide tools for S5 using the Responses API:
 
 ## How to Use Function Calls
 
@@ -86,7 +86,7 @@ client = openai.OpenAI(
 )
 
 response = client.responses.create(
-  model="sabia-4",
+  model="S5",
   instructions="You are an assistant that provides weather forecasts.",
   input="What is the weather forecast for Rio de Janeiro?",
   tools=tools,
@@ -169,9 +169,8 @@ client = openai.OpenAI(
 )
 
 response = client.responses.create(
-  model="sabia-4",
+  model="S5",
   input="What is the id for the clients alexandre and helena? what is the sum of both of them",
-  temperature=0.0,
   tools=tools,  # We pass the registered tools
 )
 ```
@@ -217,16 +216,16 @@ After generating the IDs for the clients, we prepare the final response, which i
 ```python
 # Build the new input including the original conversation and tool outputs
 final_response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     input=[
         {"role": "user", "content": "What is the id for the clients alexandre and helena? what is the sum of both of them"},
-        *[{"type": "function_call", "call_id": item.call_id, "name": item.name, "arguments": item.arguments} for item in response.output if item.type == "function_call"],
+        *response.output,  # Pass back the reasoning and function calls from the previous response
         *all_tool_outputs  # We include the function call output items
     ],
 )
 
 # We print the assistant's final response
-print(final_response.output[0].content[0].text)
+print(final_response.output_text)
 
 ```
 <br/>

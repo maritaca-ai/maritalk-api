@@ -24,7 +24,7 @@ This endpoint calls the model to generate responses based on specified inputs. B
 
 ---
 ### model `string` <sup class="sup-obrigatorio">Required</sup>
-Default is `sabia-4`. The model that will generate the response.
+The model that will generate the response (e.g., `S5`).
 
 ---
 ### messages `array` <sup class="sup-obrigatorio">Required</sup>
@@ -150,7 +150,7 @@ client = openai.OpenAI(
 
 
 completion = client.chat.completions.create(
-  model="sabia-4",
+  model="S5",
   messages= [
     {
       "role": "system",
@@ -170,11 +170,15 @@ print(completion.choices[0].message)
 </TabItem>
 <TabItem value="python2" label="Streaming">
 ```python
-python import openai
-client = openai.OpenAI( api_key=maritaca_key, base_url="https://chat.maritaca.ai/api", )
+import openai
+
+client = openai.OpenAI(
+    api_key=maritaca_key,
+    base_url="https://chat.maritaca.ai/api",
+)
 
 completion = client.chat.completions.create(
-  model="sabia-4", 
+  model="S5", 
   messages= 
   [ 
     { "role": "system", "content": "You are a travel assistant specialized in providing information on tourist destinations, hotels, restaurants, and local activities." }, 
@@ -216,7 +220,7 @@ functions = [
 
 # Define the conversation and use of function_call
 completion = client.chat.completions.create(
-    model="sabia-4",
+    model="S5",
     messages=[
         {
           "role": "system",
@@ -252,7 +256,7 @@ headers = {
 
 # Request body
 data = {
-    "model": "sabia-4",
+    "model": "S5",
     "messages": [
         {
             "role": "system",

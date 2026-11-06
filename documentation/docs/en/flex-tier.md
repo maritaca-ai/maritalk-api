@@ -20,7 +20,7 @@ client = openai.OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="sabiazinho-4",
+    model="S5",
     messages=[
         {"role": "user", "content": "What is the capital of Brazil?"},
     ],
@@ -60,7 +60,7 @@ client = openai.OpenAI(
     base_url="https://chat.maritaca.ai/api",
 )
 
-def chat_flex_with_retry(messages, model="sabiazinho-4", max_retries=5):
+def chat_flex_with_retry(messages, model="S5", max_retries=5):
     for attempt in range(max_retries):
         try:
             response = client.chat.completions.create(

@@ -4,9 +4,9 @@ title: Chamada de funções
 ---
 
 # Chamada de funções
-A chamada de função permite a conexão de modelos como o sabiá-3 a ferramentas e sistemas externos do lado do cliente. Com essa funcionalidade, é possível criar agentes que executam tarefas autônomas, interagindo com APIs e sistemas externos para realizar ações específicas, como consultar dados, automatizar processos ou tomar decisões.
+A chamada de função permite a conexão de modelos como o S5 a ferramentas e sistemas externos do lado do cliente. Com essa funcionalidade, é possível criar agentes que executam tarefas autônomas, interagindo com APIs e sistemas externos para realizar ações específicas, como consultar dados, automatizar processos ou tomar decisões.
 
-Aqui está um exemplo de como fornecer ferramentas para o sabiá-3 usando a Responses API:
+Aqui está um exemplo de como fornecer ferramentas para o S5 usando a Responses API:
 
 ## Como usar a chamada de funções
 
@@ -86,7 +86,7 @@ client = openai.OpenAI(
 )
 
 response = client.responses.create(
-  model="sabia-4",
+  model="S5",
   instructions="Você é um assistente que fornece previsão do tempo.",
   input="Qual é a previsão do tempo para o Rio de Janeiro?",
   tools=tools,  # Aqui registramos as ferramentas que o assistente pode chamar
@@ -171,9 +171,8 @@ client = openai.OpenAI(
 )
 
 response = client.responses.create(
-  model="sabia-4",
+  model="S5",
   input="What is the id for the clients alexandre and helena? what is the sum of both of them",
-  temperature=0.0,
   tools=tools,  # Passamos as ferramentas registradas
 )
 ```
@@ -220,16 +219,16 @@ Depois de gerar os IDs para os clientes, preparamos a resposta final, que inclui
 
 ```python
 final_response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     input=[
         {"role": "user", "content": "What is the id for the clients alexandre and helena? what is the sum of both of them"},
-        *[{"type": "function_call", "call_id": item.call_id, "name": item.name, "arguments": item.arguments} for item in response.output if item.type == "function_call"],
+        *response.output,  # Devolvemos o raciocínio e as chamadas de função da resposta anterior
         *all_tool_outputs  # Incluímos os itens de saída das chamadas de função
     ],
 )
 
 # Imprimimos a resposta final do assistente
-print(final_response.output[0].content[0].text)
+print(final_response.output_text)
 
 ```
 <br/>

@@ -29,8 +29,7 @@ n8n credential.
 Add **OpenAI Chat Model** to the chain or agent's **Chat Model** slot and set:
 
 - **Credential:** `Maritaca AI`.
-- **Model:** select **ID** mode and enter `sabia-4` or
-  `sabia-4-thinking`.
+- **Model:** select **ID** mode and enter `S5`.
 - **Use Responses API:** disabled.
 
 Disabling **Use Responses API** makes the sub-node use Chat Completions, which
@@ -81,16 +80,16 @@ For a direct request, configure an **HTTP Request** node:
 
 ```json
 {
-  "model": "sabia-4",
+  "model": "S5",
   "messages": [
     {
       "role": "user",
       "content": "What is 25 + 27? Include 52 in the answer."
     }
   ],
-  "max_tokens": 100
+  "reasoning_effort": "low"
 }
 ```
 
-To use the reasoning model, only change `model` to `sabia-4-thinking`. Do not
-put the API key directly in the workflow JSON.
+S5 reasons before answering; `reasoning_effort` (`none`, `low`, `medium` or
+`xhigh`, the default) controls how much. Do not put the API key directly in the workflow JSON.

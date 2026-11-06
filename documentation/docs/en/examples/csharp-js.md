@@ -9,12 +9,12 @@ import TabItem from '@theme/TabItem';
 The examples below use the official OpenAI SDKs with Maritaca's compatible
 endpoint. Both make a regular call and complete a full tool-calling cycle.
 
-Set the API key before running the examples. The default model is `sabia-4`; set
-`MARITACA_MODEL=sabia-4-thinking` to use the reasoning model.
+Set the API key before running the examples. The default model is `S5`; to use
+another model, set `MARITACA_MODEL` (for example, `MARITACA_MODEL=S5-free`).
 
 ```bash
 export MARITACA_API_KEY="your-key-here"
-export MARITACA_MODEL="sabia-4"
+export MARITACA_MODEL="S5"
 ```
 
 <Tabs>
@@ -33,7 +33,7 @@ import OpenAI from "openai";
 const apiKey = process.env.MARITACA_API_KEY;
 if (!apiKey) throw new Error("Set MARITACA_API_KEY");
 
-const model = process.env.MARITACA_MODEL ?? "sabia-4";
+const model = process.env.MARITACA_MODEL ?? "S5";
 const client = new OpenAI({
   apiKey,
   baseURL: "https://chat.maritaca.ai/api",
@@ -114,7 +114,7 @@ static int Multiply(int a, int b) => a * b;
 
 string apiKey = Environment.GetEnvironmentVariable("MARITACA_API_KEY")
     ?? throw new InvalidOperationException("MARITACA_API_KEY is required.");
-string model = Environment.GetEnvironmentVariable("MARITACA_MODEL") ?? "sabia-4";
+string model = Environment.GetEnvironmentVariable("MARITACA_MODEL") ?? "S5";
 
 ChatClient client = new ChatClient(
     model: model,
@@ -175,5 +175,4 @@ Console.WriteLine($"Tool response: {final.Content[0].Text}"); // 42
 </Tabs>
 
 Do not rely on `FinishReason` alone to detect a tool request: check whether
-`ToolCalls` contains items. The same flow works with `sabia-4` and
-`sabia-4-thinking`.
+`ToolCalls` contains items.

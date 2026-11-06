@@ -70,19 +70,16 @@ Como o `data_ocean` liga automaticamente a busca na web e a execução de códig
 
 ## Como saber quantos tokens serei cobrado?
 
-Para saber de antemão o quanto suas requisições irão custar, use a função `count_tokens` para saber o número de tokens em um dado prompt.
+Toda resposta da API traz o campo `usage`, com os tokens de entrada (`prompt_tokens` ou `input_tokens`) e de saída (`completion_tokens` ou `output_tokens`) cobrados. Nos modelos com raciocínio, os tokens de raciocínio fazem parte da saída e aparecem em `reasoning_tokens`.
 
 ```python
-from maritalk import count_tokens
+response = client.chat.completions.create(
+    model="S5",
+    messages=[{"role": "user", "content": "Com quantos paus se faz uma canoa?"}],
+)
 
-prompt = "Com quantos paus se faz uma canoa?"
-
-total_tokens = count_tokens(prompt, model="sabia-4")
-
-print(f'O prompt "{prompt}" contém {total_tokens} tokens.')
+print(response.usage)
 ```
-
-É necessário instalar a biblioteca da Maritaca (`pip install maritalk`) para rodar o trecho de código acima.
 
 <style>
   {`

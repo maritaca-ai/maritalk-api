@@ -7,15 +7,15 @@ title: Ferramentas integradas
 
 As ferramentas integradas permitem que os modelos Sabiá **busquem na web, executem código e consultem bases de dados oficiais brasileiras no lado do servidor**, sem que você precise implementar ou hospedar nada. Diferentemente da [chamada de funções](chamada-funcao.md) — em que o modelo delega de volta para o *seu* código — as ferramentas integradas rodam dentro da infraestrutura da Maritaca como um fluxo agêntico: o modelo decide quais ferramentas chamar, as chama em múltiplos passos e retorna apenas a resposta final. O raciocínio e as chamadas de ferramenta intermediários ficam internos.
 
-A disponibilidade varia por ferramenta: a **Busca na web** funciona em todos os modelos Sabiá, enquanto a **Execução de código** e o **Data Ocean** estão disponíveis nos modelos **`sabia-4`** e **`sabia-4-thinking`**.
+A disponibilidade varia por ferramenta: a **Busca na web** funciona em todos os modelos Sabiá (exceto o `S5-free`), enquanto a **Execução de código** e o **Data Ocean** estão disponíveis nos modelos **`S5`**, **`S5-br-sp`**, **`sabia-4`** e **`sabia-4-thinking`**.
 
 ## Ferramentas disponíveis
 
 | Ferramenta | Flag | Modelos | O que faz |
 |---|---|---|---|
-| **Busca na web** | `web_search` | Todos os modelos Sabiá | Pesquisa na web e lê páginas para responder com informações atualizadas e fontes. |
-| **Execução de código** | `code_execution` | `sabia-4` e `sabia-4-thinking` | Executa Python/Bash em um sandbox para calcular, analisar dados e gerar arquivos (gráficos, documentos). |
-| **Data Ocean** | `data_ocean` | `sabia-4` e `sabia-4-thinking` | Consulta dezenas de bases de dados oficiais brasileiras — população, empresas, saúde, clima, segurança, economia, eleições e mais — para responder com números e fontes reais. |
+| **Busca na web** | `web_search` | Todos os modelos Sabiá, exceto o `S5-free` | Pesquisa na web e lê páginas para responder com informações atualizadas e fontes. |
+| **Execução de código** | `code_execution` | `S5`, `S5-br-sp`, `sabia-4` e `sabia-4-thinking` | Executa Python/Bash em um sandbox para calcular, analisar dados e gerar arquivos (gráficos, documentos). |
+| **Data Ocean** | `data_ocean` | `S5`, `S5-br-sp`, `sabia-4` e `sabia-4-thinking` | Consulta dezenas de bases de dados oficiais brasileiras — população, empresas, saúde, clima, segurança, economia, eleições e mais — para responder com números e fontes reais. |
 
 :::info O Data Ocean liga as outras ferramentas automaticamente
 Ao ativar `data_ocean`, a **busca na web** (`web_search`) e a **execução de código** (`code_execution`) também são ativadas automaticamente. As respostas do Data Ocean costumam cruzar dados oficiais com busca na web e cálculos. Como consequência, `data_ocean: true` pode gerar cobranças de **Data Ocean + busca na web + execução de código** na mesma requisição (veja [Preços](precos.md#ferramentas-integradas)).
@@ -34,7 +34,7 @@ curl https://chat.maritaca.ai/api/chat/completions \
   -H "Authorization: Bearer $MARITACA_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "sabia-4-thinking",
+    "model": "S5",
     "stream": false,
     "data_ocean": true,
     "messages": [
@@ -49,7 +49,7 @@ from openai import OpenAI
 client = OpenAI(api_key=MARITACA_API_KEY, base_url="https://chat.maritaca.ai/api")
 
 response = client.chat.completions.create(
-    model="sabia-4-thinking",
+    model="S5",
     stream=False,
     messages=[{"role": "user", "content": "Pesquise na web a cotação atual do dólar e cite a fonte."}],
     extra_body={"web_search": True},
@@ -66,7 +66,7 @@ curl https://chat.maritaca.ai/api/v1/responses \
   -H "Authorization: Bearer $MARITACA_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "sabia-4-thinking",
+    "model": "S5",
     "input": "Gere um gráfico de barras (3, 7, 2, 5) com matplotlib e mostre para mim.",
     "tools": [{"type": "code_interpreter"}]
   }'
@@ -83,7 +83,7 @@ from openai import OpenAI
 client = OpenAI(api_key=MARITACA_API_KEY, base_url="https://chat.maritaca.ai/api")
 
 response = client.responses.create(
-    model="sabia-4-thinking",
+    model="S5",
     input="Gere um gráfico de barras (3, 7, 2, 5) com matplotlib e mostre para mim.",
     tools=[{"type": "code_interpreter"}],  # ou extra_body={"code_execution": True}
 )
@@ -120,7 +120,7 @@ Na Responses API, use `filters` dentro da ferramenta `web_search`:
 
 ```python
 response = client.responses.create(
-    model="sabia-4",
+    model="S5",
     input="Quais foram as decisões recentes do STF sobre o tema?",
     tools=[{
         "type": "web_search",
@@ -133,7 +133,7 @@ Em Chat Completions, envie o filtro pela extensão `web_search_filters`:
 
 ```python
 response = client.chat.completions.create(
-    model="sabia-4",
+    model="S5",
     stream=False,
     messages=[{"role": "user", "content": "Pesquise notícias sobre o tema."}],
     extra_body={
@@ -218,5 +218,5 @@ As execuções de ferramentas integradas são cobradas por uso, além dos custos
 ## Observações e limitações
 
 - **Streaming não é suportado** com ferramentas integradas — envie `stream: false`. Uma requisição em streaming que ative uma ferramenta retorna um erro `400`.
-- **A disponibilidade depende da ferramenta**: a Busca na web (`web_search`) funciona em todos os modelos Sabiá; a Execução de código (`code_execution`) e o Data Ocean (`data_ocean`) funcionam nos modelos `sabia-4` e `sabia-4-thinking`. Em modelos incompatíveis, a API retorna erro 400.
+- **A disponibilidade depende da ferramenta**: a Busca na web (`web_search`) funciona em todos os modelos Sabiá, exceto o `S5-free`; a Execução de código (`code_execution`) e o Data Ocean (`data_ocean`) funcionam nos modelos `S5`, `S5-br-sp`, `sabia-4` e `sabia-4-thinking`. Em modelos incompatíveis, a API retorna erro 400.
 - O fluxo agêntico é **interno**: o raciocínio e as chamadas de ferramenta intermediários não são expostos — apenas a mensagem final do assistente (mais eventuais arquivos gerados) é retornada.

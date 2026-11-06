@@ -264,8 +264,15 @@ On S5 models, the `reasoning` item is the first output item (`output_index` 0) a
   "object": "response",
   "created_at": 1234567890,
   "status": "completed",
-  "model": "sabia-4",
+  "model": "S5",
   "output": [
+    {
+      "id": "rs_6f1c0d3e",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABp...",
+      "summary": []
+    },
     {
       "id": "msg-def456",
       "type": "message",
@@ -282,13 +289,13 @@ On S5 models, the `reasoning` item is the first output item (`output_index` 0) a
   ],
   "usage": {
     "input_tokens": 12,
-    "output_tokens": 8,
-    "total_tokens": 20,
+    "output_tokens": 45,
+    "total_tokens": 57,
     "input_tokens_details": {
       "cached_tokens": 0
     },
     "output_tokens_details": {
-      "reasoning_tokens": 0
+      "reasoning_tokens": 37
     }
   },
   "temperature": 0.7,
@@ -355,8 +362,15 @@ On S5 models, the `reasoning` item is the first output item (`output_index` 0) a
   "object": "response",
   "created_at": 1234567890,
   "status": "completed",
-  "model": "sabia-4",
+  "model": "S5",
   "output": [
+    {
+      "id": "rs_6f1c0d3e",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABp...",
+      "summary": []
+    },
     {
       "id": "fc-abc123",
       "type": "function_call",
@@ -368,8 +382,11 @@ On S5 models, the `reasoning` item is the first output item (`output_index` 0) a
   ],
   "usage": {
     "input_tokens": 25,
-    "output_tokens": 15,
-    "total_tokens": 40
+    "output_tokens": 140,
+    "total_tokens": 165,
+    "output_tokens_details": {
+      "reasoning_tokens": 125
+    }
   }
 }
 ```
