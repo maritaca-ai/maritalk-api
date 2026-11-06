@@ -7,7 +7,7 @@ title: Getting started with S5
 
 # Getting started with S5
 
-S5 is the latest generation of Sabiá: native reasoning with adjustable intensity, up to 1 million tokens of context, and the lowest price in the family. This page shows how to make your first call in a few minutes.
+S5 is our most intelligent model. Use it to analyze documents, work with data, and solve complex tasks. This page shows how to make your first call in a few minutes.
 
 ## Pick the model name
 

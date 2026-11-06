@@ -49,6 +49,6 @@ Se você é novo na Maritaca API, comece aqui para aprender o essencial e fazer 
   <a href="/pt/primeiros-passos-s5" className="icon-box" style={{ flex: '1 1 200px', margin: '10px', textAlign: 'center' }}>
     <span className="geo-icon geo-icon-sabiazinho4" aria-hidden="true"></span>
     <h3>Primeiros passos com o S5</h3>
-    <p>Chame o S5 de graça com o <code>S5-free</code> e ajuste o raciocínio.</p>
+    <p>Experimente o S5 sem custo e veja exemplos de integração com a API.</p>
   </a>
 </div>

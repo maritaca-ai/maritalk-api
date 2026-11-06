@@ -7,7 +7,7 @@ title: Primeiros passos com o S5
 
 # Primeiros passos com o S5
 
-O S5 é a geração mais recente do Sabiá: raciocínio nativo com intensidade ajustável, até 1 milhão de tokens de contexto e o menor preço da família. Esta página mostra como fazer a primeira chamada em poucos minutos.
+O S5 é nosso modelo mais inteligente. Use-o para analisar documentos, trabalhar com dados e resolver tarefas complexas. Esta página mostra como fazer a primeira chamada em poucos minutos.
 
 ## Escolha o nome do modelo
 
