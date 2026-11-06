@@ -5,9 +5,9 @@ title: Ferramentas integradas
 
 # Ferramentas integradas
 
-As ferramentas integradas permitem que os modelos Sabiá **busquem na web, executem código e consultem bases de dados oficiais brasileiras no lado do servidor**, sem que você precise implementar ou hospedar nada. Diferentemente da [chamada de funções](chamada-funcao.md) — em que o modelo delega de volta para o *seu* código — as ferramentas integradas rodam dentro da infraestrutura da Maritaca como um fluxo agêntico: o modelo decide quais ferramentas chamar, as chama em múltiplos passos e retorna apenas a resposta final. O raciocínio e as chamadas de ferramenta intermediários ficam internos.
+As ferramentas integradas permitem que os modelos Sabiá **busquem na web, executem código, consultem bases de dados oficiais brasileiras e gerem imagens no lado do servidor**, sem que você precise implementar ou hospedar nada. Diferentemente da [chamada de funções](chamada-funcao.md) — em que o modelo delega de volta para o *seu* código — as ferramentas integradas rodam dentro da infraestrutura da Maritaca como um fluxo agêntico: o modelo decide quais ferramentas chamar, as chama em múltiplos passos e retorna apenas a resposta final. O raciocínio e as chamadas de ferramenta intermediários ficam internos.
 
-A disponibilidade varia por ferramenta: a **Busca na web** funciona em todos os modelos Sabiá, enquanto a **Execução de código** e o **Data Ocean** estão disponíveis nos modelos **`sabia-4`** e **`sabia-4-thinking`**.
+A disponibilidade varia por ferramenta: a **Busca na web** funciona em todos os modelos Sabiá, enquanto a **Execução de código**, o **Data Ocean** e a **Geração de imagens** estão disponíveis nos modelos **`sabia-4`** e **`sabia-4-thinking`** (a Geração de imagens também no **`S5`**).
 
 ## Ferramentas disponíveis
 
@@ -16,6 +16,7 @@ A disponibilidade varia por ferramenta: a **Busca na web** funciona em todos os 
 | **Busca na web** | `web_search` | Todos os modelos Sabiá | Pesquisa na web e lê páginas para responder com informações atualizadas e fontes. |
 | **Execução de código** | `code_execution` | `sabia-4` e `sabia-4-thinking` | Executa Python/Bash em um sandbox para calcular, analisar dados e gerar arquivos (gráficos, documentos). |
 | **Data Ocean** | `data_ocean` | `sabia-4` e `sabia-4-thinking` | Consulta dezenas de bases de dados oficiais brasileiras — população, empresas, saúde, clima, segurança, economia, eleições e mais — para responder com números e fontes reais. |
+| **[Geração de imagens](geracao-de-imagens.md)** | `image_generation` | `S5`, `sabia-4` e `sabia-4-thinking` | Cria imagens a partir de texto e edita ou combina imagens enviadas na requisição. |
 
 :::info O Data Ocean liga as outras ferramentas automaticamente
 Ao ativar `data_ocean`, a **busca na web** (`web_search`) e a **execução de código** (`code_execution`) também são ativadas automaticamente. As respostas do Data Ocean costumam cruzar dados oficiais com busca na web e cálculos. Como consequência, `data_ocean: true` pode gerar cobranças de **Data Ocean + busca na web + execução de código** na mesma requisição (veja [Preços](precos.md#ferramentas-integradas)).
@@ -104,6 +105,7 @@ Os tipos de ferramenta integrada são mapeados para as flags da seguinte forma:
 | `{"type": "web_search"}` | `web_search` |
 | `{"type": "code_interpreter"}` | `code_execution` |
 | `{"type": "data_ocean"}` | `data_ocean` |
+| `{"type": "image_generation"}` | `image_generation` |
 
 Você pode combinar ferramentas integradas com as suas próprias [ferramentas de função](chamada-funcao.md) na mesma requisição.
 
@@ -164,7 +166,9 @@ Toda resposta informa quantas execuções de ferramenta ocorreram, em `usage.too
     "web_search_calls": 0,
     "page_reads": 0,
     "data_ocean_gb_processed": 0.000161,
-    "code_execution_minutes": 0
+    "code_execution_minutes": 0,
+    "image_generations": 0,
+    "image_generation_input_images": 0
   }
 }
 ```
@@ -209,7 +213,7 @@ Quando a execução de código produz um arquivo (um gráfico ou um documento ed
 ]
 ```
 
-Verifique o `mime_type` para distinguir imagens de documentos. Decodifique o `content_base64` para obter o arquivo.
+Verifique o `mime_type` para distinguir imagens de documentos. Decodifique o `content_base64` para obter o arquivo. Imagens criadas pela [geração de imagens](geracao-de-imagens.md) também vêm em `generated_files` (com `"source": "image_generation"`) ou, na Responses API, como itens `image_generation_call`.
 
 ## Preços
 
@@ -218,5 +222,5 @@ As execuções de ferramentas integradas são cobradas por uso, além dos custos
 ## Observações e limitações
 
 - **Streaming não é suportado** com ferramentas integradas — envie `stream: false`. Uma requisição em streaming que ative uma ferramenta retorna um erro `400`.
-- **A disponibilidade depende da ferramenta**: a Busca na web (`web_search`) funciona em todos os modelos Sabiá; a Execução de código (`code_execution`) e o Data Ocean (`data_ocean`) funcionam nos modelos `sabia-4` e `sabia-4-thinking`. Em modelos incompatíveis, a API retorna erro 400.
+- **A disponibilidade depende da ferramenta**: a Busca na web (`web_search`) funciona em todos os modelos Sabiá; a Execução de código (`code_execution`) e o Data Ocean (`data_ocean`) funcionam nos modelos `sabia-4` e `sabia-4-thinking`; a Geração de imagens (`image_generation`) funciona no `S5`, no `sabia-4` e no `sabia-4-thinking`. Em modelos incompatíveis, a API retorna erro 400.
 - O fluxo agêntico é **interno**: o raciocínio e as chamadas de ferramenta intermediários não são expostos — apenas a mensagem final do assistente (mais eventuais arquivos gerados) é retornada.

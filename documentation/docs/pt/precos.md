@@ -55,7 +55,7 @@ O S5 Free é uma oferta temporária de lançamento e pode ser encerrada a qualqu
 
 ## Ferramentas integradas
 
-As [ferramentas integradas](ferramentas.md) (busca na web, execução de código e Data Ocean) são cobradas por uso, além dos custos normais de tokens. As cobranças são reportadas em `usage.tool_execution_details` e na sua fatura.
+As [ferramentas integradas](ferramentas.md) (busca na web, execução de código, Data Ocean e geração de imagens) são cobradas por uso, além dos custos normais de tokens. As cobranças são reportadas em `usage.tool_execution_details` e na sua fatura.
 
 | Ferramenta | Unidade | Preço (BRL) |
 |---|---|---|
@@ -63,10 +63,14 @@ As [ferramentas integradas](ferramentas.md) (busca na web, execução de código
 | Leitura de página | por página lida | R$ 0,066 |
 | Data Ocean | por GB processado | R$ 0,10 |
 | Execução de código | por minuto (arredondado para cima) | R$ 0,016 |
+| Geração de imagens | por imagem gerada | R$ 0,25 |
+| Geração de imagens: imagem de referência | por imagem enviada usada na geração | R$ 0,10 |
 
 Uma única requisição com `web_search` pode gerar cobranças tanto de `web_search_calls` quanto de `page_reads`: o modelo busca e depois lê uma ou mais páginas de resultado. O tempo de execução de código é o tempo total de computação no sandbox ao longo da requisição, arredondado para o próximo minuto inteiro.
 
 Como o `data_ocean` liga automaticamente a busca na web e a execução de código (veja [Ferramentas integradas](ferramentas.md)), uma requisição com `data_ocean: true` pode gerar cobranças de **Data Ocean, busca na web (`web_search_calls`/`page_reads`) e execução de código** na mesma resposta.
+
+Na [geração de imagens](geracao-de-imagens.md), só as imagens entregues são cobradas: tentativas bloqueadas pela moderação ou que falham não geram cobrança.
 
 ## Como saber quantos tokens serei cobrado?
 
