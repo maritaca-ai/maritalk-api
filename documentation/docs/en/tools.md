@@ -5,9 +5,9 @@ title: Built-in Tools
 
 # Built-in Tools
 
-Built-in tools let Sabiá models **search the web, run code, and query official Brazilian databases on the server side**, without you having to implement or host anything. Unlike [function calls](function-call.md) — which the model delegates back to *your* code — built-in tools run inside Maritaca's infrastructure as an agentic flow: the model decides which tools to call, calls them across multiple steps, and returns only the final answer. The intermediate reasoning and tool calls stay internal.
+Built-in tools let Sabiá models **search the web, run code, query official Brazilian databases, and generate images on the server side**, without you having to implement or host anything. Unlike [function calls](function-call.md) — which the model delegates back to *your* code — built-in tools run inside Maritaca's infrastructure as an agentic flow: the model decides which tools to call, calls them across multiple steps, and returns only the final answer. The intermediate reasoning and tool calls stay internal.
 
-Availability varies by tool: **web search** works on all Sabiá models, while **code execution** and **Data Ocean** are available on **`sabia-4`** and **`sabia-4-thinking`**.
+Availability varies by tool: **web search** works on all Sabiá models, while **code execution**, **Data Ocean**, and **image generation** are available on **`sabia-4`** and **`sabia-4-thinking`** (image generation also on **`S5`**).
 
 ## Available tools
 
@@ -16,6 +16,7 @@ Availability varies by tool: **web search** works on all Sabiá models, while **
 | **Web search** | `web_search` | All Sabiá models | Searches the web and reads pages to answer with up-to-date information and sources. |
 | **Code execution** | `code_execution` | `sabia-4` and `sabia-4-thinking` | Runs Python/Bash in a sandbox to compute, analyze data, and generate files (charts, documents). |
 | **Data Ocean** | `data_ocean` | `sabia-4` and `sabia-4-thinking` | Queries dozens of official Brazilian databases — population, companies, health, climate, public safety, economy, elections, and more — to answer with real figures and sources. |
+| **[Image generation](image-generation.md)** | `image_generation` | `S5`, `sabia-4`, and `sabia-4-thinking` | Creates images from text and edits or combines images sent in the request. |
 
 :::info Data Ocean turns on the other tools automatically
 Enabling `data_ocean` also turns on **web search** (`web_search`) and **code execution** (`code_execution`) automatically. Data Ocean answers typically cross official data with web search and calculations. As a result, `data_ocean: true` can incur charges for **Data Ocean + web search + code execution** in the same request (see [Pricing](precos.md#built-in-tools)).
@@ -104,6 +105,7 @@ The built-in tool types map to the flags as follows:
 | `{"type": "web_search"}` | `web_search` |
 | `{"type": "code_interpreter"}` | `code_execution` |
 | `{"type": "data_ocean"}` | `data_ocean` |
+| `{"type": "image_generation"}` | `image_generation` |
 
 You can mix built-in tools with your own [function tools](function-call.md) in the same request.
 
@@ -164,7 +166,9 @@ Every response reports how many tool executions ran in `usage.tool_execution_det
     "web_search_calls": 0,
     "page_reads": 0,
     "data_ocean_gb_processed": 0.000161,
-    "code_execution_minutes": 0
+    "code_execution_minutes": 0,
+    "image_generations": 0,
+    "image_generation_input_images": 0
   }
 }
 ```
@@ -209,7 +213,7 @@ When code execution produces a file (a chart or an editable document), it is ret
 ]
 ```
 
-Inspect `mime_type` to tell images apart from documents. Decode `content_base64` to obtain the file.
+Inspect `mime_type` to tell images apart from documents. Decode `content_base64` to obtain the file. Images created by [image generation](image-generation.md) also come in `generated_files` (with `"source": "image_generation"`) or, in the Responses API, as `image_generation_call` items.
 
 ## Pricing
 
@@ -218,5 +222,5 @@ Built-in tool executions are billed per use, in addition to the usual token cost
 ## Notes and limitations
 
 - **Streaming is not supported** with built-in tools — send `stream: false`. A streaming request that enables a tool returns a `400` error.
-- **Availability depends on the tool**: web search (`web_search`) works on all Sabiá models; code execution (`code_execution`) and Data Ocean (`data_ocean`) work on `sabia-4` and `sabia-4-thinking`. On incompatible models the API returns a 400 error.
+- **Availability depends on the tool**: web search (`web_search`) works on all Sabiá models; code execution (`code_execution`) and Data Ocean (`data_ocean`) work on `sabia-4` and `sabia-4-thinking`; image generation (`image_generation`) works on `S5`, `sabia-4`, and `sabia-4-thinking`. On incompatible models the API returns a 400 error.
 - The agentic flow is **internal**: intermediate reasoning and tool calls are not exposed — only the final assistant message (plus any generated files) is returned.

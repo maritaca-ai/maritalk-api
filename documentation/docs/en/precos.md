@@ -55,7 +55,7 @@ S5 Free is a temporary launch offer and may be discontinued at any time. For ong
 
 ## Built-in tools
 
-[Built-in tool](tools.md) executions (web search, code execution, and Data Ocean) are billed per use, in addition to the usual token costs. Charges are reported in `usage.tool_execution_details` and on your invoice.
+[Built-in tool](tools.md) executions (web search, code execution, Data Ocean, and image generation) are billed per use, in addition to the usual token costs. Charges are reported in `usage.tool_execution_details` and on your invoice.
 
 | Tool | Unit | Price (BRL) |
 |---|---|---|
@@ -63,10 +63,14 @@ S5 Free is a temporary launch offer and may be discontinued at any time. For ong
 | Page read | per page read | R$ 0.066 |
 | Data Ocean | per GB scanned | R$ 0.10 |
 | Code execution | per minute (rounded up) | R$ 0.016 |
+| Image generation | per generated image | R$ 0.25 |
+| Image generation: reference image | per input image used in the generation | R$ 0.10 |
 
 A single `web_search` request can incur both `web_search_calls` and `page_reads` charges: the model searches, then reads one or more result pages. Code execution time is the total sandbox compute time across the request, rounded up to the next whole minute.
 
 Because `data_ocean` automatically turns on web search and code execution (see [Built-in tools](tools.md)), a request with `data_ocean: true` can incur charges for **Data Ocean, web search (`web_search_calls`/`page_reads`), and code execution** in the same response.
+
+For [image generation](image-generation.md), only delivered images are billed: attempts blocked by moderation or that fail are free.
 
 ## How do I know how many tokens I will be charged?
 
