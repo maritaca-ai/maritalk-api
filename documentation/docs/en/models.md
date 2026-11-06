@@ -31,7 +31,7 @@ S5 Free is a temporary launch offer and may be discontinued at any time. For ong
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5 Nano</span></span>
 
-A compact version of S5, with **open weights** ([maritaca-ai/S5-nano on Hugging Face](https://huggingface.co/maritaca-ai/S5-nano)) and the lowest cost in the family: R$ 0.10 per 1M input tokens and R$ 0.60 per 1M output tokens. It has the same **native reasoning** as S5, adjustable with `reasoning_effort` (`none`, `low`, `medium`, or `xhigh`, the default), and, as an open model, returns its reasoning **as plain text**, unencrypted (see [Reasoning](reasoning)). It supports up to **256K tokens of context**, function calling, [built-in tools](tools), and the Batch API. Accepted API names: `S5-nano` or `s5-nano`.
+A compact version of S5, with **open weights** ([maritaca-ai/S5-nano on Hugging Face](https://huggingface.co/maritaca-ai/S5-nano)) and the lowest cost in the family: R$ 0.10 per 1M input tokens and R$ 0.60 per 1M output tokens. It has the same **native reasoning** as S5 and, as an open model, returns its reasoning **as plain text**, unencrypted (see [Reasoning](reasoning)). It supports up to **256K tokens of context**, function calling, [built-in tools](tools), and the Batch API. Accepted API names: `S5-nano` or `s5-nano`.
 
 **Use cases:** High-volume classification and information extraction, customer support and chat with fast responses, routing and triage in agentic flows, and simple tasks where cost and latency matter more than peak quality.
 

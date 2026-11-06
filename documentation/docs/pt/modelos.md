@@ -31,7 +31,7 @@ O S5 Free é uma oferta temporária de lançamento e pode ser encerrada a qualqu
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5 Nano</span></span>
 
-Versão compacta do S5, com **pesos abertos** ([maritaca-ai/S5-nano no Hugging Face](https://huggingface.co/maritaca-ai/S5-nano)) e o melhor custo da família: R$ 0,10 por 1M de tokens de entrada e R$ 0,60 por 1M de saída. Tem o mesmo **raciocínio nativo** do S5, ajustável por `reasoning_effort` (`none`, `low`, `medium` ou `xhigh`, o padrão), e, por ser um modelo aberto, devolve o raciocínio **em texto**, sem cifra (veja [Raciocínio](raciocinio)). Suporta até **256 mil tokens de contexto**, chamada de funções, [ferramentas integradas](ferramentas) e Batch API. Nomes aceitos na API: `S5-nano` ou `s5-nano`.
+Versão compacta do S5, com **pesos abertos** ([maritaca-ai/S5-nano no Hugging Face](https://huggingface.co/maritaca-ai/S5-nano)) e o melhor custo da família: R$ 0,10 por 1M de tokens de entrada e R$ 0,60 por 1M de saída. Tem o mesmo **raciocínio nativo** do S5 e, por ser um modelo aberto, devolve o raciocínio **em texto**, sem cifra (veja [Raciocínio](raciocinio)). Suporta até **256 mil tokens de contexto**, chamada de funções, [ferramentas integradas](ferramentas) e Batch API. Nomes aceitos na API: `S5-nano` ou `s5-nano`.
 
 **Exemplos de uso:** Classificação e extração de informações em alto volume, atendimento e conversas com respostas rápidas, roteamento e triagem em fluxos agênticos, e tarefas simples em que custo e latência importam mais que o máximo de qualidade.
 
