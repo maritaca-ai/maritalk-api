@@ -33,38 +33,39 @@ Observação:
 
 ## Níveis de uso
 
-Conforme o uso e o gasto na API aumentam, você é automaticamente promovido para o próximo nível. Cada nível oferece rate limits mais altos para os modelos.  
-**Observação:** créditos iniciais e cupons não contam para subir de tier, apenas os gastos na API.
+Seu tier é definido pelo valor acumulado em compras de créditos. Assim que o pagamento é confirmado, seus rate limits aumentam automaticamente se o total comprado atingir um novo tier. Não é necessário consumir os créditos para liberar os novos limites.
+
+**Observação:** créditos iniciais gratuitos e cupons não contam para subir de tier, apenas compras de créditos. A primeira compra já libera o Tier 1 ou superior, conforme o valor comprado.
 
 <div className="tier-grid">
   <div className="tier-card">
     <div className="tier-chip">Tier 0</div>
-    <p className="tier-meta">Gasto requerido: R$ 0</p>
+    <p className="tier-meta">Total em compras de créditos: R$ 0</p>
     <p className="tier-note">Para começar a testar</p>
   </div>
   <div className="tier-card">
     <div className="tier-chip">Tier 1</div>
-    <p className="tier-meta">Gasto requerido: qualquer valor</p>
-    <p className="tier-note">Assim que tiver uso pago</p>
+    <p className="tier-meta">Total em compras de créditos: qualquer valor</p>
+    <p className="tier-note">Assim que o primeiro pagamento for confirmado</p>
   </div>
   <div className="tier-card">
     <div className="tier-chip">Tier 2</div>
-    <p className="tier-meta">Gasto requerido: R$ 100</p>
+    <p className="tier-meta">Total em compras de créditos: R$ 100</p>
     <p className="tier-note">Mais fôlego para protótipos</p>
   </div>
   <div className="tier-card">
     <div className="tier-chip">Tier 3</div>
-    <p className="tier-meta">Gasto requerido: R$ 500</p>
+    <p className="tier-meta">Total em compras de créditos: R$ 500</p>
     <p className="tier-note">Para workloads consistentes</p>
   </div>
   <div className="tier-card">
     <div className="tier-chip">Tier 4</div>
-    <p className="tier-meta">Gasto requerido: R$ 2.000</p>
+    <p className="tier-meta">Total em compras de créditos: R$ 2.000</p>
     <p className="tier-note">Operação em produção</p>
   </div>
   <div className="tier-card">
     <div className="tier-chip">Tier 5</div>
-    <p className="tier-meta">Gasto requerido: R$ 5.000</p>
+    <p className="tier-meta">Total em compras de créditos: R$ 5.000</p>
     <p className="tier-note">Altos volumes e squads</p>
   </div>
 </div>
