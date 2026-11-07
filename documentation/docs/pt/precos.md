@@ -7,17 +7,33 @@ title: Preços
 
 Todos os preços são por milhão de tokens processados. A cobrança considera tanto tokens de input quanto de output.
 
-| | **S5** | **S5 Nano** | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** |
-|---|---|---|---|---|---|
-| **Input** | R$ 0,50 | R$ 0,10 | R$ 5,00 | R$ 5,00 | R$ 1,00 |
-| **Output** | R$ 2,50 | R$ 0,60 | R$ 40,00 | R$ 20,00 | R$ 4,00 |
-| **Input em cache ¹** | R$ 0,05 | R$ 0,01 | R$ 1,25 | R$ 1,25 | R$ 0,25 |
-| **Input noturno ²** | R$ 0,35 | R$ 0,07 | R$ 3,50 | R$ 3,50 | R$ 0,70 |
-| **Output noturno ²** | R$ 1,75 | R$ 0,42 | R$ 28,00 | R$ 14,00 | R$ 2,80 |
-| **Input Flex ³** | R$ 0,25 | R$ 0,05 | R$ 2,50 | R$ 2,50 | R$ 0,50 |
-| **Output Flex ³** | R$ 1,25 | R$ 0,30 | R$ 20,00 | R$ 10,00 | R$ 2,00 |
-| **Input Batch API** | R$ 0,25 | R$ 0,05 | R$ 2,50 | R$ 2,50 | R$ 0,50 |
-| **Output Batch API** | R$ 1,25 | R$ 0,30 | R$ 20,00 | R$ 10,00 | R$ 2,00 |
+## Modelos
+
+| | **S5** | **S5 Nano** |
+|---|---|---|
+| **Input** | R$ 0,50 | R$ 0,10 |
+| **Output** | R$ 2,50 | R$ 0,60 |
+| **Input em cache ¹** | R$ 0,05 | R$ 0,01 |
+| **Input noturno ²** | R$ 0,35 | R$ 0,07 |
+| **Output noturno ²** | R$ 1,75 | R$ 0,42 |
+| **Input Flex ³** | R$ 0,25 | R$ 0,05 |
+| **Output Flex ³** | R$ 1,25 | R$ 0,30 |
+| **Input Batch API** | R$ 0,25 | R$ 0,05 |
+| **Output Batch API** | R$ 1,25 | R$ 0,30 |
+
+### Geração anterior
+
+| | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** |
+|---|---|---|---|
+| **Input** | R$ 5,00 | R$ 5,00 | R$ 1,00 |
+| **Output** | R$ 40,00 | R$ 20,00 | R$ 4,00 |
+| **Input em cache ¹** | R$ 1,25 | R$ 1,25 | R$ 0,25 |
+| **Input noturno ²** | R$ 3,50 | R$ 3,50 | R$ 0,70 |
+| **Output noturno ²** | R$ 28,00 | R$ 14,00 | R$ 2,80 |
+| **Input Flex ³** | R$ 2,50 | R$ 2,50 | R$ 0,50 |
+| **Output Flex ³** | R$ 20,00 | R$ 10,00 | R$ 2,00 |
+| **Input Batch API** | R$ 2,50 | R$ 2,50 | R$ 0,50 |
+| **Output Batch API** | R$ 20,00 | R$ 10,00 | R$ 2,00 |
 
 <small>¹ Tokens de input reutilizados entre requisições são cobrados com 75% de desconto (1/4 do preço); nos modelos S5 (incluindo o S5 Nano), com 90% de desconto (1/10 do preço). Saiba mais em [Cache de Prompt](cache-de-prompt).</small>
 
@@ -33,17 +49,31 @@ O desconto de cache (75%) se aplica apenas aos tokens de input em cache. Os desc
 
 Os modelos BR-SP têm inferência e processamento realizados 100% em território nacional, com os mesmos preços do modelo correspondente acrescidos de 30%. Nomes na API: `S5-br-sp`, `sabia-4-thinking-br-sp`, `sabia-4-br-sp`, `sabiazinho-4-br-sp`.
 
-| | **S5 BR-SP** | **Sabiá 4 Thinking BR-SP** | **Sabiá 4 BR-SP** | **Sabiazinho 4 BR-SP** |
-|---|---|---|---|---|
-| **Input** | R$ 0,65 | R$ 6,50 | R$ 6,50 | R$ 1,30 |
-| **Output** | R$ 3,25 | R$ 52,00 | R$ 26,00 | R$ 5,20 |
-| **Input em cache ¹** | R$ 0,065 | R$ 1,63 | R$ 1,63 | R$ 0,33 |
-| **Input noturno ²** | R$ 0,455 | R$ 4,55 | R$ 4,55 | R$ 0,91 |
-| **Output noturno ²** | R$ 2,275 | R$ 36,40 | R$ 18,20 | R$ 3,64 |
-| **Input Flex ³** | R$ 0,325 | R$ 3,25 | R$ 3,25 | R$ 0,65 |
-| **Output Flex ³** | R$ 1,625 | R$ 26,00 | R$ 13,00 | R$ 2,60 |
-| **Input Batch API** | R$ 0,325 | R$ 3,25 | R$ 3,25 | R$ 0,65 |
-| **Output Batch API** | R$ 1,625 | R$ 26,00 | R$ 13,00 | R$ 2,60 |
+| | **S5 BR-SP** |
+|---|---|
+| **Input** | R$ 0,65 |
+| **Output** | R$ 3,25 |
+| **Input em cache ¹** | R$ 0,065 |
+| **Input noturno ²** | R$ 0,455 |
+| **Output noturno ²** | R$ 2,275 |
+| **Input Flex ³** | R$ 0,325 |
+| **Output Flex ³** | R$ 1,625 |
+| **Input Batch API** | R$ 0,325 |
+| **Output Batch API** | R$ 1,625 |
+
+### Geração anterior
+
+| | **Sabiá 4 Thinking BR-SP** | **Sabiá 4 BR-SP** | **Sabiazinho 4 BR-SP** |
+|---|---|---|---|
+| **Input** | R$ 6,50 | R$ 6,50 | R$ 1,30 |
+| **Output** | R$ 52,00 | R$ 26,00 | R$ 5,20 |
+| **Input em cache ¹** | R$ 1,63 | R$ 1,63 | R$ 0,33 |
+| **Input noturno ²** | R$ 4,55 | R$ 4,55 | R$ 0,91 |
+| **Output noturno ²** | R$ 36,40 | R$ 18,20 | R$ 3,64 |
+| **Input Flex ³** | R$ 3,25 | R$ 3,25 | R$ 0,65 |
+| **Output Flex ³** | R$ 26,00 | R$ 13,00 | R$ 2,60 |
+| **Input Batch API** | R$ 3,25 | R$ 3,25 | R$ 0,65 |
+| **Output Batch API** | R$ 26,00 | R$ 13,00 | R$ 2,60 |
 
 ## S5 Free
 

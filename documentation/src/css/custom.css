@@ -1388,3 +1388,13 @@ html[data-theme='dark'] .theme-code-block button.clean-btn {
   .s5c-mid { display: none; }
   .s5c-bg, .s5c-name, .s5c-eyebrow, .s5c-p, .s5c-ctas { animation: none; }
 }
+
+/* Separate the Sabiá 4 family in the tier tables. */
+.theme-doc-markdown table .model-generation-divider th {
+  padding: 0.65rem 0.85rem;
+  background: var(--table-header-bg);
+  color: var(--table-header-text);
+  border-top: 2px solid var(--table-border-color);
+  text-align: left;
+  font-weight: 600;
+}
