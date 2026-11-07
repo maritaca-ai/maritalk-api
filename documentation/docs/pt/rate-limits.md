@@ -71,7 +71,7 @@ Conforme o uso e o gasto na API aumentam, você é automaticamente promovido par
 
 ## Limites por tier
 
-O `S5`, o `S5-nano` e o `S5-br-sp` têm os mesmos limites em todos os tiers (cada modelo com a sua própria cota). O `S5-free` (disponível por tempo limitado) tem limite fixo, igual em todos os tiers: 60 RPM, 256k TPM de input e 256k TPM de output (sem Batch API).
+O `S5`, o `S5-br-sp` e o `S5-nano` têm os mesmos limites em todos os tiers (cada modelo com a sua própria cota). O `S5-free` (disponível por tempo limitado) tem limite fixo, igual em todos os tiers: 60 RPM, 256k TPM de input e 256k TPM de output (sem Batch API).
 
 <div className="tier-grid tier-grid--wide">
   <div className="tier-card tier-card--table">

@@ -5,7 +5,7 @@ title: Reasoning
 
 # Reasoning
 
-The S5 models (`S5`, `S5-nano`, `S5-br-sp` and `S5-free`) think before they answer. They produce an internal chain of reasoning, analyze the request, plan, and only then write the answer or call a tool. This makes them strong at multi-step problems, agentic workflows and chained function calls.
+The S5 models (`S5`, `S5-free`, `S5-br-sp` and `S5-nano`) think before they answer. They produce an internal chain of reasoning, analyze the request, plan, and only then write the answer or call a tool. This makes them strong at multi-step problems, agentic workflows and chained function calls.
 
 In the Responses API, reasoning shows up in `output` as an item of type `reasoning`. The reasoning text is **confidential**: it is always **encrypted**, in the `encrypted_content` field, and only Maritaca can read it. To let the model pick up where it left off, pass that item back on the next call, just like the flow for OpenAI's reasoning models.
 
