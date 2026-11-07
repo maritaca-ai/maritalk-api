@@ -75,7 +75,7 @@ curl https://chat.maritaca.ai/api/chat/completions \
 
 ## 3. Ajuste o raciocínio
 
-O S5 pensa antes de responder. O parâmetro `reasoning_effort` controla quanto: `none` (desliga o raciocínio, respostas mais rápidas), `low`, `medium` ou `xhigh` (o padrão). Só a resposta final é devolvida; o raciocínio fica interno.
+O S5 pensa antes de responder. O parâmetro `reasoning_effort` controla quanto: `none` (desliga o raciocínio, respostas mais rápidas), `low` (ou `minimal`), `medium` ou `xhigh` (o padrão, também aceito como `high`). Só a resposta final é devolvida; o raciocínio fica interno.
 
 ```python
 response = client.chat.completions.create(

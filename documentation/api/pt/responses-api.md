@@ -75,12 +75,12 @@ Item de raciocínio devolvido de uma resposta anterior (modelos S5), para o mode
 
 ---
 ### reasoning `object ou null` <sup class="sup-opcional">Opcional</sup>
-Configuração do raciocínio (modelos S5). Veja [Raciocínio](/pt/raciocinio).
+Configuração do raciocínio (modelos S5). Se `reasoning` ou `reasoning.effort` for omitido ou `null`, usa **`xhigh`**. Veja [Raciocínio](/pt/raciocinio).
 
 <details>
 <summary>Mostrar propriedades</summary>
 
-- **effort** (string): Quanto o modelo pensa antes de responder: `none`, `minimal`, `low`, `medium`, `high`, `xhigh` ou `max`. Padrão: `xhigh`. `minimal` equivale a `low`; `high` e `max` equivalem a `xhigh`; `none` desliga o raciocínio.
+- **effort** (string ou null): Quanto o modelo pensa antes de responder: `none`, `minimal`, `low`, `medium`, `high`, `xhigh` ou `max`. Padrão: `xhigh`. `minimal` equivale a `low`; `high` e `max` equivalem a `xhigh`; `none` desliga o raciocínio.
 - **summary** (string): Pede um resumo legível do raciocínio no item `reasoning`: `auto` (igual a `detailed`), `concise` ou `detailed`. Padrão: sem resumo.
 - **context** (string): Raciocínio de quais turnos o modelo vê: `all_turns` (padrão, todos os turnos anteriores devolvidos) ou `current_turn` (só o gerado depois da última mensagem do usuário).
 
