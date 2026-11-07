@@ -33,38 +33,39 @@ Note:
 
 ## Usage Levels
 
-As your API usage and spending increase, you are automatically promoted to the next tier. Each tier provides higher rate limits for the models.
-**Note:** Initial credits and coupons do not count towards tier upgrades; only API spending does.
+Your tier is determined by your total credit purchases. As soon as payment is confirmed, your rate limits automatically increase if your total purchases reach a new tier. You do not need to consume the credits to unlock the higher limits.
+
+**Note:** Free initial credits and coupons do not count towards tier upgrades; only credit purchases do. Your first purchase unlocks Tier 1 or higher, depending on the amount purchased.
 
 <div className="tier-grid">
   <div className="tier-card">
     <div className="tier-chip">Tier 0</div>
-    <p className="tier-meta">Required spending: R$ 0</p>
+    <p className="tier-meta">Total credit purchases: R$ 0</p>
     <p className="tier-note">To start testing</p>
   </div>
   <div className="tier-card">
     <div className="tier-chip">Tier 1</div>
-    <p className="tier-meta">Required spending: any amount</p>
-    <p className="tier-note">Once you have paid usage</p>
+    <p className="tier-meta">Total credit purchases: any amount</p>
+    <p className="tier-note">As soon as the first payment is confirmed</p>
   </div>
   <div className="tier-card">
     <div className="tier-chip">Tier 2</div>
-    <p className="tier-meta">Required spending: R$ 100</p>
+    <p className="tier-meta">Total credit purchases: R$ 100</p>
     <p className="tier-note">More room for prototypes</p>
   </div>
   <div className="tier-card">
     <div className="tier-chip">Tier 3</div>
-    <p className="tier-meta">Required spending: R$ 500</p>
+    <p className="tier-meta">Total credit purchases: R$ 500</p>
     <p className="tier-note">For consistent workloads</p>
   </div>
   <div className="tier-card">
     <div className="tier-chip">Tier 4</div>
-    <p className="tier-meta">Required spending: R$ 2,000</p>
+    <p className="tier-meta">Total credit purchases: R$ 2,000</p>
     <p className="tier-note">Production operation</p>
   </div>
   <div className="tier-card">
     <div className="tier-chip">Tier 5</div>
-    <p className="tier-meta">Required spending: R$ 5,000</p>
+    <p className="tier-meta">Total credit purchases: R$ 5,000</p>
     <p className="tier-note">High volumes and squads</p>
   </div>
 </div>
