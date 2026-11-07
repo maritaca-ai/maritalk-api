@@ -75,12 +75,12 @@ Reasoning item returned by a previous response (S5 models), so the model can res
 
 ---
 ### reasoning `object or null` <sup class="sup-opcional">Optional</sup>
-Reasoning configuration (S5 models). See [Reasoning](https://docs.maritaca.ai/en/en/reasoning).
+Reasoning configuration (S5 models). If `reasoning` or `reasoning.effort` is omitted or `null`, it defaults to **`xhigh`**. See [Reasoning](https://docs.maritaca.ai/en/en/reasoning).
 
 <details>
 <summary>Show properties</summary>
 
-- **effort** (string): How much the model thinks before answering: `none`, `minimal`, `low`, `medium`, `high`, `xhigh` or `max`. Default: `xhigh`. `minimal` is the same as `low`; `high` and `max` are the same as `xhigh`; `none` turns reasoning off.
+- **effort** (string or null): How much the model thinks before answering: `none`, `minimal`, `low`, `medium`, `high`, `xhigh` or `max`. Default: `xhigh`. `minimal` is the same as `low`; `high` and `max` are the same as `xhigh`; `none` turns reasoning off.
 - **summary** (string): Requests a readable summary of the reasoning in the `reasoning` item: `auto` (same as `detailed`), `concise` or `detailed`. Default: no summary.
 - **context** (string): Which turns' reasoning the model sees: `all_turns` (default, every previous turn passed back) or `current_turn` (only what was generated after the last user message).
 

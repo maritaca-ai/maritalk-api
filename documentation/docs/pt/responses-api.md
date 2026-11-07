@@ -229,7 +229,7 @@ curl -X POST https://chat.maritaca.ai/api/v1/responses \
 
 ## Raciocínio (S5)
 
-Nos modelos S5, o `output` começa com um item `reasoning`, com o raciocínio do modelo cifrado em `encrypted_content`, e a mensagem vem depois. No `S5-nano` (pesos abertos), o raciocínio vem em texto, em `content`, sem cifra. Leia a resposta com `response.output_text`. Para o modelo retomar o raciocínio entre chamadas (por exemplo, depois de uma chamada de função), use `previous_response_id` ou devolva os itens do `output` na entrada. O esforço é ajustado com `reasoning.effort`.
+Nos modelos S5, o `output` começa com um item `reasoning`, com o raciocínio do modelo cifrado em `encrypted_content`, e a mensagem vem depois. No `S5-nano` (pesos abertos), o raciocínio vem em texto, em `content`, sem cifra. Leia a resposta com `response.output_text`. Para o modelo retomar o raciocínio entre chamadas (por exemplo, depois de uma chamada de função), use `previous_response_id` ou devolva os itens do `output` na entrada. O esforço é ajustado com `reasoning.effort` (em Chat Completions, `reasoning_effort`). No S5, `minimal` equivale a `low` e `high` equivale a `xhigh`. Se omitido, usa **`xhigh`**; `none` desliga o raciocínio.
 
 ```python
 response = client.responses.create(

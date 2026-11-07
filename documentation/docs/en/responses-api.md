@@ -229,7 +229,7 @@ curl -X POST https://chat.maritaca.ai/api/v1/responses \
 
 ## Reasoning (S5)
 
-On S5 models, `output` starts with a `reasoning` item, with the model's reasoning encrypted in `encrypted_content`, and the message comes after it. On `S5-nano` (open weights), the reasoning comes as plain text in `content`, unencrypted. Read the answer with `response.output_text`. To let the model resume its reasoning across calls (for example, after a function call), use `previous_response_id` or pass the `output` items back as input. Effort is set with `reasoning.effort`.
+On S5 models, `output` starts with a `reasoning` item, with the model's reasoning encrypted in `encrypted_content`, and the message comes after it. On `S5-nano` (open weights), the reasoning comes as plain text in `content`, unencrypted. Read the answer with `response.output_text`. To let the model resume its reasoning across calls (for example, after a function call), use `previous_response_id` or pass the `output` items back as input. Effort is set with `reasoning.effort` (`reasoning_effort` in Chat Completions). For S5, `minimal` is equivalent to `low` and `high` is equivalent to `xhigh`. If omitted, it defaults to **`xhigh`**; `none` disables reasoning.
 
 ```python
 response = client.responses.create(

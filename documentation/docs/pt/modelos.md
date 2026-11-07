@@ -15,7 +15,7 @@ Nosso modelo mais inteligente, indicado para analisar documentos, trabalhar com 
 
 **Exemplos de uso:** Análise e síntese de documentos, extração de informações, automação de tarefas com ferramentas e geração de conteúdo estruturado.
 
-**Detalhes da API:** O parâmetro `reasoning_effort` controla a intensidade do raciocínio (`none`, `low`, `medium` ou `xhigh`, o padrão). O S5 suporta até 1 milhão de tokens de contexto e 64K tokens de saída, e está disponível também na Batch API. Nomes aceitos na API: `S5` ou `s5`.
+**Detalhes da API:** O parâmetro `reasoning_effort` controla a intensidade do raciocínio (`none`, `low` ou `minimal`, `medium`, `xhigh` ou `high`; padrão: `xhigh`). O S5 suporta até 1 milhão de tokens de contexto e 64K tokens de saída, e está disponível também na Batch API. Nomes aceitos na API: `S5` ou `s5`.
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5 Free</span></span>
 

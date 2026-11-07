@@ -65,6 +65,18 @@ Mensagens enviadas ao modelo. Espera-se uma lista de mensagens, cada uma com "ro
 
 ---
 
+### reasoning_effort `string ou null` <sup class="sup-opcional">Opcional</sup>
+Controla o nível de raciocínio do **S5**. Quando omitido, usa **`xhigh`**.
+
+| Valor enviado | Nível efetivo no S5 |
+|---|---|
+| `none` | Raciocínio desligado |
+| `minimal` ou `low` | `low` |
+| `medium` | `medium` |
+| `high` ou `xhigh` | `xhigh` |
+| Omitido ou `null` | `xhigh` (padrão) |
+
+---
 ### frequency_penalty `float ou null` <sup class="sup-opcional">Opcional</sup>
 Padrão é `0`. Intervalo entre -2.0 e 2.0. Valores positivos penalizam tokens com base na frequência na conversa, reduzindo a probabilidade de repetição.
 

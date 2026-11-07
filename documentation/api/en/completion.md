@@ -66,6 +66,18 @@ Messages sent to the model. A list of messages is expected, each with "role" (ro
 
 ---
 
+### reasoning_effort `string or null` <sup class="sup-opcional">Optional</sup>
+Controls the reasoning level for **S5**. When omitted, it defaults to **`xhigh`**.
+
+| Supplied value | Effective level in S5 |
+|---|---|
+| `none` | Reasoning disabled |
+| `minimal` or `low` | `low` |
+| `medium` | `medium` |
+| `high` or `xhigh` | `xhigh` |
+| Omitted or `null` | `xhigh` (default) |
+
+---
 ### frequency_penalty `float or null` <sup class="sup-opcional">Optional</sup>
 Default is `0`. Range is from -2.0 to 2.0. Positive values penalize tokens based on frequency in the conversation, reducing repetition probability.
 
