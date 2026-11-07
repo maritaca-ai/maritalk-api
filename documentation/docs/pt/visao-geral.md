@@ -16,9 +16,10 @@ Experimente o S5 na API sem custo com o modelo `S5-free`. Para uso contínuo ou 
 
 | Nome na API | Preço |
 |---|---|
-| `S5-free` | Gratuito por tempo limitado (somente texto) |
 | `S5` | R$ 0,50 / R$ 2,50 por 1M de tokens (entrada / saída) |
+| `S5-free` | Gratuito por tempo limitado (somente texto) |
 | `S5-br-sp` | 30% acima do `S5` |
+| `S5-nano` | R$ 0,10 / R$ 0,60 por 1M de tokens (versão compacta, pesos abertos) |
 :::
 
 <br/>
@@ -49,6 +50,6 @@ Se você é novo na Maritaca API, comece aqui para aprender o essencial e fazer 
   <a href="/pt/primeiros-passos-s5" className="icon-box" style={{ flex: '1 1 200px', margin: '10px', textAlign: 'center' }}>
     <span className="geo-icon geo-icon-sabiazinho4" aria-hidden="true"></span>
     <h3>Primeiros passos com o S5</h3>
-    <p>Chame o S5 de graça com o <code>S5-free</code> e ajuste o raciocínio.</p>
+    <p>Experimente o S5 sem custo e veja exemplos de integração com a API.</p>
   </a>
 </div>

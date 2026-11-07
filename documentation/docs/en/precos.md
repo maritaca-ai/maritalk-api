@@ -7,19 +7,35 @@ title: Pricing
 
 All prices are per million tokens processed. Billing considers both input and output tokens.
 
-| | **S5** | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** |
-|---|---|---|---|---|
-| **Input** | R$ 0.50 | R$ 5.00 | R$ 5.00 | R$ 1.00 |
-| **Output** | R$ 2.50 | R$ 40.00 | R$ 20.00 | R$ 4.00 |
-| **Cached input ¹** | R$ 0.05 | R$ 1.25 | R$ 1.25 | R$ 0.25 |
-| **Off-peak input ²** | R$ 0.35 | R$ 3.50 | R$ 3.50 | R$ 0.70 |
-| **Off-peak output ²** | R$ 1.75 | R$ 28.00 | R$ 14.00 | R$ 2.80 |
-| **Flex input ³** | R$ 0.25 | R$ 2.50 | R$ 2.50 | R$ 0.50 |
-| **Flex output ³** | R$ 1.25 | R$ 20.00 | R$ 10.00 | R$ 2.00 |
-| **Batch API input** | R$ 0.25 | R$ 2.50 | R$ 2.50 | R$ 0.50 |
-| **Batch API output** | R$ 1.25 | R$ 20.00 | R$ 10.00 | R$ 2.00 |
+## Models
 
-<small>¹ Reused input tokens are charged at a 75% discount (1/4 of the price); on S5 models, at a 90% discount (1/10 of the price). Learn more at [Prompt Caching](prompt-caching).</small>
+| | **S5** | **S5 Nano** |
+|---|---|---|
+| **Input** | R$ 0.50 | R$ 0.10 |
+| **Output** | R$ 2.50 | R$ 0.60 |
+| **Cached input ¹** | R$ 0.05 | R$ 0.01 |
+| **Off-peak input ²** | R$ 0.35 | R$ 0.07 |
+| **Off-peak output ²** | R$ 1.75 | R$ 0.42 |
+| **Flex input ³** | R$ 0.25 | R$ 0.05 |
+| **Flex output ³** | R$ 1.25 | R$ 0.30 |
+| **Batch API input** | R$ 0.25 | R$ 0.05 |
+| **Batch API output** | R$ 1.25 | R$ 0.30 |
+
+### Previous-generation models {#previous-generation-pricing}
+
+| | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** |
+|---|---|---|---|
+| **Input** | R$ 5.00 | R$ 5.00 | R$ 1.00 |
+| **Output** | R$ 40.00 | R$ 20.00 | R$ 4.00 |
+| **Cached input ¹** | R$ 1.25 | R$ 1.25 | R$ 0.25 |
+| **Off-peak input ²** | R$ 3.50 | R$ 3.50 | R$ 0.70 |
+| **Off-peak output ²** | R$ 28.00 | R$ 14.00 | R$ 2.80 |
+| **Flex input ³** | R$ 2.50 | R$ 2.50 | R$ 0.50 |
+| **Flex output ³** | R$ 20.00 | R$ 10.00 | R$ 2.00 |
+| **Batch API input** | R$ 2.50 | R$ 2.50 | R$ 0.50 |
+| **Batch API output** | R$ 20.00 | R$ 10.00 | R$ 2.00 |
+
+<small>¹ Reused input tokens are charged at a 75% discount (1/4 of the price); on S5 models (including S5 Nano), at a 90% discount (1/10 of the price). Learn more at [Prompt Caching](prompt-caching).</small>
 
 <small>² Off-peak: 10 p.m.–6 a.m. BRT.</small>
 
@@ -33,17 +49,31 @@ The cache discount (75%) applies only to cached input tokens. Batch API, Flex, a
 
 BR-SP models perform inference and processing entirely (100%) within Brazilian territory, priced 30% above the corresponding model. API model names: `S5-br-sp`, `sabia-4-thinking-br-sp`, `sabia-4-br-sp`, `sabiazinho-4-br-sp`.
 
-| | **S5 BR-SP** | **Sabiá 4 Thinking BR-SP** | **Sabiá 4 BR-SP** | **Sabiazinho 4 BR-SP** |
-|---|---|---|---|---|
-| **Input** | R$ 0.65 | R$ 6.50 | R$ 6.50 | R$ 1.30 |
-| **Output** | R$ 3.25 | R$ 52.00 | R$ 26.00 | R$ 5.20 |
-| **Cached input ¹** | R$ 0.065 | R$ 1.63 | R$ 1.63 | R$ 0.33 |
-| **Off-peak input ²** | R$ 0.455 | R$ 4.55 | R$ 4.55 | R$ 0.91 |
-| **Off-peak output ²** | R$ 2.275 | R$ 36.40 | R$ 18.20 | R$ 3.64 |
-| **Flex input ³** | R$ 0.325 | R$ 3.25 | R$ 3.25 | R$ 0.65 |
-| **Flex output ³** | R$ 1.625 | R$ 26.00 | R$ 13.00 | R$ 2.60 |
-| **Batch API input** | R$ 0.325 | R$ 3.25 | R$ 3.25 | R$ 0.65 |
-| **Batch API output** | R$ 1.625 | R$ 26.00 | R$ 13.00 | R$ 2.60 |
+| | **S5 BR-SP** |
+|---|---|
+| **Input** | R$ 0.65 |
+| **Output** | R$ 3.25 |
+| **Cached input ¹** | R$ 0.065 |
+| **Off-peak input ²** | R$ 0.455 |
+| **Off-peak output ²** | R$ 2.275 |
+| **Flex input ³** | R$ 0.325 |
+| **Flex output ³** | R$ 1.625 |
+| **Batch API input** | R$ 0.325 |
+| **Batch API output** | R$ 1.625 |
+
+### Previous-generation models {#previous-generation-br-sp}
+
+| | **Sabiá 4 Thinking BR-SP** | **Sabiá 4 BR-SP** | **Sabiazinho 4 BR-SP** |
+|---|---|---|---|
+| **Input** | R$ 6.50 | R$ 6.50 | R$ 1.30 |
+| **Output** | R$ 52.00 | R$ 26.00 | R$ 5.20 |
+| **Cached input ¹** | R$ 1.63 | R$ 1.63 | R$ 0.33 |
+| **Off-peak input ²** | R$ 4.55 | R$ 4.55 | R$ 0.91 |
+| **Off-peak output ²** | R$ 36.40 | R$ 18.20 | R$ 3.64 |
+| **Flex input ³** | R$ 3.25 | R$ 3.25 | R$ 0.65 |
+| **Flex output ³** | R$ 26.00 | R$ 13.00 | R$ 2.60 |
+| **Batch API input** | R$ 3.25 | R$ 3.25 | R$ 0.65 |
+| **Batch API output** | R$ 26.00 | R$ 13.00 | R$ 2.60 |
 
 ## S5 Free
 
@@ -55,7 +85,7 @@ S5 Free is a temporary launch offer and may be discontinued at any time. For ong
 
 ## Built-in tools
 
-[Built-in tool](tools.md) executions (web search, code execution, and Data Ocean) are billed per use, in addition to the usual token costs. Charges are reported in `usage.tool_execution_details` and on your invoice.
+[Built-in tool](tools.md) executions (web search, code execution, Data Ocean, and image generation) are billed per use, in addition to the usual token costs. Charges are reported in `usage.tool_execution_details` and on your invoice.
 
 | Tool | Unit | Price (BRL) |
 |---|---|---|
@@ -63,10 +93,14 @@ S5 Free is a temporary launch offer and may be discontinued at any time. For ong
 | Page read | per page read | R$ 0.066 |
 | Data Ocean | per GB scanned | R$ 0.10 |
 | Code execution | per minute (rounded up) | R$ 0.016 |
+| Image generation | per generated image | R$ 0.25 |
+| Image generation: reference image | per input image used in the generation | R$ 0.10 |
 
 A single `web_search` request can incur both `web_search_calls` and `page_reads` charges: the model searches, then reads one or more result pages. Code execution time is the total sandbox compute time across the request, rounded up to the next whole minute.
 
 Because `data_ocean` automatically turns on web search and code execution (see [Built-in tools](tools.md)), a request with `data_ocean: true` can incur charges for **Data Ocean, web search (`web_search_calls`/`page_reads`), and code execution** in the same response.
+
+For [image generation](image-generation.md), only delivered images are billed: attempts blocked by moderation or that fail are free.
 
 ## How do I know how many tokens I will be charged?
 

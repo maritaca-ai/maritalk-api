@@ -28,20 +28,6 @@ The Responses API replaces Chat Completions as the recommended interface for new
 
 The Chat Completions API remains available and functional. If you already have a working integration with it, there's no immediate need to migrate. For new projects, we recommend the Responses API.
 
-### S5 reasoning
-
-In the Responses API, use `reasoning={"effort": "low"}`; in Chat Completions, use `reasoning_effort="low"`. For S5, `minimal` is equivalent to `low` and `high` is equivalent to `xhigh`. If `reasoning.effort` is omitted, S5 uses **`xhigh`**. Use `none` to disable reasoning.
-
-```python
-response = client.responses.create(
-    model="S5",
-    input="Explain why 17 is a prime number.",
-    reasoning={"effort": "low"},
-)
-```
-
-[See the reasoning level mapping in the API reference.](/api/en/responses-api#reasoning)
-
 ### Migrating from Chat Completions
 
 Migration is straightforward. Compare the two equivalent examples:
@@ -240,6 +226,21 @@ curl -X POST https://chat.maritaca.ai/api/v1/responses \
 <br/>
 
 
+
+## Reasoning (S5)
+
+On S5 models, `output` starts with a `reasoning` item, with the model's reasoning encrypted in `encrypted_content`, and the message comes after it. On `S5-nano` (open weights), the reasoning comes as plain text in `content`, unencrypted. Read the answer with `response.output_text`. To let the model resume its reasoning across calls (for example, after a function call), use `previous_response_id` or pass the `output` items back as input. Effort is set with `reasoning.effort` (`reasoning_effort` in Chat Completions). For S5, `minimal` is equivalent to `low` and `high` is equivalent to `xhigh`. If omitted, it defaults to **`xhigh`**; `none` disables reasoning.
+
+```python
+response = client.responses.create(
+    model="S5",
+    reasoning={"effort": "low"},
+    input="What is the greatest common divisor of 84 and 120?",
+)
+print(response.output_text)
+```
+
+Details, full examples and reasoning summaries in [Reasoning](reasoning).
 
 ## More examples
 

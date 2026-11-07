@@ -2,15 +2,17 @@
 
 Maritaca AI's Portuguese-specialized models, known as Sabiá, are available through an API.
 
-## S5, the latest generation
+## S5, our most intelligent model
 
-**S5** is the latest model and the recommended place to start. It has native reasoning, with intensity adjustable through the `reasoning_effort` parameter, supports up to 1 million tokens of context, and is the cheapest in the family: R$ 0.50 per 1M input tokens and R$ 2.50 per 1M output tokens. It is suited to agentic workflows and tool use, long documents, and multi-step problems.
+**S5** is our most intelligent model and the recommended place to start. Use it to analyze documents, work with data, write and edit text, and build assistants that perform tasks with tools.
 
 In the API, S5 has three names:
 
 - `S5`: the model for ongoing and production use.
 - `S5-br-sp`: the same model, with inference 100% in Brazil (30% more expensive).
 - `S5-free`: **free for a limited time**, to try it at no cost (text only, no Batch API, Flex or built-in tools).
+
+For simple, high-volume tasks, use **`S5-nano`**: the compact, open-weights version of S5, at R$ 0.10 (input) and R$ 0.60 (output) per 1M tokens.
 
 See a complete example in [Getting started with S5](s5-quick-start) and every model in [Models](models).
 

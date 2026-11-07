@@ -11,13 +11,11 @@ Maritaca AI offers a range of models in the Sabiá family, designed to meet vari
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5</span></span>
 
-The latest model in the Sabiá family, with **native reasoning**: the model thinks before answering, and the reasoning intensity is adjustable through the `reasoning_effort` parameter (`none`, `low` or `minimal`, `medium`, `xhigh` or `high`; default: `xhigh`). Recommended for tasks that benefit from explicit reasoning, tool use and multi-step agentic workflows. Supports up to **1 million tokens of context** and is also available through the Batch API. API model names: `S5` or `s5`.
+Our most intelligent model, recommended for analyzing documents, working with data, and solving complex problems. Use it to build assistants that look up information and perform tasks with tools.
 
-**Example use cases:** Agentic workflows and tool use, analysis and summarization of long documents, multi-step problem solving and structured content generation.
+**Example use cases:** Document analysis and summarization, information extraction, task automation with tools, and structured content generation.
 
-### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5 BR-SP</span></span>
-
-The same S5 model, with **inference and processing performed entirely (100%) within Brazilian territory** — intended for use cases that require Brazilian data sovereignty and residency. Capabilities, context, and training data are identical to S5; pricing is 30% higher. API model names: `S5-br-sp` or `s5-br-sp`.
+**API details:** The `reasoning_effort` parameter controls reasoning intensity (`none`, `low` or `minimal`, `medium`, `xhigh` or `high`; default: `xhigh`). S5 supports up to 1 million tokens of context and 64K output tokens, and is also available through the Batch API. API model names: `S5` or `s5`.
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5 Free</span></span>
 
@@ -26,6 +24,18 @@ S5 **free of charge for a limited time**, to try the model at no cost. Text only
 :::caution Available for a limited time
 S5 Free is a temporary launch offer and may be discontinued at any time. For ongoing or production use, use `S5`.
 :::
+
+### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5 BR-SP</span></span>
+
+The same S5 model, with **inference and processing performed entirely (100%) within Brazilian territory** — intended for use cases that require Brazilian data sovereignty and residency. Capabilities, context, and training data are identical to S5; pricing is 30% higher. API model names: `S5-br-sp` or `s5-br-sp`.
+
+### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5 Nano</span></span>
+
+A compact version of S5, with **open weights** ([maritaca-ai/S5-nano on Hugging Face](https://huggingface.co/maritaca-ai/S5-nano)) and the lowest cost in the family: R$ 0.10 per 1M input tokens and R$ 0.60 per 1M output tokens. It has the same **native reasoning** as S5 and, as an open model, returns its reasoning **as plain text**, unencrypted (see [Reasoning](reasoning)). It supports up to **256K tokens of context**, function calling, [built-in tools](tools), and the Batch API. Accepted API names: `S5-nano` or `s5-nano`.
+
+**Use cases:** High-volume classification and information extraction, customer support and chat with fast responses, routing and triage in agentic flows, and simple tasks where cost and latency matter more than peak quality.
+
+## Previous-generation models {#previous-generation-models}
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4 Thinking</span></span>
 
@@ -59,11 +69,19 @@ The same Sabiazinho 4 model, with **inference and processing performed entirely 
 
 ## Specifications
 
-| | **S5** | **S5 BR-SP** | **S5 Free** | **Sabiá 4 Thinking** | **Sabiá 4 Thinking BR-SP** | **Sabiá 4** | **Sabiá 4 BR-SP** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** |
-|---|---|---|---|---|---|---|---|---|---|
-| **Max context** | 1M | 1M | 1M | 1M | 1M | 128K | 128K | 128K | 128K |
-| **Max output tokens** | 32K | 32K | 32K | 32K | 32K | 32K | 32K | 32K | 32K | 32K |
-| **Model names/aliases** | S5<br />s5 | S5-br-sp<br />s5-br-sp | S5-free<br />s5-free | sabia-4-thinking | sabia-4-thinking-br-sp | sabia-4<br />sabia-4-2026-01-06 | sabia-4-br-sp | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp |
+| | **S5** | **S5 Free** | **S5 BR-SP** | **S5 Nano** |
+|---|---|---|---|---|
+| **Max context** | 1M | 1M | 1M | 256K |
+| **Max output tokens** | 64K | 64K | 64K | 32K |
+| **Model names/aliases** | S5<br />s5 | S5-free<br />s5-free | S5-br-sp<br />s5-br-sp | S5-nano<br />s5-nano |
+
+### Previous-generation models {#previous-generation-specs}
+
+| | **Sabiá 4 Thinking** | **Sabiá 4 Thinking BR-SP** | **Sabiá 4** | **Sabiá 4 BR-SP** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** |
+|---|---|---|---|---|---|---|
+| **Max context** | 1M | 1M | 128K | 128K | 128K | 128K |
+| **Max output tokens** | 32K | 32K | 32K | 32K | 32K | 32K |
+| **Model names/aliases** | sabia-4-thinking | sabia-4-thinking-br-sp | sabia-4<br />sabia-4-2026-01-06 | sabia-4-br-sp | sabiazinho-4<br />sabiazinho-4-2026-01-06<br />sabia-4-small<br />sabiazim-4 | sabiazinho-4-br-sp |
 
 For pricing information, see the [Pricing](precos) page.
 

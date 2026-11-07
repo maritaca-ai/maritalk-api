@@ -48,7 +48,24 @@ The model used to generate the response.
 
 ### output `array`
 
-List of output items. Each item can be a message or a function call.
+List of output items. Each item can be a reasoning item, a message or a function call. On S5 models the `reasoning` item comes first; to read only the answer text, use `output_text` in the OpenAI SDK.
+
+<details>
+<summary>reasoning (object)</summary>
+
+The model's reasoning (S5 models). The text is confidential and only comes encrypted; on `S5-nano` (open weights), it comes as plain text in `content`, with no `encrypted_content`. Pass the item back on the next call so the model can resume its reasoning. See [Reasoning](https://docs.maritaca.ai/en/en/reasoning).
+
+- **id** (string): Unique item identifier (`rs_...`).
+- **type** (string): Always `"reasoning"`.
+- **content** (array): Empty (`[]`), except on `S5-nano`, where it carries the reasoning text:
+  - **type** (string): `"reasoning_text"`.
+  - **text** (string): The reasoning text.
+- **encrypted_content** (string): Encrypted reasoning. Can only be used by the same account. Absent on `S5-nano`.
+- **summary** (array): Reasoning summary, when requested in `reasoning.summary`; otherwise empty.
+  - **type** (string): `"summary_text"`.
+  - **text** (string): Summary text.
+
+</details>
 
 <details>
 <summary>message (object)</summary>
@@ -75,6 +92,28 @@ List of output items. Each item can be a message or a function call.
 - **status** (string): `"completed"`.
 
 </details>
+
+---
+
+### reasoning `object or null`
+
+Reasoning configuration used (S5 models). Does not contain the reasoning text.
+
+<details>
+<summary>Show properties</summary>
+
+- **effort** (string): Effort used (`xhigh` when not set).
+- **summary** (string or null): Requested summary type (`auto` shows up as `detailed`).
+- **context** (string): `all_turns` or `current_turn`.
+- **mode** (string): Always `"standard"`.
+
+</details>
+
+---
+
+### previous_response_id `string or null`
+
+Id of the previous response used in the request, if any.
 
 ---
 
@@ -174,7 +213,7 @@ Whether parallel tool calls were enabled.
 
 ### store `boolean`
 
-Whether the response was stored.
+Whether the response was stored (default `true`). Stored responses are available for 30 days for `previous_response_id`.
 
 ---
 
@@ -192,10 +231,16 @@ When `stream: true`, the API returns events via Server-Sent Events (SSE).
 | `response.output_text.done` | Full text finalized |
 | `response.content_part.done` | Content part finalized |
 | `response.output_item.done` | Output item finalized |
+| `response.reasoning_summary_part.added` | New reasoning summary part started (with `reasoning.summary`) |
+| `response.reasoning_summary_text.delta` | Reasoning summary fragment |
+| `response.reasoning_summary_text.done` | Reasoning summary finalized |
+| `response.reasoning_summary_part.done` | Reasoning summary part finalized |
 | `response.completed` | Response complete (with `usage`) |
 | `response.failed` | Error during generation |
 
 All events include a `sequence_number` field incremented with each event.
+
+On S5 models, the `reasoning` item is the first output item (`output_index` 0) and already carries `encrypted_content` in `response.output_item.added` and `response.output_item.done`. There are no events with the reasoning text. On `S5-nano` there is no `encrypted_content`: the full reasoning text comes in the `reasoning` item of `response.output_item.done` (in `added`, `content` is empty).
 
 ---
 
@@ -256,9 +301,52 @@ All events include a `sequence_number` field incremented with each event.
   "tools": [],
   "tool_choice": "auto",
   "parallel_tool_calls": true,
-  "store": false,
+  "store": true,
   "error": null,
   "incomplete_details": null
+}
+```
+
+### Example with reasoning (S5)
+```json
+{
+  "id": "resp-7c1e9a2b",
+  "object": "response",
+  "status": "completed",
+  "model": "S5",
+  "output": [
+    {
+      "id": "rs_6f1c0d3e",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABp...",
+      "summary": []
+    },
+    {
+      "id": "fc-abc123",
+      "type": "function_call",
+      "name": "get_weather",
+      "arguments": "{\"city\": \"Campinas\"}",
+      "call_id": "call_abc123",
+      "status": "completed"
+    }
+  ],
+  "reasoning": {
+    "effort": "xhigh",
+    "summary": null,
+    "context": "all_turns",
+    "mode": "standard"
+  },
+  "previous_response_id": null,
+  "store": true,
+  "usage": {
+    "input_tokens": 52,
+    "output_tokens": 230,
+    "total_tokens": 282,
+    "output_tokens_details": {
+      "reasoning_tokens": 204
+    }
+  }
 }
 ```
 

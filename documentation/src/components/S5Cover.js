@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 // Capa do S5 na Visão geral: a faixa verde-floresta da home (fundo com grão,
-// pílulas, faixa de especificações) com o nome animado como no vídeo de
+// pílulas) com o nome animado como no vídeo de
 // lançamento: "Sabiá 5" aparece grande, o miolo "abiá " se apaga e o "5"
 // desliza até encostar no "S". Estilos em src/css/custom.css (prefixo .s5c).
 // Clicar no nome repete a animação. Com prefers-reduced-motion mostra "S5".
@@ -15,20 +15,18 @@ const ARROW = (
 
 const COPY = {
   pt: {
-    eyebrow: 'Nova geração do Sabiá',
-    p: 'Raciocínio nativo com intensidade ajustável, até 1 milhão de tokens de contexto e o menor preço da família. Disponível no chat e na API.',
+    eyebrow: 'Nosso modelo mais inteligente',
+    p: 'Analise documentos, trabalhe com dados e resolva tarefas complexas. Use no chat ou integre aos seus produtos pela API.',
     cta1: 'Conhecer o S5', cta1Href: '/pt/modelos',
     cta2: 'Começo rápido', cta2Href: '/pt/api/comeco-rapido',
     replay: 'Ver de novo',
-    specs: [['Contexto', '1 milhão de tokens'], ['Entrada', 'R$ 0,50 por 1M'], ['Saída', 'R$ 2,50 por 1M'], ['Nome na API', 'S5', 'mono']],
   },
   en: {
-    eyebrow: 'The next generation of Sabiá',
-    p: 'Native reasoning with adjustable intensity, up to 1 million tokens of context, and the lowest price in the family. Available in the chat and through the API.',
+    eyebrow: 'Our most intelligent model',
+    p: 'Analyze documents, work with data, and solve complex tasks. Use it in the chat or integrate it into your products through the API.',
     cta1: 'Meet S5', cta1Href: '/en/models',
     cta2: 'Quick start', cta2Href: '/en/api/quick-start',
     replay: 'Replay',
-    specs: [['Context', '1 million tokens'], ['Input', 'R$ 0.50 per 1M'], ['Output', 'R$ 2.50 per 1M'], ['API name', 'S5', 'mono']],
   },
 };
 
@@ -53,11 +51,6 @@ export default function S5Cover({ lang = 'pt' }) {
           <a className="s5c-pill s5c-pill--light" href={c.cta2Href}>{c.cta2}</a>
         </div>
       </div>
-      <dl className="s5c-specs">
-        {c.specs.map(([k, v, cls]) => (
-          <div key={k}><dt>{k}</dt><dd className={cls || ''}>{v}</dd></div>
-        ))}
-      </dl>
     </section>
   );
 }

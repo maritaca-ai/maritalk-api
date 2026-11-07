@@ -60,25 +60,43 @@ Result of a function call to return to the model.
 
 </details>
 
+<details>
+<summary>reasoning (object)</summary>
+
+Reasoning item returned by a previous response (S5 models), so the model can resume its reasoning. Just pass the item back as it came in `output`. See [Reasoning](https://docs.maritaca.ai/en/en/reasoning).
+
+- **type** (string) **Required**: Always `"reasoning"`.
+- **id** (string): Item identifier (`rs_...`).
+- **encrypted_content** (string): Encrypted reasoning, exactly as it came in the response. A modified value, or one from another account, returns `400` (`invalid_encrypted_content`).
+- **content** (array): Must be empty (`[]`). Text here returns `400` (`array_above_max_length`).
+- **summary** (array): The summary you received; it can be passed back as is.
+
+</details>
+
+---
+### reasoning `object or null` <sup class="sup-opcional">Optional</sup>
+Reasoning configuration (S5 models). If `reasoning` or `reasoning.effort` is omitted or `null`, it defaults to **`xhigh`**. See [Reasoning](https://docs.maritaca.ai/en/en/reasoning).
+
+<details>
+<summary>Show properties</summary>
+
+- **effort** (string or null): How much the model thinks before answering: `none`, `minimal`, `low`, `medium`, `high`, `xhigh` or `max`. Default: `xhigh`. `minimal` is the same as `low`; `high` and `max` are the same as `xhigh`; `none` turns reasoning off.
+- **summary** (string): Requests a readable summary of the reasoning in the `reasoning` item: `auto` (same as `detailed`), `concise` or `detailed`. Default: no summary.
+- **context** (string): Which turns' reasoning the model sees: `all_turns` (default, every previous turn passed back) or `current_turn` (only what was generated after the last user message).
+
+</details>
+
+---
+### include `array or null` <sup class="sup-opcional">Optional</sup>
+Accepts `"reasoning.encrypted_content"`, for OpenAI compatibility. The `reasoning` item's `encrypted_content` is always returned, with or without this parameter.
+
+---
+### previous_response_id `string or null` <sup class="sup-opcional">Optional</sup>
+Id of a previous stored response (`store: true`). The model receives that response's conversation, including its reasoning, and you only send what is new in `input`. An id that does not exist, has expired or belongs to another account returns `400` (`previous_response_not_found`).
+
 ---
 ### instructions `string or null` <sup class="sup-opcional">Optional</sup>
 System instructions that define the model's behavior (e.g., "Always respond in Portuguese").
-
----
-### reasoning `object or null` <sup class="sup-opcional">Optional</sup> {#reasoning}
-Configures reasoning for **S5**. The optional **effort** field (string or null) selects the level. If `reasoning` or `reasoning.effort` is omitted, it defaults to **`xhigh`**.
-
-| Supplied value | Effective level in S5 |
-|---|---|
-| `none` | Reasoning disabled |
-| `minimal` or `low` | `low` |
-| `medium` | `medium` |
-| `high` or `xhigh` | `xhigh` |
-| Omitted or `null` | `xhigh` (default) |
-
-```json
-{"reasoning": {"effort": "low"}}
-```
 
 ---
 ### temperature `float or null` <sup class="sup-opcional">Optional</sup>
@@ -172,7 +190,7 @@ Key-value pairs for tracking. Maximum 16 pairs, key up to 64 characters, value u
 
 ---
 ### store `bool or null` <sup class="sup-opcional">Optional</sup>
-Default is `false`. Whether to store the response on the server.
+Default is `true`. Keeps the response for 30 days, with the reasoning encrypted, for use with `previous_response_id`. Use `false` to store nothing; in that case, pass the `output` items back on the next call.
 
 ---
 </div>
