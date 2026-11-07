@@ -12,17 +12,14 @@ const config = {
 
   i18n: {
     defaultLocale: 'pt',
-    locales: ['pt', 'en'],
+    // Both languages already have explicit docs/en and docs/pt routes. A second
+    // locale build would erase /en/* and regenerate them under /en/en/*.
+    locales: ['pt'],
     localeConfigs: {
       pt: {
         label: 'Português',
         direction: 'ltr',
         path: 'pt',
-      },
-      en: {
-        label: 'English',
-        direction: 'ltr',
-        path: 'en',
       },
     },
   },
