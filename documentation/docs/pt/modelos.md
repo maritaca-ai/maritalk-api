@@ -15,7 +15,7 @@ Nosso modelo mais inteligente, indicado para analisar documentos, trabalhar com 
 
 **Exemplos de uso:** Análise e síntese de documentos, extração de informações, automação de tarefas com ferramentas e geração de conteúdo estruturado.
 
-**Detalhes da API:** O parâmetro `reasoning_effort` controla a intensidade do raciocínio (`none`, `low`, `medium` ou `xhigh`, o padrão). O S5 suporta até 1 milhão de tokens de contexto e está disponível também na Batch API. Nomes aceitos na API: `S5` ou `s5`.
+**Detalhes da API:** O parâmetro `reasoning_effort` controla a intensidade do raciocínio (`none`, `low`, `medium` ou `xhigh`, o padrão). O S5 suporta até 1 milhão de tokens de contexto e 64K tokens de saída, e está disponível também na Batch API. Nomes aceitos na API: `S5` ou `s5`.
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5 Free</span></span>
 
@@ -72,7 +72,7 @@ O mesmo modelo Sabiazinho 4, com **inferência e processamento realizados 100% e
 | | **S5** | **S5 Free** | **S5 BR-SP** | **S5 Nano** |
 |---|---|---|---|---|
 | **Contexto máximo** | 1M | 1M | 1M | 256K |
-| **Máximo de tokens de saída** | 32K | 32K | 32K | 32K |
+| **Máximo de tokens de saída** | 64K | 64K | 64K | 32K |
 | **Nomes aceitos (alias)** | S5<br />s5 | S5-free<br />s5-free | S5-br-sp<br />s5-br-sp | S5-nano<br />s5-nano |
 
 ### Modelos da geração anterior {#previous-generation-specs}

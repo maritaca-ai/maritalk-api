@@ -15,7 +15,7 @@ Our most intelligent model, recommended for analyzing documents, working with da
 
 **Example use cases:** Document analysis and summarization, information extraction, task automation with tools, and structured content generation.
 
-**API details:** The `reasoning_effort` parameter controls reasoning intensity (`none`, `low`, `medium` or `xhigh`, the default). S5 supports up to 1 million tokens of context and is also available through the Batch API. API model names: `S5` or `s5`.
+**API details:** The `reasoning_effort` parameter controls reasoning intensity (`none`, `low`, `medium` or `xhigh`, the default). S5 supports up to 1 million tokens of context and 64K output tokens, and is also available through the Batch API. API model names: `S5` or `s5`.
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5 Free</span></span>
 
@@ -72,7 +72,7 @@ The same Sabiazinho 4 model, with **inference and processing performed entirely 
 | | **S5** | **S5 Free** | **S5 BR-SP** | **S5 Nano** |
 |---|---|---|---|---|
 | **Max context** | 1M | 1M | 1M | 256K |
-| **Max output tokens** | 32K | 32K | 32K | 32K |
+| **Max output tokens** | 64K | 64K | 64K | 32K |
 | **Model names/aliases** | S5<br />s5 | S5-free<br />s5-free | S5-br-sp<br />s5-br-sp | S5-nano<br />s5-nano |
 
 ### Previous-generation models {#previous-generation-specs}
