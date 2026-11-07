@@ -35,7 +35,7 @@ Versão compacta do S5, com **pesos abertos** ([maritaca-ai/S5-nano no Hugging F
 
 **Exemplos de uso:** Classificação e extração de informações em alto volume, atendimento e conversas com respostas rápidas, roteamento e triagem em fluxos agênticos, e tarefas simples em que custo e latência importam mais que o máximo de qualidade.
 
-## Geração anterior
+## Geração anterior {#previous-generation-models}
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4 Thinking</span></span>
 
@@ -75,7 +75,7 @@ O mesmo modelo Sabiazinho 4, com **inferência e processamento realizados 100% e
 | **Máximo de tokens de saída** | 32K | 32K | 32K | 32K |
 | **Nomes aceitos (alias)** | S5<br />s5 | S5-free<br />s5-free | S5-br-sp<br />s5-br-sp | S5-nano<br />s5-nano |
 
-### Geração anterior
+### Geração anterior {#previous-generation-specs}
 
 | | **Sabiá 4 Thinking** | **Sabiá 4 Thinking BR-SP** | **Sabiá 4** | **Sabiá 4 BR-SP** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** |
 |---|---|---|---|---|---|---|

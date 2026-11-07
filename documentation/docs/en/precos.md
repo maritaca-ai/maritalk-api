@@ -21,7 +21,7 @@ All prices are per million tokens processed. Billing considers both input and ou
 | **Batch API input** | R$ 0.25 | R$ 0.05 |
 | **Batch API output** | R$ 1.25 | R$ 0.30 |
 
-### Previous generation
+### Previous generation {#previous-generation-pricing}
 
 | | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** |
 |---|---|---|---|
@@ -61,7 +61,7 @@ BR-SP models perform inference and processing entirely (100%) within Brazilian t
 | **Batch API input** | R$ 0.325 |
 | **Batch API output** | R$ 1.625 |
 
-### Previous generation
+### Previous generation {#previous-generation-br-sp}
 
 | | **Sabiá 4 Thinking BR-SP** | **Sabiá 4 BR-SP** | **Sabiazinho 4 BR-SP** |
 |---|---|---|---|

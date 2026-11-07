@@ -1389,12 +1389,32 @@ html[data-theme='dark'] .theme-code-block button.clean-btn {
   .s5c-bg, .s5c-name, .s5c-eyebrow, .s5c-p, .s5c-ctas { animation: none; }
 }
 
-/* Separate the Sabiá 4 family in the tier tables. */
+/* Separate the Sabiá 4 family from the current generation. */
+.theme-doc-markdown :is(h2, h3)[id^="previous-generation-"] {
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  background: var(--ifm-color-primary);
+  color: var(--ifm-background-color);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.theme-doc-markdown :is(h2, h3)[id^="previous-generation-"] a {
+  color: inherit;
+}
+
 .theme-doc-markdown table .model-generation-divider th {
-  padding: 0.65rem 0.85rem;
-  background: var(--table-header-bg);
-  color: var(--table-header-text);
-  border-top: 2px solid var(--table-border-color);
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--table-border-color);
+  background: var(--ifm-background-color);
   text-align: left;
+}
+
+.model-generation-label {
+  display: block;
+  padding: 0.85rem 1rem;
+  background: var(--ifm-color-primary);
+  color: var(--ifm-background-color);
   font-weight: 600;
 }

@@ -21,7 +21,7 @@ Todos os preços são por milhão de tokens processados. A cobrança considera t
 | **Input Batch API** | R$ 0,25 | R$ 0,05 |
 | **Output Batch API** | R$ 1,25 | R$ 0,30 |
 
-### Geração anterior
+### Geração anterior {#previous-generation-pricing}
 
 | | **Sabiá 4 Thinking** | **Sabiá 4** | **Sabiazinho 4** |
 |---|---|---|---|
@@ -61,7 +61,7 @@ Os modelos BR-SP têm inferência e processamento realizados 100% em território
 | **Input Batch API** | R$ 0,325 |
 | **Output Batch API** | R$ 1,625 |
 
-### Geração anterior
+### Geração anterior {#previous-generation-br-sp}
 
 | | **Sabiá 4 Thinking BR-SP** | **Sabiá 4 BR-SP** | **Sabiazinho 4 BR-SP** |
 |---|---|---|---|
