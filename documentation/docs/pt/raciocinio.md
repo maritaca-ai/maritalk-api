@@ -5,7 +5,7 @@ title: Raciocínio
 
 # Raciocínio
 
-Os modelos S5 (`S5`, `S5-br-sp`, `S5-free` e `S5-nano`) pensam antes de responder. Eles geram uma cadeia interna de raciocínio, analisam o pedido, planejam e só então escrevem a resposta ou chamam uma ferramenta. Isso os torna bons em problemas com várias etapas, em fluxos agênticos e em chamadas de função encadeadas.
+Os modelos S5 (`S5`, `S5-free`, `S5-br-sp` e `S5-nano`) pensam antes de responder. Eles geram uma cadeia interna de raciocínio, analisam o pedido, planejam e só então escrevem a resposta ou chamam uma ferramenta. Isso os torna bons em problemas com várias etapas, em fluxos agênticos e em chamadas de função encadeadas.
 
 Na Responses API, o raciocínio aparece no `output` como um item do tipo `reasoning`. O texto do raciocínio é **confidencial**: ele vem sempre **cifrado**, no campo `encrypted_content`, e só a Maritaca consegue lê-lo. Para o modelo continuar de onde parou, devolva esse item na próxima chamada, como no fluxo dos modelos de raciocínio da OpenAI.
 

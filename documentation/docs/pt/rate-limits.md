@@ -71,7 +71,7 @@ Conforme o uso e o gasto na API aumentam, você é automaticamente promovido par
 
 ## Limites por tier
 
-O `S5-br-sp` e o `S5-nano` têm os mesmos limites do `S5` em todos os tiers (cada modelo com a sua própria cota). O `S5-free` (disponível por tempo limitado) tem limite fixo, igual em todos os tiers: 60 RPM, 256k TPM de input e 256k TPM de output (sem Batch API).
+O `S5`, o `S5-br-sp` e o `S5-nano` têm os mesmos limites em todos os tiers (cada modelo com a sua própria cota). O `S5-free` (disponível por tempo limitado) tem limite fixo, igual em todos os tiers: 60 RPM, 256k TPM de input e 256k TPM de output (sem Batch API).
 
 <div className="tier-grid tier-grid--wide">
   <div className="tier-card tier-card--table">
@@ -85,6 +85,7 @@ O `S5-br-sp` e o `S5-nano` têm os mesmos limites do `S5` em todos os tiers (cad
       </thead>
       <tbody>
         <tr><td>S5</td><td>60</td><td>128k</td><td>10k</td></tr>
+        <tr className="model-generation-divider"><th colSpan={4}><span className="model-generation-label">Modelos da geração anterior</span></th></tr>
         <tr><td>sabia-4</td><td>60</td><td>128k</td><td>10k</td></tr>
         <tr><td>sabiazinho-4</td><td>60</td><td>128k</td><td>10k</td></tr>
         <tr><td>sabia-3</td><td>60</td><td>128k</td><td>10k</td></tr>
@@ -105,6 +106,7 @@ O `S5-br-sp` e o `S5-nano` têm os mesmos limites do `S5` em todos os tiers (cad
       </thead>
       <tbody>
         <tr><td>S5</td><td>1.000</td><td>2M</td><td>200k</td></tr>
+        <tr className="model-generation-divider"><th colSpan={4}><span className="model-generation-label">Modelos da geração anterior</span></th></tr>
         <tr><td>sabia-4</td><td>1.000</td><td>2M</td><td>200k</td></tr>
         <tr><td>sabiazinho-4</td><td>1.000</td><td>2M</td><td>200k</td></tr>
         <tr><td>sabia-3</td><td>1.000</td><td>2M</td><td>200k</td></tr>
@@ -125,6 +127,7 @@ O `S5-br-sp` e o `S5-nano` têm os mesmos limites do `S5` em todos os tiers (cad
       </thead>
       <tbody>
         <tr><td>S5</td><td>1.500</td><td>4M</td><td>350k</td></tr>
+        <tr className="model-generation-divider"><th colSpan={4}><span className="model-generation-label">Modelos da geração anterior</span></th></tr>
         <tr><td>sabia-4</td><td>1.500</td><td>4M</td><td>350k</td></tr>
         <tr><td>sabiazinho-4</td><td>2.000</td><td>4M</td><td>400k</td></tr>
         <tr><td>sabia-3</td><td>1.500</td><td>4M</td><td>350k</td></tr>
@@ -145,6 +148,7 @@ O `S5-br-sp` e o `S5-nano` têm os mesmos limites do `S5` em todos os tiers (cad
       </thead>
       <tbody>
         <tr><td>S5</td><td>2.000</td><td>6M</td><td>500k</td></tr>
+        <tr className="model-generation-divider"><th colSpan={4}><span className="model-generation-label">Modelos da geração anterior</span></th></tr>
         <tr><td>sabia-4</td><td>2.000</td><td>6M</td><td>500k</td></tr>
         <tr><td>sabiazinho-4</td><td>5.000</td><td>20M</td><td>800k</td></tr>
         <tr><td>sabia-3</td><td>2.000</td><td>6M</td><td>500k</td></tr>
@@ -165,6 +169,7 @@ O `S5-br-sp` e o `S5-nano` têm os mesmos limites do `S5` em todos os tiers (cad
       </thead>
       <tbody>
         <tr><td>S5</td><td>5.000</td><td>10M</td><td>1M</td></tr>
+        <tr className="model-generation-divider"><th colSpan={4}><span className="model-generation-label">Modelos da geração anterior</span></th></tr>
         <tr><td>sabia-4</td><td>5.000</td><td>10M</td><td>1M</td></tr>
         <tr><td>sabiazinho-4</td><td>10.000</td><td>50M</td><td>2M</td></tr>
         <tr><td>sabia-3</td><td>5.000</td><td>10M</td><td>1M</td></tr>
@@ -185,6 +190,7 @@ O `S5-br-sp` e o `S5-nano` têm os mesmos limites do `S5` em todos os tiers (cad
       </thead>
       <tbody>
         <tr><td>S5</td><td>10.000</td><td>20M</td><td>2M</td></tr>
+        <tr className="model-generation-divider"><th colSpan={4}><span className="model-generation-label">Modelos da geração anterior</span></th></tr>
         <tr><td>sabia-4</td><td>10.000</td><td>20M</td><td>2M</td></tr>
         <tr><td>sabiazinho-4</td><td>30.000</td><td>100M</td><td>10M</td></tr>
         <tr><td>sabia-3</td><td>10.000</td><td>20M</td><td>2M</td></tr>
