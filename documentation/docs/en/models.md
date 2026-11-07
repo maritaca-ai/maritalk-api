@@ -35,7 +35,7 @@ A compact version of S5, with **open weights** ([maritaca-ai/S5-nano on Hugging 
 
 **Use cases:** High-volume classification and information extraction, customer support and chat with fast responses, routing and triage in agentic flows, and simple tasks where cost and latency matter more than peak quality.
 
-## Previous generation {#previous-generation-models}
+## Previous-generation models {#previous-generation-models}
 
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>Sabiá 4 Thinking</span></span>
 
@@ -75,7 +75,7 @@ The same Sabiazinho 4 model, with **inference and processing performed entirely 
 | **Max output tokens** | 32K | 32K | 32K | 32K |
 | **Model names/aliases** | S5<br />s5 | S5-free<br />s5-free | S5-br-sp<br />s5-br-sp | S5-nano<br />s5-nano |
 
-### Previous generation {#previous-generation-specs}
+### Previous-generation models {#previous-generation-specs}
 
 | | **Sabiá 4 Thinking** | **Sabiá 4 Thinking BR-SP** | **Sabiá 4** | **Sabiá 4 BR-SP** | **Sabiazinho 4** | **Sabiazinho 4 BR-SP** |
 |---|---|---|---|---|---|---|
