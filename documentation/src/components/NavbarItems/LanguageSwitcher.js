@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useHistory } from '@docusaurus/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe, faFlagUsa, faFlag } from '@fortawesome/free-solid-svg-icons';
+import { rememberLanguage } from '../../utils/languagePreference.mjs';
 
 const pathMap = {
   '/pt/visao-geral': '/en/overview',
@@ -51,6 +52,7 @@ const LanguageSwitcher = () => {
 
   const handleLanguageChange = (event) => {
     const newLang = event.target.value;
+    rememberLanguage(newLang, window);
     const newPath = getNewPath(location.pathname, newLang);
     history.push(newPath || (newLang === 'en' ? '/en/overview' : '/pt/visao-geral'));
   };

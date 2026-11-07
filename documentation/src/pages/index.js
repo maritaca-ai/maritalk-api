@@ -1,14 +1,11 @@
 import React, { useEffect } from 'react';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Head from '@docusaurus/Head';
+import { landingUrl } from '../utils/languagePreference.mjs';
 
 const Home = () => {
-  const { i18n } = useDocusaurusContext();
-  const currentLocale = i18n.currentLocale;
-
   useEffect(() => {
-    window.location.href = `/pt/visao-geral`;
-  }, [currentLocale]);
+    window.location.replace(landingUrl(window, navigator));
+  }, []);
 
   return (
     <>
