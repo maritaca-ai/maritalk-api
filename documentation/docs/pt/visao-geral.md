@@ -11,13 +11,11 @@ Os modelos Sabiá, treinados para o português e o contexto brasileiro, por uma 
 
 <S5Cover lang="pt" />
 
-:::tip S5 gratuito por tempo limitado
-Experimente o S5 na API sem custo com o modelo `S5-free`. Para uso contínuo ou em produção, use `S5` (ou `S5-br-sp`, com inferência 100% no Brasil). O código é o mesmo, só muda o nome do modelo. Veja um exemplo em [Primeiros passos com o S5](primeiros-passos-s5).
+:::tip Modelos S5 na API
 
 | Nome na API | Preço |
 |---|---|
 | `S5` | R$ 0,50 / R$ 2,50 por 1M de tokens (entrada / saída) |
-| `S5-free` | Gratuito por tempo limitado (somente texto) |
 | `S5-br-sp` | 30% acima do `S5` |
 | `S5-nano` | R$ 0,10 / R$ 0,60 por 1M de tokens (versão compacta, [pesos abertos](https://huggingface.co/maritaca-ai/S5-nano)) |
 :::
@@ -50,6 +48,6 @@ Se você é novo na Maritaca API, comece aqui para aprender o essencial e fazer 
   <a href="/pt/primeiros-passos-s5" className="icon-box" style={{ flex: '1 1 200px', margin: '10px', textAlign: 'center' }}>
     <span className="geo-icon geo-icon-sabiazinho4" aria-hidden="true"></span>
     <h3>Primeiros passos com o S5</h3>
-    <p>Experimente o S5 sem custo e veja exemplos de integração com a API.</p>
+    <p>Faça sua primeira chamada ao S5 com Python ou cURL.</p>
   </a>
 </div>

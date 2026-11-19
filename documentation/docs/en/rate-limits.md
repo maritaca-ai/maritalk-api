@@ -72,7 +72,7 @@ Your tier is determined by your total credit purchases. As soon as payment is co
 
 ## Limits per tier
 
-`S5`, `S5-br-sp`, and `S5-nano` have the same limits in every tier (each model with its own quota). `S5-free` (available for a limited time) has a fixed limit, the same in every tier: 60 RPM, 256k input TPM and 256k output TPM (no Batch API).
+`S5`, `S5-br-sp`, and `S5-nano` have the same limits in every tier (each model with its own quota).
 
 <div className="tier-grid tier-grid--wide">
   <div className="tier-card tier-card--table">

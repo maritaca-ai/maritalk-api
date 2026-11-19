@@ -17,14 +17,6 @@ Nosso modelo mais inteligente, indicado para analisar documentos, trabalhar com 
 
 **Detalhes da API:** O parâmetro `reasoning_effort` controla a intensidade do raciocínio (`none`, `low` ou `minimal`, `medium`, `xhigh` ou `high`; padrão: `xhigh`). O S5 suporta até 1 milhão de tokens de contexto e 64K tokens de saída, e está disponível também na Batch API. Nomes aceitos na API: `S5` ou `s5`.
 
-### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5 Free</span></span>
-
-O S5 **gratuito por tempo limitado**, para experimentar o modelo sem custo. Aceita somente texto e não inclui Batch API, Flex nem [ferramentas integradas](ferramentas.md); os rate limits são fixos (veja [Rate Limits](rate-limits)). Nomes aceitos na API: `S5-free` ou `s5-free`.
-
-:::caution Disponível por tempo limitado
-O S5 Free é uma oferta temporária de lançamento e pode ser encerrada a qualquer momento. Para uso contínuo ou em produção, use o `S5`.
-:::
-
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5 BR-SP</span></span>
 
 O mesmo modelo S5, com **inferência e processamento realizados 100% em território nacional** — indicado para casos de uso que exigem soberania e residência de dados no Brasil. Capacidades, contexto e dados de treinamento são idênticos ao S5; o custo é 30% superior. Nomes aceitos na API: `S5-br-sp` ou `s5-br-sp`.
@@ -69,11 +61,11 @@ O mesmo modelo Sabiazinho 4, com **inferência e processamento realizados 100% e
 
 ## Especificações
 
-| | **S5** | **S5 Free** | **S5 BR-SP** | **S5 Nano** |
-|---|---|---|---|---|
-| **Contexto máximo** | 1M | 1M | 1M | 256K |
-| **Máximo de tokens de saída** | 64K | 64K | 64K | 32K |
-| **Nomes aceitos (alias)** | S5<br />s5 | S5-free<br />s5-free | S5-br-sp<br />s5-br-sp | S5-nano<br />s5-nano |
+| | **S5** | **S5 BR-SP** | **S5 Nano** |
+|---|---|---|---|
+| **Contexto máximo** | 1M | 1M | 256K |
+| **Máximo de tokens de saída** | 64K | 64K | 32K |
+| **Nomes aceitos (alias)** | S5<br />s5 | S5-br-sp<br />s5-br-sp | S5-nano<br />s5-nano |
 
 ### Modelos da geração anterior {#previous-generation-specs}
 
@@ -91,6 +83,7 @@ Conforme lançamos modelos mais seguros e avançados, descontinuamos regularment
 
 | Modelo | Data de encerramento | Substituição recomendada |
 |-------|--------|-------|
+| S5-free | 2026-11-18 | S5 |
 | sabia-2-medium | 2024-10-01 | sabiazinho-4 |
 | sabia-2-small | 2025-01-15 | sabiazinho-4 |
 | sabia-3-2024-07-15 | 2024-10-01 | sabiazinho-4 |
