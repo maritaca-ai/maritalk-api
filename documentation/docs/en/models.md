@@ -17,14 +17,6 @@ Our most intelligent model, recommended for analyzing documents, working with da
 
 **API details:** The `reasoning_effort` parameter controls reasoning intensity (`none`, `low` or `minimal`, `medium`, `xhigh` or `high`; default: `xhigh`). S5 supports up to 1 million tokens of context and 64K output tokens, and is also available through the Batch API. API model names: `S5` or `s5`.
 
-### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5 Free</span></span>
-
-S5 **free of charge for a limited time**, to try the model at no cost. Text only; Batch API, Flex and [built-in tools](tools.md) are not included, and rate limits are fixed (see [Rate Limits](rate-limits)). API model names: `S5-free` or `s5-free`.
-
-:::caution Available for a limited time
-S5 Free is a temporary launch offer and may be discontinued at any time. For ongoing or production use, use `S5`.
-:::
-
 ### <span className="inline-title"><span className="geo-icon geo-icon-sabiazinho4 geo-icon-small" aria-hidden="true"></span><span>S5 BR-SP</span></span>
 
 The same S5 model, with **inference and processing performed entirely (100%) within Brazilian territory** — intended for use cases that require Brazilian data sovereignty and residency. Capabilities, context, and training data are identical to S5; pricing is 30% higher. API model names: `S5-br-sp` or `s5-br-sp`.
@@ -69,11 +61,11 @@ The same Sabiazinho 4 model, with **inference and processing performed entirely 
 
 ## Specifications
 
-| | **S5** | **S5 Free** | **S5 BR-SP** | **S5 Nano** |
-|---|---|---|---|---|
-| **Max context** | 1M | 1M | 1M | 256K |
-| **Max output tokens** | 64K | 64K | 64K | 32K |
-| **Model names/aliases** | S5<br />s5 | S5-free<br />s5-free | S5-br-sp<br />s5-br-sp | S5-nano<br />s5-nano |
+| | **S5** | **S5 BR-SP** | **S5 Nano** |
+|---|---|---|---|
+| **Max context** | 1M | 1M | 256K |
+| **Max output tokens** | 64K | 64K | 32K |
+| **Model names/aliases** | S5<br />s5 | S5-br-sp<br />s5-br-sp | S5-nano<br />s5-nano |
 
 ### Previous-generation models {#previous-generation-specs}
 
@@ -91,6 +83,7 @@ As we release more advanced and secure models, we regularly discontinue older mo
 
 | Model | Deprecation date | Recommended replacement |
 |-------|--------|-------|
+| S5-free | 2026-11-18 | S5 |
 | sabia-2-medium | 2024-10-01 | sabiazinho-4 |
 | sabia-2-small | 2025-01-15 | sabiazinho-4 |
 | sabia-3-2024-07-15 | 2024-10-01 | sabiazinho-4 |

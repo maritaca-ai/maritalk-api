@@ -6,11 +6,10 @@ Os modelos especializados em língua portuguesa da Maritaca AI, conhecidos como 
 
 O **S5** é nosso modelo mais inteligente e o recomendado para começar. Use-o para analisar documentos, trabalhar com dados, escrever e revisar textos e criar assistentes que executam tarefas com ferramentas.
 
-Na API, o S5 tem três nomes:
+Na API, o S5 tem dois nomes:
 
 - `S5`: o modelo para uso contínuo e produção.
 - `S5-br-sp`: o mesmo modelo, com inferência 100% no Brasil (30% mais caro).
-- `S5-free`: **gratuito por tempo limitado**, para experimentar sem custo (somente texto, sem Batch API, Flex nem ferramentas integradas).
 
 Para tarefas simples em alto volume, use o **`S5-nano`**: a versão compacta do S5, com pesos abertos, por R$ 0,10 (entrada) e R$ 0,60 (saída) por 1M de tokens.
 

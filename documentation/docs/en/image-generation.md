@@ -183,6 +183,6 @@ Prompts and images go through safety filters. If a request is blocked, no image 
 ## Notes and limitations
 
 - **Streaming is not supported**: send `stream: false`. A streaming request with `image_generation` returns a `400` error (`streaming_not_supported`).
-- On models without built-in tools (for example, `sabiazinho-4` and `S5-free`), the API returns a `400` error (`tool_not_supported_for_model`).
+- On models without built-in tools (for example, `sabiazinho-4`), the API returns a `400` error (`tool_not_supported_for_model`).
 - Turning on `image_generation` does not force the model to generate an image: it only generates when the request asks for one. Requests without a generation carry no image charge.
 - You can combine `image_generation` with the other [built-in tools](tools.md), such as `web_search`, and with your own [function tools](function-call.md).

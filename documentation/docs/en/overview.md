@@ -11,13 +11,11 @@ The Sabiá models, trained for Portuguese and the Brazilian context, through an 
 
 <S5Cover lang="en" />
 
-:::tip S5 free for a limited time
-Try S5 in the API at no cost with the `S5-free` model. For ongoing or production use, use `S5` (or `S5-br-sp`, with inference 100% in Brazil). The code is the same; only the model name changes. See an example in [Getting started with S5](s5-quick-start).
+:::tip S5 models in the API
 
 | API name | Price |
 |---|---|
 | `S5` | R$ 0.50 / R$ 2.50 per 1M tokens (input / output) |
-| `S5-free` | Free for a limited time (text only) |
 | `S5-br-sp` | 30% above `S5` |
 | `S5-nano` | R$ 0.10 / R$ 0.60 per 1M tokens (compact version, open weights) |
 :::
@@ -50,6 +48,6 @@ If you're new to Maritaca API, start here to learn the essentials and make your 
   <a href="/en/s5-quick-start" className="icon-box" style={{ flex: '1 1 200px', margin: '10px', textAlign: 'center' }}>
     <span className="geo-icon geo-icon-sabiazinho4" aria-hidden="true"></span>
     <h3>Getting started with S5</h3>
-    <p>Try S5 at no cost and see examples of how to integrate it through the API.</p>
+    <p>Make your first S5 API call with Python or curl.</p>
   </a>
 </div>

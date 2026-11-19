@@ -75,14 +75,6 @@ Os modelos BR-SP têm inferência e processamento realizados 100% em território
 | **Input Batch API** | R$ 3,25 | R$ 3,25 | R$ 0,65 |
 | **Output Batch API** | R$ 26,00 | R$ 13,00 | R$ 2,60 |
 
-## S5 Free
-
-O `S5-free` é gratuito por tempo limitado: não há cobrança de tokens. Aceita somente texto e não inclui Batch API, Flex nem ferramentas integradas. Veja os limites em [Rate Limits](rate-limits).
-
-:::caution Disponível por tempo limitado
-O S5 Free é uma oferta temporária de lançamento e pode ser encerrada a qualquer momento. Para uso contínuo ou em produção, use o `S5`.
-:::
-
 ## Ferramentas integradas
 
 As [ferramentas integradas](ferramentas.md) (busca na web, execução de código, Data Ocean e geração de imagens) são cobradas por uso, além dos custos normais de tokens. As cobranças são reportadas em `usage.tool_execution_details` e na sua fatura.

@@ -11,23 +11,18 @@ S5 is our most intelligent model. Use it to analyze documents, work with data, a
 
 ## Pick the model name
 
-S5 is available in the API under three names. The model is the same; what changes is where it runs and how it is billed.
+S5 is available in the API under two names. The model is the same; what changes is where it runs and how it is billed.
 
 | API name | Use it for | Price |
 |---|---|---|
-| `S5-free` | Trying it at no cost. Text only, no Batch API, Flex or built-in tools. | **Free for a limited time** |
 | `S5` | Ongoing and production use, with every feature. | R$ 0.50 (input) and R$ 2.50 (output) per 1M tokens |
 | `S5-br-sp` | The same S5, with inference 100% in Brazil. | 30% above `S5` |
 
-Lowercase names are also accepted (`s5-free`, `s5`, `s5-br-sp`). Details in [Models](models), [Pricing](precos) and [Rate Limits](rate-limits).
-
-:::caution S5 Free is temporary
-`S5-free` is a launch offer and may be discontinued at any time. For ongoing or production use, use `S5`: change the model name and the rest of your code stays the same.
-:::
+Lowercase names are also accepted (`s5`, `s5-br-sp`). Details in [Models](models), [Pricing](precos) and [Rate Limits](rate-limits).
 
 ## 1. Create an API key
 
-Create an account on the [Maritaca platform](https://plataforma.maritaca.ai/), generate a key on the [API keys page](https://plataforma.maritaca.ai/chaves-de-api), and store it in an environment variable:
+Create an account on the [Maritaca platform](https://plataforma.maritaca.ai/), add credits, generate a key on the [API keys page](https://plataforma.maritaca.ai/chaves-de-api), and store it in an environment variable:
 
 ```bash
 export MARITACA_API_KEY='your_key'
@@ -51,7 +46,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="S5-free",  # switch to "S5" for production use
+    model="S5",
     messages=[
         {"role": "user", "content": "Explique em três frases como funciona o Pix."},
     ],
@@ -66,7 +61,7 @@ curl https://chat.maritaca.ai/api/chat/completions \
   -H "Authorization: Bearer $MARITACA_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "S5-free",
+    "model": "S5",
     "messages": [
       {"role": "user", "content": "Explique em três frases como funciona o Pix."}
     ]
@@ -79,7 +74,7 @@ S5 thinks before answering. The `reasoning_effort` parameter controls how much: 
 
 ```python
 response = client.chat.completions.create(
-    model="S5-free",
+    model="S5",
     reasoning_effort="low",  # none, low, medium or xhigh
     messages=[{"role": "user", "content": "Qual é o maior divisor comum de 84 e 120?"}],
 )
@@ -92,7 +87,7 @@ Use `none` or `low` for conversation and simple extraction, and keep the default
 
 ```python
 stream = client.chat.completions.create(
-    model="S5-free",
+    model="S5",
     messages=[{"role": "user", "content": "Escreva um haicai sobre o sabiá."}],
     stream=True,
 )
